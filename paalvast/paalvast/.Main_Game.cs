@@ -1,6 +1,8 @@
+using System;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace paalvast
 {
@@ -11,7 +13,7 @@ namespace paalvast
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-
+        Gui_Manager GuiManager;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -32,7 +34,7 @@ namespace paalvast
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
+            GuiManager = new Gui_Manager();
             base.Initialize();
         }
 
@@ -67,8 +69,8 @@ namespace paalvast
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 Exit();
 
-            // TODO: Add your update logic here
-
+        // TODO: Add your update logic here
+            GuiManager.Update();
             base.Update(gameTime);
         }
 
@@ -81,7 +83,7 @@ namespace paalvast
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-
+            GuiManager.Draw();
             base.Draw(gameTime);
         }
     }

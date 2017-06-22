@@ -11,7 +11,17 @@ namespace paalvast
 
         public Level Draw_Level(int level_number)
         {
-            return new Level();
+            switch (level_number)
+            {
+                case 1:
+                    {
+                        return new Level();
+                    }
+                default:
+                    {
+                        return new Level();
+                    }
+            }
         }
     }
 }

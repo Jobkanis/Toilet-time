@@ -1,34 +1,37 @@
-﻿namespace paalvast
-{
-    public interface IOptionVisitor<T, U>
-    {
-        U onSome(T value);
-        U onNone();
-    }
+﻿using System;
 
+namespace paalvast
+{
     public interface iOption<T>
     {
-        U Visit<U>(IOptionVisitor<T, U> visitor);
+        U Visit<U>(Func<U> onNone, Func<T, U> onSome);
+        void Visit(Action onNone, Action<T> onSome);
     }
-
-    class Some<T> : iOption<T>
+    public class None<T> : iOption<T>
     {
-        public T value;
+        public U Visit<U>(Func<U> onNone, Func<T, U> onSome)
+        {
+            return onNone();
+        }
+        public void Visit(Action onNone, Action<T> onSome)
+        {
+            onNone();
+        }
+    }
+    public class Some<T> : iOption<T>
+    {
+        T value;
         public Some(T value)
         {
             this.value = value;
         }
-        public U Visit<U>(IOptionVisitor<T, U> visitor)
+        public U Visit<U>(System.Func<U> onNone, Func<T, U> onSome)
         {
-            return visitor.onSome(this.value);
+            return onSome(value);
         }
-    }
-
-    class None<T> : iOption<T>
-    {
-        public U Visit<U>(IOptionVisitor<T, U> visitor)
+        public void Visit(Action onNone, Action<T> onSome)
         {
-            return visitor.onNone();
+            onSome(value);
         }
     }
 
