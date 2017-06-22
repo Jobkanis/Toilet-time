@@ -21,8 +21,7 @@ namespace Toilet_time
 
         public iObject Object()
         {
-
-            return new Main_Character();
+            throw new Exception();
         }
 
     }

@@ -4,7 +4,8 @@ namespace Toilet_time
 {
     public class End_Goal:Stable_Object
     {
-        public End_Goal()
+        public End_Goal(int x, int y, int x_size, int y_size, bool resizeable)
+            : base(x, y, x_size, y_size, resizeable)
         {
 
         }
@@ -22,7 +23,8 @@ namespace Toilet_time
 
     public class Spawn: Stable_Object
     {
-        public Spawn()
+        public Spawn(int x, int y, int x_size, int y_size)
+            : base(x, y, x_size, y_size, false)
         {
 
         }

@@ -4,9 +4,9 @@ namespace Toilet_time
 {
     public class Main_Character: Fallable_Object
     {
-        public Main_Character()
+        public Main_Character(int x, int y, int x_size, int y_size, bool resizeable)
+            : base(x, y, x_size, y_size, resizeable)
         {
-
         }
 
         public void Walk_Left()

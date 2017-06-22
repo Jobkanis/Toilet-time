@@ -14,7 +14,7 @@ namespace Toilet_time
         {
             this.levelFactory = new Factory_Level();
             this.level = 1;
-            Create_Level();
+            levelFactory.Create_Level(level);
         }
 
         public iOption<Collision> Check_Collision(iObject Object)
@@ -24,7 +24,7 @@ namespace Toilet_time
 
         public Main_Character GetMain_Character()
         {
-            return new Main_Character();
+            throw new Exception();
         }
 
         public void Input_Handler()
@@ -35,7 +35,7 @@ namespace Toilet_time
         public void Create_Level()
         {
             Reset_Level();
-            Current_Level = levelFactory.Draw_Level(level);
+            Current_Level = levelFactory.Create_Level(level);
             this.Fallable_Objects = Current_Level.Fallable_Objects;
             this.Stable_Objects = Current_Level.Stable_Objects;
         }

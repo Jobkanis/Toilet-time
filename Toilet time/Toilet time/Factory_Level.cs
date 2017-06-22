@@ -9,20 +9,25 @@ namespace Toilet_time
 
         }
 
-        public Level Draw_Level(int level_number)
+        public Level Create_Level(int level_number)
         {
+            Iterator<Fallable_Object> fallable_objects = new List<Fallable_Object>();
+            Iterator<Stable_Object> stable_objects = new List<Stable_Object>();
             switch (level_number)
             {
 
                 case 1:
                     {
-                        return new Level();
+                        stable_objects.Add(new Platform(0, 0, 200, 400));
+                        stable_objects.Add(new Platform(250, 450, 100, 100));
+                        break;
                     }
                 default:
                     {
-                        return new Level();
+                        break;
                     }
             }
+            return new Level(fallable_objects, stable_objects);
         }
     }
 }

@@ -7,6 +7,7 @@ namespace Toilet_time
         iOption<T> GetNext();
         iOption<T> GetCurrent();
         void Reset();
+        void Add(T item);
     }
 
     public class List<T> : Iterator<T>
