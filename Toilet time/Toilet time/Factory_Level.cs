@@ -20,6 +20,7 @@ namespace Toilet_time
                     {
                         stable_objects.Add(new Platform(0, 0, 50, 50));
                         stable_objects.Add(new Platform(200, 200, 50, 50));
+                        stable_objects.Add(new Platform(400, 400, 50, 50));
                         break;
                     }
                 default:

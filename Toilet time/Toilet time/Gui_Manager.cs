@@ -54,14 +54,18 @@ namespace Toilet_time
             Drawvisitor.spriteBatch.Begin();
 
             Fallable_Objects.Reset();
-             if (Fallable_Objects.GetNext().Visit(() => false, unusedvalue => true))
+             while (Fallable_Objects.GetNext().Visit(() => false, unusedvalue => true))
              {
                  Fallable_Objects.GetCurrent().Visit(() => { }, item => { item.Draw(Drawvisitor); });
              }
             
             Stable_Objects.Reset();
-            if (Stable_Objects.GetNext().Visit(() => false, unusedvalue => true))
+            int times = 0;
+            while (Stable_Objects.GetNext().Visit(() => false, unusedvalue => true))
             {
+                times++;
+                Console.WriteLine(times);
+
                 Stable_Objects.GetCurrent().Visit(() => { }, item => { item.Draw(Drawvisitor); });
             }
 
@@ -72,13 +76,13 @@ namespace Toilet_time
         {
             
             Fallable_Objects.Reset();
-            if (Fallable_Objects.GetNext().Visit(() => false, unusedvalue => true))
+            while (Fallable_Objects.GetNext().Visit(() => false, _ => true))
             {
                 Fallable_Objects.GetCurrent().Visit(() => { }, item => { item.Update(); });
             }
 
             Stable_Objects.Reset();
-            if (Stable_Objects.GetNext().Visit(() => false, unusedvalue => true))
+            while (Stable_Objects.GetNext().Visit(() => false, _ => true))
             {
                 Stable_Objects.GetCurrent().Visit(() => { }, item => { item.Update(); });
             }

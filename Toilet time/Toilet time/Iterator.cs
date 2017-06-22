@@ -19,30 +19,27 @@ namespace Toilet_time
 
         public List()
         {
-            size = 100;
+            size = 0;
             amount_of_items = 0;
-            current = 0;
+            current = -1;
             array = new T[size];
-            Reset();
         }
         public void Add(T item)
         {
-            //size++;
-            //T[] new_array = new T[size];
-            //Array.Copy(array, new_array, amount_of_items);
-            array[amount_of_items] = item;
+            size++;
+            T[] new_array = new T[size];
+            Array.Copy(array, new_array, amount_of_items);
+
+            new_array[amount_of_items] = item;
             amount_of_items++;
-            //array = new_array;
+
+            array = new_array;
         }
 
         public iOption<T> GetNext()
         {
             current++;
-            if (current >= amount_of_items)
-            {
-                return new None<T>();
-            }
-            return new Some<T>(array[current]);
+            return GetCurrent();
         }
 
         public void Reset()
@@ -52,8 +49,14 @@ namespace Toilet_time
 
         public iOption<T> GetCurrent()
         {
-            if (current == -1) return new None<T>();
-            return new Some<T>(array[current]);
+            if (current > -1 && current < amount_of_items && amount_of_items > 0)
+            {
+                return new Some<T>(array[current]);
+            }
+            else
+            {
+                return new None<T>();
+            }
         }
     }
 }
