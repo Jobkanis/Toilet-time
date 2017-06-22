@@ -6,12 +6,12 @@
         U onNone();
     }
 
-    public interface Option<T>
+    public interface iOption<T>
     {
         U Visit<U>(IOptionVisitor<T, U> visitor);
     }
 
-    class Some<T> : Option<T>
+    class Some<T> : iOption<T>
     {
         public T value;
         public Some(T value)
@@ -24,7 +24,7 @@
         }
     }
 
-    class None<T> : Option<T>
+    class None<T> : iOption<T>
     {
         public U Visit<U>(IOptionVisitor<T, U> visitor)
         {

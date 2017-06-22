@@ -58,17 +58,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Activity1.cs" />
+    <Compile Include=".Activity1.cs" />
+    <Compile Include="Start and end goal.cs" />
+    <Compile Include="Platform.cs" />
+    <Compile Include="Input_Adapter.cs" />
+    <Compile Include="Data_Input.cs" />
+    <Compile Include="Factory_Level.cs" />
+    <Compile Include="Baby.cs" />
+    <Compile Include="Main_Character.cs" />
     <Compile Include="iObject.cs" />
-    <Compile Include="Game1.cs" />
-    <Compile Include="collision.cs" />
+    <Compile Include=".Main_Game.cs" />
+    <Compile Include="Data_Collision.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Iterator.cs" />
     <Compile Include="iOption.cs" />
-    <Compile Include="Stable_objects.cs" />
-    <Compile Include="Main game.cs" />
-    <Compile Include="enum.cs" />
+    <Compile Include="Gui_Manager.cs" />
+    <Compile Include="Data_Level.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

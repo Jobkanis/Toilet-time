@@ -12,22 +12,22 @@ namespace paalvast
 
     class Input
     {
-        public Option<CharacterMovementAction> MoveAction() 
+        public iOption<CharacterMovementAction> MoveAction() 
         {
             throw new NotImplementedException();
         }
 
-        public Option<WalkDirectionInput> Walk()
+        public iOption<WalkDirectionInput> Walk()
         {
             throw new NotImplementedException();
         }
 
-        public Option<Activity> Settings()
+        public iOption<Activity> Settings()
         {
             throw new NotImplementedException();
         }
 
-        public Option<SettingsInput> Activity()
+        public iOption<SettingsInput> Activity()
         {
             throw new NotImplementedException();
         }

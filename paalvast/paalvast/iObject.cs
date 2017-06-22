@@ -2,18 +2,37 @@
 
 namespace paalvast
 {
-    interface Drawable
+    public interface Drawable
     {
         void Draw();
     }
 
-    interface Updateable
+    public interface Updateable
     {
         void Update();
     }
 
-    interface iObject : Drawable , Updateable
+    public interface iObject : Drawable , Updateable
     {
 
+    }
+
+    abstract class Fallable_Object : iObject
+    {
+        public abstract void Draw();
+
+        public abstract void Update();
+
+        public void Fall()
+        {
+
+        }
+    }
+
+    abstract class Stable_Object: iObject
+    {
+        public abstract void Draw();
+
+        public abstract void Update();
     }
 }

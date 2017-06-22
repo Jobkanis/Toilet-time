@@ -4,8 +4,8 @@ namespace paalvast
 {
     public interface Iterator<T>
     {
-        Option<T> GetNext();
-        Option<T> GetCurrent();
+        iOption<T> GetNext();
+        iOption<T> GetCurrent();
         void Reset();
     }
 
@@ -18,7 +18,7 @@ namespace paalvast
 
         public List()
         {
-            size = 10;
+            size = 1;
             amount_of_items = 0;
             current = 0;
             array = new T[10];
@@ -26,22 +26,15 @@ namespace paalvast
         }
         public void Add(T item)
         {
-            if (amount_of_items >= size)
-            {
-
-                size *= 2;
-                T[] new_array = new T[size];
-                Array.Copy(array, new_array, amount_of_items);
-            }
-            else
-            {
-                array[amount_of_items] = item;
-            }
+            size++;
+            T[] new_array = new T[size];
+            Array.Copy(array, new_array, amount_of_items);
+            array[amount_of_items] = item;
             amount_of_items++;
-
+            array = new_array;
         }
 
-        public Option<T> GetNext()
+        public iOption<T> GetNext()
         {
             current++;
             if (current >= amount_of_items)
@@ -56,7 +49,7 @@ namespace paalvast
             current = -1;
         }
 
-        public Option<T> GetCurrent()
+        public iOption<T> GetCurrent()
         {
             if (current == -1) return new None<T>();
             return new Some<T>(array[current]);

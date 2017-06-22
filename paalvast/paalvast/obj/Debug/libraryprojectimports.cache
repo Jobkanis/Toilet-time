@@ -1,14 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Paths>
   <Jars></Jars>
-  <ResolvedResourceDirectories>
-    <ResolvedResourceDirectory>c:\users\oguzhan\documents\visual studio 2017\Projects\paalvast\paalvast\obj\Debug\__library_projects__\MonoGame.Framework\library_project_imports\res</ResolvedResourceDirectory>
-  </ResolvedResourceDirectories>
-  <ResolvedAssetDirectories>
-    <ResolvedAssetDirectory>obj\Debug\__library_projects__\MonoGame.Framework\library_project_imports\assets</ResolvedAssetDirectory>
-  </ResolvedAssetDirectories>
+  <ResolvedResourceDirectories />
+  <ResolvedAssetDirectories />
   <ResolvedEnvironmentFiles />
-  <ResolvedResourceDirectoryStamps>
-    <ResolvedResourceDirectoryStamp>c:\users\oguzhan\documents\visual studio 2017\Projects\paalvast\paalvast\obj\Debug\__library_projects__\MonoGame.Framework.stamp</ResolvedResourceDirectoryStamp>
-  </ResolvedResourceDirectoryStamps>
+  <ResolvedResourceDirectoryStamps />
 </Paths>
