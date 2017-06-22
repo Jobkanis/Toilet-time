@@ -2,7 +2,7 @@
 
 namespace Toilet_time
 {
-    class Factory_Level
+    public class Factory_Level
     {
         public Factory_Level()
         {

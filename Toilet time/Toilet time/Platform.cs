@@ -2,7 +2,7 @@
 
 namespace Toilet_time
 {
-    class Platform : Stable_Object
+    public class Platform : Stable_Object
     {
         public Platform()
         {
@@ -13,7 +13,7 @@ namespace Toilet_time
         {
         }
 
-        public override void Draw()
+        public override void Draw(DrawVisitor visitor)
         {
 
         }

@@ -10,24 +10,24 @@ namespace Toilet_time
 
     enum SettingsInput {Exit}
 
-    class Input
+    public class Input
     {
-        public iOption<CharacterMovementAction> MoveAction() 
+        iOption<CharacterMovementAction> MoveAction() 
         {
             throw new NotImplementedException();
         }
 
-        public iOption<WalkDirectionInput> Walk()
+        iOption<WalkDirectionInput> Walk()
         {
             throw new NotImplementedException();
         }
 
-        public iOption<Activity> Settings()
+        iOption<Activity> Settings()
         {
             throw new NotImplementedException();
         }
 
-        public iOption<SettingsInput> Activity()
+        iOption<SettingsInput> Activity()
         {
             throw new NotImplementedException();
         }

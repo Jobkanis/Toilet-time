@@ -2,7 +2,7 @@
 
 namespace Toilet_time
 { 
-    class Baby: Stable_Object
+    public class Baby: Stable_Object
     {
 
         Boolean pickedup;
@@ -12,7 +12,7 @@ namespace Toilet_time
 
         }
 
-        public override void Draw()
+        public override void Draw(DrawVisitor visitor)
         {
 
         }

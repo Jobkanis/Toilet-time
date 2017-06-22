@@ -2,7 +2,7 @@
 
 namespace Toilet_time
 {
-    class End_Goal:Stable_Object
+    public class End_Goal:Stable_Object
     {
         public End_Goal()
         {
@@ -14,13 +14,13 @@ namespace Toilet_time
             
         }
 
-        public override void Draw()
+        public override void Draw(DrawVisitor visitor)
         {
 
         }
     }
 
-    class Spawn: Stable_Object
+    public class Spawn: Stable_Object
     {
         public Spawn()
         {
@@ -32,7 +32,7 @@ namespace Toilet_time
            
         }
 
-        public override void Draw()
+        public override void Draw(DrawVisitor visitor)
         {
 
         }

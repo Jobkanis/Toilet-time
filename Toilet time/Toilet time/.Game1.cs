@@ -11,7 +11,8 @@ namespace Toilet_time
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-
+        public Gui_Manager gui_manager;
+        public DrawVisitor draw_visitor;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -27,7 +28,8 @@ namespace Toilet_time
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
+            draw_visitor = new DrawVisitor();
+            gui_manager = new Gui_Manager(draw_visitor);
             base.Initialize();
         }
 

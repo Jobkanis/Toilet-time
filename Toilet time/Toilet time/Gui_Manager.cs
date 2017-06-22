@@ -2,17 +2,20 @@
 
 namespace Toilet_time
 {
-    class Gui_Manager
+    public class Gui_Manager
     {
         Iterator<Fallable_Object> Fallable_Objects;
         Iterator<Stable_Object> Stable_Objects;
         Level Current_Level;
         int level;
         Factory_Level levelFactory;
-        public Gui_Manager()
+
+        public DrawVisitor drawvisitor;
+        public Gui_Manager(DrawVisitor drawvisitor)
         {
             this.levelFactory = new Factory_Level();
             this.level = 1;
+            this.drawvisitor = drawvisitor;
             Create_Level();
         }
 
@@ -50,13 +53,13 @@ namespace Toilet_time
             Fallable_Objects.Reset();
             if (Fallable_Objects.GetNext().Visit(() => false, unusedvalue => true))
             {
-                Fallable_Objects.GetCurrent().Visit(() => { }, item => { item.Draw(); });
+                Fallable_Objects.GetCurrent().Visit(() => { }, item => { item.Draw(drawvisitor); });
             }
 
             Stable_Objects.Reset();
             if (Stable_Objects.GetNext().Visit(() => false, unusedvalue => true))
             {
-                Stable_Objects.GetCurrent().Visit(() => { }, item => { item.Draw(); });
+                Stable_Objects.GetCurrent().Visit(() => { }, item => { item.Draw(drawvisitor); });
             }
         }
 

@@ -7,14 +7,14 @@ namespace Toilet_time
         Up, Down, Left, Right
     }
 
-    class Collision
+    public class Collision
     {
         public Collision()
         {
 
         }
 
-        public TouchPositions Touch()
+        TouchPositions Touch()
         {
             return new TouchPositions();
         }

@@ -2,7 +2,7 @@
 
 namespace Toilet_time
 {
-    class Main_Character: Fallable_Object
+    public class Main_Character: Fallable_Object
     {
         public Main_Character()
         {
@@ -29,7 +29,7 @@ namespace Toilet_time
 
         }
 
-        public override void Draw()
+        public override void Draw(DrawVisitor visitor)
         {
 
         }

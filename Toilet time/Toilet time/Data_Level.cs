@@ -2,7 +2,7 @@
 
 namespace Toilet_time
 {
-    class Level
+    public class Level
     {
         public Iterator<Fallable_Object> Fallable_Objects;
         public Iterator<Stable_Object> Stable_Objects;
