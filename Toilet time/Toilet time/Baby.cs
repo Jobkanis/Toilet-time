@@ -14,7 +14,7 @@ namespace Toilet_time
 
         public override void Draw(DrawVisitor visitor)
         {
-
+            visitor.DrawBaby(this);
         }
 
         public override void Update()

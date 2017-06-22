@@ -29,7 +29,7 @@ namespace Toilet_time
             size++;
             T[] new_array = new T[size];
             Array.Copy(array, new_array, amount_of_items);
-            array[amount_of_items] = item;
+            new_array[amount_of_items] = item;
             amount_of_items++;
             array = new_array;
         }

@@ -12,17 +12,21 @@ namespace Toilet_time
         void Update();
     }
 
-    public interface iObject : Drawable , Updateable
-    {
-
-    }
-
-    public abstract class Fallable_Object : iObject
+    public abstract class iObject : Drawable, Updateable
     {
         public abstract void Draw(DrawVisitor visitor);
 
         public abstract void Update();
 
+        public int x;
+        public int y;
+        public int x_size;
+        public int y_size;
+
+    }
+
+    public abstract class Fallable_Object : iObject
+    {
         public void Fall()
         {
 
@@ -31,8 +35,6 @@ namespace Toilet_time
 
     public abstract class Stable_Object: iObject
     {
-        public abstract void Draw(DrawVisitor visitor);
-
-        public abstract void Update();
+ 
     }
 }

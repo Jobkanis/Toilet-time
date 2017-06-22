@@ -9,27 +9,27 @@ namespace Toilet_time
 
         }
 
-        public void DrawCharacter()
+        public void DrawCharacter(Main_Character character)
         {
 
         }
 
-        public void DrawBaby()
+        public void DrawBaby(Baby baby)
         {
 
         }
 
-        public void DrawPlatform()
+        public void DrawPlatform(Platform platform)
         {
 
         }
 
-        public void DrawSpawn()
+        public void DrawSpawn(Spawn spawn)
         {
 
         }
 
-        public void DrawEnd()
+        public void DrawEnd(End_Goal end)
         {
 
         }
