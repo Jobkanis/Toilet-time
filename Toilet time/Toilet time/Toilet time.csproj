@@ -41,6 +41,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Data_Vector.cs" />
     <Compile Include="DrawVisitor.cs" />
     <Compile Include="Baby.cs" />
     <Compile Include="Data_Collision.cs" />

@@ -6,8 +6,8 @@ namespace Toilet_time
     {
         Boolean pickedup;
 
-        public Baby(int x, int y, int x_size, int y_size, bool resizeable)
-            : base(x, y, x_size, y_size, resizeable)
+        public Baby(int x_pos, int y_pos, int x_size, int y_size, bool resizeable)
+            : base(new Position(x_pos, y_pos), new Size(x_size, y_size), resizeable)
         {
 
         }

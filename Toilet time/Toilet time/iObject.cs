@@ -14,20 +14,17 @@ namespace Toilet_time
 
     public abstract class iObject : Drawable, Updateable
     {
-        public int x;
-        public int y;
-        public int x_size;
-        public int y_size;
+        public Size size;
+        public Position position;
         public bool resizeable;
 
-        public iObject(int x, int y, int x_size, int y_size, bool resizeable)
+        public iObject(Position position, Size size, bool resizeable)
         {
-            this.x = x;
-            this.y = y;
-            this.x_size = x_size;
-            this.y_size = y_size;
+            this.size = size;
+            this.position = position;
             this.resizeable = resizeable;
         }
+
         public abstract void Draw(DrawVisitor visitor);
 
         public abstract void Update();
@@ -38,22 +35,49 @@ namespace Toilet_time
 
     public abstract class Fallable_Object : iObject
     {
-        public Fallable_Object(int x, int y, int x_size, int y_size, bool resizeable)
-            :base(x, y, x_size, y_size, resizeable)
+        public Fallable_Object(Position position, Size size, bool resizeable)
+            :base(position, size, resizeable)
         {
 
         }
 
-        public void Fall()
-        {
+        public int velocity;
+        public Collision collision;
 
+        public void Update_Gravity(Gui_Manager guimanager)
+        {
+            this.collision = guimanager.Check_Collision(this);
+
+            bool downblocked = false;
+            bool upblocked = false;
+
+            if (collision.DownObject.Visit<bool>(() => false, _ => true))
+            {
+                downblocked = true;
+            }
+
+            if (collision.DownObject.Visit<bool>(() => false, _ => true))
+            {
+                upblocked = true;
+            }
+
+            // handling gravity
+            if ((downblocked == false && velocity <= 0 ) || (upblocked == false && velocity > 0))
+            {
+                velocity--;
+                this.position.y = this.position.y - velocity;
+            }
+            else
+            {
+                velocity = 0;
+            }
         }
     }
 
     public abstract class Stable_Object: iObject
     {
-        public Stable_Object(int x, int y, int x_size, int y_size, bool resizeable)
-            :base(x, y, x_size, y_size, resizeable)
+        public Stable_Object(Position position, Size size, bool resizeable)
+            :base(position, size, resizeable)
         {
 
         }

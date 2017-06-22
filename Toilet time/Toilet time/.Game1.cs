@@ -42,10 +42,9 @@ namespace Toilet_time
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
             Texture_Platform = Content.Load<Texture2D>("brick");
 
-            draw_visitor = new DrawVisitor(spriteBatch, Texture_Platform);
+            draw_visitor = new DrawVisitor(spriteBatch, graphics, Texture_Platform);
             gui_manager = new Gui_Manager(draw_visitor);
             // TODO: use this.Content to load your game content here
         }

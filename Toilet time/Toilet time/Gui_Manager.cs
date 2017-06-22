@@ -20,9 +20,9 @@ namespace Toilet_time
             Create_Level();
         }
 
-        public iOption<Collision> Check_Collision(iObject Object)
+        public Collision Check_Collision(iObject Object)
         {
-            return new Some<Collision>(new Collision());
+            return new Collision(new None<iObject>(), new None<iObject>(), new None<iObject>(), new None<iObject>());
         }
 
         public Main_Character GetMain_Character()
@@ -60,12 +60,8 @@ namespace Toilet_time
              }
             
             Stable_Objects.Reset();
-            int times = 0;
             while (Stable_Objects.GetNext().Visit(() => false, unusedvalue => true))
             {
-                times++;
-                Console.WriteLine(times);
-
                 Stable_Objects.GetCurrent().Visit(() => { }, item => { item.Draw(Drawvisitor); });
             }
 

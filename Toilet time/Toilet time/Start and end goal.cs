@@ -2,13 +2,11 @@
 
 namespace Toilet_time
 {
-    public class End_Goal:Stable_Object
+    public class End_Goal : Stable_Object
     {
-        public End_Goal(int x, int y, int x_size, int y_size, bool resizeable)
-            : base(x, y, x_size, y_size, resizeable)
-        {
-
-        }
+        public End_Goal(int x_pos, int y_pos, int x_size, int y_size)
+            : base(new Position(x_pos, y_pos), new Size(x_size, y_size), false)
+        {}
 
         public override void Update()
         {
@@ -23,8 +21,8 @@ namespace Toilet_time
 
     public class Spawn: Stable_Object
     {
-        public Spawn(int x, int y, int x_size, int y_size)
-            : base(x, y, x_size, y_size, false)
+        public Spawn(int x_pos, int y_pos, int x_size, int y_size)
+            : base(new Position(x_pos, y_pos), new Size(x_size, y_size), false)
         {
 
         }

@@ -4,12 +4,9 @@ namespace Toilet_time
 {
     public class Platform : Stable_Object
     {
-        public Platform(int x, int y, int x_size, int y_size)
-            : base(x, y, y_size, x_size, true)
+        public Platform(int x_pos, int y_pos, int x_size, int y_size)
+            : base(new Position(x_pos, y_pos), new Size(x_size, y_size), true)
         {
-            this.x = x;
-            this.y = y;
-            this.x_size = x_size;
         }
 
         public override void Update()
