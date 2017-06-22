@@ -9,12 +9,15 @@ namespace Toilet_time
         Level Current_Level;
         int level;
         Factory_Level levelFactory;
+        DrawVisitor Drawvisitor;
 
-        public Gui_Manager()
+        public Gui_Manager(DrawVisitor drawvisitor)
         {
+            this.Drawvisitor = drawvisitor;
             this.levelFactory = new Factory_Level();
+
             this.level = 1;
-            levelFactory.Create_Level(level);
+            Create_Level();
         }
 
         public iOption<Collision> Check_Collision(iObject Object)
@@ -46,23 +49,28 @@ namespace Toilet_time
             this.Stable_Objects = null;
         }
 
-        public void Draw(DrawVisitor visitor)
+        public void Draw()
         {
-            Fallable_Objects.Reset();
-            if (Fallable_Objects.GetNext().Visit(() => false, unusedvalue => true))
-            {
-                Fallable_Objects.GetCurrent().Visit(() => { }, item => { item.Draw(visitor); });
-            }
+            Drawvisitor.spriteBatch.Begin();
 
+            Fallable_Objects.Reset();
+             if (Fallable_Objects.GetNext().Visit(() => false, unusedvalue => true))
+             {
+                 Fallable_Objects.GetCurrent().Visit(() => { }, item => { item.Draw(Drawvisitor); });
+             }
+            
             Stable_Objects.Reset();
             if (Stable_Objects.GetNext().Visit(() => false, unusedvalue => true))
             {
-                Stable_Objects.GetCurrent().Visit(() => { }, item => { item.Draw(visitor); });
+                Stable_Objects.GetCurrent().Visit(() => { }, item => { item.Draw(Drawvisitor); });
             }
+
+            Drawvisitor.spriteBatch.End();
         }
 
         public void Update()
         {
+            
             Fallable_Objects.Reset();
             if (Fallable_Objects.GetNext().Visit(() => false, unusedvalue => true))
             {
@@ -74,6 +82,7 @@ namespace Toilet_time
             {
                 Stable_Objects.GetCurrent().Visit(() => { }, item => { item.Update(); });
             }
+            
 
         }
     }

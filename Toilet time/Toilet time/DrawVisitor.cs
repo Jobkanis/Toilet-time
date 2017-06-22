@@ -7,10 +7,13 @@ namespace Toilet_time
 {
     public class DrawVisitor
     {
+        public SpriteBatch spriteBatch;
+        public Texture2D Texture_Platform;
         
-        public DrawVisitor()
+        public DrawVisitor(SpriteBatch spriteBatch, Texture2D Texture_Platform)
         {
-
+            this.spriteBatch = spriteBatch;
+            this.Texture_Platform = Texture_Platform;
         }
 
         public void DrawCharacter(Main_Character character)
@@ -25,6 +28,8 @@ namespace Toilet_time
 
         public void DrawPlatform(Platform platform)
         {
+            
+            spriteBatch.Draw(Texture_Platform, new Rectangle(platform.x, platform.y, platform.x_size, platform.y_size), Color.White);
 
         }
 

@@ -67,6 +67,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\brick.png" />
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>

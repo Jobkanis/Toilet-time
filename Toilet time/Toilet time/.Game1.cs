@@ -13,7 +13,10 @@ namespace Toilet_time
         SpriteBatch spriteBatch;
         public Gui_Manager gui_manager;
         public DrawVisitor draw_visitor;
+        public Texture2D Texture_Platform;
         public Game1()
+        
+
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
@@ -28,8 +31,6 @@ namespace Toilet_time
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            draw_visitor = new DrawVisitor();
-            gui_manager = new Gui_Manager();
             base.Initialize();
         }
 
@@ -42,6 +43,10 @@ namespace Toilet_time
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            Texture_Platform = Content.Load<Texture2D>("brick");
+
+            draw_visitor = new DrawVisitor(spriteBatch, Texture_Platform);
+            gui_manager = new Gui_Manager(draw_visitor);
             // TODO: use this.Content to load your game content here
         }
 
@@ -78,7 +83,7 @@ namespace Toilet_time
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-            gui_manager.Draw(draw_visitor);
+            gui_manager.Draw();
             base.Draw(gameTime);
         }
     }

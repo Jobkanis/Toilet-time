@@ -19,20 +19,20 @@ namespace Toilet_time
 
         public List()
         {
-            size = 1;
+            size = 100;
             amount_of_items = 0;
             current = 0;
-            array = new T[10];
+            array = new T[size];
             Reset();
         }
         public void Add(T item)
         {
-            size++;
-            T[] new_array = new T[size];
-            Array.Copy(array, new_array, amount_of_items);
-            new_array[amount_of_items] = item;
+            //size++;
+            //T[] new_array = new T[size];
+            //Array.Copy(array, new_array, amount_of_items);
+            array[amount_of_items] = item;
             amount_of_items++;
-            array = new_array;
+            //array = new_array;
         }
 
         public iOption<T> GetNext()

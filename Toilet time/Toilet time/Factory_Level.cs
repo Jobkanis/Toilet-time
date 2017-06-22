@@ -18,8 +18,8 @@ namespace Toilet_time
 
                 case 1:
                     {
-                        stable_objects.Add(new Platform(0, 0, 200, 400));
-                        stable_objects.Add(new Platform(250, 450, 100, 100));
+                        stable_objects.Add(new Platform(0, 0, 50, 50));
+                        stable_objects.Add(new Platform(200, 200, 50, 50));
                         break;
                     }
                 default:
