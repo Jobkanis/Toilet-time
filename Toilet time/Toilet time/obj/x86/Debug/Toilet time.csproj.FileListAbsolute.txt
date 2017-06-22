@@ -44,3 +44,26 @@ C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\
 C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
 C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Debug\SharpDX.XInput.xml
 C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
+C:\Users\Jonah Kalkman\Desktop\Project 4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Debug\Toilet time.exe
+C:\Users\Jonah Kalkman\Desktop\Project 4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Debug\Toilet time.pdb
+C:\Users\Jonah Kalkman\Desktop\Project 4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Debug\MonoGame.Framework.dll
+C:\Users\Jonah Kalkman\Desktop\Project 4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+C:\Users\Jonah Kalkman\Desktop\Project 4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Debug\SharpDX.dll
+C:\Users\Jonah Kalkman\Desktop\Project 4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+C:\Users\Jonah Kalkman\Desktop\Project 4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+C:\Users\Jonah Kalkman\Desktop\Project 4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+C:\Users\Jonah Kalkman\Desktop\Project 4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+C:\Users\Jonah Kalkman\Desktop\Project 4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Debug\SharpDX.XInput.dll
+C:\Users\Jonah Kalkman\Desktop\Project 4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
+C:\Users\Jonah Kalkman\Desktop\Project 4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Debug\MonoGame.Framework.xml
+C:\Users\Jonah Kalkman\Desktop\Project 4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+C:\Users\Jonah Kalkman\Desktop\Project 4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Debug\SharpDX.xml
+C:\Users\Jonah Kalkman\Desktop\Project 4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+C:\Users\Jonah Kalkman\Desktop\Project 4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+C:\Users\Jonah Kalkman\Desktop\Project 4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+C:\Users\Jonah Kalkman\Desktop\Project 4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+C:\Users\Jonah Kalkman\Desktop\Project 4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Debug\SharpDX.XInput.xml
+C:\Users\Jonah Kalkman\Desktop\Project 4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
+C:\Users\Jonah Kalkman\Desktop\Project 4\Toilet-time---Project-4\Toilet time\Toilet time\obj\x86\Debug\Toilet time.csprojResolveAssemblyReference.cache
+C:\Users\Jonah Kalkman\Desktop\Project 4\Toilet-time---Project-4\Toilet time\Toilet time\obj\x86\Debug\Toilet time.exe
+C:\Users\Jonah Kalkman\Desktop\Project 4\Toilet-time---Project-4\Toilet time\Toilet time\obj\x86\Debug\Toilet time.pdb
