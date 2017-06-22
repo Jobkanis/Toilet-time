@@ -29,7 +29,7 @@ namespace Toilet_time
         {
             // TODO: Add your initialization logic here
             draw_visitor = new DrawVisitor();
-            gui_manager = new Gui_Manager(draw_visitor);
+            gui_manager = new Gui_Manager();
             base.Initialize();
         }
 
@@ -65,7 +65,7 @@ namespace Toilet_time
                 Exit();
 
             // TODO: Add your update logic here
-
+            gui_manager.Update();
             base.Update(gameTime);
         }
 
@@ -78,7 +78,7 @@ namespace Toilet_time
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-
+            gui_manager.Draw(draw_visitor);
             base.Draw(gameTime);
         }
     }
