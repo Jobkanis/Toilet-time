@@ -68,19 +68,19 @@ namespace Toilet_time
             Drawvisitor.spriteBatch.End();
         }
 
-        public void Update()
+        public void Update(float dt)
         {
-            
+            Console.WriteLine(dt);
             Fallable_Objects.Reset();
             while (Fallable_Objects.GetNext().Visit(() => false, _ => true))
             {
-                Fallable_Objects.GetCurrent().Visit(() => { }, item => { item.Update(); });
+                Fallable_Objects.GetCurrent().Visit(() => { }, item => { item.Update(dt); });
             }
 
             Stable_Objects.Reset();
             while (Stable_Objects.GetNext().Visit(() => false, _ => true))
             {
-                Stable_Objects.GetCurrent().Visit(() => { }, item => { item.Update(); });
+                Stable_Objects.GetCurrent().Visit(() => { }, item => { item.Update(dt); });
             }
             
 

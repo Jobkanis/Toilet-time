@@ -17,7 +17,7 @@ namespace Toilet_time
             visitor.DrawBaby(this);
         }
 
-        public override void Update()
+        public override void Update(float dt)
         {
 
         }

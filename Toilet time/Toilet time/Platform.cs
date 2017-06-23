@@ -9,7 +9,7 @@ namespace Toilet_time
         {
         }
 
-        public override void Update()
+        public override void Update(float dt)
         {
         }
 

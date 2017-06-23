@@ -9,7 +9,7 @@ namespace Toilet_time
 
     public interface Updateable
     {
-        void Update();
+        void Update(float dt);
     }
 
     public abstract class iObject : Drawable, Updateable
@@ -27,7 +27,7 @@ namespace Toilet_time
 
         public abstract void Draw(DrawVisitor visitor);
 
-        public abstract void Update();
+        public abstract void Update(float dt);
 
 
 

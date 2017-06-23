@@ -69,7 +69,7 @@ namespace Toilet_time
                 Exit();
 
             // TODO: Add your update logic here
-            gui_manager.Update();
+            gui_manager.Update((float)gameTime.ElapsedGameTime.TotalMilliseconds / 1000);
             base.Update(gameTime);
         }
 
