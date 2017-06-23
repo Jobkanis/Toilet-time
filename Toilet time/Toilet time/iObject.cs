@@ -48,10 +48,9 @@ namespace Toilet_time
 
             velocity = velocity - (4 * dt);
            
-            if (startvelocity > 0 && velocity <= 0)
+            if (startvelocity > 0.6 && velocity < 0.6)
             {
-                reachedhighestpointonjump = true;
-                velocity = -1f;
+                velocity = -1.0f;
             }
 
 
@@ -77,6 +76,8 @@ namespace Toilet_time
                     velocity = -1;
                 }
             }
+
+            Console.WriteLine(velocity);
         }
 
         public override void Update(float dt, Gui_Manager guimanager)

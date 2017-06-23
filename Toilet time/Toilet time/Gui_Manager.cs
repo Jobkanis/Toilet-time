@@ -26,10 +26,8 @@ namespace Toilet_time
             Stable_Objects.Reset();
             bool returnbool = true;
             Stable_Objects.Reset();
-            int count = 0;
             while (Stable_Objects.GetNext().Visit(() => false, unusedvalue => true))
             {
-                Console.WriteLine(count);
                 // checking gravity: falling and other
                 if (Stable_Objects.GetCurrent().Visit(
 
@@ -108,7 +106,6 @@ namespace Toilet_time
 
         public void Update(float dt)
         {
-            Console.WriteLine(dt);
             Fallable_Objects.Reset();
             while (Fallable_Objects.GetNext().Visit(() => false, _ => true))
             {
