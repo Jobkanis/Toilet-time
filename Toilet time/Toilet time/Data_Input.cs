@@ -14,10 +14,10 @@ namespace Toilet_time
     {
         public iOption<CharacterMovementAction> MoveAction;
         public iOption<WalkDirectionInput> Walk;
-        public iOption<Activity> Settings;
-        public iOption<SettingsInput> Activity;
+        public iOption<Activity> Activity;
+        public iOption<SettingsInput> Settings;
 
-        public Input(iOption<CharacterMovementAction> MoveAction, iOption<WalkDirectionInput> Walk, iOption<Activity> Settings, iOption<SettingsInput> Activity)
+        public Input(iOption<CharacterMovementAction> MoveAction, iOption<WalkDirectionInput> Walk, iOption<Activity> Activity, iOption<SettingsInput> Settings)
         {
             this.MoveAction = MoveAction;
             this.Walk = Walk;
