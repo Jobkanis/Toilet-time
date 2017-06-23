@@ -10,10 +10,11 @@ namespace Toilet_time
         public SpriteBatch spriteBatch;
         public GraphicsDeviceManager graphics;
         public Texture2D Texture_Platform;
+        Texture2D Texture_Main_Char;
         public int CurrentHeight;
         public int CurrentWidth; 
 
-        public DrawVisitor(SpriteBatch spriteBatch, GraphicsDeviceManager graphics, Texture2D Texture_Platform)
+        public DrawVisitor(SpriteBatch spriteBatch, GraphicsDeviceManager graphics, Texture2D Texture_Platform, Texture2D Texture_Main_Char)
         {
             this.graphics = graphics;
             CurrentHeight = 600;
@@ -21,12 +22,13 @@ namespace Toilet_time
 
             this.spriteBatch = spriteBatch;
             this.Texture_Platform = Texture_Platform;
+            this.Texture_Main_Char = Texture_Main_Char;
 
         }
 
         public void DrawCharacter(Main_Character character)
         {
-
+            spriteBatch.Draw(Texture_Main_Char, new Rectangle(character.position.x, character.position.y, character.size.x, character.size.y), Color.White);
         }
 
         public void DrawBaby(Baby baby)

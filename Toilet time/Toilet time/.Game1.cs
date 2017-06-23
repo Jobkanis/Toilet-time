@@ -14,6 +14,7 @@ namespace Toilet_time
         public Gui_Manager gui_manager;
         public DrawVisitor draw_visitor;
         public Texture2D Texture_Platform;
+        public Texture2D Texture_Main_char;
         public Game1()
         
 
@@ -43,8 +44,8 @@ namespace Toilet_time
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Texture_Platform = Content.Load<Texture2D>("brick");
-
-            draw_visitor = new DrawVisitor(spriteBatch, graphics, Texture_Platform);
+            Texture_Main_char = Content.Load<Texture2D>("Main");
+            draw_visitor = new DrawVisitor(spriteBatch, graphics, Texture_Platform, Texture_Main_char);
             gui_manager = new Gui_Manager(draw_visitor);
             // TODO: use this.Content to load your game content here
         }

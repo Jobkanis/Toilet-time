@@ -21,9 +21,46 @@ namespace Toilet_time
             Create_Level();
         }
 
-        public Collision Check_Collision(iObject Object)
+        public bool Check_Collision(iObject Object, int x_pos, int y_pos, int x_size, int y_size)
         {
-            return new Collision(new None<iObject>(), new None<iObject>(), new None<iObject>(), new None<iObject>());
+            Stable_Objects.Reset();
+            bool returnbool = true;
+            Stable_Objects.Reset();
+            int count = 0;
+            while (Stable_Objects.GetNext().Visit(() => false, unusedvalue => true))
+            {
+                Console.WriteLine(count);
+                // checking gravity: falling and other
+                if (Stable_Objects.GetCurrent().Visit(
+
+                                                            () => { return false; }
+
+                                                            ,
+
+
+                                                            item =>
+                                                                {
+                                                                    if (x_pos < item.position.x + item.size.x && x_pos + x_size > item.position.x)
+                                                                    {
+                                                                        if (y_pos + y_size > item.position.y && y_pos < item.position.y + item.size.y)
+                                                                        {
+                                                                            return true;
+                                                                        }
+
+                                                                    }
+
+                                                                    return false;
+
+                                                                }
+                                                        )
+                    )
+                {
+                    returnbool = false;
+                }
+
+            }
+
+            return returnbool;
         }
 
         public Main_Character GetMain_Character()
@@ -75,13 +112,13 @@ namespace Toilet_time
             Fallable_Objects.Reset();
             while (Fallable_Objects.GetNext().Visit(() => false, _ => true))
             {
-                Fallable_Objects.GetCurrent().Visit(() => { }, item => { item.Update(dt); });
+                Fallable_Objects.GetCurrent().Visit(() => { }, item => { item.Update(dt, this); });
             }
 
             Stable_Objects.Reset();
             while (Stable_Objects.GetNext().Visit(() => false, _ => true))
             {
-                Stable_Objects.GetCurrent().Visit(() => { }, item => { item.Update(dt); });
+                Stable_Objects.GetCurrent().Visit(() => { }, item => { item.Update(dt, this); });
             }
             
 

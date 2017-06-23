@@ -9,7 +9,7 @@ namespace Toilet_time
 
     public interface Updateable
     {
-        void Update(float dt);
+        void Update(float dt, Gui_Manager guimanager);
     }
 
     public abstract class iObject : Drawable, Updateable
@@ -27,57 +27,69 @@ namespace Toilet_time
 
         public abstract void Draw(DrawVisitor visitor);
 
-        public abstract void Update(float dt);
-
-
-
+        public abstract void Update(float dt, Gui_Manager guimanager);
     }
 
     public abstract class Fallable_Object : iObject
     {
+
         public Fallable_Object(Position position, Size size, bool resizeable)
-            :base(position, size, resizeable)
+            : base(position, size, resizeable)
         {
 
         }
 
-        public int velocity;
-        public Collision collision;
+        public float velocity = 0;
 
-        public void Update_Gravity(Gui_Manager guimanager)
+        public void Update_Gravity(float dt, Gui_Manager guimanager)
         {
-            this.collision = guimanager.Check_Collision(this);
+            bool reachedhighestpointonjump = false;
+            float startvelocity = velocity;
 
-            bool downblocked = false;
-            bool upblocked = false;
-
-            if (collision.DownObject.Visit<bool>(() => false, _ => true))
+            velocity = velocity - (4 * dt);
+           
+            if (startvelocity > 0 && velocity <= 0)
             {
-                downblocked = true;
+                reachedhighestpointonjump = true;
+                velocity = -1f;
             }
 
-            if (collision.DownObject.Visit<bool>(() => false, _ => true))
-            {
-                upblocked = true;
-            }
 
-            // handling gravity
-            if ((downblocked == false && velocity <= 0 ) || (upblocked == false && velocity > 0))
+            if (guimanager.Check_Collision(this, position.x, position.y - (int)velocity, size.x, size.y)) // check if able to fall
             {
-                velocity--;
-                this.position.y = this.position.y - velocity;
+                this.position.y = this.position.y - (int)velocity;
             }
             else
             {
+                bool minimalfound = true;
+                for (int i = (int)velocity; i < 0 && minimalfound; i++)
+                {
+                    if (guimanager.Check_Collision(this, position.x, position.y - i, size.x, size.y))
+                    {
+                        minimalfound = false;
+                        this.position.y = this.position.y - i;
+                    }
+                }
+
                 velocity = 0;
+                if (guimanager.Check_Collision(this, position.x, position.y + 1, size.x, size.y) == true)
+                {
+                    velocity = -1;
+                }
             }
+        }
+
+        public override void Update(float dt, Gui_Manager guimanager)
+        {
+            Update_Gravity(dt, guimanager);
+
         }
     }
 
-    public abstract class Stable_Object: iObject
+    public abstract class Stable_Object : iObject
     {
         public Stable_Object(Position position, Size size, bool resizeable)
-            :base(position, size, resizeable)
+            : base(position, size, resizeable)
         {
 
         }

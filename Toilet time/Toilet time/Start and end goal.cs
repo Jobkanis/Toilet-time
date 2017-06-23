@@ -8,7 +8,7 @@ namespace Toilet_time
             : base(new Position(x_pos, y_pos), new Size(x_size, y_size), false)
         {}
 
-        public override void Update(float dt)
+        public override void Update(float dt, Gui_Manager guimanager)
         {
             
         }
@@ -27,7 +27,7 @@ namespace Toilet_time
 
         }
 
-        public override void Update(float dt)
+        public override void Update(float dt, Gui_Manager guimanager)
         {
            
         }
