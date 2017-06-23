@@ -11,7 +11,20 @@ namespace Toilet_time
 
         public Input GetInput()
         {
-            return new Input();
+            return checkKeyboard();
+        }
+
+
+        //
+        public Input checkKeyboard()
+        {
+            iOption<CharacterMovementAction> MoveAction;
+            iOption<WalkDirectionInput> Walk;
+            iOption<Activity> Settings;
+            iOption<SettingsInput> Activity;
+
+            throw new Exception();
+            //return new Input();
         }
     }  
 }

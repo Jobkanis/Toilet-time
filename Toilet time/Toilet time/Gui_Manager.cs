@@ -10,12 +10,13 @@ namespace Toilet_time
         int level;
         Factory_Level levelFactory;
         DrawVisitor Drawvisitor;
+        Input_Adapter inputadapter;
 
         public Gui_Manager(DrawVisitor drawvisitor)
         {
             this.Drawvisitor = drawvisitor;
             this.levelFactory = new Factory_Level();
-
+            this.inputadapter = new Input_Adapter();
             this.level = 1;
             Create_Level();
         }
@@ -32,7 +33,7 @@ namespace Toilet_time
 
         public void Input_Handler()
         {
-
+            Input input = inputadapter.GetInput();
         }
 
         public void Create_Level()

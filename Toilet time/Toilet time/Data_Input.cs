@@ -2,36 +2,28 @@
 
 namespace Toilet_time
 {
-    enum CharacterMovementAction{Jump}
+    public enum CharacterMovementAction{Jump}
 
-    enum WalkDirectionInput { Left,Right }
+    public enum WalkDirectionInput { Left,Right }
 
-    enum Activity {Action}
+    public enum Activity {Action}
 
-    enum SettingsInput {Exit}
+    public enum SettingsInput {Exit}
 
     public class Input
     {
-        iOption<CharacterMovementAction> MoveAction() 
-        {
-            throw new NotImplementedException();
-        }
+        public iOption<CharacterMovementAction> MoveAction;
+        public iOption<WalkDirectionInput> Walk;
+        public iOption<Activity> Settings;
+        public iOption<SettingsInput> Activity;
 
-        iOption<WalkDirectionInput> Walk()
+        public Input(iOption<CharacterMovementAction> MoveAction, iOption<WalkDirectionInput> Walk, iOption<Activity> Settings, iOption<SettingsInput> Activity)
         {
-            throw new NotImplementedException();
+            this.MoveAction = MoveAction;
+            this.Walk = Walk;
+            this.Settings = Settings;
+            this.Activity = Activity;
         }
-
-        iOption<Activity> Settings()
-        {
-            throw new NotImplementedException();
-        }
-
-        iOption<SettingsInput> Activity()
-        {
-            throw new NotImplementedException();
-        }
-
 
     }
 }
