@@ -39,14 +39,14 @@ namespace Toilet_time
             {
                 switch (WalkDirectionInput)
                 {
-                    case (WalkDirectionInput.Left):
-                        {
-                            this.position.x = this.position.x + 1;
-                            break;
-                        }
                     case (WalkDirectionInput.Right):
                         {
                             this.position.x = this.position.x - 1;
+                            break;
+                        }
+                    case (WalkDirectionInput.Left):
+                        {
+                            this.position.x = this.position.x + 1;
                             break;
                         }
                 }

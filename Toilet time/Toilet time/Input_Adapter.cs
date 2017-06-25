@@ -38,7 +38,7 @@ namespace Toilet_time
 
             // needs to be build out!!
 
-            if (state.IsKeyDown(Keys.Space))
+            if (state.IsKeyDown(Keys.Up))
             {
                 MoveAction = new Some<CharacterMovementAction>(CharacterMovementAction.Jump);
             }

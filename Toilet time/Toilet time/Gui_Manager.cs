@@ -11,7 +11,7 @@ namespace Toilet_time
         Factory_Level levelFactory;
         DrawVisitor Drawvisitor;
         Input_Adapter inputadapter;
-        float walkspeed = 300;
+        float walkspeed = 500;
 
         public Gui_Manager(DrawVisitor drawvisitor)
         {
@@ -41,9 +41,9 @@ namespace Toilet_time
                                                                 {
                                                                     bool returnstatement = false;
 
-                                                                   if (         x_pos < item.position.x + item.size.x + 2  &&      x_pos + x_size + 2> item.position.x)
+                                                                   if (         x_pos < item.position.x + item.size.x  &&      x_pos + x_size > item.position.x)
                                                                     {
-                                                                        if (    y_pos + y_size + 2 > item.position.y        &&      y_pos < item.position.y + item.size.y + 2)
+                                                                        if (    y_pos + y_size > item.position.y        &&      y_pos < item.position.y + item.size.y)
                                                                         {
                                                                             return true;
                                                                         }
@@ -124,21 +124,21 @@ namespace Toilet_time
         public bool CheckIfMove(float dt, WalkDirectionInput way)
         {
             Fallable_Object main = GetMain_Character() ;
-            bool moveable = false;
+            bool moveable = true;
 
 
             if (way == WalkDirectionInput.Right)
             {
                 localwalkcalculation += walkspeed * dt;
-                moveable = Check_Collision(main, main.position.x + 1, main.position.y, main.size.x, main.size.y);
+                moveable = Check_Collision(main, main.position.x - 1, main.position.y, main.size.x, main.size.y);
             }
 
             if (way == WalkDirectionInput.Left)
             {
                 localwalkcalculation -= walkspeed * dt;
-                moveable = Check_Collision(main, main.position.x - 1, main.position.y, main.size.x, main.size.y);
+                moveable = Check_Collision(main, main.position.x + 1, main.position.y, main.size.x, main.size.y);
             }
-            if (moveable ){
+            if (moveable){
                 if (localwalkcalculation > 1.0f || localwalkcalculation < 1.0)
                 {
                     localwalkcalculation = 0;
