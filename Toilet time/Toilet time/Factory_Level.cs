@@ -19,9 +19,17 @@ namespace Toilet_time
                 case 1:
                     {
                         //sceen size: 800 * 600
-                        stable_objects.Add(new Platform(0, 300,     60, 50));
-                        stable_objects.Add(new Platform(50, 50,     50, 50));
-                        fallable_objects.Add(new Main_Character(50, 240));
+
+                        //character
+                        fallable_objects.Add(new Main_Character(200, 240));
+
+                        //platforms
+                        stable_objects.Add(new Platform(0, 300,     500, 50));
+                        stable_objects.Add(new Platform(400, 250,     300, 50));
+
+                        stable_objects.Add(new Platform(800, 250, 300, 50));
+                        stable_objects.Add(new Platform(1100, 200, 50, 50));
+
                         break;
                     }
                 default:

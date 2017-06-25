@@ -12,7 +12,7 @@ namespace Toilet_time
         public Texture2D Texture_Platform;
         Texture2D Texture_Main_Char;
         public int CurrentHeight;
-        public int CurrentWidth; 
+        public int CurrentWidth;
 
         public DrawVisitor(SpriteBatch spriteBatch, GraphicsDeviceManager graphics, Texture2D Texture_Platform, Texture2D Texture_Main_Char)
         {
@@ -47,6 +47,16 @@ namespace Toilet_time
         }
 
         public void DrawEnd(End_Goal end)
+        {
+
+        }
+
+        public void DrawRectale(iObject screengui)
+        {
+
+        }
+
+        public void DrawLabel(Label label)
         {
 
         }

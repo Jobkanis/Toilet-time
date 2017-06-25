@@ -11,6 +11,7 @@ namespace Toilet_time
         Factory_Level levelFactory;
         DrawVisitor Drawvisitor;
         Input_Adapter inputadapter;
+        float walkspeed = 300;
 
         public Gui_Manager(DrawVisitor drawvisitor)
         {
@@ -38,37 +39,48 @@ namespace Toilet_time
 
                                                             item =>
                                                                 {
-                                                                    if (x_pos < item.position.x + item.size.x && x_pos + x_size > item.position.x)
+                                                                    bool returnstatement = false;
+
+                                                                   if (         x_pos < item.position.x + item.size.x + 2  &&      x_pos + x_size + 2> item.position.x)
                                                                     {
-                                                                        if (y_pos + y_size > item.position.y && y_pos < item.position.y + item.size.y)
+                                                                        if (    y_pos + y_size + 2 > item.position.y        &&      y_pos < item.position.y + item.size.y + 2)
                                                                         {
                                                                             return true;
                                                                         }
 
                                                                     }
-
-                                                                    return false;
+                                                                    return returnstatement;
 
                                                                 }
-                                                        )
+                                                            )
                     )
                 {
                     returnbool = false;
                 }
-
+                   
             }
 
             return returnbool;
         }
 
-        public Main_Character GetMain_Character()
+        public Fallable_Object GetMain_Character()
         {
-            throw new Exception();
+            {
+                Fallable_Objects.Reset();
+                while (Fallable_Objects.GetNext().Visit(() => false, _ => true))
+                {
+                    if (Fallable_Objects.GetCurrent().Visit<bool>(() => false, item => item.IsMainCharacter))
+                    {
+                        return (Fallable_Objects.GetCurrent().Visit<Fallable_Object>(() => null, item => { return item; }));
+                    }
+                }
+                return null;
+            }
         }
 
         public void Input_Handler()
         {
-            Input input = inputadapter.GetInput();
+            InputData input = inputadapter.GetInput();
         }
 
         public void Create_Level()
@@ -84,6 +96,7 @@ namespace Toilet_time
             this.Fallable_Objects = null;
             this.Stable_Objects = null;
         }
+
 
         public void Draw()
         {
@@ -104,21 +117,89 @@ namespace Toilet_time
             Drawvisitor.spriteBatch.End();
         }
 
+        // Update
+
+        // small walk check
+        float localwalkcalculation = 0;
+        public bool CheckIfMove(float dt, WalkDirectionInput way)
+        {
+            Fallable_Object main = GetMain_Character() ;
+            bool moveable = false;
+
+
+            if (way == WalkDirectionInput.Right)
+            {
+                localwalkcalculation += walkspeed * dt;
+                moveable = Check_Collision(main, main.position.x + 1, main.position.y, main.size.x, main.size.y);
+            }
+
+            if (way == WalkDirectionInput.Left)
+            {
+                localwalkcalculation -= walkspeed * dt;
+                moveable = Check_Collision(main, main.position.x - 1, main.position.y, main.size.x, main.size.y);
+            }
+            if (moveable ){
+                if (localwalkcalculation > 1.0f || localwalkcalculation < 1.0)
+                {
+                    localwalkcalculation = 0;
+                    return true;
+                }
+            }
+
+            return false;
+        }
+        //
+
+
         public void Update(float dt)
         {
+            // walk
+            bool walk = false;
+            WalkDirectionInput walkdirection = WalkDirectionInput.Right;
+            bool CanMove = CheckIfMove(dt, walkdirection); // Checks if allowed to move character
+            InputData input = inputadapter.GetInput();
+            if (input.Walk.Visit(() => false, _ => true))
+            {
+                walk = true;
+                walkdirection = input.Walk.Visit<WalkDirectionInput>(() => { throw new Exception("walkdirection failed"); },  item => { return item; });
+            }
+
+            // jump
+            if (input.MoveAction.Visit(() => false, _ => true))
+            {
+                if (input.MoveAction.Visit<CharacterMovementAction>(() => { throw new Exception("Charactermovement failed"); }, item => { return item; }) == CharacterMovementAction.Jump)
+                {
+                    Fallable_Object main = GetMain_Character();
+                    if (main.IsMainCharacter == true)
+                    {
+                        main.Jump(this);
+                    }
+                }
+            }
+
+
             Fallable_Objects.Reset();
             while (Fallable_Objects.GetNext().Visit(() => false, _ => true))
             {
                 Fallable_Objects.GetCurrent().Visit(() => { }, item => { item.Update(dt, this); });
+
+                if (walk && CanMove == true)
+                {
+                    Fallable_Objects.GetCurrent().Visit(() => { }, item => { item.Move(dt, this, walkdirection); });
+                }
             }
+
 
             Stable_Objects.Reset();
             while (Stable_Objects.GetNext().Visit(() => false, _ => true))
             {
                 Stable_Objects.GetCurrent().Visit(() => { }, item => { item.Update(dt, this); });
-            }
-            
 
+                if (walk && CanMove == true)
+                {
+                    Stable_Objects.GetCurrent().Visit(() => { }, item => { item.Move(dt, this, walkdirection); });
+                }
+            }
         }
     }
 }

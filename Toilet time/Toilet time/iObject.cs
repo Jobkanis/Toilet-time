@@ -17,17 +17,41 @@ namespace Toilet_time
         public Size size;
         public Position position;
         public bool resizeable;
+        public bool IsMainCharacter;
+        public bool MoveOnWalk;
 
         public iObject(Position position, Size size, bool resizeable)
         {
             this.size = size;
             this.position = position;
             this.resizeable = resizeable;
+            this.IsMainCharacter = false;
+            this.MoveOnWalk = true;
         }
 
         public abstract void Draw(DrawVisitor visitor);
 
         public abstract void Update(float dt, Gui_Manager guimanager);
+
+        public void Move(float dt, Gui_Manager guimanager, WalkDirectionInput WalkDirectionInput)
+        {
+            if (this.MoveOnWalk)
+            {
+                switch (WalkDirectionInput)
+                {
+                    case (WalkDirectionInput.Left):
+                        {
+                            this.position.x = this.position.x + 1;
+                            break;
+                        }
+                    case (WalkDirectionInput.Right):
+                        {
+                            this.position.x = this.position.x - 1;
+                            break;
+                        }
+                }
+            }
+        }
     }
 
     public abstract class Fallable_Object : iObject
@@ -43,14 +67,12 @@ namespace Toilet_time
 
         public void Update_Gravity(float dt, Gui_Manager guimanager)
         {
-            bool reachedhighestpointonjump = false;
             float startvelocity = velocity;
-
             velocity = velocity - (4 * dt);
            
             if (startvelocity > 0.6 && velocity < 0.6)
             {
-                velocity = -1.0f;
+                velocity = -1.0f; // boost for when in midair
             }
 
 
@@ -71,13 +93,24 @@ namespace Toilet_time
                 }
 
                 velocity = 0;
-                if (guimanager.Check_Collision(this, position.x, position.y + 1, size.x, size.y) == true)
+
+                if (guimanager.Check_Collision(this, position.x, position.y + 1, size.x, size.y) == true) // for when bounching on platform
                 {
                     velocity = -1;
                 }
             }
+        }
 
-            Console.WriteLine(velocity);
+        public void Jump(Gui_Manager guimanager)
+        {
+            if (IsMainCharacter)
+            {
+
+                if (this.velocity == 0 && (guimanager.Check_Collision(this, position.x, position.y - 1, size.x, size.y)) == true)
+                {
+                    this.velocity = 4;
+                }
+            }
         }
 
         public override void Update(float dt, Gui_Manager guimanager)
