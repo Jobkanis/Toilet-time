@@ -35,7 +35,7 @@ namespace Toilet_time
         {
             if (character.HasBaby)
             {
-                spriteBatch.Draw(Texture_Main_Char, new Rectangle(character.position.x, character.position.y, character.size.x, character.size.y), character.color);
+                spriteBatch.Draw(Texture_Main_Char_with_Baby, new Rectangle(character.position.x, character.position.y, character.size.x, character.size.y), character.color);
             }
             else
             {
@@ -45,7 +45,7 @@ namespace Toilet_time
 
         public void DrawBaby(Baby baby)
         {
-            if (baby.pickedup == false)
+            if (baby.Visible == true)
             {
                 spriteBatch.Draw(Texture_Baby, new Rectangle(baby.position.x, baby.position.y, baby.size.x, baby.size.y), baby.color);
             }

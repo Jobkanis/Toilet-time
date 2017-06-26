@@ -20,6 +20,8 @@ namespace Toilet_time
         public int CharacterSpeed = 300;
         float localwalkspeed = 0;
 
+        int pickupcooldown = 0;
+
         public Gui_Manager(DrawVisitor drawvisitor)
         {
             this.Drawvisitor = drawvisitor;
@@ -148,8 +150,48 @@ namespace Toilet_time
         public List<iObject> CheckIfMainTouching()
         {
             List<iObject> returnlist = new List<iObject>();
-            return returnlist;
+            Fallable_Object main = GetMain_Character();
+            if (main != null)
+            {
+
             
+
+                Interacting_Objects.Reset();
+
+                while (Interacting_Objects.GetNext().Visit(() => false, unusedvalue => true))
+                {
+                    // checking gravity: falling and other
+                    if (Interacting_Objects.GetCurrent().Visit<bool>(
+
+                                                                () => { return false; }
+
+                                                                ,
+
+
+                                                                item =>
+                                                                {
+
+                                                                    if (main.position.x < item.position.x + item.size.x && main.position.x + main.size.x > item.position.x)
+                                                                    {
+                                                                        if (main.position.y + main.size.y > item.position.y && main.position.y < item.position.y + item.size.y)
+                                                                        {
+                                                                           return true;
+                                                                        }
+                                                                    }
+
+                                                                    return false;
+                                                                }
+                                                                
+                                                                )
+                        )
+                    {
+                        returnlist.Add(Interacting_Objects.GetCurrent().Visit<iObject>(() => { throw new Exception("interaction error"); }, item => { return item; }));
+                    } 
+                }
+
+            }
+
+            return returnlist;
         }
 
 
@@ -173,8 +215,15 @@ namespace Toilet_time
 
         public void Update(float dt)
         {
-            Drawvisitor.spriteBatch.Begin();
             InputData input = inputadapter.GetInput();
+            Fallable_Object main = GetMain_Character();
+
+
+            //cooldown
+            if (pickupcooldown > 0)
+            {
+                pickupcooldown -= 1;
+            }
 
             // cursor
             this.Cursor = input.cursor;
@@ -189,15 +238,15 @@ namespace Toilet_time
             {
                 localwalkspeed = localwalkspeed - 1.0f;
                 walkspeed++;
-            }    
-            
+            }
+
 
             WalkDirectionInput walkdirection = WalkDirectionInput.Right;
-            
+
             if (input.Walk.Visit(() => false, _ => true))
             {
                 walk = true;
-                walkdirection = input.Walk.Visit<WalkDirectionInput>(() => { throw new Exception("walkdirection failed"); },  item => { return item; });
+                walkdirection = input.Walk.Visit<WalkDirectionInput>(() => { throw new Exception("walkdirection failed"); }, item => { return item; });
 
                 CanMove = CheckIfMove(dt, walkdirection, walkspeed); // Checks if allowed to move character
                 if (CanMove == false && walkspeed > 1)
@@ -213,14 +262,12 @@ namespace Toilet_time
                 }
             }
 
-           
 
             // jump
             if (input.MoveAction.Visit(() => false, _ => true))
             {
                 if (input.MoveAction.Visit<CharacterMovementAction>(() => { throw new Exception("Charactermovement failed"); }, item => { return item; }) == CharacterMovementAction.Jump)
                 {
-                    Fallable_Object main = GetMain_Character();
                     if (main.IsMainCharacter == true)
                     {
                         main.Jump(this);
@@ -269,7 +316,47 @@ namespace Toilet_time
                 }
             }
 
-            Drawvisitor.spriteBatch.End();
+            // cHECKING INTERACTION
+
+
+            if (input.Activity.Visit(() => false, _ => true))
+            {
+                CharacterActivity activityinput = input.Activity.Visit<CharacterActivity>(() => throw new Exception("failed getting interaction"), act => { return act; });
+                if (activityinput == CharacterActivity.Action && pickupcooldown <= 0)
+                {
+                    pickupcooldown = 10;
+                    if (main.HasBaby == false)
+                    {
+
+                        List<iObject> interacton = CheckIfMainTouching();
+                        while (interacton.GetNext().Visit(() => false, unusedvalue => true))
+                        {
+                            if (interacton.GetCurrent().Visit(() => false, item => { return item.IsBaby; }))
+                            {
+                                iObject baby = interacton.GetCurrent().Visit<iObject>(() => throw new Exception("failed getting interaction"), act => { return act; });
+                                main.HasBaby = true;
+                                baby.Visible = false;
+                            }
+                        }
+
+                    }
+                    else
+                    {
+                        Interacting_Objects.Reset();
+                        while (Interacting_Objects.GetNext().Visit(() => false, unusedvalue => true))
+                        {
+                            if (Interacting_Objects.GetCurrent().Visit(() => false, item => { return item.IsBaby; }))
+                            {
+                                iObject baby = Interacting_Objects.GetCurrent().Visit<iObject>(() => throw new Exception("failed getting interaction"), act => { return act; });
+                                main.HasBaby = false;
+                                baby.position = new Position( main.position.x, main.position.y + 20);
+                                baby.Visible = true;
+
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
