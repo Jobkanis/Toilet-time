@@ -46,8 +46,8 @@
     <Compile Include="Baby.cs" />
     <Compile Include="Data_Collision.cs" />
     <Compile Include="Data_Input.cs" />
-    <Compile Include="Data_Level.cs" />
-    <Compile Include="Factory_Level.cs" />
+    <Compile Include="Data_Screen.cs" />
+    <Compile Include="Factory_screen.cs" />
     <Compile Include=".Game1.cs" />
     <Compile Include="Gui_Manager.cs" />
     <Compile Include="Input_Adapter.cs" />

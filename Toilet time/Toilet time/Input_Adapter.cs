@@ -31,29 +31,32 @@ namespace Toilet_time
             iOption<WalkDirectionInput> WalkDirection = new None<WalkDirectionInput>();
             iOption<Activity> Activity = new None<Activity>();
             iOption<SettingsInput> Settings = new None<SettingsInput>();
+            Point cursor = new Point(-1, -1);
+
+            KeyboardState keyboard_state = Keyboard.GetState();
+
+            var mouse_state = Mouse.GetState();
+            cursor = new Point(mouse_state.X, mouse_state.Y);
 
 
-            KeyboardState state = Keyboard.GetState();
-            Console.WriteLine(state.IsKeyDown(Keys.Space));
-
-            // needs to be build out!!
-
-            if (state.IsKeyDown(Keys.Up))
+            // needs to be build out!
+            
+            if (keyboard_state.IsKeyDown(Keys.Up))
             {
                 MoveAction = new Some<CharacterMovementAction>(CharacterMovementAction.Jump);
             }
 
-            if (state.IsKeyDown(Keys.Left))
+            if (keyboard_state.IsKeyDown(Keys.Left))
             {
                 WalkDirection = new Some<WalkDirectionInput>(WalkDirectionInput.Left);
             }
 
-            if (state.IsKeyDown(Keys.Right))
+            if (keyboard_state.IsKeyDown(Keys.Right))
             {
                 WalkDirection = new Some<WalkDirectionInput>(WalkDirectionInput.Right);
             }
 
-            return new InputData(MoveAction, WalkDirection, Activity, Settings);
+            return new InputData(MoveAction, WalkDirection, Activity, Settings, cursor);
             //return new Input();
         }
     }  

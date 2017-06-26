@@ -6,20 +6,24 @@ namespace Toilet_time
     {
         Iterator<Fallable_Object> Fallable_Objects;
         Iterator<Stable_Object> Stable_Objects;
-        Level Current_Level;
-        int level;
-        Factory_Level levelFactory;
+        Iterator<iObject> Gui_stuff;
+
+        Screen Current_screen;
+        int screen;
+        Factory_screen screenFactory;
         DrawVisitor Drawvisitor;
         Input_Adapter inputadapter;
+        Point Cursor;
         float walkspeed = 500;
 
         public Gui_Manager(DrawVisitor drawvisitor)
         {
             this.Drawvisitor = drawvisitor;
-            this.levelFactory = new Factory_Level();
+            this.screenFactory = new Factory_screen();
             this.inputadapter = new Input_Adapter();
-            this.level = 1;
-            Create_Level();
+            this.screen = 1;
+            this.Cursor = new Point(0,0);
+            Create_screen();
         }
 
         public bool Check_Collision(iObject Object, int x_pos, int y_pos, int x_size, int y_size)
@@ -83,18 +87,20 @@ namespace Toilet_time
             InputData input = inputadapter.GetInput();
         }
 
-        public void Create_Level()
+        public void Create_screen()
         {
-            Reset_Level();
-            Current_Level = levelFactory.Create_Level(level);
-            this.Fallable_Objects = Current_Level.Fallable_Objects;
-            this.Stable_Objects = Current_Level.Stable_Objects;
+            Reset_screen();
+            Current_screen = screenFactory.Create_screen(screen);
+            this.Fallable_Objects = Current_screen.Fallable_Objects;
+            this.Stable_Objects = Current_screen.Stable_Objects;
+            this.Gui_stuff = Current_screen.gui_stuff;
         }
 
-        private void Reset_Level()
+        private void Reset_screen()
         {
             this.Fallable_Objects = null;
             this.Stable_Objects = null;
+            this.Gui_stuff = null;
         }
 
 
@@ -114,6 +120,12 @@ namespace Toilet_time
                 Stable_Objects.GetCurrent().Visit(() => { }, item => { item.Draw(Drawvisitor); });
             }
 
+            Gui_stuff.Reset();
+            while (Gui_stuff.GetNext().Visit(() => false, unusedvalue => true))
+            {
+                Gui_stuff.GetCurrent().Visit(() => { }, item => { item.Draw(Drawvisitor); });
+            }
+
             Drawvisitor.spriteBatch.End();
         }
 
@@ -126,23 +138,26 @@ namespace Toilet_time
             Fallable_Object main = GetMain_Character() ;
             bool moveable = true;
 
-
-            if (way == WalkDirectionInput.Right)
+            if (main != null)
             {
-                localwalkcalculation += walkspeed * dt;
-                moveable = Check_Collision(main, main.position.x - 1, main.position.y, main.size.x, main.size.y);
-            }
-
-            if (way == WalkDirectionInput.Left)
-            {
-                localwalkcalculation -= walkspeed * dt;
-                moveable = Check_Collision(main, main.position.x + 1, main.position.y, main.size.x, main.size.y);
-            }
-            if (moveable){
-                if (localwalkcalculation > 1.0f || localwalkcalculation < 1.0)
+                if (way == WalkDirectionInput.Right)
                 {
-                    localwalkcalculation = 0;
-                    return true;
+                    localwalkcalculation += walkspeed * dt;
+                    moveable = Check_Collision(main, main.position.x - 1, main.position.y, main.size.x, main.size.y);
+                }
+
+                if (way == WalkDirectionInput.Left)
+                {
+                    localwalkcalculation -= walkspeed * dt;
+                    moveable = Check_Collision(main, main.position.x + 1, main.position.y, main.size.x, main.size.y);
+                }
+                if (moveable)
+                {
+                    if (localwalkcalculation > 1.0f || localwalkcalculation < 1.0)
+                    {
+                        localwalkcalculation = 0;
+                        return true;
+                    }
                 }
             }
 
@@ -153,11 +168,18 @@ namespace Toilet_time
 
         public void Update(float dt)
         {
+            Drawvisitor.spriteBatch.Begin();
+            InputData input = inputadapter.GetInput();
+
+            // cursor
+            this.Cursor = input.cursor;
+            Console.WriteLine(Cursor.x + " - " + Cursor.y);
+
             // walk
             bool walk = false;
             WalkDirectionInput walkdirection = WalkDirectionInput.Right;
             bool CanMove = CheckIfMove(dt, walkdirection); // Checks if allowed to move character
-            InputData input = inputadapter.GetInput();
+            
             if (input.Walk.Visit(() => false, _ => true))
             {
                 walk = true;
@@ -178,6 +200,7 @@ namespace Toilet_time
             }
 
 
+            // updating
             Fallable_Objects.Reset();
             while (Fallable_Objects.GetNext().Visit(() => false, _ => true))
             {
@@ -200,6 +223,14 @@ namespace Toilet_time
                     Stable_Objects.GetCurrent().Visit(() => { }, item => { item.Move(dt, this, walkdirection); });
                 }
             }
+
+            Gui_stuff.Reset();
+            while (Gui_stuff.GetNext().Visit(() => false, unusedvalue => true))
+            {
+                Gui_stuff.GetCurrent().Visit(() => { }, item => { item.Update(dt, this); });
+            }
+
+            Drawvisitor.spriteBatch.End();
         }
     }
 }

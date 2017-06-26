@@ -2,17 +2,19 @@
 
 namespace Toilet_time
 {
-    public class Factory_Level
+    public class Factory_screen
     {
-        public Factory_Level()
+        public Factory_screen()
         {
 
         }
 
-        public Level Create_Level(int level_number)
+        public Screen Create_screen(int level_number)
         {
             Iterator<Fallable_Object> fallable_objects = new List<Fallable_Object>();
             Iterator<Stable_Object> stable_objects = new List<Stable_Object>();
+            Iterator<iObject> gui_stuff = new List<iObject>();
+
             switch (level_number)
             {
 
@@ -27,8 +29,10 @@ namespace Toilet_time
                         stable_objects.Add(new Platform(0, 300,     500, 50));
                         stable_objects.Add(new Platform(400, 250,     300, 50));
 
+                        //gui_stuff 
                         stable_objects.Add(new Platform(800, 250, 300, 50));
                         stable_objects.Add(new Platform(1100, 200, 50, 50));
+
 
                         break;
                     }
@@ -37,7 +41,7 @@ namespace Toilet_time
                         break;
                     }
             }
-            return new Level(fallable_objects, stable_objects);
+            return new Screen(fallable_objects, stable_objects, gui_stuff);
         }
     }
 }

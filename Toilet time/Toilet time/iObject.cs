@@ -1,4 +1,7 @@
 ﻿using System;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
 namespace Toilet_time
 {
@@ -14,6 +17,7 @@ namespace Toilet_time
 
     public abstract class iObject : Drawable, Updateable
     {
+        public Color color = Color.White;
         public Size size;
         public Position position;
         public bool resizeable;
