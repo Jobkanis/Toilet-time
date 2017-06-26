@@ -2,11 +2,11 @@
 
 namespace Toilet_time
 {
-    public enum CharacterMovementAction{Jump}
+    public enum CharacterMovementAction {Jump}
 
     public enum WalkDirectionInput { Left,Right }
 
-    public enum Activity {Action}
+    public enum CharacterActivity {Action}
 
     public enum SettingsInput {Exit}
 
@@ -15,18 +15,22 @@ namespace Toilet_time
     {
         public iOption<CharacterMovementAction> MoveAction;
         public iOption<WalkDirectionInput> Walk;
-        public iOption<Activity> Activity;
+        public iOption<CharacterActivity> CharacterActivity;
         public iOption<SettingsInput> Settings;
         public Point cursor;
 
-        public InputData(iOption<CharacterMovementAction> MoveAction, iOption<WalkDirectionInput> Walk, iOption<Activity> Activity, iOption<SettingsInput> Settings, Point cursor)
+        
+
+        public InputData(iOption<CharacterMovementAction> MoveAction, iOption<WalkDirectionInput> Walk, iOption<CharacterActivity> CharacterActivity, iOption<SettingsInput> Settings, Point cursor)
         {
             this.MoveAction = MoveAction;
             this.Walk = Walk;
             this.Settings = Settings;
-            this.Activity = Activity;
+            this.CharacterActivity = CharacterActivity;
             this.cursor = cursor;
         }
+
+
 
     }
 }

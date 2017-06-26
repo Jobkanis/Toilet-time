@@ -10,26 +10,38 @@ using Microsoft.Xna.Framework.Input;
 namespace Toilet_time
 {
 
-   public class Input_Adapter
+    public class Input_Adapter
     {
         public Input_Adapter()
         {
 
         }
 
-        public InputData GetInput()
-        {
-            return checkKeyboard();
+        public InputData GetInput(int type)
+        {            
+            switch (type)
+            {
+                case 1:
+                    return checkKeyboardpijltjes();
+                    //break;
+                case 2:
+                    return checkKeyboardaswd();
+                    //break;
+                default:
+                    return checkKeyboardpijltjes();
+                    //break;
+                
+            }
+            
         }
 
 
-        //
 
-        public InputData checkKeyboard()
+        public InputData checkKeyboardpijltjes()
         {
             iOption<CharacterMovementAction> MoveAction = new None<CharacterMovementAction>();
             iOption<WalkDirectionInput> WalkDirection = new None<WalkDirectionInput>();
-            iOption<Activity> Activity = new None<Activity>();
+            iOption<CharacterActivity> CharacterActivity = new None<CharacterActivity>();
             iOption<SettingsInput> Settings = new None<SettingsInput>();
             Point cursor = new Point(-1, -1);
 
@@ -40,7 +52,7 @@ namespace Toilet_time
 
 
             // needs to be build out!
-            
+
             if (keyboard_state.IsKeyDown(Keys.Up))
             {
                 MoveAction = new Some<CharacterMovementAction>(CharacterMovementAction.Jump);
@@ -56,8 +68,65 @@ namespace Toilet_time
                 WalkDirection = new Some<WalkDirectionInput>(WalkDirectionInput.Right);
             }
 
-            return new InputData(MoveAction, WalkDirection, Activity, Settings, cursor);
+            if (keyboard_state.IsKeyDown(Keys.Right) && keyboard_state.IsKeyDown(Keys.Left))
+            {
+                WalkDirection = new None<WalkDirectionInput>();
+            }
+
+            if (keyboard_state.IsKeyDown(Keys.E))
+            {
+                CharacterActivity = new Some<CharacterActivity>(Toilet_time.CharacterActivity.Action);
+            }
+
+            return new InputData(MoveAction, WalkDirection, CharacterActivity, Settings, cursor);
             //return new Input();
+        }
+
+
+        public InputData checkKeyboardaswd()
+        {
+            iOption<CharacterMovementAction> MoveAction = new None<CharacterMovementAction>();
+            iOption<WalkDirectionInput> WalkDirection = new None<WalkDirectionInput>();
+            iOption<CharacterActivity> CharacterActivity = new None<CharacterActivity>();
+            iOption<SettingsInput> Settings = new None<SettingsInput>();
+            Point cursor = new Point(-1, -1);
+
+            KeyboardState keyboard_state = Keyboard.GetState();
+
+            var mouse_state = Mouse.GetState();
+            cursor = new Point(mouse_state.X, mouse_state.Y);
+
+
+            // needs to be build out!
+
+
+
+            if (keyboard_state.IsKeyDown(Keys.W))
+        {
+            MoveAction = new Some<CharacterMovementAction>(CharacterMovementAction.Jump);
+        }
+
+        if (keyboard_state.IsKeyDown(Keys.A))
+        {
+            WalkDirection = new Some<WalkDirectionInput>(WalkDirectionInput.Left);
+        }
+
+        if (keyboard_state.IsKeyDown(Keys.D))
+        {
+            WalkDirection = new Some<WalkDirectionInput>(WalkDirectionInput.Right);
+        }
+
+        if (keyboard_state.IsKeyDown(Keys.A) && keyboard_state.IsKeyDown(Keys.D))
+        {
+            WalkDirection = new None<WalkDirectionInput>();
+        }
+
+        if (keyboard_state.IsKeyDown(Keys.E))
+        {
+            CharacterActivity = new Some<CharacterActivity>(Toilet_time.CharacterActivity.Action);
+        }
+        return new InputData(MoveAction, WalkDirection, CharacterActivity, Settings, cursor);
+        //return new Input();
         }
     }  
 }
