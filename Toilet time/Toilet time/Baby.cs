@@ -10,6 +10,7 @@ namespace Toilet_time
             : base(new Position(x_pos, y_pos), new Size(20, 20), false)
         {
             this.IsBaby = true;
+            this.MoveOnWalk = true;
         }
 
         public override void Draw(DrawVisitor visitor)

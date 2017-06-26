@@ -7,6 +7,7 @@ namespace Toilet_time
         Iterator<Fallable_Object> Fallable_Objects;
         Iterator<Stable_Object> Stable_Objects;
         Iterator<iObject> Gui_stuff;
+        Iterator<iObject> Interacting_Objects;
 
         Screen Current_screen;
         int screen;
@@ -71,6 +72,8 @@ namespace Toilet_time
             return returnbool;
         }
 
+        
+
         public Fallable_Object GetMain_Character()
         {
             {
@@ -98,6 +101,7 @@ namespace Toilet_time
             this.Fallable_Objects = Current_screen.Fallable_Objects;
             this.Stable_Objects = Current_screen.Stable_Objects;
             this.Gui_stuff = Current_screen.gui_stuff;
+            this.Interacting_Objects = Current_screen.Interacting_Objects;
         }
 
         private void Reset_screen()
@@ -130,10 +134,24 @@ namespace Toilet_time
                 Gui_stuff.GetCurrent().Visit(() => { }, item => { item.Draw(Drawvisitor); });
             }
 
+            Interacting_Objects.Reset();
+            while (Interacting_Objects.GetNext().Visit(() => false, unusedvalue => true))
+            {
+                Interacting_Objects.GetCurrent().Visit(() => { }, item => { item.Draw(Drawvisitor); });
+            }
+
             Drawvisitor.spriteBatch.End();
         }
 
         // Update
+        // CheckIfTouching
+        public List<iObject> CheckIfMainTouching()
+        {
+            List<iObject> returnlist = new List<iObject>();
+            return returnlist;
+            
+        }
+
 
         // small walk check
         public bool CheckIfMove(float dt, WalkDirectionInput way, int walkspeed)
@@ -238,6 +256,17 @@ namespace Toilet_time
             while (Gui_stuff.GetNext().Visit(() => false, unusedvalue => true))
             {
                 Gui_stuff.GetCurrent().Visit(() => { }, item => { item.Update(dt, this); });
+            }
+
+            Interacting_Objects.Reset();
+            while (Interacting_Objects.GetNext().Visit(() => false, unusedvalue => true))
+            {
+                Interacting_Objects.GetCurrent().Visit(() => { }, item => { item.Update(dt, this); });
+
+                if (walk == true && CanMove == true)
+                {
+                    Interacting_Objects.GetCurrent().Visit(() => { }, item => { item.Move(dt, this, walkdirection, walkspeed); });
+                }
             }
 
             Drawvisitor.spriteBatch.End();
