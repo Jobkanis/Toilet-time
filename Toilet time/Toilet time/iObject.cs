@@ -22,6 +22,7 @@ namespace Toilet_time
         public Position position;
         public bool resizeable;
         public bool IsMainCharacter;
+        public bool IsBaby;
         public bool MoveOnWalk;
 
         public iObject(Position position, Size size, bool resizeable)
@@ -30,6 +31,7 @@ namespace Toilet_time
             this.position = position;
             this.resizeable = resizeable;
             this.IsMainCharacter = false;
+            this.IsBaby = false;
             this.MoveOnWalk = true;
         }
 

@@ -74,7 +74,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\baby.png" />
     <Content Include="Content\brick.png" />
+    <Content Include="Content\Main with baby.png" />
     <Content Include="Content\Main.png" />
     <Content Include="Icon.ico" />
   </ItemGroup>

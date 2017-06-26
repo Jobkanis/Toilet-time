@@ -24,6 +24,7 @@ namespace Toilet_time
 
                         //character
                         fallable_objects.Add(new Main_Character(200, 240));
+                        fallable_objects.Add(new Baby(400, 0));
 
                         //platforms
                         stable_objects.Add(new Platform(0, 300,     500, 50));

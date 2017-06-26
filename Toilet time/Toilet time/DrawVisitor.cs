@@ -11,10 +11,13 @@ namespace Toilet_time
         public GraphicsDeviceManager graphics;
         public Texture2D Texture_Platform;
         Texture2D Texture_Main_Char;
+        Texture2D Texture_Main_Char_with_Baby;
+        Texture2D Texture_Baby;
+
         public int CurrentHeight;
         public int CurrentWidth;
 
-        public DrawVisitor(SpriteBatch spriteBatch, GraphicsDeviceManager graphics, Texture2D Texture_Platform, Texture2D Texture_Main_Char)
+        public DrawVisitor(SpriteBatch spriteBatch, GraphicsDeviceManager graphics, Texture2D Texture_Platform, Texture2D Texture_Main_Char, Texture2D Texture_Main_Char_with_Baby, Texture2D Texture_Baby)
         {
             this.graphics = graphics;
             CurrentHeight = 600;
@@ -23,22 +26,34 @@ namespace Toilet_time
             this.spriteBatch = spriteBatch;
             this.Texture_Platform = Texture_Platform;
             this.Texture_Main_Char = Texture_Main_Char;
+            this.Texture_Main_Char_with_Baby = Texture_Main_Char_with_Baby;
+            this.Texture_Baby = Texture_Baby;
 
         }
 
         public void DrawCharacter(Main_Character character)
         {
-            spriteBatch.Draw(Texture_Main_Char, new Rectangle(character.position.x, character.position.y, character.size.x, character.size.y), Color.White);
+            if (character.HasBaby)
+            {
+                spriteBatch.Draw(Texture_Main_Char, new Rectangle(character.position.x, character.position.y, character.size.x, character.size.y), character.color);
+            }
+            else
+            {
+                spriteBatch.Draw(Texture_Main_Char, new Rectangle(character.position.x, character.position.y, character.size.x, character.size.y), character.color);
+            }
         }
 
         public void DrawBaby(Baby baby)
         {
-
+            if (baby.pickedup == false)
+            {
+                spriteBatch.Draw(Texture_Baby, new Rectangle(baby.position.x, baby.position.y, baby.size.x, baby.size.y), baby.color);
+            }
         }
 
         public void DrawPlatform(Platform platform)
         {
-            spriteBatch.Draw(Texture_Platform, new Rectangle(platform.position.x, platform.position.y, platform.size.x, platform.size.y), Color.White);
+            spriteBatch.Draw(Texture_Platform, new Rectangle(platform.position.x, platform.position.y, platform.size.x, platform.size.y), platform.color);
         }
 
         public void DrawSpawn(Spawn spawn)

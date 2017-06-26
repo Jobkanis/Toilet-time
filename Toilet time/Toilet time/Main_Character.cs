@@ -4,6 +4,8 @@ namespace Toilet_time
 {
     public class Main_Character: Fallable_Object
     {
+        public bool HasBaby = true;
+
         public Main_Character(int x_pos, int y_pos)
             : base(new Position(x_pos, y_pos), new Size(20, 40), true)
         {
@@ -20,6 +22,11 @@ namespace Toilet_time
         public void Walk_Right()
         {
 
+        }
+
+        public void PickUp()
+        {
+            
         }
 
         public override void Update(float dt, Gui_Manager guimanager)
