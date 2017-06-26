@@ -17,14 +17,20 @@ namespace Toilet_time
         public Input_Adapter inputadapter;
         public Point Cursor;
 
-        public int CharacterSpeed = 300;
+        int inputmechanism;
+
+        public int CharacterSpeed; 
         float localwalkspeed = 0;
 
         int pickupcooldown = 0;
 
+
+
         public Gui_Manager(DrawVisitor drawvisitor)
         {
             this.Drawvisitor = drawvisitor;
+            this.CharacterSpeed = 300;
+            this.inputmechanism = 2;
             this.screenFactory = new Factory_screen();
             this.inputadapter = new Input_Adapter();
             this.screen = 1;
@@ -89,11 +95,6 @@ namespace Toilet_time
                 }
                 return null;
             }
-        }
-
-        public void Input_Handler()
-        {
-            InputData input = inputadapter.GetInput();
         }
 
         public void Create_screen()
@@ -215,7 +216,7 @@ namespace Toilet_time
 
         public void Update(float dt)
         {
-            InputData input = inputadapter.GetInput();
+            InputData input = inputadapter.GetInput(inputmechanism);
             Fallable_Object main = GetMain_Character();
 
 
@@ -319,9 +320,9 @@ namespace Toilet_time
             // cHECKING INTERACTION
 
 
-            if (input.Activity.Visit(() => false, _ => true))
+            if (input.CharacterActivity.Visit(() => false, _ => true))
             {
-                CharacterActivity activityinput = input.Activity.Visit<CharacterActivity>(() => throw new Exception("failed getting interaction"), act => { return act; });
+                CharacterActivity activityinput = input.CharacterActivity.Visit<CharacterActivity>(() => throw new Exception("failed getting interaction"), act => { return act; });
                 if (activityinput == CharacterActivity.Action && pickupcooldown <= 0)
                 {
                     pickupcooldown = 10;
