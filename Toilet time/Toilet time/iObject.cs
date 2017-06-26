@@ -37,7 +37,7 @@ namespace Toilet_time
 
         public abstract void Update(float dt, Gui_Manager guimanager);
 
-        public void Move(float dt, Gui_Manager guimanager, WalkDirectionInput WalkDirectionInput)
+        public void Move(float dt, Gui_Manager guimanager, WalkDirectionInput WalkDirectionInput, int speed)
         {
             if (this.MoveOnWalk)
             {
@@ -45,12 +45,12 @@ namespace Toilet_time
                 {
                     case (WalkDirectionInput.Right):
                         {
-                            this.position.x = this.position.x - 1;
+                            this.position.x = this.position.x - speed;
                             break;
                         }
                     case (WalkDirectionInput.Left):
                         {
-                            this.position.x = this.position.x + 1;
+                            this.position.x = this.position.x + speed;
                             break;
                         }
                 }
@@ -68,11 +68,10 @@ namespace Toilet_time
         }
 
         public float velocity = 0;
-
         public void Update_Gravity(float dt, Gui_Manager guimanager)
         {
             float startvelocity = velocity;
-            velocity = velocity - (4 * dt);
+            velocity = velocity - (10 * dt);
            
             if (startvelocity > 0.6 && velocity < 0.6)
             {
@@ -105,6 +104,7 @@ namespace Toilet_time
             }
         }
 
+        public int jumpvelocity = 0;
         public void Jump(Gui_Manager guimanager)
         {
             if (IsMainCharacter)
@@ -112,7 +112,7 @@ namespace Toilet_time
 
                 if (this.velocity == 0 && (guimanager.Check_Collision(this, position.x, position.y - 1, size.x, size.y)) == true)
                 {
-                    this.velocity = 4;
+                    this.velocity = jumpvelocity;
                 }
             }
         }
