@@ -18,7 +18,7 @@ namespace Toilet_time
         public Point Cursor;
 
         int inputmechanism;
-
+        
         public int CharacterSpeed; 
         float localwalkspeed = 0;
 
@@ -30,12 +30,12 @@ namespace Toilet_time
         {
             this.Drawvisitor = drawvisitor;
             this.CharacterSpeed = 300;
-            this.inputmechanism = 2;
+            this.inputmechanism = 1;
             this.screenFactory = new Factory_screen();
             this.inputadapter = new Input_Adapter();
             this.screen = 1;
             this.Cursor = new Point(0,0);
-            Create_screen();
+            Create_screen(screen);
         }
 
         public bool Check_Collision(iObject Object, int x_pos, int y_pos, int x_size, int y_size)
@@ -97,9 +97,10 @@ namespace Toilet_time
             }
         }
 
-        public void Create_screen()
+        public void Create_screen(int screen_to_load)
         {
             Reset_screen();
+            screen = screen_to_load;
             Current_screen = screenFactory.Create_screen(screen);
             this.Fallable_Objects = Current_screen.Fallable_Objects;
             this.Stable_Objects = Current_screen.Stable_Objects;
@@ -195,7 +196,11 @@ namespace Toilet_time
             return returnlist;
         }
 
-
+        public void Main_Dead()
+        {
+            Fallable_Object main = GetMain_Character();
+            Create_screen(screen);
+        }
         // small walk check
         public bool CheckIfMove(float dt, WalkDirectionInput way, int walkspeed)
         {
@@ -217,8 +222,13 @@ namespace Toilet_time
         public void Update(float dt)
         {
             InputData input = inputadapter.GetInput(inputmechanism);
-            Fallable_Object main = GetMain_Character();
 
+            //kill on fall
+            Fallable_Object main = GetMain_Character();
+            if (main.position.y + main.size.y > 800)
+            {
+                Main_Dead();
+            }
 
             //cooldown
             if (pickupcooldown > 0)
