@@ -73,19 +73,12 @@ namespace Toilet_time
         public void DrawButton(Button button)
         {
             spriteBatch.Draw(Texture_White_Pixel, new Rectangle((int)button.position.x, (int)button.position.y, (int)button.size.x, (int)button.size.y), button.color);
-            if (button.label != null)
-            {
-                this.DrawLabel(button.label);
-            }
-
+            //this.DrawLabel(button.label);
         }
 
         public void DrawLabel(Label label)
         {
-            Vector2 textsize = arial.MeasureString(label.text);
-            int textsize_x = (int)textsize.X;
-            int textsize_y = (int)textsize.Y;
-            spriteBatch.DrawString(arial, label.text, new Vector2(label.position.x + ((label.size.x - textsize_x) / 2), label.position.y + ((label.size.y - textsize_y) / 2)), label.color);
+            spriteBatch.DrawString(arial, label.text, new Vector2(label.position.x, label.position.y), label.color);
         }
 
         enum Dimensions { x, y }

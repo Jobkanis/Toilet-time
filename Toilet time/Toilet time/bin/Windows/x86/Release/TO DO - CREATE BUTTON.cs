@@ -18,14 +18,15 @@ namespace Toilet_time
             :base(new Position(x_pos, y_pos), new Size(x_size,y_size), true)
         {
             this.label = new Label(x_pos, y_pos, x_size, y_size, text);
+
             this.action = action;
             this.regularcolor = regularcolor;
             this.mouseovercolor = mouseovercolor;
-            
         }
         public override void Draw(DrawVisitor visitor)
         {
             visitor.DrawButton(this);
+            visitor.DrawLabel(this.label);
         }
 
         private bool isIntersecting(Point point)
