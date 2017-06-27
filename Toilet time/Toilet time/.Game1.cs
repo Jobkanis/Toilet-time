@@ -19,9 +19,10 @@ namespace Toilet_time
         public Texture2D Texture_Main_Char_with_Baby;
         public Texture2D Texture_Baby;
         public SpriteFont arial;
-        public Game1()
         
+        s
 
+        public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";

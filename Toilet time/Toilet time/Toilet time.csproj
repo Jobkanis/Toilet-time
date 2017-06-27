@@ -75,9 +75,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\baby.png" />
+    <Content Include="Content\Baby_Crying.wav" />
+    <Content Include="Content\Baby_Laughing.wav" />
     <Content Include="Content\brick.png" />
+    <Content Include="Content\Game_background.wav" />
+    <Content Include="Content\Game_end.wav" />
     <Content Include="Content\Main with baby.png" />
     <Content Include="Content\Main.png" />
+    <Content Include="Content\Menu_background.wav" />
     <Content Include="Content\white_pixel.png" />
     <Content Include="Icon.ico" />
   </ItemGroup>
