@@ -8,6 +8,7 @@ namespace Toilet_time
     public class DrawVisitor
     {
         public SpriteBatch spriteBatch;
+        public SpriteFont arial;
         public GraphicsDeviceManager graphics;
         public Texture2D Texture_Platform;
         Texture2D Texture_Main_Char;
@@ -17,7 +18,7 @@ namespace Toilet_time
         public int CurrentHeight;
         public int CurrentWidth;
 
-        public DrawVisitor(SpriteBatch spriteBatch, GraphicsDeviceManager graphics, Texture2D Texture_Platform, Texture2D Texture_Main_Char, Texture2D Texture_Main_Char_with_Baby, Texture2D Texture_Baby)
+        public DrawVisitor(SpriteBatch spriteBatch, GraphicsDeviceManager graphics, SpriteFont arial, Texture2D Texture_Platform, Texture2D Texture_Main_Char, Texture2D Texture_Main_Char_with_Baby, Texture2D Texture_Baby)
         {
             this.graphics = graphics;
             CurrentHeight = 600;
@@ -28,6 +29,7 @@ namespace Toilet_time
             this.Texture_Main_Char = Texture_Main_Char;
             this.Texture_Main_Char_with_Baby = Texture_Main_Char_with_Baby;
             this.Texture_Baby = Texture_Baby;
+            this.arial = arial;
 
         }
 
@@ -73,7 +75,7 @@ namespace Toilet_time
 
         public void DrawLabel(Label label)
         {
-
+            spriteBatch.DrawString(arial, label.text, new Vector2(label.position.x, label.position.y), label.color);
         }
 
         enum Dimensions { x, y }

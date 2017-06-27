@@ -27,3 +27,4 @@ C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\
 C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\obj\x86\Release\Toilet time.csprojResolveAssemblyReference.cache
 C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\baby.xnb
 C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Main with baby.xnb
+C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Arial.xnb

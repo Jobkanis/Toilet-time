@@ -31,10 +31,12 @@ namespace Toilet_time
                         //platforms
                         stable_objects.Add(new Platform(0, 300,     500, 50));
                         stable_objects.Add(new Platform(300, 250,     300, 50));
-
-                        //gui_stuff 
                         stable_objects.Add(new Platform(800, 250, 300, 50));
                         stable_objects.Add(new Platform(1100, 200, 50, 50));
+
+                        //gui_stuff 
+                        gui_stuff.Add(new Label(50, 50, 50, 50, "text123test123"));
+
 
 
                         break;

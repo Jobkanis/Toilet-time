@@ -61,3 +61,6 @@
 /processorParam:TextureFormat=Color
 /build:Main with baby.png
 
+#begin Arial.xnb
+/copy:Arial.xnb
+
