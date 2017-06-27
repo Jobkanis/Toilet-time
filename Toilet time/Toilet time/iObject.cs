@@ -75,7 +75,7 @@ namespace Toilet_time
         public void Update_Gravity(float dt, Gui_Manager guimanager)
         {
             float startvelocity = velocity;
-            velocity = velocity - (10 * dt);
+            velocity = velocity - (15 * dt);
            
             if (startvelocity > 0.6 && velocity < 0.6)
             {

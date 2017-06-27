@@ -23,7 +23,7 @@ namespace Toilet_time
         float localwalkspeed = 0;
 
         int pickupcooldown = 0;
-
+        int lowestyvalue = 800;
 
 
         public Gui_Manager(DrawVisitor drawvisitor)
@@ -225,10 +225,24 @@ namespace Toilet_time
 
             //kill on fall
             Fallable_Object main = GetMain_Character();
-            if (main.position.y + main.size.y > 800)
+            if (main.position.y + main.size.y > lowestyvalue)
             {
                 Main_Dead();
             }
+
+            Interacting_Objects.Reset();
+            while (Interacting_Objects.GetNext().Visit(() => false, _ => true))
+            {
+                if (Interacting_Objects.GetCurrent().Visit(() => false, item => { return item.IsBaby; }))
+                {
+                    iObject baby = Interacting_Objects.GetCurrent().Visit<iObject>(() => throw new Exception("failed getting interaction"), act => { return act; });
+                    if (baby.position.y + baby.size.y > lowestyvalue)
+                    {
+                        Main_Dead();
+                    }
+                }
+            }
+
 
             //cooldown
             if (pickupcooldown > 0)
