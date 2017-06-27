@@ -1,6 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Media;
+using System.Media;
 
 namespace Toilet_time
 {
@@ -19,8 +22,10 @@ namespace Toilet_time
         public Texture2D Texture_Main_Char_with_Baby;
         public Texture2D Texture_Baby;
         public SpriteFont arial;
-        
-        s
+
+        public SoundEffect Menu_Background;
+        public SoundEffect Game_Background;
+        public SoundHandler sound_handler;
 
         public Game1()
         {
@@ -50,13 +55,20 @@ namespace Toilet_time
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             arial = Content.Load<SpriteFont>("arial");
+
             Texture_White_Pixel = Content.Load<Texture2D>("white_pixel");
             Texture_Platform = Content.Load<Texture2D>("brick");
             Texture_Main_char = Content.Load<Texture2D>("Main");
             Texture_Main_Char_with_Baby = Content.Load<Texture2D>("Main with baby");
             Texture_Baby = Content.Load<Texture2D>("Baby");
+
+
+            Game_Background = Content.Load<SoundEffect>("Game_background");
+            Menu_Background = Content.Load<SoundEffect>("Menu_background");
+            sound_handler = new SoundHandler(Menu_Background, Game_Background);
+            
             draw_visitor = new DrawVisitor(spriteBatch, graphics, arial, Texture_White_Pixel, Texture_Platform, Texture_Main_char, Texture_Main_Char_with_Baby, Texture_Baby);
-            gui_manager = new Gui_Manager(draw_visitor);
+            gui_manager = new Gui_Manager(draw_visitor, sound_handler);
             // TODO: use this.Content to load your game content here
         }
 

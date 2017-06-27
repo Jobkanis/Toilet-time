@@ -29,3 +29,8 @@ C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\
 C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Main with baby.xnb
 C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Arial.xnb
 C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\white_pixel.xnb
+C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Baby_Crying.xnb
+C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Baby_Laughing.xnb
+C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Game_background.xnb
+C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Game_end.xnb
+C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Menu_background.xnb

@@ -14,6 +14,7 @@ namespace Toilet_time
 
         public Factory_screen screenFactory;
         public DrawVisitor Drawvisitor;
+        public SoundHandler sound_handler;
         public Input_Adapter inputadapter;
         public Point Cursor;
         public InputData LatestInput;
@@ -27,7 +28,7 @@ namespace Toilet_time
         int lowestyvalue = 800;
 
 
-        public Gui_Manager(DrawVisitor drawvisitor)
+        public Gui_Manager(DrawVisitor drawvisitor, SoundHandler sound_handler)
         {
             this.Drawvisitor = drawvisitor;
             this.CharacterSpeed = 300;
@@ -36,7 +37,10 @@ namespace Toilet_time
             this.inputadapter = new Input_Adapter();
             this.screen = 1;
             this.Cursor = new Point(0,0);
+            this.sound_handler = sound_handler;
             Create_screen(screen);
+
+            sound_handler.PlayBackground(BackGroundMusic.menu);
         }
 
         public bool Check_Collision(iObject Object, int x_pos, int y_pos, int x_size, int y_size)
