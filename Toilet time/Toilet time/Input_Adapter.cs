@@ -43,13 +43,17 @@ namespace Toilet_time
             iOption<WalkDirectionInput> WalkDirection = new None<WalkDirectionInput>();
             iOption<CharacterActivity> CharacterActivity = new None<CharacterActivity>();
             iOption<SettingsInput> Settings = new None<SettingsInput>();
+            iOption<MousePressed> MouseAction = new None<MousePressed>();
             Point cursor = new Point(-1, -1);
 
             KeyboardState keyboard_state = Keyboard.GetState();
 
             var mouse_state = Mouse.GetState();
             cursor = new Point(mouse_state.X, mouse_state.Y);
-
+            if (mouse_state.LeftButton == ButtonState.Pressed)
+            {
+                MouseAction = new Some<MousePressed>(MousePressed.Left_Button);
+            }
 
             // needs to be build out!
 
@@ -78,7 +82,7 @@ namespace Toilet_time
                 CharacterActivity = new Some<CharacterActivity>(Toilet_time.CharacterActivity.Action);
             }
 
-            return new InputData(MoveAction, WalkDirection, CharacterActivity, Settings, cursor);
+            return new InputData(MoveAction, WalkDirection, CharacterActivity, Settings, MouseAction, cursor);
             //return new Input();
         }
 
@@ -89,6 +93,7 @@ namespace Toilet_time
             iOption<WalkDirectionInput> WalkDirection = new None<WalkDirectionInput>();
             iOption<CharacterActivity> CharacterActivity = new None<CharacterActivity>();
             iOption<SettingsInput> Settings = new None<SettingsInput>();
+            iOption<MousePressed> MouseAction = new None<MousePressed>();
             Point cursor = new Point(-1, -1);
 
             KeyboardState keyboard_state = Keyboard.GetState();
@@ -96,9 +101,17 @@ namespace Toilet_time
             var mouse_state = Mouse.GetState();
             cursor = new Point(mouse_state.X, mouse_state.Y);
 
+            if (mouse_state.LeftButton == ButtonState.Pressed)
+            {
+                MouseAction = new Some<MousePressed>(MousePressed.Left_Button);
+            }
 
             // needs to be build out!
 
+            if (keyboard_state.IsKeyDown(Keys.Up))
+            {
+                MoveAction = new Some<CharacterMovementAction>(CharacterMovementAction.Jump);
+            }
 
 
             if (keyboard_state.IsKeyDown(Keys.W))
@@ -125,7 +138,7 @@ namespace Toilet_time
         {
             CharacterActivity = new Some<CharacterActivity>(Toilet_time.CharacterActivity.Action);
         }
-        return new InputData(MoveAction, WalkDirection, CharacterActivity, Settings, cursor);
+        return new InputData(MoveAction, WalkDirection, CharacterActivity, Settings, MouseAction, cursor);
         //return new Input();
         }
     }  

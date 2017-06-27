@@ -16,6 +16,7 @@ namespace Toilet_time
         public DrawVisitor Drawvisitor;
         public Input_Adapter inputadapter;
         public Point Cursor;
+        public InputData LatestInput;
 
         int inputmechanism;
         
@@ -222,14 +223,17 @@ namespace Toilet_time
         public void Update(float dt)
         {
             InputData input = inputadapter.GetInput(inputmechanism);
+            LatestInput = input;
 
             //kill on fall
             Fallable_Object main = GetMain_Character();
-            if (main.position.y + main.size.y > lowestyvalue)
+            if (main != null)
             {
-                Main_Dead();
+                if (main.position.y + main.size.y > lowestyvalue)
+                {
+                    Main_Dead();
+                }
             }
-
             Interacting_Objects.Reset();
             while (Interacting_Objects.GetNext().Visit(() => false, _ => true))
             {

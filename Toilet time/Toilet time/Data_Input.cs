@@ -10,6 +10,7 @@ namespace Toilet_time
 
     public enum SettingsInput {Exit}
 
+    public enum MousePressed {Left_Button}
 
     public class InputData
     {
@@ -17,17 +18,19 @@ namespace Toilet_time
         public iOption<WalkDirectionInput> Walk;
         public iOption<CharacterActivity> CharacterActivity;
         public iOption<SettingsInput> Settings;
+        public iOption<MousePressed> MouseButton;
         public Point cursor;
 
         
 
-        public InputData(iOption<CharacterMovementAction> MoveAction, iOption<WalkDirectionInput> Walk, iOption<CharacterActivity> CharacterActivity, iOption<SettingsInput> Settings, Point cursor)
+        public InputData(iOption<CharacterMovementAction> MoveAction, iOption<WalkDirectionInput> Walk, iOption<CharacterActivity> CharacterActivity, iOption<SettingsInput> Settings, iOption<MousePressed> MouseButton, Point cursor)
         {
             this.MoveAction = MoveAction;
             this.Walk = Walk;
             this.Settings = Settings;
             this.CharacterActivity = CharacterActivity;
             this.cursor = cursor;
+            this.MouseButton = MouseButton;
         }
 
 

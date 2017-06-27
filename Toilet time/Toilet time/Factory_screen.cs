@@ -23,7 +23,7 @@ namespace Toilet_time
                 case 1:
                     {
                         //sceen size: 800 * 600
-
+                        /*
                         //character
                         fallable_objects.Add(new Main_Character(200, 240));
                         Interacting_Objects.Add(new Baby(400, 0));
@@ -33,11 +33,13 @@ namespace Toilet_time
                         stable_objects.Add(new Platform(300, 250,     300, 50));
                         stable_objects.Add(new Platform(800, 250, 300, 50));
                         stable_objects.Add(new Platform(1100, 200, 50, 50));
-
+                        */
                         //gui_stuff 
-                        gui_stuff.Add(new Label(50, 50, 50, 50, "text123test123"));
+                        gui_stuff.Add(new Label(400, 50, 50, 50, "text123test123"));
 
+                        gui_stuff.Add(new Label(400, 150, 50 ,50, "text123test123"));
 
+                        gui_stuff.Add(new Label(400, 250, 50, 50, "text123test123"));
 
                         break;
                     }
