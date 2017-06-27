@@ -27,7 +27,7 @@ namespace Toilet_time
                     {
 
                         gui_stuff.Add(new Button(350, 100, 100, 50, "play", Color.Black, Color.Gray, (Gui_Manager guimanager) => { guimanager.Create_screen(2); } ));
-                        gui_stuff.Add(new Button(350, 200, 100, 50, "Exit", Color.Black, Color.Gray, (Gui_Manager guimanager) => { guimanager.Create_screen(3); }));
+                        gui_stuff.Add(new Button(350, 200, 100, 50, "Exit", Color.Black, Color.Gray, (Gui_Manager guimanager) => { guimanager.game.Exit(); }));
 
                         break;
                     }
@@ -42,11 +42,6 @@ namespace Toilet_time
                         stable_objects.Add(new Platform(300, 250,     300, 50));
                         stable_objects.Add(new Platform(800, 250, 300, 50));
                         stable_objects.Add(new Platform(1100, 200, 50, 50));
-                        break;
-                    }
-                case 3: {
-                        var exit = new Game1();
-                        exit.Quit();
                         break;
                     }
                 default:

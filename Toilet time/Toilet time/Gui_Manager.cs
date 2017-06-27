@@ -18,6 +18,7 @@ namespace Toilet_time
         public Input_Adapter inputadapter;
         public Point Cursor;
         public InputData LatestInput;
+        public Game1 game;
 
         int inputmechanism;
         
@@ -28,8 +29,9 @@ namespace Toilet_time
         int lowestyvalue = 800;
 
 
-        public Gui_Manager(DrawVisitor drawvisitor, SoundHandler sound_handler)
+        public Gui_Manager(Game1 game, DrawVisitor drawvisitor, SoundHandler sound_handler)
         {
+            this.game = game;
             this.Drawvisitor = drawvisitor;
             this.CharacterSpeed = 300;
             this.inputmechanism = 1;

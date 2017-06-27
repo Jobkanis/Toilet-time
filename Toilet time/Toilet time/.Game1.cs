@@ -68,7 +68,7 @@ namespace Toilet_time
             sound_handler = new SoundHandler(Menu_Background, Game_Background);
             
             draw_visitor = new DrawVisitor(spriteBatch, graphics, arial, Texture_White_Pixel, Texture_Platform, Texture_Main_char, Texture_Main_Char_with_Baby, Texture_Baby);
-            gui_manager = new Gui_Manager(draw_visitor, sound_handler);
+            gui_manager = new Gui_Manager(this, draw_visitor, sound_handler);
             // TODO: use this.Content to load your game content here
         }
 

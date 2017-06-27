@@ -4,15 +4,15 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>D:/School/Development/Project 4/Toilet-time---Project-4/Toilet-time---Project-4/Toilet time/Toilet time/Content/brick.png</File>
-    <File>D:/School/Development/Project 4/Toilet-time---Project-4/Toilet-time---Project-4/Toilet time/Toilet time/Content/Main.png</File>
-    <File>D:/School/Development/Project 4/Toilet-time---Project-4/Toilet-time---Project-4/Toilet time/Toilet time/Content/baby.png</File>
-    <File>D:/School/Development/Project 4/Toilet-time---Project-4/Toilet-time---Project-4/Toilet time/Toilet time/Content/Main with baby.png</File>
-    <File>D:/School/Development/Project 4/Toilet-time---Project-4/Toilet-time---Project-4/Toilet time/Toilet time/Content/white_pixel.png</File>
-    <File>D:/School/Development/Project 4/Toilet-time---Project-4/Toilet-time---Project-4/Toilet time/Toilet time/Content/Baby_Crying.wav</File>
-    <File>D:/School/Development/Project 4/Toilet-time---Project-4/Toilet-time---Project-4/Toilet time/Toilet time/Content/Baby_Laughing.wav</File>
-    <File>D:/School/Development/Project 4/Toilet-time---Project-4/Toilet-time---Project-4/Toilet time/Toilet time/Content/Game_background.wav</File>
-    <File>D:/School/Development/Project 4/Toilet-time---Project-4/Toilet-time---Project-4/Toilet time/Toilet time/Content/Game_end.wav</File>
-    <File>D:/School/Development/Project 4/Toilet-time---Project-4/Toilet-time---Project-4/Toilet time/Toilet time/Content/Menu_background.wav</File>
+    <File>C:/Users/jobka/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet time/Content/brick.png</File>
+    <File>C:/Users/jobka/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet time/Content/Main.png</File>
+    <File>C:/Users/jobka/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet time/Content/baby.png</File>
+    <File>C:/Users/jobka/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet time/Content/Main with baby.png</File>
+    <File>C:/Users/jobka/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet time/Content/white_pixel.png</File>
+    <File>C:/Users/jobka/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet time/Content/Baby_Crying.wav</File>
+    <File>C:/Users/jobka/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet time/Content/Baby_Laughing.wav</File>
+    <File>C:/Users/jobka/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet time/Content/Game_background.wav</File>
+    <File>C:/Users/jobka/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet time/Content/Game_end.wav</File>
+    <File>C:/Users/jobka/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet time/Content/Menu_background.wav</File>
   </SourceFiles>
 </SourceFileCollection>
