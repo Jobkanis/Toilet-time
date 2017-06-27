@@ -4,6 +4,7 @@ namespace Toilet_time
 {
     public class Gui_Manager
     {
+
         Iterator<Fallable_Object> Fallable_Objects;
         Iterator<Stable_Object> Stable_Objects;
         Iterator<iObject> Gui_stuff;
@@ -29,6 +30,7 @@ namespace Toilet_time
         public int pickupcooldown = 0;
         int lowestyvalue = 800;
 
+        public int Level_Finished_Cooldown;
 
         public Gui_Manager(Game1 game, DrawVisitor drawvisitor, SoundHandler sound_handler)
         {
@@ -42,7 +44,7 @@ namespace Toilet_time
             this.Cursor = new Point(0,0);
             this.sound_handler = sound_handler;
             Create_screen(screen);
-
+            Level_Finished_Cooldown = 0;
             sound_handler.PlayBackground(BackGroundMusic.menu);
             
            
@@ -235,10 +237,19 @@ namespace Toilet_time
 
         public void Update(float dt)
         {
+            //cooldown
+            if (pickupcooldown > 0) { pickupcooldown -= 1; }
+            if (buttoncooldown > 0) { buttoncooldown -= 1;} 
+            if (Level_Finished_Cooldown > 0) { Level_Finished_Cooldown -= 1;  }
+
             InputData input = inputadapter.GetInput(inputmechanism);
             LatestInput = input;
 
+
+
             //kill on fall
+
+            
             Fallable_Object main = GetMain_Character();
             if (main != null)
             {
@@ -247,6 +258,7 @@ namespace Toilet_time
                     Main_Dead();
                 }
             }
+
             Interacting_Objects.Reset();
             while (Interacting_Objects.GetNext().Visit(() => false, _ => true))
             {
@@ -259,21 +271,15 @@ namespace Toilet_time
                     }
                 }
             }
+            
 
+          
 
-            //cooldown
-            if (pickupcooldown > 0)
-            {
-                pickupcooldown -= 1;
-            }
-
-            if (buttoncooldown > 0)
-            {
-                buttoncooldown -= 1;
-            }
 
             // cursor
             this.Cursor = input.cursor;
+
+
 
             // walk
             bool walk = false;
@@ -311,6 +317,7 @@ namespace Toilet_time
 
 
             // jump
+
             if (input.MoveAction.Visit(() => false, _ => true))
             {
                 if (input.MoveAction.Visit<CharacterMovementAction>(() => { throw new Exception("Charactermovement failed"); }, item => { return item; }) == CharacterMovementAction.Jump)
