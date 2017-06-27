@@ -12,7 +12,6 @@ namespace Toilet_time
 
         Screen Current_screen;
         int screen;
-        int NextScreen;
 
         public Factory_screen screenFactory;
         public DrawVisitor Drawvisitor;
@@ -127,6 +126,16 @@ namespace Toilet_time
             this.Stable_Objects = Current_screen.Stable_Objects;
             this.Gui_stuff = Current_screen.gui_stuff;
             this.Interacting_Objects = Current_screen.Interacting_Objects;
+
+            //sound
+            if (Current_screen.islevel == true)
+            {
+                sound_handler.PlayBackground(BackGroundMusic.game_cry);
+            }
+            else
+            {
+                sound_handler.PlayBackground(BackGroundMusic.menu);
+            }
 
         }
         public void Getinputmechanism(int inputnumber)
@@ -423,23 +432,27 @@ namespace Toilet_time
                                         iObject baby = interacton.GetCurrent().Visit<iObject>(() => throw new Exception("failed getting interaction"), act => { return act; });
                                         main.HasBaby = true;
                                         baby.Visible = false;
+                                        sound_handler.PlayBackground(BackGroundMusic.game_noncry);
+                                        sound_handler.PlaySoundEffect(BackGroundSoundEffect.baby_laugh);
                                     }
                                 }
                             }
 
-                        }
-                        else
-                        {
-                            Interacting_Objects.Reset();
-                            while (Interacting_Objects.GetNext().Visit(() => false, unusedvalue => true))
-                            {
-                                if (Interacting_Objects.GetCurrent().Visit(() => false, item => { return item.IsBaby; }))
-                                {
-                                    iObject baby = Interacting_Objects.GetCurrent().Visit<iObject>(() => throw new Exception("failed getting interaction"), act => { return act; });
-                                    main.HasBaby = false;
-                                    baby.position = new Position(main.position.x, main.position.y + 20);
-                                    baby.Visible = true;
 
+                            else
+                            {
+                                Interacting_Objects.Reset();
+                                while (Interacting_Objects.GetNext().Visit(() => false, unusedvalue => true))
+                                {
+                                    if (Interacting_Objects.GetCurrent().Visit(() => false, item => { return item.IsBaby; }))
+                                    {
+                                        iObject baby = Interacting_Objects.GetCurrent().Visit<iObject>(() => throw new Exception("failed getting interaction"), act => { return act; });
+                                        main.HasBaby = false;
+                                        baby.position = new Position(main.position.x, main.position.y + 20);
+                                        baby.Visible = true;
+                                        sound_handler.PlayBackground(BackGroundMusic.game_cry);
+
+                                    }
                                 }
                             }
                         }
@@ -462,6 +475,7 @@ namespace Toilet_time
                         this.End_Of_Level_Cooldown = 2;
                         this.Controls_Cooldown = 2;
                         this.End_Of_Level = true;
+                        sound_handler.PlaySoundEffect(BackGroundSoundEffect.game_end);
                     }
                 }
             }

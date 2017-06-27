@@ -24,13 +24,14 @@ namespace Toilet_time
             Iterator<iObject> gui_stuff = new List<iObject>();
 
             Iterator<iObject> Interacting_Objects = new List<iObject>();
+            bool islevel;
 
             switch (level_number)
             {
 
                 case 1:
                     {
-
+                        islevel = false;
                         gui_stuff.Add(new Button(350, 100, 100, 50, "play", Color.Black, Color.Gray, (Gui_Manager guimanager) => { guimanager.Create_screen(3); } ));
                         gui_stuff.Add(new Button(350, 200, 100, 50, "Exit", Color.Black, Color.Gray, (Gui_Manager guimanager) => { guimanager.game.Exit(); }));
                         gui_stuff.Add(new Button(350, 300, 100, 50, "Settings", Color.Black, Color.Gray, (Gui_Manager guimanager) => { guimanager.Create_screen(2); }));
@@ -38,6 +39,7 @@ namespace Toilet_time
                     }
                 case 2:
                     {
+                        islevel = false;
                         gui_stuff.Add(new Button(350, 100, 100, 50, "Back", Color.Black, Color.Gray, (Gui_Manager guimanager) => { guimanager.Create_screen(1); }));
                         if (gui_manager.inputmechanism == 2)
                         {
@@ -61,6 +63,7 @@ namespace Toilet_time
                     }
                 case 3:
                     {
+                        islevel = true;
                         gui_stuff.Add(new Button(0, 0, 100, 50, "Back", Color.Black, Color.Gray, (Gui_Manager guimanager) => { guimanager.Create_screen(1); }));
 
                         //character
@@ -79,10 +82,11 @@ namespace Toilet_time
                     }
                 default:
                     {
+                        islevel = false;
                         break;
                     }
             }
-            return new Screen(fallable_objects, stable_objects, gui_stuff, Interacting_Objects);
+            return new Screen(fallable_objects, stable_objects, gui_stuff, Interacting_Objects, islevel);
         }
     }
 }
