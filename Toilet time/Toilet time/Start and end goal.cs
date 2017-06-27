@@ -7,7 +7,7 @@ namespace Toilet_time
         public End_Goal(int x_pos, int y_pos)
             : base(new Position(x_pos, y_pos), new Size(50, 50), false)
         {
-
+            this.IsEnd = true;
         }
 
         public override void Update(float dt, Gui_Manager guimanager)

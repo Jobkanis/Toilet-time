@@ -64,8 +64,11 @@ namespace Toilet_time
                         gui_stuff.Add(new Button(0, 0, 100, 50, "Back", Color.Black, Color.Gray, (Gui_Manager guimanager) => { guimanager.Create_screen(1); }));
 
                         //character
-                        fallable_objects.Add(new Main_Character(200, 240));
-                        Interacting_Objects.Add(new Baby(400, 0));
+                        fallable_objects.Add(new Main_Character(200, 240, 1));
+
+                        //interactions
+                        Interacting_Objects.Add(new Baby(200, 0));
+                        Interacting_Objects.Add(new End_Goal(1000, 0));
 
                         //platforms
                         stable_objects.Add(new Platform(0, 300, 500, 50));

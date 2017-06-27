@@ -21,20 +21,19 @@ namespace Toilet_time
         public Size size;
         public Position position;
         public bool resizeable;
-        public bool IsMainCharacter;
-        public bool IsBaby;
-        public bool MoveOnWalk;
+        public bool IsMainCharacter = false;
+        public bool IsBaby = false;
+        public bool IsEnd = false;
+        public bool MoveOnWalk = true;
         public bool HasBaby = false;
         public bool Visible = true;
+        public int nextscreen;
 
         public iObject(Position position, Size size, bool resizeable)
         {
             this.size = size;
             this.position = position;
             this.resizeable = resizeable;
-            this.IsMainCharacter = false;
-            this.IsBaby = false;
-            this.MoveOnWalk = true;
         }
 
         public abstract void Draw(DrawVisitor visitor);
