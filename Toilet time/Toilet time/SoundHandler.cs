@@ -58,6 +58,7 @@ namespace Toilet_time
                     {
                         menu_background.Stop();
                         game_background.Play();
+                        game_end.Stop();
                         baby_cry.Stop();
                         break;
                     }
@@ -65,6 +66,7 @@ namespace Toilet_time
                     {
                         menu_background.Stop();
                         game_background.Play();
+                        game_end.Stop();
                         baby_cry.Play();
                         break;
                     }
