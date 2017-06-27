@@ -15,9 +15,15 @@ namespace Toilet_time
        
        SoundEffectInstance menu_background;
        SoundEffectInstance game_background;
+       SoundEffectInstance game_End;
+       SoundEffectInstance baby_Laugh;
+       SoundEffectInstance baby_Cry;
 
 
-       public SoundHandler(SoundEffect menu_background, SoundEffect game_background)
+       
+
+
+       public SoundHandler(SoundEffect menu_background, SoundEffect game_background, SoundEffect game_end, SoundEffect baby_laugh, SoundEffect baby_cry)
         {
             this.menu_background = menu_background.CreateInstance();
             this.menu_background.IsLooped = true;
