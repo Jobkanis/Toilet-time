@@ -12,8 +12,6 @@ namespace Toilet_time
         Color mouseovercolor;
         public Action<Gui_Manager> action;
 
-        int cooldown = 0;
-
         public Button(int x_pos, int y_pos, int x_size, int y_size, string text, Color regularcolor, Color mouseovercolor, Action<Gui_Manager> action)
             :base(new Position(x_pos, y_pos), new Size(x_size,y_size), true)
         {

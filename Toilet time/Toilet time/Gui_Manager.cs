@@ -20,7 +20,7 @@ namespace Toilet_time
         public InputData LatestInput;
         public Game1 game;
 
-        int inputmechanism;
+        public int inputmechanism;
         
         public int CharacterSpeed; 
         float localwalkspeed = 0;
@@ -36,7 +36,7 @@ namespace Toilet_time
             this.Drawvisitor = drawvisitor;
             this.CharacterSpeed = 300;
             this.inputmechanism = 1;
-            this.screenFactory = new Factory_screen();
+            this.screenFactory = new Factory_screen(this);
             this.inputadapter = new Input_Adapter();
             this.screen = 1;
             this.Cursor = new Point(0,0);

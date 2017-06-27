@@ -7,9 +7,14 @@ namespace Toilet_time
 {
     public class Factory_screen
     {
-        public Factory_screen()
+        public Gui_Manager gui_manager;
+        public Color inputcolorWASD= new Color();
+        public Color inputcolorArrows = new Color();
+        public Color hovercolorWASD = new Color();
+        public Color hovercolorArrows = new Color();
+        public Factory_screen(Gui_Manager gui_manager)
         {
-
+            this.gui_manager = gui_manager;
         }
 
         public Screen Create_screen(int level_number)
@@ -34,12 +39,30 @@ namespace Toilet_time
                 case 2:
                     {
                         gui_stuff.Add(new Button(350, 100, 100, 50, "Back", Color.Black, Color.Gray, (Gui_Manager guimanager) => { guimanager.Create_screen(1); }));
-                        gui_stuff.Add(new Button(350, 200, 100, 50, "Wasd", Color.Black, Color.Gray, (Gui_Manager guimanager) => { guimanager.Getinputmechanism(2); }));
-                        gui_stuff.Add(new Button(350, 300, 100, 50, "Arrows", Color.Black, Color.Gray, (Gui_Manager guimanager) => { guimanager.Getinputmechanism(1); }));
+                        if (gui_manager.inputmechanism == 2)
+                        {
+                            
+                            inputcolorWASD = Color.Red;
+                            hovercolorWASD = Color.Red;
+                            inputcolorArrows = Color.Black;
+                            hovercolorArrows = Color.Black;
+                        }
+
+                        if (gui_manager.inputmechanism == 1)
+                        {
+                            inputcolorWASD = Color.Black;
+                            hovercolorWASD = Color.Black;
+                            inputcolorArrows = Color.Red;
+                            hovercolorArrows = Color.Red;
+                        }
+                        gui_stuff.Add(new Button(350, 200, 100, 50, "Wasd", inputcolorWASD, hovercolorWASD, (Gui_Manager guimanager) => { guimanager.Getinputmechanism(2); guimanager.Create_screen(2); }));
+                        gui_stuff.Add(new Button(350, 300, 100, 50, "Arrows", inputcolorArrows, hovercolorArrows, (Gui_Manager guimanager) => { guimanager.Getinputmechanism(1); guimanager.Create_screen(2);}));
                         break;
                     }
                 case 3:
                     {
+                        gui_stuff.Add(new Button(0, 0, 100, 50, "Back", Color.Black, Color.Gray, (Gui_Manager guimanager) => { guimanager.Create_screen(1); }));
+
                         //character
                         fallable_objects.Add(new Main_Character(200, 240));
                         Interacting_Objects.Add(new Baby(400, 0));

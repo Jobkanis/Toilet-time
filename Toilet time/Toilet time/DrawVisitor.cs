@@ -15,6 +15,8 @@ namespace Toilet_time
         public Texture2D Texture_Main_Char;
         public Texture2D Texture_Main_Char_with_Baby;
         public Texture2D Texture_Baby;
+        public Texture2D Texture_Toilet;
+        public Texture2D Texture_Toilet_With_Baby;
 
         public int CurrentHeight;
         public int CurrentWidth;
@@ -31,6 +33,8 @@ namespace Toilet_time
             this.Texture_Main_Char = Texture_Main_Char;
             this.Texture_Main_Char_with_Baby = Texture_Main_Char_with_Baby;
             this.Texture_Baby = Texture_Baby;
+            this.Texture_Toilet = Texture_Toilet;
+            this.Texture_Toilet_With_Baby = Texture_Toilet_With_Baby;
             this.arial = arial;
 
         }
@@ -67,7 +71,14 @@ namespace Toilet_time
 
         public void DrawEnd(End_Goal end)
         {
-
+            if (end.HasBaby == false)
+            {
+                spriteBatch.Draw(Texture_Toilet, new Rectangle(end.position.x, end.position.y, end.size.x, end.size.y), end.color);
+            }
+            else if (end.HasBaby == true)
+            {
+                spriteBatch.Draw(Texture_Toilet_With_Baby, new Rectangle(end.position.x, end.position.y, end.size.x, end.size.y), end.color);
+            }
         }
 
         public void DrawButton(Button button)
