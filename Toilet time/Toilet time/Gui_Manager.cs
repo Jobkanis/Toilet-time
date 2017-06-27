@@ -25,7 +25,8 @@ namespace Toilet_time
         public int CharacterSpeed; 
         float localwalkspeed = 0;
 
-        int pickupcooldown = 0;
+        public int buttoncooldown = 0;
+        public int pickupcooldown = 0;
         int lowestyvalue = 800;
 
 
@@ -43,6 +44,7 @@ namespace Toilet_time
             Create_screen(screen);
 
             sound_handler.PlayBackground(BackGroundMusic.menu);
+            
            
         }
 
@@ -259,6 +261,11 @@ namespace Toilet_time
             if (pickupcooldown > 0)
             {
                 pickupcooldown -= 1;
+            }
+
+            if (buttoncooldown > 0)
+            {
+                buttoncooldown -= 1;
             }
 
             // cursor
