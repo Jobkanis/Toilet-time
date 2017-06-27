@@ -32,9 +32,9 @@ namespace Toilet_time
                 case 1:
                     {
                         islevel = false;
-                        gui_stuff.Add(new Button(350, 100, 100, 50, "play", Color.Black, Color.Gray, (Gui_Manager guimanager) => { guimanager.Create_screen(3); } ));
-                        gui_stuff.Add(new Button(350, 200, 100, 50, "Exit", Color.Black, Color.Gray, (Gui_Manager guimanager) => { guimanager.game.Exit(); }));
-                        gui_stuff.Add(new Button(350, 300, 100, 50, "Settings", Color.Black, Color.Gray, (Gui_Manager guimanager) => { guimanager.Create_screen(2); }));
+                        gui_stuff.Add(new Button(350, 100, 100, 50, "Play", Color.Black, Color.Gray, (Gui_Manager guimanager) => { guimanager.Create_screen(3); } ));
+                        gui_stuff.Add(new Button(350, 200, 100, 50, "Settings", Color.Black, Color.Gray, (Gui_Manager guimanager) => { guimanager.Create_screen(2); }));
+                        gui_stuff.Add(new Button(350, 300, 100, 50, "Exit", Color.Black, Color.Gray, (Gui_Manager guimanager) => { guimanager.game.Exit(); }));
                         break;
                     }
                 case 2:
@@ -65,12 +65,12 @@ namespace Toilet_time
                     {
                         islevel = true;
                         gui_stuff.Add(new Button(0, 0, 100, 50, "Back", Color.Black, Color.Gray, (Gui_Manager guimanager) => { guimanager.Create_screen(1); }));
-
+                        
                         //character
                         fallable_objects.Add(new Main_Character(200, 240, 1));
 
                         //interactions
-                        Interacting_Objects.Add(new Baby(200, 0));
+                        Interacting_Objects.Add(new Baby(1505, 0));
                         Interacting_Objects.Add(new End_Goal(1000, 0));
 
                         //platforms
@@ -78,6 +78,9 @@ namespace Toilet_time
                         stable_objects.Add(new Platform(300, 250, 300, 50));
                         stable_objects.Add(new Platform(800, 250, 300, 50));
                         stable_objects.Add(new Platform(1100, 200, 50, 50));
+                        stable_objects.Add(new Platform(1300, 300, 50, 50));
+                        stable_objects.Add(new Platform(1500, 400, 50, 50));
+
                         break;
                     }
                 default:

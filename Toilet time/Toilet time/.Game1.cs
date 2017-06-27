@@ -115,7 +115,7 @@ namespace Toilet_time
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-            gui_manager.Draw();
+            gui_manager.Draw((float)gameTime.ElapsedGameTime.TotalMilliseconds / 1000);
             base.Draw(gameTime);
         }
     }

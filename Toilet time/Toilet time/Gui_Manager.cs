@@ -4,12 +4,13 @@ namespace Toilet_time
 {
     public class Gui_Manager
     {
+        bool VieuwDebugConsole = true;
 
         Iterator<Fallable_Object> Fallable_Objects;
         Iterator<Stable_Object> Stable_Objects;
         Iterator<iObject> Gui_stuff;
         Iterator<iObject> Interacting_Objects;
-
+        
         Screen Current_screen;
         int screen;
 
@@ -21,6 +22,9 @@ namespace Toilet_time
         public InputData LatestInput;
         public Game1 game;
 
+        float drawdt;
+        float updatedt;
+
         public int inputmechanism;
         
         public int CharacterSpeed; 
@@ -28,9 +32,8 @@ namespace Toilet_time
 
         public int buttoncooldown = 0;
         public int pickupcooldown = 0;
-
         public float Controls_Cooldown = 0;
-
+   
         public float End_Of_Level_Cooldown = 0;
         public bool End_Of_Level = false;
 
@@ -151,9 +154,52 @@ namespace Toilet_time
         }
 
 
-        public void Draw()
+        public void DrawDebugConsole() // remove when launched
         {
+            Label MouseInformation = new Label(600, 0, 100, 20, "");
+            MouseInformation.text = "Mouse: | " + Cursor.x.ToString() + "," + Cursor.y.ToString() + " | " + this.LatestInput.MouseButton.Visit<string>(() => { return ""; }, item => { return "" + item.ToString(); }) + " |";
+            MouseInformation.Draw(Drawvisitor);
+
+            Label InputInformation = new Label(600, 20, 100, 20, "");
+            InputInformation.text = "Input: | " + this.LatestInput.Walk.Visit<string>(() => { return ""; }, item => { return "   " + item.ToString(); }) + this.LatestInput.MoveAction.Visit<string>(() => { return ""; }, item => { return "   " + item.ToString(); }) + this.LatestInput.CharacterActivity.Visit<string>(() => { return ""; }, item => { return "   " + item.ToString(); }) + this.LatestInput.Settings.Visit<string>(() => { return ""; }, item => { return "   " + item.ToString(); }) + "   |";
+            InputInformation.Draw(Drawvisitor);
+
+            Label CooldownInformation = new Label(600, 40, 100, 20, "");
+            CooldownInformation.text = "Countdowns: | B: " + buttoncooldown.ToString() + " | P: " + pickupcooldown.ToString() + " | C: " + Controls_Cooldown.ToString() + " | E " + End_Of_Level_Cooldown.ToString() + " |";
+            CooldownInformation.Draw(Drawvisitor);
+
+            Label ScreenStats = new Label(600, 60, 100, 20, "");
+            ScreenStats.text = ("ScreenNr: " + screen.ToString() + " | Inputmethod: " + inputmechanism.ToString()) + " | Islevel: " + Current_screen.islevel.ToString();
+            ScreenStats.Draw(Drawvisitor);
+
+            Label LevelStats = new Label(600, 80, 100, 20, "");
+            LevelStats.text = ("Fallable: " + Fallable_Objects.Count().ToString() + " | Inter: " + Interacting_Objects.Count().ToString() + " | Stable: " + Stable_Objects.Count().ToString() + " | Gui: " + Gui_stuff.Count().ToString()  );
+            LevelStats.Draw(Drawvisitor);
+
+            Fallable_Object main = GetMain_Character();
+            Label MainInformation = new Label(600, 100, 100, 20, "No main_character found");
+            if (main != null) {
+                MainInformation.text = "MainY: " +  main.position.y.ToString() + " | Vel: " + ((int)(main.velocity)).ToString() + " | Baby: " + main.HasBaby.ToString() + " | Next: " + main.nextscreen.ToString();
+                
+            }
+            MainInformation.Draw(Drawvisitor);
+            Label PerformanceInformation = new Label(600, 120, 100, 20, "");
+            PerformanceInformation.text =  ((int)(1 / drawdt)).ToString() + " fps | " + ((int)(1 / updatedt)).ToString() + " ups";
+            PerformanceInformation.Draw(Drawvisitor);
+
+
+
+        }
+        public void Draw(float dt)
+        {
+            drawdt = dt;
+
             Drawvisitor.spriteBatch.Begin();
+
+            if (VieuwDebugConsole)
+            {
+                DrawDebugConsole(); // remove when launched!
+            }
 
             Stable_Objects.Reset();
             while (Stable_Objects.GetNext().Visit(() => false, unusedvalue => true))
@@ -256,6 +302,8 @@ namespace Toilet_time
 
         public void Update(float dt)
         {
+            updatedt = dt;
+
             bool controllsenabled = true;
 
             //cooldown
@@ -482,6 +530,9 @@ namespace Toilet_time
 
             if ( End_Of_Level_Cooldown <= 0 && End_Of_Level == true )
             {
+                End_Of_Level_Cooldown = 0;
+                End_Of_Level = false;
+                Controls_Cooldown = 0;
                 Create_screen(main.nextscreen);
             }
         }

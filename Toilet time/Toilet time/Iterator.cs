@@ -8,6 +8,7 @@ namespace Toilet_time
         iOption<T> GetCurrent();
         void Reset();
         void Add(T item);
+        int Count();
     }
 
     public class List<T> : Iterator<T>
@@ -57,6 +58,11 @@ namespace Toilet_time
             {
                 return new None<T>();
             }
+        }
+
+        public int Count()
+        {
+            return amount_of_items;
         }
     }
 }
