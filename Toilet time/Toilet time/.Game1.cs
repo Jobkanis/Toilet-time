@@ -13,6 +13,7 @@ namespace Toilet_time
         SpriteBatch spriteBatch;
         public Gui_Manager gui_manager;
         public DrawVisitor draw_visitor;
+        public Texture2D Texture_White_Pixel;
         public Texture2D Texture_Platform;
         public Texture2D Texture_Main_char;
         public Texture2D Texture_Main_Char_with_Baby;
@@ -35,6 +36,7 @@ namespace Toilet_time
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            this.IsMouseVisible = true;
             base.Initialize();
         }
 
@@ -47,11 +49,12 @@ namespace Toilet_time
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             arial = Content.Load<SpriteFont>("arial");
+            Texture_White_Pixel = Content.Load<Texture2D>("white_pixel");
             Texture_Platform = Content.Load<Texture2D>("brick");
             Texture_Main_char = Content.Load<Texture2D>("Main");
             Texture_Main_Char_with_Baby = Content.Load<Texture2D>("Main with baby");
             Texture_Baby = Content.Load<Texture2D>("Baby");
-            draw_visitor = new DrawVisitor(spriteBatch, graphics, arial, Texture_Platform, Texture_Main_char, Texture_Main_Char_with_Baby, Texture_Baby);
+            draw_visitor = new DrawVisitor(spriteBatch, graphics, arial, Texture_White_Pixel, Texture_Platform, Texture_Main_char, Texture_Main_Char_with_Baby, Texture_Baby);
             gui_manager = new Gui_Manager(draw_visitor);
             // TODO: use this.Content to load your game content here
         }

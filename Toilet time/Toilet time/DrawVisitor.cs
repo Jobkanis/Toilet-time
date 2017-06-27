@@ -10,21 +10,23 @@ namespace Toilet_time
         public SpriteBatch spriteBatch;
         public SpriteFont arial;
         public GraphicsDeviceManager graphics;
+        public Texture2D Texture_White_Pixel;
         public Texture2D Texture_Platform;
-        Texture2D Texture_Main_Char;
-        Texture2D Texture_Main_Char_with_Baby;
-        Texture2D Texture_Baby;
+        public Texture2D Texture_Main_Char;
+        public Texture2D Texture_Main_Char_with_Baby;
+        public Texture2D Texture_Baby;
 
         public int CurrentHeight;
         public int CurrentWidth;
 
-        public DrawVisitor(SpriteBatch spriteBatch, GraphicsDeviceManager graphics, SpriteFont arial, Texture2D Texture_Platform, Texture2D Texture_Main_Char, Texture2D Texture_Main_Char_with_Baby, Texture2D Texture_Baby)
+        public DrawVisitor(SpriteBatch spriteBatch, GraphicsDeviceManager graphics, SpriteFont arial, Texture2D Texture_White_Pixel, Texture2D Texture_Platform, Texture2D Texture_Main_Char, Texture2D Texture_Main_Char_with_Baby, Texture2D Texture_Baby)
         {
             this.graphics = graphics;
             CurrentHeight = 600;
             CurrentWidth = 800;
 
             this.spriteBatch = spriteBatch;
+            this.Texture_White_Pixel = Texture_White_Pixel;
             this.Texture_Platform = Texture_Platform;
             this.Texture_Main_Char = Texture_Main_Char;
             this.Texture_Main_Char_with_Baby = Texture_Main_Char_with_Baby;
@@ -68,9 +70,10 @@ namespace Toilet_time
 
         }
 
-        public void DrawRectale(iObject screengui)
+        public void DrawButton(Button button)
         {
-
+            spriteBatch.Draw(Texture_White_Pixel, new Rectangle((int)button.position.x, (int)button.position.y, (int)button.size.x, (int)button.size.y), button.color);
+            //this.DrawLabel(button.label);
         }
 
         public void DrawLabel(Label label)

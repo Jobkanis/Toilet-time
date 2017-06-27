@@ -78,6 +78,7 @@
     <Content Include="Content\brick.png" />
     <Content Include="Content\Main with baby.png" />
     <Content Include="Content\Main.png" />
+    <Content Include="Content\white_pixel.png" />
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>
