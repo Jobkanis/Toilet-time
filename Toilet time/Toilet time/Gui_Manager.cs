@@ -41,6 +41,7 @@ namespace Toilet_time
             Create_screen(screen);
 
             sound_handler.PlayBackground(BackGroundMusic.menu);
+           
         }
 
         public bool Check_Collision(iObject Object, int x_pos, int y_pos, int x_size, int y_size)

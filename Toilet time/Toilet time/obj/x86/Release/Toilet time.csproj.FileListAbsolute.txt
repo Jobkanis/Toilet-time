@@ -34,3 +34,39 @@ C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\
 C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Game_background.xnb
 C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Game_end.xnb
 C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Menu_background.xnb
+D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Arial.xnb
+D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\baby.xnb
+D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Baby_Crying.xnb
+D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Baby_Laughing.xnb
+D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\brick.xnb
+D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Game_background.xnb
+D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Game_end.xnb
+D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Main with baby.xnb
+D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Main.xnb
+D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Menu_background.xnb
+D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\white_pixel.xnb
+D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\TO DO - CREATE BUTTON.cs
+D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\TO DO - CREATE LABEL.cs
+D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Toilet time.exe
+D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Toilet time.pdb
+D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\MonoGame.Framework.dll
+D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\SharpDX.MediaFoundation.dll
+D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\SharpDX.dll
+D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\SharpDX.XAudio2.dll
+D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\SharpDX.DXGI.dll
+D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\SharpDX.Direct3D11.dll
+D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\SharpDX.Direct2D1.dll
+D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\SharpDX.XInput.dll
+D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\SharpDX.Direct3D9.dll
+D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\MonoGame.Framework.xml
+D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\SharpDX.MediaFoundation.xml
+D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\SharpDX.xml
+D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\SharpDX.XAudio2.xml
+D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\SharpDX.DXGI.xml
+D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\SharpDX.Direct3D11.xml
+D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\SharpDX.Direct2D1.xml
+D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\SharpDX.XInput.xml
+D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\SharpDX.Direct3D9.xml
+D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\obj\x86\Release\Toilet time.csprojResolveAssemblyReference.cache
+D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\obj\x86\Release\Toilet time.exe
+D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\obj\x86\Release\Toilet time.pdb
