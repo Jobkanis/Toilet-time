@@ -65,7 +65,7 @@ namespace Toilet_time
             Texture_Main_Char_with_Baby = Content.Load<Texture2D>("Main with baby");
             Texture_Baby = Content.Load<Texture2D>("Baby");
             Texture_Toilet = Content.Load<Texture2D>("Endgametoilet");
-            Texture_Toilet_With_Baby = Content.Load<Texture2D>("EndgametoiletWithBaby");
+            Texture_Toilet_With_Baby = Content.Load<Texture2D>("Endgame_with_toilet");
 
             Game_Background = Content.Load<SoundEffect>("Game_background");
             Menu_Background = Content.Load<SoundEffect>("Menu_background");
