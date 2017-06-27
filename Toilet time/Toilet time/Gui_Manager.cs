@@ -117,6 +117,10 @@ namespace Toilet_time
             this.Gui_stuff = Current_screen.gui_stuff;
             this.Interacting_Objects = Current_screen.Interacting_Objects;
         }
+        public void Getinputmechanism(int inputnumber)
+        {
+            this.inputmechanism = inputnumber;
+        }
 
         private void Reset_screen()
         {

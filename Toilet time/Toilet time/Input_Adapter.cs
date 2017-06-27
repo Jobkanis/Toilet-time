@@ -108,11 +108,6 @@ namespace Toilet_time
 
             // needs to be build out!
 
-            if (keyboard_state.IsKeyDown(Keys.Up))
-            {
-                MoveAction = new Some<CharacterMovementAction>(CharacterMovementAction.Jump);
-            }
-
 
             if (keyboard_state.IsKeyDown(Keys.W))
         {

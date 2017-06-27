@@ -34,7 +34,8 @@ namespace Toilet_time
                 case 2:
                     {
                         gui_stuff.Add(new Button(350, 100, 100, 50, "Back", Color.Black, Color.Gray, (Gui_Manager guimanager) => { guimanager.Create_screen(1); }));
-                        gui_stuff.Add(new Button(350, 200, 100, 50, "WASD", Color.Black, Color.Gray, (Gui_Manager guimanager) => { guimanager.game.Exit(); }));
+                        gui_stuff.Add(new Button(350, 200, 100, 50, "Wasd", Color.Black, Color.Gray, (Gui_Manager guimanager) => { guimanager.Getinputmechanism(2); }));
+                        gui_stuff.Add(new Button(350, 300, 100, 50, "Arrows", Color.Black, Color.Gray, (Gui_Manager guimanager) => { guimanager.Getinputmechanism(1); }));
                         break;
                     }
                 case 3:
