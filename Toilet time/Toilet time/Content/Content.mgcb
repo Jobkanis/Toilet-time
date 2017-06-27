@@ -76,3 +76,33 @@
 /processorParam:TextureFormat=Color
 /build:white_pixel.png
 
+#begin Baby_Crying.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Baby_Crying.wav
+
+#begin Baby_Laughing.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Baby_Laughing.wav
+
+#begin Game_background.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Game_background.wav
+
+#begin Game_end.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Game_end.wav
+
+#begin Menu_background.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Menu_background.wav
+
