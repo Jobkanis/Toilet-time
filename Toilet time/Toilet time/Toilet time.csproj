@@ -79,6 +79,8 @@
     <Content Include="Content\Baby_Crying.wav" />
     <Content Include="Content\Baby_Laughing.wav" />
     <Content Include="Content\brick.png" />
+    <Content Include="Content\Endgametoilet.png" />
+    <Content Include="Content\Endgame_with_toilet.png" />
     <Content Include="Content\Game_background.wav" />
     <Content Include="Content\Game_end.wav" />
     <Content Include="Content\Main with baby.png" />
