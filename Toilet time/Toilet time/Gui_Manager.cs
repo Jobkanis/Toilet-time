@@ -165,7 +165,7 @@ namespace Toilet_time
             MouseInformation.Draw(Drawvisitor);
 
             Label InputInformation = new Label(600, 20, 100, 20, "");
-            InputInformation.text = "Input: | " + this.LatestInput.Walk.Visit<string>(() => { return ""; }, item => { return "   " + item.ToString(); }) + this.LatestInput.MoveAction.Visit<string>(() => { return ""; }, item => { return "   " + item.ToString(); }) + this.LatestInput.CharacterActivity.Visit<string>(() => { return ""; }, item => { return "   " + item.ToString(); }) + this.LatestInput.Settings.Visit<string>(() => { return ""; }, item => { return "   " + item.ToString(); }) + "   |";
+            InputInformation.text = "Input: | "  +  this.LatestInput.Walk.Visit<string>(() => { return ""; }, item => { return "   " + item.ToString(); }) + this.LatestInput.MoveAction.Visit<string>(() => { return ""; }, item => { return "   " + item.ToString(); }) + this.LatestInput.CharacterActivity.Visit<string>(() => { return ""; }, item => { return "   " + item.ToString(); }) + this.LatestInput.Settings.Visit<string>(() => { return ""; }, item => { return "   " + item.ToString(); }) + "   |";
             InputInformation.Draw(Drawvisitor);
 
             Label CooldownInformation = new Label(600, 40, 100, 20, "");

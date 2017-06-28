@@ -111,6 +111,12 @@ namespace Toilet_time
             spriteBatch.DrawString(arial, label.text, new Vector2(label.position.x + ((label.size.x - textsize_x) / 2), label.position.y + ((label.size.y - textsize_y) / 2)), label.color);
         }
 
+        public void DrawToiletPaper(Toilet_Paper toilet_paper)
+        {
+            spriteBatch.Draw(Texture_Toilet_Paper, new Rectangle(toilet_paper.position.x, toilet_paper.position.y, toilet_paper.size.x, toilet_paper.size.y), toilet_paper.color);
+        }
+
+
         enum Dimensions { x, y }
         private int ConvertToSize(Dimensions dimension, float percent, int extra)
         {

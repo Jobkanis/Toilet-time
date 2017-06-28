@@ -35,7 +35,7 @@ namespace Toilet_time
             amount_of_items++;
 
             array = new_array;
-        }
+        }        
 
         public iOption<T> GetNext()
         {
