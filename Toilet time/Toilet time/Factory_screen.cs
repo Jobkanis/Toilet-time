@@ -87,25 +87,80 @@ namespace Toilet_time
                 case 3:
                     {
                         islevel = true;
-                        gui_stuff.Add(new Button(0, 0, 100, 50, "Back", Color.Black, Color.Gray, (Gui_Manager guimanager) => { guimanager.Create_screen(1); }));
                         
                         //character
-                        fallable_objects.Add(new Main_Character(200, 240, 1));
+                        fallable_objects.Add(new Main_Character(200, 0, 4));
+
+                        //interactions
+                        Interacting_Objects.Add(new Baby(400, 0));
+                        Interacting_Objects.Add(new End_Goal(600, 0));
+                       
+
+                        //platforms
+                        stable_objects.Add(new Platform(0, 300, 800, 20));
+
+                        break;
+                    }
+                case 4:
+                    {
+                        islevel = true;
+
+                        //character
+                        fallable_objects.Add(new Main_Character(200, 0, 5));
+
+                        //interactions
+                        Interacting_Objects.Add(new Baby(600, 0));
+                        Interacting_Objects.Add(new End_Goal(1000, 0));
+                        Interacting_Objects.Add(new Deadly_Brick(400, 0));
+                        Interacting_Objects.Add(new Toilet_Paper_Drop(800, -300, 1.5f));
+
+                        //platforms
+                        stable_objects.Add(new Platform(0, 300, 1200, 20));
+
+                        break;
+                    }
+
+
+                case 5:
+                    {
+                        islevel = true;
                         
+                        //character
+                        fallable_objects.Add(new Main_Character(200, 0, 6));
+                        
+                        //interactions
+                        Interacting_Objects.Add(new Baby(690, 0));
+                        Interacting_Objects.Add(new End_Goal(300, 0));
+                        Interacting_Objects.Add(new Deadly_Brick(500, 0));
+
+                        //platforms
+                        stable_objects.Add(new Platform(0, 300, 400, 20));
+                        stable_objects.Add(new Platform(400, 350, 300, 20));
+                        stable_objects.Add(new Platform(680, 300, 50, 20));
+
+                        break;
+                    }
+                case 6:
+                    {
+                        islevel = true;
+                       
+                        //character
+                        fallable_objects.Add(new Main_Character(200, 0, 1));
+
                         //interactions
                         Interacting_Objects.Add(new Baby(1505, 0));
                         Interacting_Objects.Add(new End_Goal(1000, 0));
-                        Interacting_Objects.Add(new Deadly_Brick(500, 0));
+                        Interacting_Objects.Add(new Deadly_Brick(800, 0));
 
-                        Interacting_Objects.Add(new Toilet_Paper_Drop(100, 0, 1));
+                        Interacting_Objects.Add(new Toilet_Paper_Drop(300, -300, 1));
 
                         //platforms
-                        stable_objects.Add(new Platform(0, 300, 500, 50));
-                        stable_objects.Add(new Platform(300, 250, 300, 50));
-                        stable_objects.Add(new Platform(800, 250, 300, 50));
-                        stable_objects.Add(new Platform(1100, 200, 50, 50));
-                        stable_objects.Add(new Platform(1300, 300, 50, 50));
-                        stable_objects.Add(new Platform(1500, 400, 50, 50));
+                        stable_objects.Add(new Platform(0, 300, 300, 20));
+                        stable_objects.Add(new Platform(350, 250, 250, 20));
+                        stable_objects.Add(new Platform(800, 250, 300, 20));
+                        stable_objects.Add(new Platform(1100, 200, 50, 20));
+                        stable_objects.Add(new Platform(1300, 300, 50, 20));
+                        stable_objects.Add(new Platform(1500, 400, 50, 20));
 
                         break;
                     }
@@ -118,6 +173,7 @@ namespace Toilet_time
 
             if (islevel)
             {
+                gui_stuff.Add(new Button(0, 0, 100, 50, "Back", Color.Black, Color.Gray, (Gui_Manager guimanager) => { guimanager.Create_screen(1); }));
                 Background = DrawVisitor.BackgroundType.ingamebackground;
             }
             else

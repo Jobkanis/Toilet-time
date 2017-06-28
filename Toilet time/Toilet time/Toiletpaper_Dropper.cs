@@ -7,7 +7,7 @@ namespace Toilet_time
         float cooldown = 0f;
         float interval;
 
-        public Toilet_Paper_Drop(int x_pos, int y_pos, int interval)
+        public Toilet_Paper_Drop(int x_pos, int y_pos, float interval)
             : base(new Position(x_pos, y_pos), new Size(50, 50), false)
         {
             this.Visible = false;

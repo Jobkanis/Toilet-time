@@ -152,7 +152,7 @@ namespace Toilet_time
             {
                 case (BackgroundType.ingamebackground):
                     {
-                        spriteBatch.Draw(Texture_Ingame_Background, new Rectangle(0, 0, CurrentWidth, CurrentHeight), Color.White);
+                        spriteBatch.Draw(Texture_Ingame_Background, new Rectangle(0, 0, CurrentWidth, CurrentHeight), Color.SkyBlue);
                         break;
                     }
                 case (BackgroundType.menubackground):

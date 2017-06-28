@@ -6,13 +6,13 @@ namespace Toilet_time
     {
         bool VieuwDebugConsole = true;
 
-        Iterator<Fallable_Object> Fallable_Objects;
-        Iterator<Stable_Object> Stable_Objects;
-        Iterator<iObject> Gui_stuff;
-        Iterator<iObject> Interacting_Objects;
+        public Iterator<Fallable_Object> Fallable_Objects;
+        public Iterator<Stable_Object> Stable_Objects;
+        public Iterator<iObject> Gui_stuff;
+        public Iterator<iObject> Interacting_Objects;
         
-        Screen Current_screen;
-        int screen;
+        public Screen Current_screen;
+        public int screen;
 
         public Factory_screen screenFactory;
         public DrawVisitor Drawvisitor;
@@ -22,14 +22,14 @@ namespace Toilet_time
         public InputData LatestInput;
         public Game1 game;
 
-        float drawdt;
-        float updatedt;
+        public float drawdt;
+        public float updatedt;
 
         public int inputmechanism;
         public bool Gamepadonline = false;
 
         public int CharacterSpeed; 
-        float localwalkspeed = 0;
+        public float localwalkspeed = 0;
 
         public int buttoncooldown = 0;
         public int pickupcooldown = 0;
@@ -38,12 +38,9 @@ namespace Toilet_time
         public float End_Of_Level_Cooldown = 0;
         public bool End_Of_Level = false;
 
-        int lowestyvalue = 800;
-
+        public int lowestyvalue = 800;
 
         public DrawVisitor.BackgroundType Background;
-
-        
 
         public Gui_Manager(Game1 game, DrawVisitor drawvisitor, SoundHandler sound_handler)
         {
@@ -269,7 +266,7 @@ namespace Toilet_time
                     if (Interacting_Objects.GetCurrent().Visit<bool>(
 
                                                                 () => { return false; }
-
+                                                                
                                                                 ,
 
 
@@ -325,7 +322,6 @@ namespace Toilet_time
         public void Update(float dt)
         {
             updatedt = dt;
-
             bool controllsenabled = true;
 
             //cooldown
@@ -337,18 +333,9 @@ namespace Toilet_time
             if (Controls_Cooldown > 0) { controllsenabled = false; };
 
             InputData input = inputadapter.GetInput(inputmechanism);
+
             LatestInput = input;
             Console.WriteLine(Gamepadonline + " - " + input.GamePadOnline);
-            if (Gamepadonline =! input.GamePadOnline)
-            {
-                if (screen == 2)
-                {
-                    
-                    Gamepadonline = input.GamePadOnline;
-                    Reload_screen();
-                }
-            }
-
             Gamepadonline = input.GamePadOnline;
 
             //kill on fall
@@ -559,8 +546,8 @@ namespace Toilet_time
                     {
                         main.HasBaby = false;
                         TouchingObject.HasBaby = true;
-                        this.End_Of_Level_Cooldown = 2;
-                        this.Controls_Cooldown = 2;
+                        this.End_Of_Level_Cooldown = 3;
+                        this.Controls_Cooldown = 3;
                         this.End_Of_Level = true;
                         sound_handler.PlaySoundEffect(ChooseSoundEffect.game_end);
                     }
