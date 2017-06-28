@@ -25,6 +25,7 @@ namespace Toilet_time
         public Texture2D Texture_Toilet_With_Baby;
         public Texture2D Texture_Toilet_Paper;
         public Texture2D Texture_Deadly_Bricks;
+        public Texture2D Texture_Mouse;
 
         public Texture2D Texture_Background_Wood;
 
@@ -75,7 +76,7 @@ namespace Toilet_time
             Texture_Toilet_Paper = Content.Load<Texture2D>("Toilet_Papier");
             Texture_Deadly_Bricks = Content.Load<Texture2D>("DeadlyBricks");
             Texture_Background_Wood = Content.Load<Texture2D>("Background_Wood");
-
+            Texture_Mouse = Content.Load<Texture2D>("mouse");
 
 
             End_Level = Content.Load<SoundEffect>("End_Level");
@@ -87,7 +88,7 @@ namespace Toilet_time
 
             sound_handler = new SoundHandler(Menu_Background, Ingame_Background, End_Level, Baby_Laugh, Baby_Cry);
             
-            draw_visitor = new DrawVisitor(spriteBatch, graphics, arial, Texture_White_Pixel, Texture_Platform, Texture_Main_char, Texture_Main_Char_with_Baby, Texture_Baby, Texture_Toilet, Texture_Toilet_With_Baby, Texture_Deadly_Bricks, Texture_Toilet_Paper, Texture_Background_Wood);
+            draw_visitor = new DrawVisitor(spriteBatch, graphics, arial, Texture_White_Pixel, Texture_Platform, Texture_Main_char, Texture_Main_Char_with_Baby, Texture_Baby, Texture_Toilet, Texture_Toilet_With_Baby, Texture_Deadly_Bricks, Texture_Toilet_Paper, Texture_Background_Wood, Texture_Mouse);
             gui_manager = new Gui_Manager(this, draw_visitor, sound_handler);
             // TODO: use this.Content to load your game content here
         }

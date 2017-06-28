@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>D:/School/Development/Project 4/Toilet-time---Project-4/Toilet-time---Project-4/Toilet time/Toilet time/Content/Game_background.wav</SourceFile>
-  <SourceTime>2017-06-27T13:32:44.0189336+02:00</SourceTime>
-  <DestFile>D:/School/Development/Project 4/Toilet-time---Project-4/Toilet-time---Project-4/Toilet time/Toilet time/Content/bin/Windows/Game_background.xnb</DestFile>
-  <DestTime>2017-06-28T16:48:57.8830274+02:00</DestTime>
+  <SourceFile>C:/Users/Oguzhan/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet time/Content/Game_background.wav</SourceFile>
+  <SourceTime>2017-06-27T14:20:30.5406202+02:00</SourceTime>
+  <DestFile>C:/Users/Oguzhan/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet time/Content/bin/Windows/Game_background.xnb</DestFile>
+  <DestTime>2017-06-28T17:18:40.0075283+02:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

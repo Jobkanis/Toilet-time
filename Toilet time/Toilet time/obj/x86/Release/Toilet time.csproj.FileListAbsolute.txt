@@ -157,3 +157,44 @@ D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\
 D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\End_Level.xnb
 D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Ingame_Background.xnb
 D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Toilet_Papier.xnb
+C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Arial.xnb
+C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\baby.xnb
+C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Baby_Crying.xnb
+C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Baby_Laughing.xnb
+C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Background_Wood.xnb
+C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\brick.xnb
+C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\DeadlyBricks.xnb
+C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Endgametoilet.xnb
+C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Endgame_with_toilet.xnb
+C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\End_Level.xnb
+C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Game_background.xnb
+C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Game_end.xnb
+C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Ingame_Background.xnb
+C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Main with baby.xnb
+C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Main.xnb
+C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Menu_background.xnb
+C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Toilet_Papier.xnb
+C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\white_pixel.xnb
+C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Toilet time.exe
+C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Toilet time.pdb
+C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\MonoGame.Framework.dll
+C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\SharpDX.MediaFoundation.dll
+C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\SharpDX.dll
+C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\SharpDX.XAudio2.dll
+C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\SharpDX.DXGI.dll
+C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\SharpDX.Direct3D11.dll
+C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\SharpDX.Direct2D1.dll
+C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\SharpDX.XInput.dll
+C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\SharpDX.Direct3D9.dll
+C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\MonoGame.Framework.xml
+C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\SharpDX.MediaFoundation.xml
+C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\SharpDX.xml
+C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\SharpDX.XAudio2.xml
+C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\SharpDX.DXGI.xml
+C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\SharpDX.Direct3D11.xml
+C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\SharpDX.Direct2D1.xml
+C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\SharpDX.XInput.xml
+C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\SharpDX.Direct3D9.xml
+C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\obj\x86\Release\Toilet time.exe
+C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\obj\x86\Release\Toilet time.pdb
+C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\mouse.xnb
