@@ -50,7 +50,7 @@ namespace Toilet_time
 
         public void DrawCursor(Point mousepoint)
         {
-            spriteBatch.Draw(Texture_Mouse, new Rectangle(mousepoint.x-3, mousepoint.y-3, 6, 6),Color.Black);
+            spriteBatch.Draw(Texture_Mouse, new Rectangle(mousepoint.x-3, mousepoint.y-3, 25,25),Color.White);
         }
 
 
