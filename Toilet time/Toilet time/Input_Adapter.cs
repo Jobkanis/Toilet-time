@@ -136,7 +136,7 @@ namespace Toilet_time
             WalkDirection = new None<WalkDirectionInput>();
         }
 
-        if (keyboard_state.IsKeyDown(Keys.E))
+        if (keyboard_state.IsKeyDown(Keys.Space))
         {
             CharacterActivity = new Some<CharacterActivity>(Toilet_time.CharacterActivity.Action);
         }
@@ -204,11 +204,15 @@ namespace Toilet_time
                 }
 
 
+                if (gamePadState.Buttons.Y == ButtonState.Pressed)
+                {
+                    CharacterActivity = new Some<CharacterActivity>(Toilet_time.CharacterActivity.Action);
+                }
                 if (gamePadState.Buttons.A == ButtonState.Pressed)
                 {
                     MouseAction = new Some<MousePressed>(MousePressed.Left_Button);
-                    CharacterActivity = new Some<CharacterActivity>(Toilet_time.CharacterActivity.Action);
                 }
+                
                 Point cursor = ReturnCursor;
                 return new InputData(MoveAction, WalkDirection, CharacterActivity, Settings, MouseAction, cursor);
             }
