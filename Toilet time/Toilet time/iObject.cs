@@ -21,13 +21,16 @@ namespace Toilet_time
         public Size size;
         public Position position;
         public bool resizeable;
+
         public bool IsMainCharacter = false;
         public bool IsBaby = false;
         public bool IsEnd = false;
+
         public bool MoveOnWalk = true;
         public bool HasBaby = false;
         public bool Visible = true;
         public bool IsDeadly = false;
+        public bool Collides = true;
         public int nextscreen;
 
         public iObject(Position position, Size size, bool resizeable)
@@ -83,7 +86,7 @@ namespace Toilet_time
             }
 
 
-            if (guimanager.Check_Collision(this, position.x, position.y - (int)velocity, size.x, size.y)) // check if able to fall
+            if (guimanager.Check_Collision(this, position.x, position.y - (int)velocity, size.x, size.y) || Collides == false) // check if able to fall
             {
                 this.position.y = this.position.y - (int)velocity;
             }

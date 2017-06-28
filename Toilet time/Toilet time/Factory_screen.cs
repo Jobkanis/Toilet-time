@@ -70,11 +70,13 @@ namespace Toilet_time
                         
                         //character
                         fallable_objects.Add(new Main_Character(200, 240, 1));
-
+                        
                         //interactions
                         Interacting_Objects.Add(new Baby(1505, 0));
                         Interacting_Objects.Add(new End_Goal(1000, 0));
                         Interacting_Objects.Add(new Deadly_Brick(500, 0));
+
+                        Interacting_Objects.Add(new Toilet_Paper_Drop(100, 0, 1));
 
                         //platforms
                         stable_objects.Add(new Platform(0, 300, 500, 50));
