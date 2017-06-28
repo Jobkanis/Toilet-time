@@ -155,7 +155,7 @@ namespace Toilet_time
             iOption<MousePressed> MouseAction = new None<MousePressed>();
             //Point cursor = new Point(-1, -1);
 
-            float Mousesensitivity = 3f;
+            float Mousesensitivity = 8f;
 
 
             Point ReturnCursor = guimanager.Cursor;
@@ -169,9 +169,9 @@ namespace Toilet_time
                 // then it is connected, and we can do stuff here
 
 
-                if (gamePadState.Buttons.A == ButtonState.Pressed)
+                if (gamePadState.Buttons.B == ButtonState.Pressed)
                 {
-                    MouseAction = new Some<MousePressed>(MousePressed.Left_Button);
+                    
                     MoveAction = new Some<CharacterMovementAction>(CharacterMovementAction.Jump);
                     // do something
                 }
@@ -196,16 +196,17 @@ namespace Toilet_time
 
                 if (gamePadState.ThumbSticks.Right.Y < -0.1)
                 {
-                    ReturnCursor.y = ReturnCursor.y - (int)(-1 * gamePadState.ThumbSticks.Right.Y * Mousesensitivity);
+                    ReturnCursor.y = ReturnCursor.y + (int)(-1 * gamePadState.ThumbSticks.Right.Y * Mousesensitivity);
                 }
                 else if (gamePadState.ThumbSticks.Right.Y > -0.1)
                 {
-                    ReturnCursor.y = ReturnCursor.y + (int)(gamePadState.ThumbSticks.Right.Y * Mousesensitivity);
+                    ReturnCursor.y = ReturnCursor.y - (int)(gamePadState.ThumbSticks.Right.Y * Mousesensitivity);
                 }
 
 
-                if (gamePadState.Buttons.B == ButtonState.Pressed)
+                if (gamePadState.Buttons.A == ButtonState.Pressed)
                 {
+                    MouseAction = new Some<MousePressed>(MousePressed.Left_Button);
                     CharacterActivity = new Some<CharacterActivity>(Toilet_time.CharacterActivity.Action);
                 }
                 Point cursor = ReturnCursor;
