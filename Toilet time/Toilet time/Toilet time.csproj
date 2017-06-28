@@ -79,7 +79,9 @@
     <Content Include="Content\baby.png" />
     <Content Include="Content\Baby_Crying.wav" />
     <Content Include="Content\Baby_Laughing.wav" />
+    <Content Include="Content\Background_Wood.png" />
     <Content Include="Content\brick.png" />
+    <Content Include="Content\DeadlyBricks.png" />
     <Content Include="Content\Endgametoilet.png" />
     <Content Include="Content\Endgame_with_toilet.png" />
     <Content Include="Content\Game_background.wav" />
@@ -88,6 +90,7 @@
     <Content Include="Content\Main with baby.png" />
     <Content Include="Content\Main.png" />
     <Content Include="Content\Menu_background.wav" />
+    <Content Include="Content\Toilet_Papier.png" />
     <Content Include="Content\white_pixel.png" />
     <Content Include="Icon.ico" />
   </ItemGroup>

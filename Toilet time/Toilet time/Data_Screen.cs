@@ -9,9 +9,11 @@ namespace Toilet_time
         public Iterator<iObject> gui_stuff;
         public Iterator<iObject> Interacting_Objects;
         public bool islevel;
+        public DrawVisitor.BackgroundType Background;
 
-        public Screen(Iterator<Fallable_Object> fallable_objects, Iterator<Stable_Object> stable_objects, Iterator<iObject> gui_stuff, Iterator<iObject> Interacting_Objects, bool islevel)
+        public Screen(DrawVisitor.BackgroundType Background, Iterator<Fallable_Object> fallable_objects, Iterator<Stable_Object> stable_objects, Iterator<iObject> gui_stuff, Iterator<iObject> Interacting_Objects, bool islevel)
         {
+            this.Background = Background;
             this.Fallable_Objects = fallable_objects;
             this.Stable_Objects = stable_objects;
             this.gui_stuff = gui_stuff;

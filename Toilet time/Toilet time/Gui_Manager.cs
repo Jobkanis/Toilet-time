@@ -39,6 +39,7 @@ namespace Toilet_time
 
         int lowestyvalue = 800;
 
+        public DrawVisitor.BackgroundType Background;
         
 
         public Gui_Manager(Game1 game, DrawVisitor drawvisitor, SoundHandler sound_handler)
@@ -125,6 +126,9 @@ namespace Toilet_time
 
             screen = screen_to_load;
             Current_screen = screenFactory.Create_screen(screen);
+
+
+            Background = Current_screen.Background;
             this.Fallable_Objects = Current_screen.Fallable_Objects;
             this.Stable_Objects = Current_screen.Stable_Objects;
             this.Gui_stuff = Current_screen.gui_stuff;
@@ -196,6 +200,12 @@ namespace Toilet_time
 
             Drawvisitor.spriteBatch.Begin();
 
+            //background
+            Drawvisitor.DrawBackground(Background);
+            
+
+
+            //debugconsole
             if (VieuwDebugConsole)
             {
                 DrawDebugConsole(); // remove when launched!

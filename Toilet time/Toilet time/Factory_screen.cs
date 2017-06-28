@@ -12,6 +12,8 @@ namespace Toilet_time
         public Color inputcolorArrows = new Color();
         public Color hovercolorWASD = new Color();
         public Color hovercolorArrows = new Color();
+        public DrawVisitor.BackgroundType Background;
+
         public Factory_screen(Gui_Manager gui_manager)
         {
             this.gui_manager = gui_manager;
@@ -72,6 +74,7 @@ namespace Toilet_time
                         //interactions
                         Interacting_Objects.Add(new Baby(1505, 0));
                         Interacting_Objects.Add(new End_Goal(1000, 0));
+                        Interacting_Objects.Add(new Deadly_Brick(500, 0));
 
                         //platforms
                         stable_objects.Add(new Platform(0, 300, 500, 50));
@@ -89,7 +92,17 @@ namespace Toilet_time
                         break;
                     }
             }
-            return new Screen(fallable_objects, stable_objects, gui_stuff, Interacting_Objects, islevel);
+
+            if (islevel)
+            {
+                Background = DrawVisitor.BackgroundType.ingamebackground;
+            }
+            else
+            {
+                Background = DrawVisitor.BackgroundType.menubackground;
+            }
+
+            return new Screen(Background, fallable_objects, stable_objects, gui_stuff, Interacting_Objects, islevel);
         }
     }
 }

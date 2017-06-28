@@ -17,11 +17,15 @@ namespace Toilet_time
         public Texture2D Texture_Baby;
         public Texture2D Texture_Toilet;
         public Texture2D Texture_Toilet_With_Baby;
+        public Texture2D Texture_Deadly_Bricks;
+        public Texture2D Texture_Toilet_Paper;
+
+        public Texture2D Texture_Ingame_Background;
 
         public int CurrentHeight;
         public int CurrentWidth;
 
-        public DrawVisitor(SpriteBatch spriteBatch, GraphicsDeviceManager graphics, SpriteFont arial, Texture2D Texture_White_Pixel, Texture2D Texture_Platform, Texture2D Texture_Main_Char, Texture2D Texture_Main_Char_with_Baby, Texture2D Texture_Baby, Texture2D Texture_Toilet, Texture2D Texture_Toilet_With_Baby)
+        public DrawVisitor(SpriteBatch spriteBatch, GraphicsDeviceManager graphics, SpriteFont arial, Texture2D Texture_White_Pixel, Texture2D Texture_Platform, Texture2D Texture_Main_Char, Texture2D Texture_Main_Char_with_Baby, Texture2D Texture_Baby, Texture2D Texture_Toilet, Texture2D Texture_Toilet_With_Baby, Texture2D Texture_Deadly_Bricks, Texture2D Texture_Toilet_Paper, Texture2D Texture_Background_Wood)
         {
             this.graphics = graphics;
             CurrentHeight = 600;
@@ -35,6 +39,9 @@ namespace Toilet_time
             this.Texture_Baby = Texture_Baby;
             this.Texture_Toilet = Texture_Toilet;
             this.Texture_Toilet_With_Baby = Texture_Toilet_With_Baby;
+            this.Texture_Deadly_Bricks = Texture_Deadly_Bricks;
+            this.Texture_Toilet_Paper = Texture_Toilet_Paper;
+            this.Texture_Ingame_Background = Texture_Background_Wood;
             this.arial = arial;
 
         }
@@ -83,7 +90,7 @@ namespace Toilet_time
 
         public void DrawDeadlyBrick(Deadly_Brick brick)
         {
-            spriteBatch.Draw(Texture_Platform, new Rectangle(brick.position.x, brick.position.y, brick.size.x, brick.size.y), brick.color);
+            spriteBatch.Draw(Texture_Deadly_Bricks, new Rectangle(brick.position.x, brick.position.y, brick.size.x, brick.size.y), brick.color);
         }
 
         public void DrawButton(Button button)
@@ -125,5 +132,24 @@ namespace Toilet_time
             return returntype;
         }
 
+        public enum BackgroundType { menubackground, ingamebackground}
+
+        public void DrawBackground(BackgroundType background)
+        {
+            switch (background)
+            {
+                case (BackgroundType.ingamebackground):
+                    {
+                        spriteBatch.Draw(Texture_Ingame_Background, new Rectangle(0, 0, CurrentWidth, CurrentHeight), Color.White);
+                        break;
+                    }
+                case (BackgroundType.menubackground):
+                    {
+                        spriteBatch.Draw(Texture_White_Pixel, new Rectangle(0, 0, CurrentWidth, CurrentHeight), Color.LightBlue);
+                        break;
+                    }
+            }
+
+        }
     }
 }
