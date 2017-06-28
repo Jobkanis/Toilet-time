@@ -69,3 +69,16 @@ C:\Users\Jonah Kalkman\Desktop\Project 4\Toilet-time---Project-4\Toilet time\Toi
 C:\Users\Jonah Kalkman\Desktop\Project 4\Toilet-time---Project-4\Toilet time\Toilet time\obj\x86\Debug\Toilet time.pdb
 C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Debug\Content\brick.xnb
 C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Debug\Content\Main.xnb
+C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Debug\Content\Arial.xnb
+C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Debug\Content\baby.xnb
+C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Debug\Content\Baby_Crying.xnb
+C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Debug\Content\Baby_Laughing.xnb
+C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Debug\Content\Endgametoilet.xnb
+C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Debug\Content\Endgame_with_toilet.xnb
+C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Debug\Content\Game_background.xnb
+C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Debug\Content\Game_end.xnb
+C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Debug\Content\Main with baby.xnb
+C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Debug\Content\Menu_background.xnb
+C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Debug\Content\white_pixel.xnb
+C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Debug\TO DO - CREATE BUTTON.cs
+C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Debug\TO DO - CREATE LABEL.cs
