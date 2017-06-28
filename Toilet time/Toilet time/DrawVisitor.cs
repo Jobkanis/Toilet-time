@@ -46,6 +46,12 @@ namespace Toilet_time
 
         }
 
+        public void DrawCursor(Point mousepoint)
+        {
+            spriteBatch.Draw(Texture_White_Pixel, new Rectangle(mousepoint.x, mousepoint.y, 3, 3), Color.White);
+        }
+
+
         public void DrawCharacter(Main_Character character)
         {
             if (character.HasBaby)

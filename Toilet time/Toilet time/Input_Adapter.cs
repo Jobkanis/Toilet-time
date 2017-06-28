@@ -13,9 +13,10 @@ namespace Toilet_time
 
     public class Input_Adapter
     {
-        public Input_Adapter()
+        Gui_Manager guimanager;
+        public Input_Adapter(Gui_Manager guimanager)
         {
-
+            this.guimanager = guimanager;
         }
 
         public InputData GetInput(int type)
@@ -53,6 +54,8 @@ namespace Toilet_time
             KeyboardState keyboard_state = Keyboard.GetState();
 
             var mouse_state = Mouse.GetState();
+
+
             cursor = new Point(mouse_state.X, mouse_state.Y);
             if (mouse_state.LeftButton == ButtonState.Pressed)
             {
@@ -150,45 +153,68 @@ namespace Toilet_time
             iOption<CharacterActivity> CharacterActivity = new None<CharacterActivity>();
             iOption<SettingsInput> Settings = new None<SettingsInput>();
             iOption<MousePressed> MouseAction = new None<MousePressed>();
-            Point cursor = new Point(-1, -1);
+            //Point cursor = new Point(-1, -1);
+
+            float Mousesensitivity = 3f;
+
+
+            Point ReturnCursor = guimanager.Cursor;
 
             KeyboardState keyboard_state = Keyboard.GetState();
-
-            var mouse_state = Mouse.GetState();
-            cursor = new Point(mouse_state.X, mouse_state.Y);
-            if (mouse_state.LeftButton == ButtonState.Pressed)
-            {
-                MouseAction = new Some<MousePressed>(MousePressed.Left_Button);
-            }
 
             GamePadState gamePadState = GamePad.GetState(PlayerIndex.One);
 
             if (gamePadState.IsConnected)
             {
                 // then it is connected, and we can do stuff here
-            }
 
-            if (gamePadState.Buttons.A == ButtonState.Pressed)
-            {
-                MoveAction = new Some<CharacterMovementAction>(CharacterMovementAction.Jump);
-                // do something
-            }
 
-            if (gamePadState.ThumbSticks.Left.X < -0.1)
-            {
-                WalkDirection = new Some<WalkDirectionInput>(WalkDirectionInput.Left);
-            }
+                if (gamePadState.Buttons.A == ButtonState.Pressed)
+                {
+                    MouseAction = new Some<MousePressed>(MousePressed.Left_Button);
+                    MoveAction = new Some<CharacterMovementAction>(CharacterMovementAction.Jump);
+                    // do something
+                }
 
-            if (gamePadState.ThumbSticks.Left.X > 0.1)
-            {
-                WalkDirection = new Some<WalkDirectionInput>(WalkDirectionInput.Right);
-            }
+                if (gamePadState.ThumbSticks.Left.X < -0.1)
+                {
+                    WalkDirection = new Some<WalkDirectionInput>(WalkDirectionInput.Left);
+                }
+                else if (gamePadState.ThumbSticks.Left.X > 0.1)
+                {
+                    WalkDirection = new Some<WalkDirectionInput>(WalkDirectionInput.Right);
+                }
 
-            if (gamePadState.Buttons.B == ButtonState.Pressed)
-            {
-                CharacterActivity = new Some<CharacterActivity>(Toilet_time.CharacterActivity.Action);
+                if (gamePadState.ThumbSticks.Right.X < -0.1)
+                {
+                    ReturnCursor.x = ReturnCursor.x - (int)(-1 * gamePadState.ThumbSticks.Right.X * Mousesensitivity);
+                }
+                else if (gamePadState.ThumbSticks.Right.X > -0.1)
+                {
+                    ReturnCursor.x = ReturnCursor.x + (int)(gamePadState.ThumbSticks.Right.X * Mousesensitivity);
+                }
+
+                if (gamePadState.ThumbSticks.Right.Y < -0.1)
+                {
+                    ReturnCursor.y = ReturnCursor.y - (int)(-1 * gamePadState.ThumbSticks.Right.Y * Mousesensitivity);
+                }
+                else if (gamePadState.ThumbSticks.Right.Y > -0.1)
+                {
+                    ReturnCursor.y = ReturnCursor.y + (int)(gamePadState.ThumbSticks.Right.Y * Mousesensitivity);
+                }
+
+
+                if (gamePadState.Buttons.B == ButtonState.Pressed)
+                {
+                    CharacterActivity = new Some<CharacterActivity>(Toilet_time.CharacterActivity.Action);
+                }
+                Point cursor = ReturnCursor;
+                return new InputData(MoveAction, WalkDirection, CharacterActivity, Settings, MouseAction, cursor);
             }
-            return new InputData(MoveAction, WalkDirection, CharacterActivity, Settings, MouseAction, cursor);
+            else
+            {
+                return checkKeyboardpijltjes();
+            }
             //return new Input();
         }
 

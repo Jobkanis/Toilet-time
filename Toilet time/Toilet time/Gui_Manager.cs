@@ -49,7 +49,7 @@ namespace Toilet_time
             this.CharacterSpeed = 300;
             this.inputmechanism = 1;
             this.screenFactory = new Factory_screen(this);
-            this.inputadapter = new Input_Adapter();
+            this.inputadapter = new Input_Adapter(this);
             this.screen = 1;
             this.Cursor = new Point(0,0);
             this.sound_handler = sound_handler;
@@ -200,6 +200,7 @@ namespace Toilet_time
 
             Drawvisitor.spriteBatch.Begin();
 
+            
             //background
             Drawvisitor.DrawBackground(Background);
             
@@ -234,6 +235,9 @@ namespace Toilet_time
             {
                 Interacting_Objects.GetCurrent().Visit(() => { }, item => { item.Draw(Drawvisitor); });
             }
+
+            //drawcursor
+            Drawvisitor.DrawCursor(Cursor);
 
             Drawvisitor.spriteBatch.End();
         }
@@ -517,7 +521,6 @@ namespace Toilet_time
                     }
                 }
             }
-            
             // checking if touching items
 
             interacton.Reset();

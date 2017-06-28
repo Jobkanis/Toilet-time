@@ -51,7 +51,7 @@ namespace Toilet_time
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            this.IsMouseVisible = true;
+            this.IsMouseVisible = false ;
             base.Initialize();
         }
 
