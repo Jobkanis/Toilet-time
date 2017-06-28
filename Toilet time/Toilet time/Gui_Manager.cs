@@ -513,13 +513,19 @@ namespace Toilet_time
             interacton.Reset();
             while (interacton.GetNext().Visit(() => false, unusedvalue => true))
             {
-                if (interacton.GetCurrent().Visit(() => false, item => { return item.IsEnd; }))
+                iObject TouchingObject = interacton.GetCurrent().Visit<iObject>(() => throw new Exception("failed getting interaction"), act => { return act; });
+
+                if (TouchingObject.IsDeadly)
+                {
+                    Main_Dead();
+                }
+
+                if (TouchingObject.IsEnd)
                 {
                     if (main.HasBaby)
                     {
-                        iObject end_object = interacton.GetCurrent().Visit<iObject>(() => throw new Exception("failed getting interaction"), act => { return act; });
                         main.HasBaby = false;
-                        end_object.HasBaby = true;
+                        TouchingObject.HasBaby = true;
                         this.End_Of_Level_Cooldown = 2;
                         this.Controls_Cooldown = 2;
                         this.End_Of_Level = true;

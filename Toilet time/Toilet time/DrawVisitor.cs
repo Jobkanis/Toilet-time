@@ -81,6 +81,11 @@ namespace Toilet_time
             }
         }
 
+        public void DrawDeadlyBrick(Deadly_Brick brick)
+        {
+            spriteBatch.Draw(Texture_Platform, new Rectangle(brick.position.x, brick.position.y, brick.size.x, brick.size.y), brick.color);
+        }
+
         public void DrawButton(Button button)
         {
             spriteBatch.Draw(Texture_White_Pixel, new Rectangle((int)button.position.x, (int)button.position.y, (int)button.size.x, (int)button.size.y), button.color);
