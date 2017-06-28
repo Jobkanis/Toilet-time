@@ -180,7 +180,8 @@ namespace Toilet_time
             CooldownInformation.Draw(Drawvisitor);
 
             Label ScreenStats = new Label(600, 60, 100, 20, "");
-            ScreenStats.text = ("ScreenNr: " + screen.ToString() + " | Inputmethod: " + inputmechanism.ToString()) + " | Islevel: " + Current_screen.islevel.ToString();
+            ScreenStats.text = ("Scr: " + screen.ToString() + " | Input: " + inputmechanism.ToString()) + " | GPonl: " + Gamepadonline.ToString() + " | IsLvl: " + Current_screen.islevel.ToString();
+             
             ScreenStats.Draw(Drawvisitor);
 
             Label LevelStats = new Label(600, 80, 100, 20, "");
@@ -337,14 +338,17 @@ namespace Toilet_time
 
             InputData input = inputadapter.GetInput(inputmechanism);
             LatestInput = input;
-
-            if (input.GamePadOnline != Gamepadonline)
+            Console.WriteLine(Gamepadonline + " - " + input.GamePadOnline);
+            if (Gamepadonline =! input.GamePadOnline)
             {
-                if (screen == 3)
+                if (screen == 2)
                 {
+                    
+                    Gamepadonline = input.GamePadOnline;
                     Reload_screen();
                 }
             }
+
             Gamepadonline = input.GamePadOnline;
 
             //kill on fall
