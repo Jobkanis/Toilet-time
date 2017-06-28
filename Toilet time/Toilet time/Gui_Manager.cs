@@ -54,7 +54,7 @@ namespace Toilet_time
             this.sound_handler = sound_handler;
             Create_screen(screen);
             Controls_Cooldown = 0;
-            sound_handler.PlayBackground(BackGroundMusic.menu);
+            sound_handler.PlayBackground(ChooseBackGroundMusic.menu);
         }
 
         public bool Check_Collision(iObject Object, int x_pos, int y_pos, int x_size, int y_size)
@@ -133,11 +133,11 @@ namespace Toilet_time
             //sound
             if (Current_screen.islevel == true)
             {
-                sound_handler.PlayBackground(BackGroundMusic.game_cry);
+                sound_handler.PlayBackground(ChooseBackGroundMusic.game_cry);
             }
             else
             {
-                sound_handler.PlayBackground(BackGroundMusic.menu);
+                sound_handler.PlayBackground(ChooseBackGroundMusic.menu);
             }
 
         }
@@ -480,8 +480,8 @@ namespace Toilet_time
                                         iObject baby = interacton.GetCurrent().Visit<iObject>(() => throw new Exception("failed getting interaction"), act => { return act; });
                                         main.HasBaby = true;
                                         baby.Visible = false;
-                                        sound_handler.PlayBackground(BackGroundMusic.game_noncry);
-                                        sound_handler.PlaySoundEffect(BackGroundSoundEffect.baby_laugh);
+                                        sound_handler.PlayBackground(ChooseBackGroundMusic.game_noncry);
+                                        sound_handler.PlaySoundEffect(ChooseSoundEffect.baby_laugh);
                                     }
                                 }
                             }
@@ -498,7 +498,7 @@ namespace Toilet_time
                                         main.HasBaby = false;
                                         baby.position = new Position(main.position.x, main.position.y + 20);
                                         baby.Visible = true;
-                                        sound_handler.PlayBackground(BackGroundMusic.game_cry);
+                                        sound_handler.PlayBackground(ChooseBackGroundMusic.game_cry);
 
                                     }
                                 }
@@ -529,7 +529,7 @@ namespace Toilet_time
                         this.End_Of_Level_Cooldown = 2;
                         this.Controls_Cooldown = 2;
                         this.End_Of_Level = true;
-                        sound_handler.PlaySoundEffect(BackGroundSoundEffect.game_end);
+                        sound_handler.PlaySoundEffect(ChooseSoundEffect.game_end);
                     }
                 }
             }

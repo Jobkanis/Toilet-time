@@ -148,3 +148,6 @@ C:\Users\Tahsin\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time
 C:\Users\Tahsin\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\obj\x86\Release\Toilet time.pdb
 C:\Users\Tahsin\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\End_Level.xnb
 C:\Users\Tahsin\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Ingame_Background.xnb
+C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\obj\x86\Release\Toilet time.csprojResolveAssemblyReference.cache
+C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\End_Level.xnb
+C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Ingame_Background.xnb

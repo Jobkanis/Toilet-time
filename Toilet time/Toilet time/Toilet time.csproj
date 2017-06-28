@@ -41,6 +41,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Deadly_Brick.cs" />
     <Compile Include="SoundHandler.cs" />
     <Compile Include="Data_Vector.cs" />
     <Compile Include="DrawVisitor.cs" />
