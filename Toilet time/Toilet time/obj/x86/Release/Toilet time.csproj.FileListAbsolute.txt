@@ -44,8 +44,6 @@ D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\
 D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Main.xnb
 D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Menu_background.xnb
 D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\white_pixel.xnb
-D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\TO DO - CREATE BUTTON.cs
-D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\TO DO - CREATE LABEL.cs
 D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Toilet time.exe
 D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Toilet time.pdb
 D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\MonoGame.Framework.dll
@@ -154,3 +152,10 @@ C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\
 C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\DeadlyBricks.xnb
 C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Toilet_Papier.xnb
 C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Background_Wood.xnb
+D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Background_Wood.xnb
+D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\DeadlyBricks.xnb
+D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Endgametoilet.xnb
+D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Endgame_with_toilet.xnb
+D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\End_Level.xnb
+D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Ingame_Background.xnb
+D:\School\Development\Project 4\Toilet-time---Project-4\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\Toilet_Papier.xnb

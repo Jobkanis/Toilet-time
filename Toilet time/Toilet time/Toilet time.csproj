@@ -41,6 +41,8 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="GuiButton.cs" />
+    <Compile Include="GuiLabel.cs" />
     <Compile Include="Toiletpaper_Dropper.cs" />
     <Compile Include="Deadly_Brick.cs" />
     <Compile Include="SoundHandler.cs" />
@@ -58,12 +60,6 @@
     <Compile Include="iOption.cs" />
     <Compile Include="Iterator.cs" />
     <Compile Include="Main_Character.cs" />
-    <Compile Include="TO DO - CREATE BUTTON.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
-    <Compile Include="TO DO - CREATE LABEL.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
     <Compile Include="Platform.cs" />
     <Compile Include=".Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
