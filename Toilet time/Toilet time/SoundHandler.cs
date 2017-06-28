@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Media;
+using System.Media;
 
 
 namespace Toilet_time
@@ -21,7 +22,7 @@ namespace Toilet_time
        SoundEffectInstance baby_cry;
        SoundEffectInstance end_level;
 
-
+       
        
 
 
@@ -31,7 +32,13 @@ namespace Toilet_time
             this.menu_background.IsLooped = true;
 
             this.ingame_background = ingame_background.CreateInstance();
-            this.menu_background.IsLooped = true;
+            this.ingame_background.IsLooped = true;
+
+            this.baby_cry = baby_cry.CreateInstance();
+            this.baby_cry.Volume = 0.1f;
+            this.baby_cry.IsLooped = true;
+
+            ///////
 
             this.end_level = end_level.CreateInstance();
             this.end_level.IsLooped = false;
@@ -39,8 +46,7 @@ namespace Toilet_time
             this.baby_laugh = baby_laugh.CreateInstance();
             this.baby_laugh.IsLooped = false;
 
-            this.baby_cry = baby_cry.CreateInstance();
-            this.baby_cry.IsLooped = false;
+
         }
 
        public void PlayBackground(ChooseBackGroundMusic music)
