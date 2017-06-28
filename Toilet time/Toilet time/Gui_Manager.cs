@@ -26,7 +26,8 @@ namespace Toilet_time
         float updatedt;
 
         public int inputmechanism;
-        
+        public bool Gamepadonline = false;
+
         public int CharacterSpeed; 
         float localwalkspeed = 0;
 
@@ -39,7 +40,9 @@ namespace Toilet_time
 
         int lowestyvalue = 800;
 
+
         public DrawVisitor.BackgroundType Background;
+
         
 
         public Gui_Manager(Game1 game, DrawVisitor drawvisitor, SoundHandler sound_handler)
@@ -157,6 +160,10 @@ namespace Toilet_time
             this.Gui_stuff = null;
         }
 
+        public void Reload_screen()
+        {
+            Create_screen(screen);
+        }
 
         public void DrawDebugConsole() // remove when launched
         {
@@ -330,6 +337,15 @@ namespace Toilet_time
 
             InputData input = inputadapter.GetInput(inputmechanism);
             LatestInput = input;
+
+            if (input.GamePadOnline != Gamepadonline)
+            {
+                if (screen == 3)
+                {
+                    Reload_screen();
+                }
+            }
+            Gamepadonline = input.GamePadOnline;
 
             //kill on fall
 

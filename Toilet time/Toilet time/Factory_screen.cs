@@ -76,7 +76,12 @@ namespace Toilet_time
                         }
                         gui_stuff.Add(new Button(350, 200, 100, 50, "Wasd", inputcolorWASD, hovercolorWASD, (Gui_Manager guimanager) => { guimanager.Getinputmechanism(2); guimanager.Create_screen(2); }));
                         gui_stuff.Add(new Button(350, 300, 100, 50, "Arrows", inputcolorArrows, hovercolorArrows, (Gui_Manager guimanager) => { guimanager.Getinputmechanism(1); guimanager.Create_screen(2);}));
-                        gui_stuff.Add(new Button(350, 400, 100, 50, "GamePad", inputcolorGamePad, hovercolorGamePad, (Gui_Manager guimanager) => { guimanager.Getinputmechanism(3); guimanager.Create_screen(2); }));
+
+                        if (gui_manager.Gamepadonline == true)
+                        {
+                            gui_stuff.Add(new Button(350, 400, 100, 50, "GamePad", inputcolorGamePad, hovercolorGamePad, (Gui_Manager guimanager) => { guimanager.Getinputmechanism(3); guimanager.Create_screen(2); }));
+                        }
+
                         break;
                     }
                 case 3:

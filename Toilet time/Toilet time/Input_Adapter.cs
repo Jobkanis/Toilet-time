@@ -14,13 +14,20 @@ namespace Toilet_time
     public class Input_Adapter
     {
         Gui_Manager guimanager;
+        bool GamepadOnline;
+
         public Input_Adapter(Gui_Manager guimanager)
         {
             this.guimanager = guimanager;
+            this.GamepadOnline = false;
         }
 
         public InputData GetInput(int type)
-        {            
+        {
+            
+            GamePadState gamePadState = GamePad.GetState(PlayerIndex.One);
+            GamepadOnline = gamePadState.IsConnected;
+
             switch (type)
             {
                 case 1:
@@ -89,7 +96,7 @@ namespace Toilet_time
                 CharacterActivity = new Some<CharacterActivity>(Toilet_time.CharacterActivity.Action);
             }
 
-            return new InputData(MoveAction, WalkDirection, CharacterActivity, Settings, MouseAction, cursor);
+            return new InputData(MoveAction, WalkDirection, CharacterActivity, Settings, MouseAction, cursor, GamepadOnline);
             //return new Input();
         }
 
@@ -140,7 +147,7 @@ namespace Toilet_time
         {
             CharacterActivity = new Some<CharacterActivity>(Toilet_time.CharacterActivity.Action);
         }
-        return new InputData(MoveAction, WalkDirection, CharacterActivity, Settings, MouseAction, cursor);
+        return new InputData(MoveAction, WalkDirection, CharacterActivity, Settings, MouseAction, cursor, GamepadOnline);
             //return new Input();
         }
 
@@ -214,10 +221,11 @@ namespace Toilet_time
                 }
                 
                 Point cursor = ReturnCursor;
-                return new InputData(MoveAction, WalkDirection, CharacterActivity, Settings, MouseAction, cursor);
+                return new InputData(MoveAction, WalkDirection, CharacterActivity, Settings, MouseAction, cursor, GamepadOnline);
             }
             else
             {
+                guimanager.inputmechanism = 1;
                 return checkKeyboardpijltjes();
             }
             //return new Input();

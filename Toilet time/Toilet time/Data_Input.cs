@@ -12,6 +12,7 @@ namespace Toilet_time
 
     public enum MousePressed {Left_Button}
 
+   
     public class InputData
     {
         public iOption<CharacterMovementAction> MoveAction;
@@ -20,10 +21,10 @@ namespace Toilet_time
         public iOption<SettingsInput> Settings;
         public iOption<MousePressed> MouseButton;
         public Point cursor;
+        public bool GamePadOnline;
 
-        
 
-        public InputData(iOption<CharacterMovementAction> MoveAction, iOption<WalkDirectionInput> Walk, iOption<CharacterActivity> CharacterActivity, iOption<SettingsInput> Settings, iOption<MousePressed> MouseButton, Point cursor)
+        public InputData(iOption<CharacterMovementAction> MoveAction, iOption<WalkDirectionInput> Walk, iOption<CharacterActivity> CharacterActivity, iOption<SettingsInput> Settings, iOption<MousePressed> MouseButton, Point cursor, bool GamePadOnline)
         {
             this.MoveAction = MoveAction;
             this.Walk = Walk;
@@ -31,6 +32,7 @@ namespace Toilet_time
             this.CharacterActivity = CharacterActivity;
             this.cursor = cursor;
             this.MouseButton = MouseButton;
+            this.GamePadOnline = GamePadOnline;
         }
 
 
