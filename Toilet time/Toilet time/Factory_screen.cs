@@ -12,6 +12,8 @@ namespace Toilet_time
         public Color inputcolorArrows = new Color();
         public Color hovercolorWASD = new Color();
         public Color hovercolorArrows = new Color();
+        public Color inputcolorGamePad = new Color();
+        public Color hovercolorGamePad = new Color();
         public DrawVisitor.BackgroundType Background;
 
         public Factory_screen(Gui_Manager gui_manager)
@@ -43,9 +45,20 @@ namespace Toilet_time
                     {
                         islevel = false;
                         gui_stuff.Add(new Button(350, 100, 100, 50, "Back", Color.Black, Color.Gray, (Gui_Manager guimanager) => { guimanager.Create_screen(1); }));
+                        if (gui_manager.inputmechanism == 3)
+                        {
+                            inputcolorGamePad = Color.Red;
+                            hovercolorGamePad = Color.Red;
+                            inputcolorWASD = Color.Black;
+                            hovercolorWASD = Color.Black;
+                            inputcolorArrows = Color.Black;
+                            hovercolorArrows = Color.Black;
+                        }
+
                         if (gui_manager.inputmechanism == 2)
                         {
-                            
+                            inputcolorGamePad = Color.Black;
+                            hovercolorGamePad = Color.Black;
                             inputcolorWASD = Color.Red;
                             hovercolorWASD = Color.Red;
                             inputcolorArrows = Color.Black;
@@ -54,6 +67,8 @@ namespace Toilet_time
 
                         if (gui_manager.inputmechanism == 1)
                         {
+                            inputcolorGamePad = Color.Black;
+                            hovercolorGamePad = Color.Black;
                             inputcolorWASD = Color.Black;
                             hovercolorWASD = Color.Black;
                             inputcolorArrows = Color.Red;
@@ -61,6 +76,7 @@ namespace Toilet_time
                         }
                         gui_stuff.Add(new Button(350, 200, 100, 50, "Wasd", inputcolorWASD, hovercolorWASD, (Gui_Manager guimanager) => { guimanager.Getinputmechanism(2); guimanager.Create_screen(2); }));
                         gui_stuff.Add(new Button(350, 300, 100, 50, "Arrows", inputcolorArrows, hovercolorArrows, (Gui_Manager guimanager) => { guimanager.Getinputmechanism(1); guimanager.Create_screen(2);}));
+                        gui_stuff.Add(new Button(350, 400, 100, 50, "GamePad", inputcolorGamePad, hovercolorGamePad, (Gui_Manager guimanager) => { guimanager.Getinputmechanism(3); guimanager.Create_screen(2); }));
                         break;
                     }
                 case 3:
