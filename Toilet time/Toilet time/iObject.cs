@@ -27,6 +27,7 @@ namespace Toilet_time
         public bool MoveOnWalk = true;
         public bool HasBaby = false;
         public bool Visible = true;
+        public bool IsDeadly = false;
         public int nextscreen;
 
         public iObject(Position position, Size size, bool resizeable)
