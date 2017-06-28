@@ -8,33 +8,33 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Toilet_time
 {
-    public enum BackGroundMusic { none, menu, game_noncry, game_cry }
+    public enum ChooseBackGroundMusic { none, menu, game_noncry, game_cry }
 
-    public enum BackGroundSoundEffect { game_end, baby_laugh}
+    public enum ChooseSoundEffect { game_end, baby_laugh}
 
     public class SoundHandler
     {
        
        SoundEffectInstance menu_background;
-       SoundEffectInstance game_background;
-       SoundEffectInstance game_end;
+       SoundEffectInstance ingame_background;
        SoundEffectInstance baby_laugh;
        SoundEffectInstance baby_cry;
+       SoundEffectInstance end_level;
 
 
        
 
 
-       public SoundHandler(SoundEffect menu_background, SoundEffect game_background, SoundEffect game_end, SoundEffect baby_laugh, SoundEffect baby_cry)
+       public SoundHandler(SoundEffect menu_background, SoundEffect ingame_background, SoundEffect end_level, SoundEffect baby_laugh, SoundEffect baby_cry)
         {
             this.menu_background = menu_background.CreateInstance();
             this.menu_background.IsLooped = true;
 
-            this.game_background = game_background.CreateInstance();
+            this.ingame_background = ingame_background.CreateInstance();
             this.menu_background.IsLooped = true;
 
-            this.game_end = game_end.CreateInstance();
-            this.game_end.IsLooped = false;
+            this.end_level = end_level.CreateInstance();
+            this.end_level.IsLooped = false;
 
             this.baby_laugh = baby_laugh.CreateInstance();
             this.baby_laugh.IsLooped = false;
@@ -43,62 +43,57 @@ namespace Toilet_time
             this.baby_cry.IsLooped = false;
         }
 
-       public void PlayBackground(BackGroundMusic music)
+       public void PlayBackground(ChooseBackGroundMusic music)
         {
             switch (music)
             {
-                case (BackGroundMusic.menu):
+                case (ChooseBackGroundMusic.menu):
                     {
                         menu_background.Play();
-                        game_background.Stop();
+                        ingame_background.Stop();
                         baby_cry.Stop();
                         break;
                     }
-                case (BackGroundMusic.game_noncry):
+                case (ChooseBackGroundMusic.game_noncry):
                     {
                         menu_background.Stop();
-                        game_background.Play();
-                        game_end.Stop();
+                        ingame_background.Play();
                         baby_cry.Stop();
                         break;
                     }
-                case (BackGroundMusic.game_cry):
+                case (ChooseBackGroundMusic.game_cry):
                     {
                         menu_background.Stop();
-                        game_background.Play();
-                        game_end.Stop();
+                        ingame_background.Play();
                         baby_cry.Play();
                         break;
                     }
                 default:
                     {
                         menu_background.Stop();
-                        game_background.Stop();
+                        ingame_background.Stop();
                         baby_cry.Stop();
                         break;
                     }
             }
         }
 
-        public void PlaySoundEffect(BackGroundSoundEffect sound_effect)
+        public void PlaySoundEffect(ChooseSoundEffect sound_effect)
         {
             switch (sound_effect)
             {
-                case (BackGroundSoundEffect.baby_laugh):
+                case (ChooseSoundEffect.baby_laugh):
                     {
                         baby_laugh.Play();
                         break;
                     }
-                case (BackGroundSoundEffect.game_end):
+                case (ChooseSoundEffect.game_end):
                     {
-                        game_end.Play();
-                        game_background.Stop();
+                        end_level.Play();
                         break;
                     }
                 default:
                     {
-                        menu_background.Stop();
-                        game_background.Stop();
                         break;
                     }
             }

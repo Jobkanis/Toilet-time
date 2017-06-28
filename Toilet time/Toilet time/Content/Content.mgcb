@@ -130,3 +130,15 @@
 /processorParam:TextureFormat=Color
 /build:Endgametoilet.png
 
+#begin End_Level.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:End_Level.wav
+
+#begin Ingame_Background.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Ingame_Background.wav
+

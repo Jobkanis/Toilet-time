@@ -83,6 +83,7 @@
     <Content Include="Content\Endgame_with_toilet.png" />
     <Content Include="Content\Game_background.wav" />
     <Content Include="Content\Game_end.wav" />
+    <Content Include="Content\Ingame_Background.wav" />
     <Content Include="Content\Main with baby.png" />
     <Content Include="Content\Main.png" />
     <Content Include="Content\Menu_background.wav" />

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/jobka/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet time/Content/Main.png</SourceFile>
-  <SourceTime>2017-06-23T13:53:09.0446935+02:00</SourceTime>
-  <DestFile>C:/Users/jobka/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet time/Content/bin/Windows/Main.xnb</DestFile>
-  <DestTime>2017-06-27T16:28:35.5255542+02:00</DestTime>
+  <SourceFile>C:/Users/Tahsin/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet time/Content/Main.png</SourceFile>
+  <SourceTime>2017-06-27T15:31:16.6058399+02:00</SourceTime>
+  <DestFile>C:/Users/Tahsin/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet time/Content/bin/Windows/Main.xnb</DestFile>
+  <DestTime>2017-06-28T13:13:17.2334546+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

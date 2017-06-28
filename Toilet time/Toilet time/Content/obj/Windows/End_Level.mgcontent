@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Tahsin/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet time/Content/Baby_Crying.wav</SourceFile>
-  <SourceTime>2017-06-27T15:31:16.2030226+02:00</SourceTime>
-  <DestFile>C:/Users/Tahsin/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet time/Content/bin/Windows/Baby_Crying.xnb</DestFile>
-  <DestTime>2017-06-28T13:13:17.8832717+02:00</DestTime>
+  <SourceFile>C:/Users/Tahsin/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet time/Content/End_Level.wav</SourceFile>
+  <SourceTime>2017-06-28T13:01:10.4400969+02:00</SourceTime>
+  <DestFile>C:/Users/Tahsin/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet time/Content/bin/Windows/End_Level.xnb</DestFile>
+  <DestTime>2017-06-28T13:13:20.0633994+02:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

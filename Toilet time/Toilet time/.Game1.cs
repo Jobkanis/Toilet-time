@@ -25,14 +25,13 @@ namespace Toilet_time
         public Texture2D Texture_Toilet_With_Baby;
 
         public SpriteFont arial;
-
+        public SoundEffect End_Level;
         public SoundEffect Baby_Cry;
         public SoundEffect Baby_Laugh;
-        public SoundEffect Game_End;
         public SoundEffect Menu_Background;
-        public SoundEffect Game_Background;
+        public SoundEffect Ingame_Background;
         public SoundHandler sound_handler;
-
+        
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -70,12 +69,13 @@ namespace Toilet_time
             Texture_Toilet = Content.Load<Texture2D>("Endgametoilet");
             Texture_Toilet_With_Baby = Content.Load<Texture2D>("Endgame_with_toilet");
 
+            End_Level = Content.Load<SoundEffect>("End_Level");
             Baby_Cry = Content.Load<SoundEffect>("Baby_Crying");
             Baby_Laugh = Content.Load<SoundEffect>("Baby_Laughing");
-            Game_End = Content.Load<SoundEffect>("Game_end");
-            Game_Background = Content.Load<SoundEffect>("Game_background");
+
+            Ingame_Background = Content.Load<SoundEffect>("Ingame_Background");
             Menu_Background = Content.Load<SoundEffect>("Menu_background");
-            sound_handler = new SoundHandler(Menu_Background, Game_Background, Game_End, Baby_Laugh, Baby_Cry);
+            sound_handler = new SoundHandler(Menu_Background, Ingame_Background, End_Level, Baby_Laugh, Baby_Cry);
             
             draw_visitor = new DrawVisitor(spriteBatch, graphics, arial, Texture_White_Pixel, Texture_Platform, Texture_Main_char, Texture_Main_Char_with_Baby, Texture_Baby, Texture_Toilet, Texture_Toilet_With_Baby);
             gui_manager = new Gui_Manager(this, draw_visitor, sound_handler);
