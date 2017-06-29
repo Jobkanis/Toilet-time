@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>c5813e2b-042a-4774-b091-40328bd31bf3</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Toilet_time_main</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Baby.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data_Collision.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data_Input.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data_Screen.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data_Vector.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Deadly_Brick.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)iDrawVisitor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Factory_screen.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GuiButton.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GuiLabel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Gui_Manager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Input_Adapter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)iObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)iOption.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Iterator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Main_Character.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Platform.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SoundHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Start and end goal.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Toiletpaper_Dropper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)app.manifest" />
+  </ItemGroup>
+</Project>

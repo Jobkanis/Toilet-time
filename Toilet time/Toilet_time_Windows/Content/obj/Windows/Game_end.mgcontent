@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SourceFile>C:/Users/jobka/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet time/Content/Game_end.wav</SourceFile>
+  <SourceTime>2017-06-29T15:01:09.2541287+02:00</SourceTime>
+  <DestFile>C:/Users/jobka/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet time/Content/bin/Windows/Game_end.xnb</DestFile>
+  <DestTime>2017-06-29T15:03:02.4574273+02:00</DestTime>
+  <Importer>WavImporter</Importer>
+  <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
+  <Processor>SoundEffectProcessor</Processor>
+  <ProcessorTime>2017-03-01T16:05:36+01:00</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>

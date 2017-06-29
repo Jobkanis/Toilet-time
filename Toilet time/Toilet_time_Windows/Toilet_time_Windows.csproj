@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{21B93237-8B4B-4F3C-B7FB-9B4139D7EFDC}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Toilet_time_Windows</RootNamespace>
+    <AssemblyName>Toilet_time_Windows</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MonoGamePlatform>Windows</MonoGamePlatform>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\$(MonoGamePlatform)\$(Platform)\$(Configuration)\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\$(MonoGamePlatform)\$(Platform)\$(Configuration)\</OutputPath>
+    <DefineConstants>TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include=".Game1.cs" />
+    <Compile Include="DrawVisitor.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SoundHandler.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="MonoGame.Framework">
+      <HintPath>$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\Windows\MonoGame.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\baby.png" />
+    <Content Include="Content\Baby_Crying.wav" />
+    <Content Include="Content\Baby_Laughing.wav" />
+    <Content Include="Content\Background_Wood.png" />
+    <Content Include="Content\brick.png" />
+    <Content Include="Content\DeadlyBricks.png" />
+    <Content Include="Content\Endgametoilet.png" />
+    <Content Include="Content\Endgame_with_toilet.png" />
+    <Content Include="Content\End_Level.wav" />
+    <Content Include="Content\Game_background.wav" />
+    <Content Include="Content\Game_end.wav" />
+    <Content Include="Content\Ingame_Background.wav" />
+    <Content Include="Content\Main with baby.png" />
+    <Content Include="Content\Main.png" />
+    <Content Include="Content\Menu_background.wav" />
+    <Content Include="Content\mouse.png" />
+    <Content Include="Content\Toilet_Papier.png" />
+    <Content Include="Content\white_pixel.png" />
+    <Content Include="Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.manifest" />
+    <None Include="Content\Arial.xnb" />
+    <None Include="Content\bin\Windows\Arial.xnb" />
+    <None Include="Content\bin\Windows\baby.xnb" />
+    <None Include="Content\bin\Windows\Baby_Crying.xnb" />
+    <None Include="Content\bin\Windows\Baby_Laughing.xnb" />
+    <None Include="Content\bin\Windows\Background_Wood.xnb" />
+    <None Include="Content\bin\Windows\brick.xnb" />
+    <None Include="Content\bin\Windows\DeadlyBricks.xnb" />
+    <None Include="Content\bin\Windows\Endgametoilet.xnb" />
+    <None Include="Content\bin\Windows\Endgame_with_toilet.xnb" />
+    <None Include="Content\bin\Windows\End_Level.xnb" />
+    <None Include="Content\bin\Windows\Game_background.xnb" />
+    <None Include="Content\bin\Windows\Game_end.xnb" />
+    <None Include="Content\bin\Windows\Ingame_Background.xnb" />
+    <None Include="Content\bin\Windows\Main with baby.xnb" />
+    <None Include="Content\bin\Windows\Main.xnb" />
+    <None Include="Content\bin\Windows\Menu_background.xnb" />
+    <None Include="Content\bin\Windows\mouse.xnb" />
+    <None Include="Content\bin\Windows\Toilet_Papier.xnb" />
+    <None Include="Content\bin\Windows\white_pixel.xnb" />
+    <None Include="Content\Content.mgcb" />
+    <None Include="Content\obj\Windows\.mgcontent" />
+    <None Include="Content\obj\Windows\baby.mgcontent" />
+    <None Include="Content\obj\Windows\Baby_Crying.mgcontent" />
+    <None Include="Content\obj\Windows\Baby_Laughing.mgcontent" />
+    <None Include="Content\obj\Windows\Background_Wood.mgcontent" />
+    <None Include="Content\obj\Windows\brick.mgcontent" />
+    <None Include="Content\obj\Windows\DeadlyBricks.mgcontent" />
+    <None Include="Content\obj\Windows\Endgametoilet.mgcontent" />
+    <None Include="Content\obj\Windows\Endgame_with_toilet.mgcontent" />
+    <None Include="Content\obj\Windows\End_Level.mgcontent" />
+    <None Include="Content\obj\Windows\Game_background.mgcontent" />
+    <None Include="Content\obj\Windows\Game_end.mgcontent" />
+    <None Include="Content\obj\Windows\Ingame_Background.mgcontent" />
+    <None Include="Content\obj\Windows\Main with baby.mgcontent" />
+    <None Include="Content\obj\Windows\Main.mgcontent" />
+    <None Include="Content\obj\Windows\Menu_background.mgcontent" />
+    <None Include="Content\obj\Windows\mouse.mgcontent" />
+    <None Include="Content\obj\Windows\Toilet_Papier.mgcontent" />
+    <None Include="Content\obj\Windows\white_pixel.mgcontent" />
+  </ItemGroup>
+  <Import Project="..\Toilet_time_main\SharedProject1.projitems" Label="Shared" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

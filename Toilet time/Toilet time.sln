@@ -1,20 +1,45 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.13
+VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toilet time", "Toilet time\Toilet time.csproj", "{ACE0CCB3-F467-41BE-A731-B6358B6B14C0}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Toilet_time_main", "Toilet_time_main\Toilet_time_main.shproj", "{C5813E2B-042A-4774-B091-40328BD31BF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toilet_time_Windows", "Toilet_time_Windows\Toilet_time_Windows.csproj", "{21B93237-8B4B-4F3C-B7FB-9B4139D7EFDC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toilet_time_Android", "Toilet_time_Android\Toilet_time_Android.csproj", "{F9B95E3F-C5F0-4C97-861C-2D08984BA7A8}"
 EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Toilet_time_main\SharedProject1.projitems*{21b93237-8b4b-4f3c-b7fb-9b4139d7efdc}*SharedItemsImports = 4
+		Toilet_time_main\SharedProject1.projitems*{c5813e2b-042a-4774-b091-40328bd31bf3}*SharedItemsImports = 13
+		Toilet_time_main\SharedProject1.projitems*{f9b95e3f-c5f0-4c97-861c-2d08984ba7a8}*SharedItemsImports = 4
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
 		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{ACE0CCB3-F467-41BE-A731-B6358B6B14C0}.Debug|x86.ActiveCfg = Debug|x86
-		{ACE0CCB3-F467-41BE-A731-B6358B6B14C0}.Debug|x86.Build.0 = Debug|x86
-		{ACE0CCB3-F467-41BE-A731-B6358B6B14C0}.Release|x86.ActiveCfg = Release|x86
-		{ACE0CCB3-F467-41BE-A731-B6358B6B14C0}.Release|x86.Build.0 = Release|x86
+		{21B93237-8B4B-4F3C-B7FB-9B4139D7EFDC}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{21B93237-8B4B-4F3C-B7FB-9B4139D7EFDC}.Debug|x86.ActiveCfg = Debug|x86
+		{21B93237-8B4B-4F3C-B7FB-9B4139D7EFDC}.Debug|x86.Build.0 = Debug|x86
+		{21B93237-8B4B-4F3C-B7FB-9B4139D7EFDC}.Release|Any CPU.ActiveCfg = Release|x86
+		{21B93237-8B4B-4F3C-B7FB-9B4139D7EFDC}.Release|x86.ActiveCfg = Release|x86
+		{21B93237-8B4B-4F3C-B7FB-9B4139D7EFDC}.Release|x86.Build.0 = Release|x86
+		{F9B95E3F-C5F0-4C97-861C-2D08984BA7A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9B95E3F-C5F0-4C97-861C-2D08984BA7A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9B95E3F-C5F0-4C97-861C-2D08984BA7A8}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F9B95E3F-C5F0-4C97-861C-2D08984BA7A8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F9B95E3F-C5F0-4C97-861C-2D08984BA7A8}.Debug|x86.Build.0 = Debug|Any CPU
+		{F9B95E3F-C5F0-4C97-861C-2D08984BA7A8}.Debug|x86.Deploy.0 = Debug|Any CPU
+		{F9B95E3F-C5F0-4C97-861C-2D08984BA7A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9B95E3F-C5F0-4C97-861C-2D08984BA7A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9B95E3F-C5F0-4C97-861C-2D08984BA7A8}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{F9B95E3F-C5F0-4C97-861C-2D08984BA7A8}.Release|x86.ActiveCfg = Release|Any CPU
+		{F9B95E3F-C5F0-4C97-861C-2D08984BA7A8}.Release|x86.Build.0 = Release|Any CPU
+		{F9B95E3F-C5F0-4C97-861C-2D08984BA7A8}.Release|x86.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
