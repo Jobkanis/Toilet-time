@@ -4,12 +4,12 @@ namespace Toilet_time
 {
     public class Screen
     {
+        public DrawVisitor.BackgroundType Background;
         public Iterator<Fallable_Object> Fallable_Objects;
         public Iterator<Stable_Object> Stable_Objects;
         public Iterator<iObject> gui_stuff;
         public Iterator<iObject> Interacting_Objects;
         public bool islevel;
-        public DrawVisitor.BackgroundType Background;
 
         public Screen(DrawVisitor.BackgroundType Background, Iterator<Fallable_Object> fallable_objects, Iterator<Stable_Object> stable_objects, Iterator<iObject> gui_stuff, Iterator<iObject> Interacting_Objects, bool islevel)
         {

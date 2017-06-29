@@ -155,6 +155,7 @@ namespace Toilet_time
             this.Fallable_Objects = null;
             this.Stable_Objects = null;
             this.Gui_stuff = null;
+            this.Interacting_Objects = null;
         }
 
         public void Reload_screen()
