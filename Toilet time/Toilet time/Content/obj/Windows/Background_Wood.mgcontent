@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-<<<<<<< HEAD
   <SourceFile>C:/Users/jobka/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet time/Content/Background_Wood.png</SourceFile>
   <SourceTime>2017-06-28T13:54:35.7751193+02:00</SourceTime>
   <DestFile>C:/Users/jobka/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet time/Content/bin/Windows/Background_Wood.xnb</DestFile>
-  <DestTime>2017-06-28T19:57:54.957445+02:00</DestTime>
-=======
-  <SourceFile>C:/Users/Oguzhan/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet time/Content/Background_Wood.png</SourceFile>
-  <SourceTime>2017-06-28T17:07:39.2324297+02:00</SourceTime>
-  <DestFile>C:/Users/Oguzhan/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet time/Content/bin/Windows/Background_Wood.xnb</DestFile>
-  <DestTime>2017-06-28T17:18:41.2882325+02:00</DestTime>
->>>>>>> e419bf520c07f2b112e9872eee4eb5e169ddac28
+  <DestTime>2017-06-29T13:16:06.7315444+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

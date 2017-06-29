@@ -197,3 +197,5 @@ C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet tim
 C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\obj\x86\Release\Toilet time.exe
 C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\obj\x86\Release\Toilet time.pdb
 C:\Users\Oguzhan\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\mouse.xnb
+C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\bin\Windows\x86\Release\Content\mouse.xnb
+C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet time\obj\x86\Release\Toilet time.csprojResolveAssemblyReference.cache

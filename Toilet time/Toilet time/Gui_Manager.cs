@@ -4,7 +4,7 @@ namespace Toilet_time
 {
     public class Gui_Manager
     {
-        bool VieuwDebugConsole = true;
+        bool VieuwDebugConsole = false;
 
         public Iterator<Fallable_Object> Fallable_Objects;
         public Iterator<Stable_Object> Stable_Objects;
@@ -138,11 +138,14 @@ namespace Toilet_time
             if (Current_screen.islevel == true)
             {
                 sound_handler.PlayBackground(ChooseBackGroundMusic.game_cry);
+                Controls_Cooldown = 0.8f;
             }
             else
             {
                 sound_handler.PlayBackground(ChooseBackGroundMusic.menu);
             }
+
+            
 
         }
         public void Getinputmechanism(int inputnumber)
