@@ -47,7 +47,7 @@ namespace Toilet_time
                         if (guimanager.LatestInput.MouseButton.Visit<MousePressed>(() => { throw new Exception("mousepressed failed"); }, item => { return item; }) == MousePressed.Left_Button)
                         {
                             action(guimanager);
-                            guimanager.buttoncooldown = 10;
+                            guimanager.buttoncooldown = 0.5f;
                         }
                     }
                 }

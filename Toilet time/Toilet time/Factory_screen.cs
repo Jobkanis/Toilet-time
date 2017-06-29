@@ -152,7 +152,7 @@ namespace Toilet_time
                         Interacting_Objects.Add(new End_Goal(1000, 0));
                         Interacting_Objects.Add(new Deadly_Brick(800, 0));
 
-                        Interacting_Objects.Add(new Toilet_Paper_Drop(300, -300, 1));
+                        Interacting_Objects.Add(new Toilet_Paper_Drop(300, -300, 0.8f));
 
                         //platforms
                         stable_objects.Add(new Platform(0, 300, 300, 20));

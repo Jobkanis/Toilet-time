@@ -31,8 +31,8 @@ namespace Toilet_time
         public int CharacterSpeed; 
         public float localwalkspeed = 0;
 
-        public int buttoncooldown = 0;
-        public int pickupcooldown = 0;
+        public float buttoncooldown = 0;
+        public float pickupcooldown = 0;
         public float Controls_Cooldown = 0;
    
         public float End_Of_Level_Cooldown = 0;
@@ -329,8 +329,8 @@ namespace Toilet_time
             bool controllsenabled = true;
 
             //cooldown
-            if (pickupcooldown > 0) { pickupcooldown -= 1; }
-            if (buttoncooldown > 0) { buttoncooldown -= 1;} 
+            if (pickupcooldown > 0) { pickupcooldown -= dt; }
+            if (buttoncooldown > 0) { buttoncooldown -= dt;} 
             if (Controls_Cooldown > 0) { Controls_Cooldown -= dt;  }
             if (End_Of_Level_Cooldown > 0) { End_Of_Level_Cooldown -= dt ; }
 
@@ -491,7 +491,7 @@ namespace Toilet_time
                 {
                     if (activityinput == CharacterActivity.Action && pickupcooldown <= 0)
                     {
-                        pickupcooldown = 10;
+                        pickupcooldown = 0.5f;
                         if (main != null)
                         {
                             if (main.HasBaby == false)
