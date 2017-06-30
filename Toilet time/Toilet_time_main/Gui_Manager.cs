@@ -2,11 +2,17 @@
 
 namespace Toilet_time_main
 {
+    public enum Systemtype { windows, android};
+
     public class Gui_Manager
     {
         bool VieuwDebugConsole = false;
 
+        public bool autopickup;
+
         public bool exit = false;
+
+        Systemtype systemtype;
 
         public Iterator<Fallable_Object> Fallable_Objects;
         public Iterator<Stable_Object> Stable_Objects;
@@ -41,22 +47,34 @@ namespace Toilet_time_main
 
         public int lowestyvalue = 800;
 
-
         public BackgroundType Background;
 
-        public Gui_Manager(iDrawVisitor drawvisitor, iSoundHandler sound_handler)
+        public Gui_Manager(iDrawVisitor drawvisitor, iSoundHandler sound_handler, Input_Adapter inputadapter, Systemtype systemtype)
         {
+            this.systemtype = systemtype;
+
             this.Drawvisitor = drawvisitor;
             this.CharacterSpeed = 300;
             this.inputmechanism = 1;
             this.screenFactory = new Factory_screen(this);
-            this.inputadapter = new Input_Adapter(this);
+            this.inputadapter = inputadapter;
+            
             this.screen = 5;
             this.Cursor = new Point(0,0);
             this.sound_handler = sound_handler;
             Create_screen(screen);
             Controls_Cooldown = 0;
             sound_handler.PlayBackground(ChooseBackGroundMusic.menu);
+
+            if (systemtype == Systemtype.android)
+            {
+                autopickup = true;
+            }
+            else
+            {
+                autopickup = false;
+            }
+
         }
 
         public bool Check_Collision(iObject Object, int x_pos, int y_pos, int x_size, int y_size)
@@ -453,47 +471,51 @@ namespace Toilet_time_main
             List<iObject> interacton = CheckIfMainTouching();
 
             // checking for baby
-            if (input.CharacterActivity.Visit(() => false, _ => true))
-            {
-                CharacterActivity activityinput = input.CharacterActivity.Visit<CharacterActivity>(() => throw new Exception("failed getting interaction"), act => { return act; });
-                if (controllsenabled == true)
-                {
-                    if (activityinput == CharacterActivity.Action && pickupcooldown <= 0)
-                    {
-                        pickupcooldown = 0.5f;
-                        if (main != null)
-                        {
-                            if (main.HasBaby == false)
-                            {
 
-                                interacton.Reset();
-                                while (interacton.GetNext().Visit(() => false, unusedvalue => true))
+            if (autopickup == false)
+            {
+                if (input.CharacterActivity.Visit(() => false, _ => true))
+                {
+                    CharacterActivity activityinput = input.CharacterActivity.Visit<CharacterActivity>(() => throw new Exception("failed getting interaction"), act => { return act; });
+                    if (controllsenabled == true)
+                    {
+                        if (activityinput == CharacterActivity.Action && pickupcooldown <= 0)
+                        {
+                            pickupcooldown = 0.5f;
+                            if (main != null)
+                            {
+                                if (main.HasBaby == false)
                                 {
-                                    if (interacton.GetCurrent().Visit(() => false, item => { return item.IsBaby; }))
+
+                                    interacton.Reset();
+                                    while (interacton.GetNext().Visit(() => false, unusedvalue => true))
                                     {
-                                        iObject baby = interacton.GetCurrent().Visit<iObject>(() => throw new Exception("failed getting interaction"), act => { return act; });
-                                        main.HasBaby = true;
-                                        baby.Visible = false;
-                                        sound_handler.PlayBackground(ChooseBackGroundMusic.game_noncry);
-                                        sound_handler.PlaySoundEffect(ChooseSoundEffect.baby_laugh);
+                                        if (interacton.GetCurrent().Visit(() => false, item => { return item.IsBaby; }))
+                                        {
+                                            iObject baby = interacton.GetCurrent().Visit<iObject>(() => throw new Exception("failed getting interaction"), act => { return act; });
+                                            main.HasBaby = true;
+                                            baby.Visible = false;
+                                            sound_handler.PlayBackground(ChooseBackGroundMusic.game_noncry);
+                                            sound_handler.PlaySoundEffect(ChooseSoundEffect.baby_laugh);
+                                        }
                                     }
                                 }
-                            }
 
 
-                            else
-                            {
-                                Interacting_Objects.Reset();
-                                while (Interacting_Objects.GetNext().Visit(() => false, unusedvalue => true))
+                                else
                                 {
-                                    if (Interacting_Objects.GetCurrent().Visit(() => false, item => { return item.IsBaby; }))
+                                    Interacting_Objects.Reset();
+                                    while (Interacting_Objects.GetNext().Visit(() => false, unusedvalue => true))
                                     {
-                                        iObject baby = Interacting_Objects.GetCurrent().Visit<iObject>(() => throw new Exception("failed getting interaction"), act => { return act; });
-                                        main.HasBaby = false;
-                                        baby.position = new Position(main.position.x, main.position.y + 20);
-                                        baby.Visible = true;
-                                        sound_handler.PlayBackground(ChooseBackGroundMusic.game_cry);
+                                        if (Interacting_Objects.GetCurrent().Visit(() => false, item => { return item.IsBaby; }))
+                                        {
+                                            iObject baby = Interacting_Objects.GetCurrent().Visit<iObject>(() => throw new Exception("failed getting interaction"), act => { return act; });
+                                            main.HasBaby = false;
+                                            baby.position = new Position(main.position.x, main.position.y + 20);
+                                            baby.Visible = true;
+                                            sound_handler.PlayBackground(ChooseBackGroundMusic.game_cry);
 
+                                        }
                                     }
                                 }
                             }
@@ -501,6 +523,7 @@ namespace Toilet_time_main
                     }
                 }
             }
+          
             // checking if touching items
 
             interacton.Reset();
@@ -511,6 +534,21 @@ namespace Toilet_time_main
                 if (TouchingObject.IsDeadly)
                 {
                     Main_Dead();
+                }
+
+                if (TouchingObject.IsBaby)
+                {
+                    if (autopickup == true)
+                    {
+                        if (main.HasBaby == false)
+                        {
+                            main.HasBaby = true;
+                            TouchingObject.Visible = false;
+                            sound_handler.PlayBackground(ChooseBackGroundMusic.game_noncry);
+                            sound_handler.PlaySoundEffect(ChooseSoundEffect.baby_laugh);
+                        }
+
+                    }
                 }
 
                 if (TouchingObject.IsEnd)

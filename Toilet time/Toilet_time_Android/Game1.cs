@@ -14,7 +14,9 @@ namespace Toilet_time_Android
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        
+        int CurrentWidth;
+        int CurrentHeight;
+
         public Toilet_time_main.Gui_Manager gui_manager;
         public DrawVisitor draw_visitor;
         public Texture2D Texture_White_Pixel;
@@ -32,7 +34,7 @@ namespace Toilet_time_Android
 
         public SpriteFont Arial;
 
-            
+        public Input_Adapter_Android inputhandler;  
         /*
         public SoundEffect End_Level;
         public SoundEffect Baby_Cry;
@@ -99,10 +101,12 @@ namespace Toilet_time_Android
 
             sound_handler = new SoundHandler();
 
-                //Menu_Background, Ingame_Background, End_Level, Baby_Laugh, Baby_Cry);
-
-            draw_visitor = new DrawVisitor(spriteBatch, graphics, Arial, Texture_White_Pixel, Texture_Platform, Texture_Main_char, Texture_Main_Char_with_Baby, Texture_Baby, Texture_Toilet, Texture_Toilet_With_Baby, Texture_Deadly_Bricks, Texture_Toilet_Paper, Texture_Background_Wood, Texture_Mouse);
-            gui_manager = new Toilet_time_main.Gui_Manager(draw_visitor, sound_handler);
+            //Menu_Background, Ingame_Background, End_Level, Baby_Laugh, Baby_Cry);
+            CurrentWidth = graphics.GraphicsDevice.DisplayMode.Width;
+            CurrentHeight = graphics.GraphicsDevice.DisplayMode.Height;
+            inputhandler = new Input_Adapter_Android();
+            draw_visitor = new DrawVisitor(CurrentWidth, CurrentHeight, spriteBatch, graphics, Arial, Texture_White_Pixel, Texture_Platform, Texture_Main_char, Texture_Main_Char_with_Baby, Texture_Baby, Texture_Toilet, Texture_Toilet_With_Baby, Texture_Deadly_Bricks, Texture_Toilet_Paper, Texture_Background_Wood, Texture_Mouse);
+            gui_manager = new Toilet_time_main.Gui_Manager(draw_visitor, sound_handler, inputhandler, Toilet_time_main.Systemtype.windows);
             
             // TODO: use this.Content to load your game content here
         }

@@ -20,7 +20,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)GuiButton.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GuiLabel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Gui_Manager.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Input_Adapter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)iInput_Adapter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)iObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)iOption.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Iterator.cs" />
