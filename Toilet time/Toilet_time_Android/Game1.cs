@@ -104,9 +104,9 @@ namespace Toilet_time_Android
             //Menu_Background, Ingame_Background, End_Level, Baby_Laugh, Baby_Cry);
             CurrentWidth = graphics.GraphicsDevice.DisplayMode.Width;
             CurrentHeight = graphics.GraphicsDevice.DisplayMode.Height;
-            inputhandler = new Input_Adapter_Android();
+            inputhandler = new Input_Adapter_Android(CurrentHeight, CurrentWidth);
             draw_visitor = new DrawVisitor(CurrentWidth, CurrentHeight, spriteBatch, graphics, Arial, Texture_White_Pixel, Texture_Platform, Texture_Main_char, Texture_Main_Char_with_Baby, Texture_Baby, Texture_Toilet, Texture_Toilet_With_Baby, Texture_Deadly_Bricks, Texture_Toilet_Paper, Texture_Background_Wood, Texture_Mouse);
-            gui_manager = new Toilet_time_main.Gui_Manager(draw_visitor, sound_handler, inputhandler, Toilet_time_main.Systemtype.windows);
+            gui_manager = new Toilet_time_main.Gui_Manager(draw_visitor, sound_handler, inputhandler, Toilet_time_main.Systemtype.android);
             
             // TODO: use this.Content to load your game content here
         }
@@ -141,7 +141,7 @@ namespace Toilet_time_Android
 
             updateprevtime = updatetimenow;
             updatetimenow = (float)gameTime.TotalGameTime.TotalMilliseconds;
-            updatetimedifference = (updatetimenow - updateprevtime) / 5000;
+            updatetimedifference = (updatetimenow - updateprevtime) / 1000;
 
             gui_manager.Update((updatetimedifference));
             if (gui_manager.exit == true)
@@ -167,7 +167,7 @@ namespace Toilet_time_Android
 
             drawprevtime = updatetimenow;
             drawtimenow = (float)gameTime.TotalGameTime.TotalMilliseconds;
-            drawtimedifference = (updatetimenow - updateprevtime) / 10000;
+            drawtimedifference = (updatetimenow - updateprevtime) / 1000;
 
             // TODO: Add your drawing code here
             gui_manager.Draw(drawtimedifference);

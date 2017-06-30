@@ -20,7 +20,7 @@ namespace Toilet_time_Android
         public Texture2D Texture_Deadly_Bricks;
         public Texture2D Texture_Toilet_Paper;
         public Texture2D Texture_Mouse;
-
+        float screenmultiplier = 2;
         public Texture2D Texture_Ingame_Background;
 
         public int CurrentHeight;
@@ -46,7 +46,7 @@ namespace Toilet_time_Android
             this.arial = arial;
 
             this.CurrentHeight = CurrentHeight;
-            this.CurrentWidth = CurrentWidth;           
+            this.CurrentWidth = CurrentWidth;
         }
 
         public SpriteBatch spriteBatch
@@ -121,7 +121,7 @@ namespace Toilet_time_Android
             Vector2 textsize = arial.MeasureString(label.text);
             int textsize_x = (int)textsize.X;
             int textsize_y = (int)textsize.Y;
-            spritebatch.DrawString(arial, label.text, ConvertVector2(new Vector2(label.position.x + ((label.size.x - textsize_x) / 2), label.position.y + ((label.size.y - textsize_y) / 2))), label.color);
+            spritebatch.DrawString(arial, label.text, ConvertVector2(new Vector2(label.position.x + ((label.size.x - textsize_x / 2) / 2), label.position.y + ((label.size.y - textsize_y / 2) / 2))), label.color);
         }
 
         public void DrawToiletPaper(Toilet_time_main.Toilet_Paper toilet_paper)
@@ -151,13 +151,13 @@ namespace Toilet_time_Android
             return returntype;
         }
 
-        Toilet_time_main.Label MouseInformation = new Toilet_time_main.Label(600, 0, 100, 20, "");
-        Toilet_time_main.Label InputInformation = new Toilet_time_main.Label(600, 20, 100, 20, "");
-        Toilet_time_main.Label CooldownInformation = new Toilet_time_main.Label(600, 40, 100, 20, "");
-        Toilet_time_main.Label ScreenStats = new Toilet_time_main.Label(600, 60, 100, 20, "");
-        Toilet_time_main.Label LevelStats = new Toilet_time_main.Label(600, 80, 100, 20, "");
-        Toilet_time_main.Label PerformanceInformation = new Toilet_time_main.Label(600, 120, 100, 20, "");
-
+        Toilet_time_main.Label MouseInformation = new Toilet_time_main.Label(800,20, 100, 20, "");
+        Toilet_time_main.Label InputInformation = new Toilet_time_main.Label(800, 30, 100, 20, "");
+        Toilet_time_main.Label CooldownInformation = new Toilet_time_main.Label(800, 40, 100, 20, "");
+        Toilet_time_main.Label MainInformation = new Toilet_time_main.Label(800, 50, 100, 20, "No main_character found");
+        Toilet_time_main.Label ScreenStats = new Toilet_time_main.Label(800, 60, 100, 20, "");
+        Toilet_time_main.Label LevelStats = new Toilet_time_main.Label(800, 70, 100, 20, "");
+        Toilet_time_main.Label PerformanceInformation = new Toilet_time_main.Label(800, 80, 100, 20, "");
 
 
         public void DrawDebugConsole(Toilet_time_main.Gui_Manager guimanager)
@@ -168,7 +168,7 @@ namespace Toilet_time_Android
             InputInformation.text = "Input: | " + guimanager.LatestInput.Walk.Visit<string>(() => { return ""; }, item => { return "   " + item.ToString(); }) + guimanager.LatestInput.MoveAction.Visit<string>(() => { return ""; }, item => { return "   " + item.ToString(); }) + guimanager.LatestInput.CharacterActivity.Visit<string>(() => { return ""; }, item => { return "   " + item.ToString(); }) + guimanager.LatestInput.Settings.Visit<string>(() => { return ""; }, item => { return "   " + item.ToString(); }) + "   |";
             InputInformation.Draw(this);
 
-            CooldownInformation.text = "Countdowns: | B: " + guimanager.buttoncooldown.ToString() + " | P: " + guimanager.pickupcooldown.ToString() + " | C: " + guimanager.Controls_Cooldown.ToString() + " | E " + guimanager.End_Of_Level_Cooldown.ToString() + " |";
+            CooldownInformation.text = "Countdowns: | B: " + ((int)(guimanager.buttoncooldown)).ToString() + " | P: " + ((int)guimanager.pickupcooldown).ToString() + " | C: " + ((int)guimanager.Controls_Cooldown).ToString() + " | E " + ((int)guimanager.End_Of_Level_Cooldown).ToString() + " |";
             CooldownInformation.Draw(this);
 
 
@@ -180,7 +180,7 @@ namespace Toilet_time_Android
             LevelStats.Draw(this);
 
             Toilet_time_main.Fallable_Object main = guimanager.GetMain_Character();
-            Toilet_time_main.Label MainInformation = new Toilet_time_main.Label(600, 100, 100, 20, "No main_character found");
+            
             if (main != null)
             {
                 MainInformation.text = "MainY: " + main.position.y.ToString() + " | Vel: " + ((int)(main.velocity)).ToString() + " | Baby: " + main.HasBaby.ToString() + " | Next: " + main.nextscreen.ToString();
@@ -213,7 +213,25 @@ namespace Toilet_time_Android
 
         }
 
+        private int ConvertInt(int convert)
+        {
+            float screenmultiplier = 2;
 
+            float diffwith = (float)(CurrentWidth / 800);
+            float diffheight = (float)(CurrentHeight / 600);
+
+            if (diffwith < diffheight)
+            {
+                screenmultiplier = diffwith;
+            }
+            else
+            {
+                screenmultiplier = diffheight;
+            }
+
+            screenmultiplier = 2;
+            return (int)( convert * screenmultiplier );
+        }
         private Rectangle ConvertRectangle(Rectangle rect)
         {
             float screenmultiplier = 2;

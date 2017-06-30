@@ -28,6 +28,7 @@ namespace Toilet_time_main
 
         private bool isIntersecting(Point point)
         {
+            
             return point.x > this.position.x && point.y > this.position.y&&
            point.x < this.position.x + this.size.x && point.y < this.position.y + this.size.y;
 

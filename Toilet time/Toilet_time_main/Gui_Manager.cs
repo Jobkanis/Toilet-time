@@ -6,7 +6,7 @@ namespace Toilet_time_main
 
     public class Gui_Manager
     {
-        bool VieuwDebugConsole = false;
+        bool VieuwDebugConsole = true;
 
         public bool autopickup;
 
@@ -59,7 +59,7 @@ namespace Toilet_time_main
             this.screenFactory = new Factory_screen(this);
             this.inputadapter = inputadapter;
             
-            this.screen = 5;
+            this.screen = 1;
             this.Cursor = new Point(0,0);
             this.sound_handler = sound_handler;
             Create_screen(screen);
@@ -187,8 +187,7 @@ namespace Toilet_time_main
 
         public void DrawDebugConsole() // remove when launched
         {
-            
-
+            Drawvisitor.DrawDebugConsole(this);
         }
         public void Draw(float dt)
         {

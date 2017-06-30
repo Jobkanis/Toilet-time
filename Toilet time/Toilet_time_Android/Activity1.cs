@@ -3,6 +3,7 @@ using Android.Content.PM;
 using Android.OS;
 using Android.Views;
 
+
 namespace Toilet_time_Android
 {
     [Activity(Label = "Toilet_time_Android"
