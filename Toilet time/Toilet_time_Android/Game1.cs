@@ -100,7 +100,7 @@ namespace Toilet_time_Android
             Menu_Background = Content.Load<SoundEffect>("Menu_background");
             
 
-            sound_handler = new SoundHandler(Menu_Background, Ingame_Background, End_Level, Baby_Laugh,Baby_Cry);
+            sound_handler = new Toilet_time_main.SoundHandler(Menu_Background, Ingame_Background, End_Level, Baby_Laugh,Baby_Cry);
 
             CurrentWidth = graphics.GraphicsDevice.DisplayMode.Width;
             CurrentHeight = graphics.GraphicsDevice.DisplayMode.Height;

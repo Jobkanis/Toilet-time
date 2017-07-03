@@ -26,6 +26,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Iterator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Main_Character.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Platform.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)iSoundHandler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SoundHandler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Start and end goal.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Toiletpaper_Dropper.cs" />

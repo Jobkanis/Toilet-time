@@ -89,7 +89,7 @@ namespace Toilet_time_Windows
             Ingame_Background = Content.Load<SoundEffect>("Ingame_Background");
             Menu_Background = Content.Load<SoundEffect>("Menu_background");
 
-            sound_handler = new SoundHandler(Menu_Background, Ingame_Background, End_Level, Baby_Laugh, Baby_Cry);
+            sound_handler = new Toilet_time_main.SoundHandler(Menu_Background, Ingame_Background, End_Level, Baby_Laugh, Baby_Cry);
             
             draw_visitor = new DrawVisitor(800, 600, 1f, spriteBatch, graphics, arial, Texture_White_Pixel, Texture_Platform, Texture_Main_char, Texture_Main_Char_with_Baby, Texture_Baby, Texture_Toilet, Texture_Toilet_With_Baby, Texture_Deadly_Bricks, Texture_Toilet_Paper, Texture_Background_Wood, Texture_Mouse);
             inputhandler = new Input_Adapter_Windows();
