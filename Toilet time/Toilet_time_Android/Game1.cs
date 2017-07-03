@@ -1,7 +1,8 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-//using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Audio;
 using System;
 
 namespace Toilet_time_Android
@@ -35,13 +36,13 @@ namespace Toilet_time_Android
         public SpriteFont Arial;
 
         public Input_Adapter_Android inputhandler;  
-        /*
+        
         public SoundEffect End_Level;
         public SoundEffect Baby_Cry;
         public SoundEffect Baby_Laugh;
         public SoundEffect Menu_Background;
         public SoundEffect Ingame_Background;
-        */
+        
         public Toilet_time_main.iSoundHandler sound_handler;
 
         public Game1()
@@ -90,18 +91,17 @@ namespace Toilet_time_Android
 
             Arial = Content.Load<SpriteFont>("Arial");
 
-            /*
+            
             End_Level = Content.Load<SoundEffect>("End_Level");
             Baby_Cry = Content.Load<SoundEffect>("Baby_Crying");
             Baby_Laugh = Content.Load<SoundEffect>("Baby_Laughing");
 
             Ingame_Background = Content.Load<SoundEffect>("Ingame_Background");
             Menu_Background = Content.Load<SoundEffect>("Menu_background");
-            */
+            
 
-            sound_handler = new SoundHandler();
+            sound_handler = new SoundHandler(Menu_Background, Ingame_Background, End_Level, Baby_Laugh,Baby_Cry);
 
-            //Menu_Background, Ingame_Background, End_Level, Baby_Laugh, Baby_Cry);
             CurrentWidth = graphics.GraphicsDevice.DisplayMode.Width;
             CurrentHeight = graphics.GraphicsDevice.DisplayMode.Height;
             inputhandler = new Input_Adapter_Android(CurrentHeight, CurrentWidth);
