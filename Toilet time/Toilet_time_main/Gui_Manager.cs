@@ -49,6 +49,8 @@ namespace Toilet_time_main
 
         public BackgroundType Background;
 
+        InputData input;
+
         public Gui_Manager(iDrawVisitor drawvisitor, iSoundHandler sound_handler, Input_Adapter inputadapter, Systemtype systemtype)
         {
             this.systemtype = systemtype;
@@ -322,199 +324,207 @@ namespace Toilet_time_main
 
             if (Controls_Cooldown > 0) { controllsenabled = false; };
 
-            InputData input = inputadapter.GetInput(inputmechanism);
+            input = inputadapter.GetInput(inputmechanism);
 
             LatestInput = input;
-            Console.WriteLine(Gamepadonline + " - " + input.GamePadOnline);
+            // Check if gamepad is enabled
+
+
+            bool newgamepadonline = input.GamePadOnline;
+
+            if (Gamepadonline != newgamepadonline && screen == 2)
+            {
+                Gamepadonline = newgamepadonline;
+                Reload_screen();
+            }
             Gamepadonline = input.GamePadOnline;
 
-            //kill on fall
+        //kill on fall
 
-            
-            Fallable_Object main = GetMain_Character();
-            if (main != null)
+
+        Fallable_Object main = GetMain_Character();
+        if (main != null)
+        {
+            if (main.position.y + main.size.y > lowestyvalue)
             {
-                if (main.position.y + main.size.y > lowestyvalue)
+                Main_Dead();
+            }
+        }
+
+        Interacting_Objects.Reset();
+        while (Interacting_Objects.GetNext().Visit(() => false, _ => true))
+        {
+            if (Interacting_Objects.GetCurrent().Visit(() => false, item => { return item.IsBaby; }))
+            {
+                iObject baby = Interacting_Objects.GetCurrent().Visit<iObject>(() => throw new Exception("failed getting interaction"), act => { return act; });
+                if (baby.position.y + baby.size.y > lowestyvalue)
                 {
                     Main_Dead();
                 }
             }
+        }
 
-            Interacting_Objects.Reset();
-            while (Interacting_Objects.GetNext().Visit(() => false, _ => true))
+
+
+
+
+        // cursor
+        this.Cursor = input.cursor;
+
+
+
+        // walk
+        bool walk = false;
+        bool CanMove = false;
+        int walkspeed = 0;
+
+        localwalkspeed += CharacterSpeed * dt;
+        for (int i = (int)(localwalkspeed); i > 0; i--)
+        {
+            localwalkspeed = localwalkspeed - 1.0f;
+            walkspeed++;
+        }
+
+
+        WalkDirectionInput walkdirection = WalkDirectionInput.Right;
+
+        if (input.Walk.Visit(() => false, _ => true))
+        {
+            walk = true;
+            walkdirection = input.Walk.Visit<WalkDirectionInput>(() => { throw new Exception("walkdirection failed"); }, item => { return item; });
+
+            CanMove = CheckIfMove(dt, walkdirection, walkspeed); // Checks if allowed to move character
+            if (CanMove == false && walkspeed > 1)
             {
-                if (Interacting_Objects.GetCurrent().Visit(() => false, item => { return item.IsBaby; }))
+                for (int i = walkspeed; i > 0 && CanMove == false; i--)
                 {
-                    iObject baby = Interacting_Objects.GetCurrent().Visit<iObject>(() => throw new Exception("failed getting interaction"), act => { return act; });
-                    if (baby.position.y + baby.size.y > lowestyvalue)
+                    CanMove = CheckIfMove(dt, walkdirection, i); // Checks if allowed to move character
+                    if (CanMove == true)
                     {
-                        Main_Dead();
+                        walkspeed = i;
                     }
                 }
             }
-            
-
-          
+        }
 
 
-            // cursor
-            this.Cursor = input.cursor;
-
-
-
-            // walk
-            bool walk = false;
-            bool CanMove = false;
-            int walkspeed = 0;
-
-            localwalkspeed += CharacterSpeed * dt;
-            for (int i = (int)(localwalkspeed); i > 0; i--)
+        // jump
+        if (controllsenabled == true)
+        {
+            if (input.MoveAction.Visit(() => false, _ => true))
             {
-                localwalkspeed = localwalkspeed - 1.0f;
-                walkspeed++;
-            }
-
-
-            WalkDirectionInput walkdirection = WalkDirectionInput.Right;
-
-            if (input.Walk.Visit(() => false, _ => true))
-            {
-                walk = true;
-                walkdirection = input.Walk.Visit<WalkDirectionInput>(() => { throw new Exception("walkdirection failed"); }, item => { return item; });
-
-                CanMove = CheckIfMove(dt, walkdirection, walkspeed); // Checks if allowed to move character
-                if (CanMove == false && walkspeed > 1)
+                if (input.MoveAction.Visit<CharacterMovementAction>(() => { throw new Exception("Charactermovement failed"); }, item => { return item; }) == CharacterMovementAction.Jump)
                 {
-                    for (int i = walkspeed; i > 0 && CanMove == false; i--)
+                    if (main != null)
                     {
-                        CanMove = CheckIfMove(dt, walkdirection, i); // Checks if allowed to move character
-                        if (CanMove == true)
+                        if (main.IsMainCharacter == true)
                         {
-                            walkspeed = i;
+                            main.Jump(this);
                         }
                     }
                 }
             }
+        }
 
 
-            // jump
+        // updating
+        Stable_Objects.Reset();
+        while (Stable_Objects.GetNext().Visit(() => false, _ => true))
+        {
+            Stable_Objects.GetCurrent().Visit(() => { }, item => { item.Update(dt, this); });
+
             if (controllsenabled == true)
             {
-                if (input.MoveAction.Visit(() => false, _ => true))
+                if (controllsenabled == true && walk == true && CanMove == true)
                 {
-                    if (input.MoveAction.Visit<CharacterMovementAction>(() => { throw new Exception("Charactermovement failed"); }, item => { return item; }) == CharacterMovementAction.Jump)
+                    Stable_Objects.GetCurrent().Visit(() => { }, item => { item.Move(dt, this, walkdirection, walkspeed); });
+                }
+            }
+        }
+
+        Fallable_Objects.Reset();
+        while (Fallable_Objects.GetNext().Visit(() => false, _ => true))
+        {
+            Fallable_Objects.GetCurrent().Visit(() => { }, item => { item.Update(dt, this); });
+
+            if (controllsenabled == true)
+            {
+                if (controllsenabled == true && walk == true && CanMove == true)
+                {
+                    Fallable_Objects.GetCurrent().Visit(() => { }, item => { item.Move(dt, this, walkdirection, walkspeed); });
+                }
+            }
+        }
+
+        Gui_stuff.Reset();
+        while (Gui_stuff.GetNext().Visit(() => false, unusedvalue => true))
+        {
+            Gui_stuff.GetCurrent().Visit(() => { }, item => { item.Update(dt, this); });
+        }
+
+        Interacting_Objects.Reset();
+        while (Interacting_Objects.GetNext().Visit(() => false, unusedvalue => true))
+        {
+            Interacting_Objects.GetCurrent().Visit(() => { }, item => { item.Update(dt, this); });
+
+            if (controllsenabled == true)
+            {
+                if (walk == true && CanMove == true)
+                {
+                    Interacting_Objects.GetCurrent().Visit(() => { }, item => { item.Move(dt, this, walkdirection, walkspeed); });
+                }
+            }
+        }
+
+        // cHECKING INTERACTION
+
+        List<iObject> interacton = CheckIfMainTouching();
+
+        // checking for baby
+
+        if (autopickup == false)
+        {
+            if (input.CharacterActivity.Visit(() => false, _ => true))
+            {
+                CharacterActivity activityinput = input.CharacterActivity.Visit<CharacterActivity>(() => throw new Exception("failed getting interaction"), act => { return act; });
+                if (controllsenabled == true)
+                {
+                    if (activityinput == CharacterActivity.Action && pickupcooldown <= 0)
                     {
+                        pickupcooldown = 0.5f;
                         if (main != null)
                         {
-                            if (main.IsMainCharacter == true)
+                            if (main.HasBaby == false)
                             {
-                                main.Jump(this);
-                            }
-                        }
-                    }
-                }
-            }
 
-
-            // updating
-            Stable_Objects.Reset();
-            while (Stable_Objects.GetNext().Visit(() => false, _ => true))
-            {
-                Stable_Objects.GetCurrent().Visit(() => { }, item => { item.Update(dt, this); });
-
-                if (controllsenabled == true)
-                {
-                    if (controllsenabled == true && walk == true && CanMove == true)
-                    {
-                        Stable_Objects.GetCurrent().Visit(() => { }, item => { item.Move(dt, this, walkdirection, walkspeed); });
-                    }
-                }
-            }
-
-            Fallable_Objects.Reset();
-            while (Fallable_Objects.GetNext().Visit(() => false, _ => true))
-            {
-                Fallable_Objects.GetCurrent().Visit(() => { }, item => { item.Update(dt, this); });
-
-                if (controllsenabled == true)
-                {
-                    if (controllsenabled == true && walk == true && CanMove == true)
-                    {
-                        Fallable_Objects.GetCurrent().Visit(() => { }, item => { item.Move(dt, this, walkdirection, walkspeed); });
-                    }
-                }
-            }
-
-            Gui_stuff.Reset();
-            while (Gui_stuff.GetNext().Visit(() => false, unusedvalue => true))
-            {
-                Gui_stuff.GetCurrent().Visit(() => { }, item => { item.Update(dt, this); });
-            }
-
-            Interacting_Objects.Reset();
-            while (Interacting_Objects.GetNext().Visit(() => false, unusedvalue => true))
-            {
-                Interacting_Objects.GetCurrent().Visit(() => { }, item => { item.Update(dt, this); });
-
-                if (controllsenabled == true)
-                {
-                    if (walk == true && CanMove == true)
-                    {
-                        Interacting_Objects.GetCurrent().Visit(() => { }, item => { item.Move(dt, this, walkdirection, walkspeed); });
-                    }
-                }
-            }
-
-            // cHECKING INTERACTION
-
-            List<iObject> interacton = CheckIfMainTouching();
-
-            // checking for baby
-
-            if (autopickup == false)
-            {
-                if (input.CharacterActivity.Visit(() => false, _ => true))
-                {
-                    CharacterActivity activityinput = input.CharacterActivity.Visit<CharacterActivity>(() => throw new Exception("failed getting interaction"), act => { return act; });
-                    if (controllsenabled == true)
-                    {
-                        if (activityinput == CharacterActivity.Action && pickupcooldown <= 0)
-                        {
-                            pickupcooldown = 0.5f;
-                            if (main != null)
-                            {
-                                if (main.HasBaby == false)
+                                interacton.Reset();
+                                while (interacton.GetNext().Visit(() => false, unusedvalue => true))
                                 {
-
-                                    interacton.Reset();
-                                    while (interacton.GetNext().Visit(() => false, unusedvalue => true))
+                                    if (interacton.GetCurrent().Visit(() => false, item => { return item.IsBaby; }))
                                     {
-                                        if (interacton.GetCurrent().Visit(() => false, item => { return item.IsBaby; }))
-                                        {
-                                            iObject baby = interacton.GetCurrent().Visit<iObject>(() => throw new Exception("failed getting interaction"), act => { return act; });
-                                            main.HasBaby = true;
-                                            baby.Visible = false;
-                                            sound_handler.PlayBackground(ChooseBackGroundMusic.game_noncry);
-                                            sound_handler.PlaySoundEffect(ChooseSoundEffect.baby_laugh);
-                                        }
+                                        iObject baby = interacton.GetCurrent().Visit<iObject>(() => throw new Exception("failed getting interaction"), act => { return act; });
+                                        main.HasBaby = true;
+                                        baby.Visible = false;
+                                        sound_handler.PlayBackground(ChooseBackGroundMusic.game_noncry);
+                                        sound_handler.PlaySoundEffect(ChooseSoundEffect.baby_laugh);
                                     }
                                 }
+                            }
 
 
-                                else
+                            else
+                            {
+                                Interacting_Objects.Reset();
+                                while (Interacting_Objects.GetNext().Visit(() => false, unusedvalue => true))
                                 {
-                                    Interacting_Objects.Reset();
-                                    while (Interacting_Objects.GetNext().Visit(() => false, unusedvalue => true))
+                                    if (Interacting_Objects.GetCurrent().Visit(() => false, item => { return item.IsBaby; }))
                                     {
-                                        if (Interacting_Objects.GetCurrent().Visit(() => false, item => { return item.IsBaby; }))
-                                        {
-                                            iObject baby = Interacting_Objects.GetCurrent().Visit<iObject>(() => throw new Exception("failed getting interaction"), act => { return act; });
-                                            main.HasBaby = false;
-                                            baby.position = new Position(main.position.x, main.position.y + 20);
-                                            baby.Visible = true;
-                                            sound_handler.PlayBackground(ChooseBackGroundMusic.game_cry);
+                                        iObject baby = Interacting_Objects.GetCurrent().Visit<iObject>(() => throw new Exception("failed getting interaction"), act => { return act; });
+                                        main.HasBaby = false;
+                                        baby.position = new Position(main.position.x, main.position.y + 20);
+                                        baby.Visible = true;
+                                        sound_handler.PlayBackground(ChooseBackGroundMusic.game_cry);
 
-                                        }
                                     }
                                 }
                             }
@@ -522,55 +532,57 @@ namespace Toilet_time_main
                     }
                 }
             }
-          
-            // checking if touching items
+        }
 
-            interacton.Reset();
-            while (interacton.GetNext().Visit(() => false, unusedvalue => true))
+        // checking if touching items
+
+        interacton.Reset();
+        while (interacton.GetNext().Visit(() => false, unusedvalue => true))
+        {
+            iObject TouchingObject = interacton.GetCurrent().Visit<iObject>(() => throw new Exception("failed getting interaction"), act => { return act; });
+
+            if (TouchingObject.IsDeadly)
             {
-                iObject TouchingObject = interacton.GetCurrent().Visit<iObject>(() => throw new Exception("failed getting interaction"), act => { return act; });
+                Main_Dead();
+            }
 
-                if (TouchingObject.IsDeadly)
+            if (TouchingObject.IsBaby)
+            {
+                if (autopickup == true)
                 {
-                    Main_Dead();
-                }
-
-                if (TouchingObject.IsBaby)
-                {
-                    if (autopickup == true)
+                    if (main.HasBaby == false)
                     {
-                        if (main.HasBaby == false)
-                        {
-                            main.HasBaby = true;
-                            TouchingObject.Visible = false;
-                            sound_handler.PlayBackground(ChooseBackGroundMusic.game_noncry);
-                            sound_handler.PlaySoundEffect(ChooseSoundEffect.baby_laugh);
-                        }
-
+                        main.HasBaby = true;
+                        TouchingObject.Visible = false;
+                        sound_handler.PlayBackground(ChooseBackGroundMusic.game_noncry);
+                        sound_handler.PlaySoundEffect(ChooseSoundEffect.baby_laugh);
                     }
-                }
 
-                if (TouchingObject.IsEnd)
-                {
-                    if (main.HasBaby)
-                    {
-                        main.HasBaby = false;
-                        TouchingObject.HasBaby = true;
-                        this.End_Of_Level_Cooldown = 3;
-                        this.Controls_Cooldown = 3;
-                        this.End_Of_Level = true;
-                        sound_handler.PlaySoundEffect(ChooseSoundEffect.game_end);
-                    }
                 }
             }
 
-            if ( End_Of_Level_Cooldown <= 0 && End_Of_Level == true )
+            if (TouchingObject.IsEnd)
             {
-                End_Of_Level_Cooldown = 0;
-                End_Of_Level = false;
-                Controls_Cooldown = 0;
-                Create_screen(main.nextscreen);
+                if (main.HasBaby)
+                {
+                    main.HasBaby = false;
+                    TouchingObject.HasBaby = true;
+                    this.End_Of_Level_Cooldown = 3;
+                    this.Controls_Cooldown = 3;
+                    this.End_Of_Level = true;
+                    sound_handler.PlaySoundEffect(ChooseSoundEffect.game_end);
+                }
             }
+        }
+
+        if ( End_Of_Level_Cooldown <= 0 && End_Of_Level == true )
+        {
+            End_Of_Level_Cooldown = 0;
+            End_Of_Level = false;
+            Controls_Cooldown = 0;
+            Create_screen(main.nextscreen);
         }
     }
 }
+}
+ 

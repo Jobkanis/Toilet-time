@@ -26,7 +26,7 @@ namespace Toilet_time_Android
         public int CurrentHeight;
         public int CurrentWidth;
 
-        public DrawVisitor(int CurrentWidth, int CurrentHeight, SpriteBatch spriteBatch, GraphicsDeviceManager graphics, SpriteFont arial, Texture2D Texture_White_Pixel, Texture2D Texture_Platform, Texture2D Texture_Main_Char, Texture2D Texture_Main_Char_with_Baby, Texture2D Texture_Baby, Texture2D Texture_Toilet, Texture2D Texture_Toilet_With_Baby, Texture2D Texture_Deadly_Bricks, Texture2D Texture_Toilet_Paper, Texture2D Texture_Background_Wood, Texture2D Texture_Mouse)
+        public DrawVisitor(int CurrentWidth, int CurrentHeight, float screenmultiplier, SpriteBatch spriteBatch, GraphicsDeviceManager graphics, SpriteFont arial, Texture2D Texture_White_Pixel, Texture2D Texture_Platform, Texture2D Texture_Main_Char, Texture2D Texture_Main_Char_with_Baby, Texture2D Texture_Baby, Texture2D Texture_Toilet, Texture2D Texture_Toilet_With_Baby, Texture2D Texture_Deadly_Bricks, Texture2D Texture_Toilet_Paper, Texture2D Texture_Background_Wood, Texture2D Texture_Mouse)
         {
             this.graphics = graphics;
 
@@ -47,6 +47,7 @@ namespace Toilet_time_Android
 
             this.CurrentHeight = CurrentHeight;
             this.CurrentWidth = CurrentWidth;
+            this.screenmultiplier = screenmultiplier;
         }
 
         public SpriteBatch spriteBatch
@@ -121,7 +122,7 @@ namespace Toilet_time_Android
             Vector2 textsize = arial.MeasureString(label.text);
             int textsize_x = (int)textsize.X;
             int textsize_y = (int)textsize.Y;
-            spritebatch.DrawString(arial, label.text, ConvertVector2(new Vector2(label.position.x + ((label.size.x - textsize_x / 2) / 2), label.position.y + ((label.size.y - textsize_y / 2) / 2))), label.color);
+            spritebatch.DrawString(arial, label.text, ConvertVector2(new Vector2(label.position.x + ((label.size.x - textsize_x / screenmultiplier) / 2), label.position.y + ((label.size.y - textsize_y / screenmultiplier) / 2))), label.color);
         }
 
         public void DrawToiletPaper(Toilet_time_main.Toilet_Paper toilet_paper)
@@ -215,58 +216,15 @@ namespace Toilet_time_Android
 
         private int ConvertInt(int convert)
         {
-            float screenmultiplier = 2;
-
-            float diffwith = (float)(CurrentWidth / 800);
-            float diffheight = (float)(CurrentHeight / 600);
-
-            if (diffwith < diffheight)
-            {
-                screenmultiplier = diffwith;
-            }
-            else
-            {
-                screenmultiplier = diffheight;
-            }
-
-            screenmultiplier = 2;
             return (int)( convert * screenmultiplier );
         }
         private Rectangle ConvertRectangle(Rectangle rect)
         {
-            float screenmultiplier = 2;
-
-            float diffwith = (float)(CurrentWidth / 800);
-            float diffheight = (float)(CurrentHeight / 600);
-
-            if (diffwith < diffheight)
-            {
-                screenmultiplier = diffwith;
-            }
-            else
-            {
-                screenmultiplier = diffheight;
-            }
-
-            screenmultiplier = 2;
             return new Rectangle((int)((float)(rect.X * screenmultiplier)) , (int)((float)(rect.Y * screenmultiplier)), (int)((float)(rect.Width * screenmultiplier)), (int)((float)(rect.Height * screenmultiplier)));
         }
 
         private Vector2 ConvertVector2(Vector2 vect)
         {
-            float screenmultiplier = 2;
-            float diffwith = (float)(CurrentWidth / 800);
-            float diffheight = (float)(CurrentHeight / 600);
-
-            if (diffwith < diffheight)
-            {
-                screenmultiplier = diffwith;
-            }
-            else
-            {
-                screenmultiplier = diffheight;
-            }
-            screenmultiplier = 2;
             return new Vector2((int)((float)(vect.X * screenmultiplier)), (int)((float)(vect.Y * screenmultiplier)));
         }
     }

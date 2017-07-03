@@ -14,9 +14,8 @@ namespace Toilet_time_Windows
 
     public class Input_Adapter_Windows: Input_Adapter
     {
- 
+        Toilet_time_main.Point current_cursor = new Toilet_time_main.Point(0, 0);
         bool GamepadOnline = false;
-        public Toilet_time_main.Point current_cursor;
 
         public Input_Adapter_Windows()
         {
@@ -24,24 +23,6 @@ namespace Toilet_time_Windows
 
         public InputData GetInput(int type)
         {
-
-            // Check if gamepad is enabled
-
-            /*
-            GamePadState gamePadState = GamePad.GetState(PlayerIndex.One);
-            bool newgamepadonline = gamePadState.IsConnected;
-
-            if (GamepadOnline == newgamepadonline)
-            {
-                GamepadOnline = newgamepadonline;
-            }
-            else if (guimanager.screen == 2)
-            {
-                GamepadOnline = newgamepadonline;
-                guimanager.Gamepadonline = GamepadOnline;
-                guimanager.Reload_screen();
-            }
-          */
             GamePadState gamePadState = GamePad.GetState(PlayerIndex.One);
             GamepadOnline = gamePadState.IsConnected;
             //
@@ -75,7 +56,7 @@ namespace Toilet_time_Windows
             iOption<MousePressed> MouseAction = new None<MousePressed>();
 
             Toilet_time_main.Point cursor = new Toilet_time_main.Point(-1, -1);
-
+            current_cursor = cursor;
             KeyboardState keyboard_state = Keyboard.GetState();
 
             var mouse_state = Mouse.GetState();
@@ -116,6 +97,7 @@ namespace Toilet_time_Windows
 
             var mouse_state = Mouse.GetState();
             cursor = new Toilet_time_main.Point(mouse_state.X, mouse_state.Y);
+            current_cursor = cursor;
 
             if (mouse_state.LeftButton == ButtonState.Pressed) {
                 MouseAction = new Some<MousePressed>(MousePressed.Left_Button); }
@@ -175,14 +157,16 @@ namespace Toilet_time_Windows
                 else if (gamePadState.ThumbSticks.Right.Y > -0.1) {
                     ReturnCursor.y = ReturnCursor.y - (int)(gamePadState.ThumbSticks.Right.Y * Mousesensitivity); }
 
-                
-                if (gamePadState.Buttons.A == ButtonState.Pressed){
+
+                if (gamePadState.Buttons.A == ButtonState.Pressed)
+                {
                     MouseAction = new Some<MousePressed>(MousePressed.Left_Button);
-                    CharacterActivity = new Some<CharacterActivity>(Toilet_time_main.CharacterActivity.Action); }
+                    MoveAction = new Some<CharacterMovementAction>(CharacterMovementAction.Jump);
+                } 
 
                 if (gamePadState.Buttons.B == ButtonState.Pressed)
                 {
-                    MoveAction = new Some<CharacterMovementAction>(CharacterMovementAction.Jump);
+                    CharacterActivity = new Some<CharacterActivity>(Toilet_time_main.CharacterActivity.Action); 
                 }
 
                 Toilet_time_main.Point cursor = ReturnCursor;
@@ -190,8 +174,6 @@ namespace Toilet_time_Windows
             }
             else
             {
-                //guimanager.inputmechanism = 1;
-                //guimanager.Reload_screen();
                 return checkKeyboardpijltjes();
             }
             //return new Input();
