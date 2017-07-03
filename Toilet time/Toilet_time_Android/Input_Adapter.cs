@@ -28,7 +28,7 @@ namespace Toilet_time_Android
 
         public InputData GetInput(int type)
         {
-            return checkKeyboardpijltjes();
+            return tapInput();
         }
 
 
@@ -52,8 +52,74 @@ namespace Toilet_time_Android
 
         private enum localact { none, right, left };
 
-        public InputData checkKeyboardpijltjes()
+        public InputData tapInput()
         {
+            iOption<CharacterMovementAction> MoveAction = new None<CharacterMovementAction>();
+            iOption<WalkDirectionInput> WalkDirection = new None<WalkDirectionInput>();
+            iOption<CharacterActivity> CharacterActivity = new None<CharacterActivity>();
+            iOption<SettingsInput> Settings = new None<SettingsInput>();
+            iOption<MousePressed> MouseAction = new None<MousePressed>();
+
+            Point Cursor = new Point(-50, -50);
+
+            bool left = false;
+            bool right = false;
+            localact first = localact.none;
+
+            TouchCollection touchCollection = TouchPanel.GetState();
+            foreach (TouchLocation touch1 in touchCollection)
+            {
+                Cursor = ConvertPoint(new Point((int)touch1.Position.X, (int)touch1.Position.Y));
+                if (Cursor.x > 0.6 * CurrentWidth)
+                {
+                    if (first == localact.none)
+                    {
+                        first = localact.right;
+                    }
+                    right = true;
+                }
+                else if (Cursor.x < 0.4 * CurrentWidth)
+                {
+                    if (first == localact.none)
+                    {
+                        first = localact.left;
+                    }
+
+                    left = true;
+                }
+            }
+
+            if (left == true && right == true)
+            {
+                MoveAction = new Some<CharacterMovementAction>(CharacterMovementAction.Jump);
+                if (first == localact.left)
+                {
+                    WalkDirection = new Some<WalkDirectionInput>(WalkDirectionInput.Left);
+                }
+                else if (first == localact.right)
+                {
+                    WalkDirection = new Some<WalkDirectionInput>(WalkDirectionInput.Right);
+                }
+
+            }
+            else if (left == true && right == false)
+            {
+                WalkDirection = new Some<WalkDirectionInput>(WalkDirectionInput.Left);
+            }
+            else if (left == false && right == true)
+            {
+                WalkDirection = new Some<WalkDirectionInput>(WalkDirectionInput.Right);
+            }
+
+            MouseAction = new Some<MousePressed>(MousePressed.Left_Button);
+
+            return new InputData(MoveAction, WalkDirection, CharacterActivity, Settings, MouseAction, Cursor, false);
+        }
+
+        public InputData Buttons()
+        {
+
+
             iOption<CharacterMovementAction> MoveAction = new None<CharacterMovementAction>();
             iOption<WalkDirectionInput> WalkDirection = new None<WalkDirectionInput>();
             iOption<CharacterActivity> CharacterActivity = new None<CharacterActivity>();

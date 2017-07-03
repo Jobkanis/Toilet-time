@@ -1,4 +1,7 @@
 ﻿using System;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
 namespace Toilet_time_main
 {
@@ -12,13 +15,13 @@ namespace Toilet_time_main
 
         public bool exit = false;
 
-        Systemtype systemtype;
+        public Systemtype systemtype;
 
         public Iterator<Fallable_Object> Fallable_Objects;
         public Iterator<Stable_Object> Stable_Objects;
         public Iterator<iObject> Gui_stuff;
         public Iterator<iObject> Interacting_Objects;
-        
+
         public Screen Current_screen;
         public int screen;
 
@@ -75,9 +78,9 @@ namespace Toilet_time_main
             else
             {
                 autopickup = false;
-            }
+            } 
+       }
 
-        }
 
         public bool Check_Collision(iObject Object, int x_pos, int y_pos, int x_size, int y_size)
         {
