@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Media;
 namespace Toilet_time_main
 {
 
-    public class SoundHandler : Toilet_time_main.iSoundHandler
+    public class SoundHandler: iSoundHandler
     {
 
         SoundEffectInstance menu_background;
@@ -17,6 +17,12 @@ namespace Toilet_time_main
         SoundEffectInstance baby_laugh;
         SoundEffectInstance baby_cry;
         SoundEffectInstance end_level;
+
+        ChooseBackGroundMusic current_background = ChooseBackGroundMusic.none;
+
+        public bool togglebackground = true;
+        public bool togglesoundeffect = true;
+
         public SoundHandler(SoundEffect menu_background, SoundEffect ingame_background, SoundEffect end_level, SoundEffect baby_laugh, SoundEffect baby_cry)
 
         {
@@ -46,25 +52,37 @@ namespace Toilet_time_main
 
             {
 
-                case (Toilet_time_main.ChooseBackGroundMusic.menu):
+                case (ChooseBackGroundMusic.menu):
                     {
-                        menu_background.Play();
-                        ingame_background.Stop();
-                        baby_cry.Stop();
+                        current_background = ChooseBackGroundMusic.menu;
+                        if (togglebackground)
+                        {
+                            menu_background.Play();
+                            ingame_background.Stop();
+                            baby_cry.Stop();
+                        }
                         break;
                     }
-                case (Toilet_time_main.ChooseBackGroundMusic.game_noncry):
+                case (ChooseBackGroundMusic.game_noncry):
                     {
-                        menu_background.Stop();
-                        ingame_background.Play();
-                        baby_cry.Stop();
+                        current_background = ChooseBackGroundMusic.game_noncry;
+                        if (togglebackground)
+                        {
+                            menu_background.Stop();
+                            ingame_background.Play();
+                            baby_cry.Stop();
+                        }
                         break;
                     }
                 case (Toilet_time_main.ChooseBackGroundMusic.game_cry):
                     {
-                        menu_background.Stop();
-                        ingame_background.Play();
-                        baby_cry.Play();
+                        current_background = ChooseBackGroundMusic.game_cry;
+                        if (togglebackground)
+                        {
+                            menu_background.Stop();
+                            ingame_background.Play();
+                            baby_cry.Play();
+                        }
                         break;
                     }
                 default:
@@ -86,12 +104,18 @@ namespace Toilet_time_main
 
                 case (Toilet_time_main.ChooseSoundEffect.baby_laugh):
                     {
-                        baby_laugh.Play();
+                        if (togglesoundeffect)
+                        {
+                            baby_laugh.Play();
+                        }
                         break;
                     }
                 case (Toilet_time_main.ChooseSoundEffect.game_end):
                     {
-                        end_level.Play();
+                        if (togglesoundeffect)
+                        {
+                            end_level.Play();
+                        }
                         break;
                     }
                 default:
@@ -100,6 +124,24 @@ namespace Toilet_time_main
                     }
             }
 
+        }
+
+        public void ToggleBackground(bool stats)
+        {
+            togglebackground = stats;
+            if (stats == true)
+            {
+                PlayBackground(current_background);
+            }
+            else
+            {
+                PlayBackground(ChooseBackGroundMusic.none);
+            }
+        }
+
+        public void Togglesoundeffect(bool stats)
+        {
+            togglesoundeffect = stats;
         }
     }
 }

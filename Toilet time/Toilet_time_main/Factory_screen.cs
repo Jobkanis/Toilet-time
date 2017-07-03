@@ -38,14 +38,14 @@ namespace Toilet_time_main
                         islevel = false;
                         if (gui_manager.systemtype == Systemtype.windows)
                         {
-                            gui_stuff.Add(new Button(350, 100, 100, 50, "Play", Color.Black, Color.Gray, (Gui_Manager guimanager) => { guimanager.Create_screen(3); }));
-                            gui_stuff.Add(new Button(350, 200, 100, 50, "Settings", Color.Black, Color.Gray, (Gui_Manager guimanager) => { guimanager.Create_screen(2); }));
-                            gui_stuff.Add(new Button(350, 300, 100, 50, "Exit", Color.Black, Color.Gray, (Gui_Manager guimanager) => { guimanager.exit = true; }));
+                            gui_stuff.Add(new Button(350, 100, 100, 50, "Play", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(3); }));
+                            gui_stuff.Add(new Button(350, 200, 100, 50, "Settings", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(2); }));
+                            gui_stuff.Add(new Button(350, 300, 100, 50, "Exit", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.exit = true; }));
                         }
                         else if (gui_manager.systemtype == Systemtype.android)
                         {
-                            gui_stuff.Add(new Button(400, 200, 100, 50, "Play", Color.Black, Color.Gray, (Gui_Manager guimanager) => { guimanager.Create_screen(3); }));
-                            gui_stuff.Add(new Button(400, 300, 100, 50, "Exit", Color.Black, Color.Gray, (Gui_Manager guimanager) => { guimanager.exit = true; }));
+                            gui_stuff.Add(new Button(400, 200, 100, 50, "Play", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(3); }));
+                            gui_stuff.Add(new Button(400, 300, 100, 50, "Exit", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.exit = true; }));
                         }
                         break;
                     }
@@ -54,7 +54,7 @@ namespace Toilet_time_main
                         islevel = false;
                         if (gui_manager.systemtype == Systemtype.windows)
                         {
-                            gui_stuff.Add(new Button(350, 100, 100, 50, "Back", Color.Black, Color.Gray, (Gui_Manager guimanager) => { guimanager.Create_screen(1); }));
+                            gui_stuff.Add(new Button(350, 100, 100, 50, "Back", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(1); }));
                             if (gui_manager.inputmechanism == 3)
                             {
                                 inputcolorGamePad = Color.Red;
@@ -84,12 +84,12 @@ namespace Toilet_time_main
                                 inputcolorArrows = Color.Red;
                                 hovercolorArrows = Color.Red;
                             }
-                            gui_stuff.Add(new Button(350, 200, 100, 50, "Wasd", inputcolorWASD, hovercolorWASD, (Gui_Manager guimanager) => { guimanager.Getinputmechanism(2); guimanager.Create_screen(2); }));
-                            gui_stuff.Add(new Button(350, 300, 100, 50, "Arrows", inputcolorArrows, hovercolorArrows, (Gui_Manager guimanager) => { guimanager.Getinputmechanism(1); guimanager.Create_screen(2); }));
+                            gui_stuff.Add(new Button(350, 200, 100, 50, "Wasd", inputcolorWASD, hovercolorWASD, (Gui_Manager guimanager, Button button) => { guimanager.Getinputmechanism(2); guimanager.Create_screen(2); }));
+                            gui_stuff.Add(new Button(350, 300, 100, 50, "Arrows", inputcolorArrows, hovercolorArrows, (Gui_Manager guimanager, Button button) => { guimanager.Getinputmechanism(1); guimanager.Create_screen(2); }));
 
                             if (gui_manager.Gamepadonline == true)
                             {
-                                gui_stuff.Add(new Button(350, 400, 100, 50, "GamePad", inputcolorGamePad, hovercolorGamePad, (Gui_Manager guimanager) => { guimanager.Getinputmechanism(3); guimanager.Create_screen(2); }));
+                                gui_stuff.Add(new Button(350, 400, 100, 50, "GamePad", inputcolorGamePad, hovercolorGamePad, (Gui_Manager guimanager, Button button) => { guimanager.Getinputmechanism(3); guimanager.Create_screen(2); }));
                             }
                         }
                         break;
@@ -182,8 +182,15 @@ namespace Toilet_time_main
             }
 
             if (islevel)
-            {
-                gui_stuff.Add(new Button(0, 0, 100, 50, "Back", Color.Black, Color.Gray, (Gui_Manager guimanager) => { guimanager.Create_screen(1); }));
+            {               
+                gui_stuff.Add(new Button(0, 0, 50, 20, "Back", Color.Black, Color.Gray,    (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(1); }));
+
+                Color MCMO, MC, SCMO, SC;
+                if (gui_manager.sound_handler.togglebackground) { MC = Color.Black; MCMO = Color.IndianRed; } else { MC = Color.DarkRed; MCMO = Color.Black; }
+                if (gui_manager.sound_handler.togglesoundeffect) { SC = Color.Black; SCMO = Color.IndianRed; } else { SC = Color.DarkRed; SCMO = Color.Black; }
+                gui_stuff.Add(new Button(50, 0, 50, 20, "Music", MC, MCMO,  (Gui_Manager guimanager, Button button) => { guimanager.sound_handler.ToggleBackground(!guimanager.sound_handler.togglebackground); if (guimanager.sound_handler.togglebackground) { button.regularcolor = Color.Black; button.mouseovercolor = Color.IndianRed;  } else { button.regularcolor = Color.DarkRed; button.mouseovercolor = Color.Gray;  } }));
+                gui_stuff.Add(new Button(100, 0, 50, 20, "Sound", SC, SCMO, (Gui_Manager guimanager, Button button) => { guimanager.sound_handler.Togglesoundeffect(!guimanager.sound_handler.togglesoundeffect); if (guimanager.sound_handler.togglesoundeffect) { button.regularcolor = Color.Black; button.mouseovercolor = Color.IndianRed; } else { button.regularcolor = Color.DarkRed ; button.mouseovercolor = Color.Gray; } }));
+
                 Background = BackgroundType.ingamebackground;
             }
             else

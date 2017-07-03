@@ -8,11 +8,11 @@ namespace Toilet_time_main
     public class Button : iObject
     {
         public Label label;
-        Color regularcolor;
-        Color mouseovercolor;
-        public Action<Gui_Manager> action;
+        public Color regularcolor;
+        public Color mouseovercolor;
+        public Action<Gui_Manager, Button> action;
 
-        public Button(int x_pos, int y_pos, int x_size, int y_size, string text, Color regularcolor, Color mouseovercolor, Action<Gui_Manager> action)
+        public Button(int x_pos, int y_pos, int x_size, int y_size, string text, Color regularcolor, Color mouseovercolor, Action<Gui_Manager, Button> action)
             :base(new Position(x_pos, y_pos), new Size(x_size,y_size), true)
         {
             this.label = new Label(x_pos, y_pos, x_size, y_size, text);
@@ -47,7 +47,7 @@ namespace Toilet_time_main
                     {
                         if (guimanager.LatestInput.MouseButton.Visit<MousePressed>(() => { throw new Exception("mousepressed failed"); }, item => { return item; }) == MousePressed.Left_Button)
                         {
-                            action(guimanager);
+                            action(guimanager, this);
                             guimanager.buttoncooldown = 0.5f;
                         }
                     }

@@ -27,7 +27,7 @@ namespace Toilet_time_main
 
         public Factory_screen screenFactory;
         public iDrawVisitor Drawvisitor;
-        public iSoundHandler sound_handler;
+        public SoundHandler sound_handler;
         public Input_Adapter inputadapter;
         public Point Cursor;
         public InputData LatestInput;
@@ -54,7 +54,7 @@ namespace Toilet_time_main
 
         InputData input;
 
-        public Gui_Manager(iDrawVisitor drawvisitor, iSoundHandler sound_handler, Input_Adapter inputadapter, Systemtype systemtype)
+        public Gui_Manager(iDrawVisitor drawvisitor, SoundHandler sound_handler, Input_Adapter inputadapter, Systemtype systemtype)
         {
             this.systemtype = systemtype;
 

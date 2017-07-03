@@ -43,7 +43,7 @@ namespace Toilet_time_Android
         public SoundEffect Menu_Background;
         public SoundEffect Ingame_Background;
         
-        public Toilet_time_main.iSoundHandler sound_handler;
+        public Toilet_time_main.SoundHandler sound_handler;
 
         public Game1()
         {

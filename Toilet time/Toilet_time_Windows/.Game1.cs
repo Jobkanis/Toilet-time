@@ -38,7 +38,7 @@ namespace Toilet_time_Windows
         public SoundEffect Baby_Laugh;
         public SoundEffect Menu_Background;
         public SoundEffect Ingame_Background;
-        public Toilet_time_main.iSoundHandler sound_handler;
+        public Toilet_time_main.SoundHandler sound_handler;
         
         public Game1()
         {

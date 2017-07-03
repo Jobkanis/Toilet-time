@@ -18,6 +18,10 @@ namespace Toilet_time_main
         void PlayBackground(ChooseBackGroundMusic music);
 
         void PlaySoundEffect(ChooseSoundEffect sound_effect);
-       
+
+        void ToggleBackground(bool stats);
+
+        void Togglesoundeffect(bool stats);
+
     }
 }
