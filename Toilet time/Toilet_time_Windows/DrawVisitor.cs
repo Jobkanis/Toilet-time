@@ -24,10 +24,11 @@ namespace Toilet_time_Windows
         float screenmultiplier;
         public Texture2D Texture_Ingame_Background;
         public Texture2D Texture_Spikes;
+        public Texture2D Texture_Enemy_Grandma;
         public int CurrentHeight;
         public int CurrentWidth;
 
-        public DrawVisitor(int CurrentWidth, int CurrentHeight, float screenmultiplier, SpriteBatch spriteBatch, GraphicsDeviceManager graphics, SpriteFont arial, Texture2D Texture_White_Pixel, Texture2D Texture_Platform, Texture2D Texture_Main_Char, Texture2D Texture_Main_Char_with_Baby, Texture2D Texture_Baby, Texture2D Texture_Toilet, Texture2D Texture_Toilet_With_Baby, Texture2D Texture_Deadly_Bricks, Texture2D Texture_Toilet_Paper, Texture2D Texture_Spikes, Texture2D Texture_Background_Wood, Texture2D Texture_Mouse)
+        public DrawVisitor(int CurrentWidth, int CurrentHeight, float screenmultiplier, SpriteBatch spriteBatch, GraphicsDeviceManager graphics, SpriteFont arial, Texture2D Texture_White_Pixel, Texture2D Texture_Platform, Texture2D Texture_Main_Char, Texture2D Texture_Main_Char_with_Baby, Texture2D Texture_Baby, Texture2D Texture_Toilet, Texture2D Texture_Toilet_With_Baby, Texture2D Texture_Deadly_Bricks, Texture2D Texture_Toilet_Paper, Texture2D Texture_Spikes, Texture2D Texture_Background_Wood, Texture2D Texture_Mouse, Texture2D Texture_Enemy_Grandma)
         {
             this.graphics = graphics;
 
@@ -44,6 +45,7 @@ namespace Toilet_time_Windows
             this.Texture_Toilet_Paper = Texture_Toilet_Paper;
             this.Texture_Ingame_Background = Texture_Background_Wood;
             this.Texture_Mouse = Texture_Mouse;
+            this.Texture_Enemy_Grandma = Texture_Enemy_Grandma;
             this.arial = arial;
             this.Texture_Spikes = Texture_Spikes;
             this.CurrentHeight = CurrentHeight;
@@ -85,7 +87,7 @@ namespace Toilet_time_Windows
 
         public void DrawEnemyGrandma(Enemy_Grandma enemy_grandma)
         {
-            spritebatch.Draw(Texture_Main_Char, ConvertRectangle(new Rectangle(enemy_grandma.position.x, enemy_grandma.position.y, enemy_grandma.size.x, enemy_grandma.size.y)), enemy_grandma.color);
+            spritebatch.Draw(Texture_Enemy_Grandma, ConvertRectangle(new Rectangle(enemy_grandma.position.x, enemy_grandma.position.y, enemy_grandma.size.x, enemy_grandma.size.y)), enemy_grandma.color);
         }
 
 

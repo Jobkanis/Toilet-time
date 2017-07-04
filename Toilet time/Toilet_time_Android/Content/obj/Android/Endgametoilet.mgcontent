@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Jonah Kalkman/Desktop/Project 4/Toilet-time---Project-4/Toilet time/Toilet_time_Android/Content/Endgametoilet.png</SourceFile>
-  <SourceTime>2017-06-30T13:38:52.7868082+02:00</SourceTime>
-  <DestFile>C:/Users/Jonah Kalkman/Desktop/Project 4/Toilet-time---Project-4/Toilet time/Toilet_time_Android/Content/bin/Android/Endgametoilet.xnb</DestFile>
-  <DestTime>2017-07-04T12:40:59.0373879+02:00</DestTime>
+  <SourceFile>C:/Users/jobka/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet_time_Android/Content/Endgametoilet.png</SourceFile>
+  <SourceTime>2017-06-29T20:11:48.4687663+02:00</SourceTime>
+  <DestFile>C:/Users/jobka/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet_time_Android/Content/bin/Android/Endgametoilet.xnb</DestFile>
+  <DestTime>2017-07-04T13:55:37.0696431+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

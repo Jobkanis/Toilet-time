@@ -16,7 +16,7 @@ namespace Toilet_time_main
         Position startposition;
 
         public Enemy_Grandma(int x_pos, int y_pos, int region, int speed)
-            : base(new Position(x_pos, y_pos), new Size(20, 40), true)
+            : base(new Position(x_pos, y_pos), new Size(20, 35), true)
         {
             this.region = region;
             this.speed = speed;
