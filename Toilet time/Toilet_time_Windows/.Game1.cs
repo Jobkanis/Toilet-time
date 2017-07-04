@@ -39,11 +39,33 @@ namespace Toilet_time_Windows
         public SoundEffect Menu_Background;
         public SoundEffect Ingame_Background;
         public Toilet_time_main.SoundHandler sound_handler;
-        
+
+        int width;
+        int height;
+        float screenmultiplier;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            width = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+            height = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
+            graphics.PreferredBackBufferWidth = width;
+            graphics.PreferredBackBufferHeight = height;
+           // graphics.IsFullScreen = true;
+
+            float x_multi = width / 800;
+            float y_multi = height / 460;
+            if (x_multi > y_multi)
+            {
+                screenmultiplier = x_multi;
+            }
+            else
+            {
+                screenmultiplier = y_multi;
+            }
+
+
         }
 
         /// <summary>
@@ -91,7 +113,7 @@ namespace Toilet_time_Windows
 
             sound_handler = new Toilet_time_main.SoundHandler(Menu_Background, Ingame_Background, End_Level, Baby_Laugh, Baby_Cry);
             
-            draw_visitor = new DrawVisitor(800, 600, 1f, spriteBatch, graphics, arial, Texture_White_Pixel, Texture_Platform, Texture_Main_char, Texture_Main_Char_with_Baby, Texture_Baby, Texture_Toilet, Texture_Toilet_With_Baby, Texture_Deadly_Bricks, Texture_Toilet_Paper, Texture_Background_Wood, Texture_Mouse);
+            draw_visitor = new DrawVisitor(width, height, screenmultiplier, spriteBatch, graphics, arial, Texture_White_Pixel, Texture_Platform, Texture_Main_char, Texture_Main_Char_with_Baby, Texture_Baby, Texture_Toilet, Texture_Toilet_With_Baby, Texture_Deadly_Bricks, Texture_Toilet_Paper, Texture_Background_Wood, Texture_Mouse);
             inputhandler = new Input_Adapter_Windows();
             gui_manager = new Toilet_time_main.Gui_Manager(draw_visitor, sound_handler, inputhandler, Toilet_time_main.Systemtype.windows);
             // TODO: use this.Content to load your game content here

@@ -20,7 +20,7 @@ namespace Toilet_time_Android
         public Texture2D Texture_Deadly_Bricks;
         public Texture2D Texture_Toilet_Paper;
         public Texture2D Texture_Mouse;
-        float screenmultiplier = 2;
+        float screenmultiplier;
         public Texture2D Texture_Ingame_Background;
 
         public int CurrentHeight;
