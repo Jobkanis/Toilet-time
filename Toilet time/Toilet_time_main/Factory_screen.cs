@@ -34,72 +34,108 @@ namespace Toilet_time_main
             {
 
                 case 1:
+                //main menu
                     {
                         islevel = false;
                         if (gui_manager.systemtype == Systemtype.windows)
                         {
-                            gui_stuff.Add(new Button(350, 100, 100, 50, "Play", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(3); }));
+                            gui_stuff.Add(new Button(350, 100, 100, 50, "Play", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(5); }));
                             gui_stuff.Add(new Button(350, 200, 100, 50, "Settings", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(2); }));
                             gui_stuff.Add(new Button(350, 300, 100, 50, "Exit", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.exit = true; }));
                         }
                         else if (gui_manager.systemtype == Systemtype.android)
                         {
-                            gui_stuff.Add(new Button(400, 200, 100, 50, "Play", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(3); }));
+                            gui_stuff.Add(new Button(400, 200, 100, 50, "Play", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(5); }));
                             gui_stuff.Add(new Button(400, 300, 100, 50, "Exit", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.exit = true; }));
                         }
                         break;
                     }
+
                 case 2:
+                //settings menu
                     {
                         islevel = false;
                         if (gui_manager.systemtype == Systemtype.windows)
                         {
                             gui_stuff.Add(new Button(350, 100, 100, 50, "Back", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(1); }));
+                        }
+
+                        gui_stuff.Add(new Button(350, 200, 100, 50, "Controls", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(3); }));
+                        gui_stuff.Add(new Button(350, 300, 100, 50, "Sounds", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(4); }));
+
+                    break;
+                    }
+
+                case 3:
+                //control settings
+                    {
+                        islevel = false;
+                        if (gui_manager.systemtype == Systemtype.windows)
+                        {
+                            gui_stuff.Add(new Button(350, 100, 100, 50, "Back", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(2); }));
                             if (gui_manager.inputmechanism == 3)
                             {
                                 inputcolorGamePad = Color.Red;
-                                hovercolorGamePad = Color.Red;
+                                hovercolorGamePad = Color.Gray;
                                 inputcolorWASD = Color.Black;
-                                hovercolorWASD = Color.Black;
+                                hovercolorWASD = Color.IndianRed;
                                 inputcolorArrows = Color.Black;
-                                hovercolorArrows = Color.Black;
+                                hovercolorArrows = Color.IndianRed;
                             }
 
                             if (gui_manager.inputmechanism == 2)
                             {
                                 inputcolorGamePad = Color.Black;
-                                hovercolorGamePad = Color.Black;
+                                hovercolorGamePad = Color.IndianRed;
                                 inputcolorWASD = Color.Red;
-                                hovercolorWASD = Color.Red;
+                                hovercolorWASD = Color.Gray;
                                 inputcolorArrows = Color.Black;
-                                hovercolorArrows = Color.Black;
+                                hovercolorArrows = Color.IndianRed;
                             }
 
                             if (gui_manager.inputmechanism == 1)
                             {
                                 inputcolorGamePad = Color.Black;
-                                hovercolorGamePad = Color.Black;
+                                hovercolorGamePad = Color.IndianRed;
                                 inputcolorWASD = Color.Black;
-                                hovercolorWASD = Color.Black;
+                                hovercolorWASD = Color.IndianRed;
                                 inputcolorArrows = Color.Red;
-                                hovercolorArrows = Color.Red;
+                                hovercolorArrows = Color.Gray;
                             }
-                            gui_stuff.Add(new Button(350, 200, 100, 50, "Wasd", inputcolorWASD, hovercolorWASD, (Gui_Manager guimanager, Button button) => { guimanager.Getinputmechanism(2); guimanager.Create_screen(2); }));
-                            gui_stuff.Add(new Button(350, 300, 100, 50, "Arrows", inputcolorArrows, hovercolorArrows, (Gui_Manager guimanager, Button button) => { guimanager.Getinputmechanism(1); guimanager.Create_screen(2); }));
+                            gui_stuff.Add(new Button(350, 200, 100, 50, "Arrows", inputcolorArrows, hovercolorArrows, (Gui_Manager guimanager, Button button) => { guimanager.Getinputmechanism(1); guimanager.Create_screen(3); }));
+                            gui_stuff.Add(new Button(350, 300, 100, 50, "Wasd", inputcolorWASD, hovercolorWASD, (Gui_Manager guimanager, Button button) => { guimanager.Getinputmechanism(2); guimanager.Create_screen(3); }));
 
                             if (gui_manager.Gamepadonline == true)
                             {
-                                gui_stuff.Add(new Button(350, 400, 100, 50, "GamePad", inputcolorGamePad, hovercolorGamePad, (Gui_Manager guimanager, Button button) => { guimanager.Getinputmechanism(3); guimanager.Create_screen(2); }));
+                                gui_stuff.Add(new Button(350, 400, 100, 50, "GamePad", inputcolorGamePad, hovercolorGamePad, (Gui_Manager guimanager, Button button) => { guimanager.Getinputmechanism(3); guimanager.Create_screen(3); }));
                             }
                         }
                         break;
                     }
-                case 3:
+
+                case 4:
+                //sound settings
+                    {
+                        islevel = false;
+                        if (gui_manager.systemtype == Systemtype.windows)
+                        gui_stuff.Add(new Button(350, 100, 100, 50, "Back", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(2); }));
+                        {
+                            Color MCMO, MC, SCMO, SC; String soundtext, musictext;
+                            if (gui_manager.sound_handler.togglebackground) { MC = Color.Black; MCMO = Color.IndianRed; musictext = "Music: on"; } else { MC = Color.Red; MCMO = Color.Gray; musictext = "Music: off"; }
+                            if (gui_manager.sound_handler.togglesoundeffect) { SC = Color.Black; SCMO = Color.IndianRed; soundtext = "Sounds: on"; } else { SC = Color.Red; SCMO = Color.Gray; soundtext = "Sounds: off"; }
+                            gui_stuff.Add(new Button(350, 200, 100, 50, musictext, MC, MCMO, (Gui_Manager guimanager, Button button) => { guimanager.sound_handler.ToggleBackground(!guimanager.sound_handler.togglebackground); if (guimanager.sound_handler.togglebackground) { button.regularcolor = Color.Black; button.mouseovercolor = Color.IndianRed; button.label.text = "Music: on"; } else { button.regularcolor = Color.Red; button.mouseovercolor = Color.Gray; button.label.text = "Music: off"; } }));
+                            gui_stuff.Add(new Button(350, 300, 100, 50, soundtext, SC, SCMO, (Gui_Manager guimanager, Button button) => { guimanager.sound_handler.Togglesoundeffect(!guimanager.sound_handler.togglesoundeffect); if (guimanager.sound_handler.togglesoundeffect) { button.regularcolor = Color.Black; button.mouseovercolor = Color.IndianRed; button.label.text = "Sounds: on";  } else { button.regularcolor = Color.Red; button.mouseovercolor = Color.Gray; button.label.text = "Sounds: off"; } }));
+                        }
+                        break;
+                    }
+
+                case 5:
+                //level 1
                     {
                         islevel = true;
                         
                         //character
-                        fallable_objects.Add(new Main_Character(200, 0, 4));
+                        fallable_objects.Add(new Main_Character(200, 0, 6));
 
                         //interactions
                         Interacting_Objects.Add(new Enemy_Grandma(800, 0, 100, 50));
@@ -112,12 +148,14 @@ namespace Toilet_time_main
 
                         break;
                     }
-                case 4:
+
+                case 6:
+                //level 2
                     {
                         islevel = true;
 
                         //character
-                        fallable_objects.Add(new Main_Character(200, 0, 5));
+                        fallable_objects.Add(new Main_Character(200, 0, 7));
 
                         //interactions
                         Interacting_Objects.Add(new Baby(600, 0));
@@ -131,13 +169,13 @@ namespace Toilet_time_main
                         break;
                     }
 
-
-                case 5:
+                case 7:
+                //level 3
                     {
                         islevel = true;
                         
                         //character
-                        fallable_objects.Add(new Main_Character(200, 0, 6));
+                        fallable_objects.Add(new Main_Character(200, 0, 8));
                         
                         //interactions
                         Interacting_Objects.Add(new Baby(690, 0));
@@ -151,7 +189,9 @@ namespace Toilet_time_main
 
                         break;
                     }
-                case 6:
+
+                case 8:
+                //level 4
                     {
                         islevel = true;
                        
