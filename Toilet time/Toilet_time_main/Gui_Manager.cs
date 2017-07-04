@@ -77,7 +77,7 @@ namespace Toilet_time_main
             }
             else
             {
-                autopickup = false;
+                autopickup = true; // set to false to use E to pickup
             } 
        }
 

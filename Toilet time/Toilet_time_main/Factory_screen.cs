@@ -131,7 +131,7 @@ namespace Toilet_time_main
                         //interactions
                         Interacting_Objects.Add(new Baby(400, 0));
                         Interacting_Objects.Add(new End_Goal(600, 0));
-                       
+                        Interacting_Objects.Add(new Spike_Dropper(300, -300, 1.5f));
 
                         //platforms
                         stable_objects.Add(new Platform(0, 300, 800, 20));
@@ -150,7 +150,7 @@ namespace Toilet_time_main
                         Interacting_Objects.Add(new End_Goal(1000, 0));
                         Interacting_Objects.Add(new Deadly_Brick(400, 0));
                         Interacting_Objects.Add(new Toilet_Paper_Drop(800, -300, 1.5f));
-
+                        Interacting_Objects.Add(new Spike_Dropper(300, -300, 1.5f));
                         //platforms
                         stable_objects.Add(new Platform(0, 300, 1200, 20));
 

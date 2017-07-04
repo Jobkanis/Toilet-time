@@ -30,7 +30,7 @@ namespace Toilet_time_Android
         public Texture2D Texture_Toilet_Paper;
         public Texture2D Texture_Deadly_Bricks;
         public Texture2D Texture_Mouse;
-
+        public Texture2D Texture_Spikes;
         public Texture2D Texture_Background_Wood;
 
         public SpriteFont Arial;
@@ -106,7 +106,7 @@ namespace Toilet_time_Android
             CurrentHeight = graphics.GraphicsDevice.DisplayMode.Height;
 
             inputhandler = new Input_Adapter_Android(CurrentHeight, CurrentWidth);
-            draw_visitor = new DrawVisitor(CurrentWidth, CurrentHeight, 2f, spriteBatch, graphics, Arial, Texture_White_Pixel, Texture_Platform, Texture_Main_char, Texture_Main_Char_with_Baby, Texture_Baby, Texture_Toilet, Texture_Toilet_With_Baby, Texture_Deadly_Bricks, Texture_Toilet_Paper, Texture_Background_Wood, Texture_Mouse);
+            draw_visitor = new DrawVisitor(CurrentWidth, CurrentHeight, 2f, spriteBatch, graphics, Arial, Texture_White_Pixel, Texture_Platform, Texture_Main_char, Texture_Main_Char_with_Baby, Texture_Baby, Texture_Toilet, Texture_Toilet_With_Baby, Texture_Deadly_Bricks, Texture_Toilet_Paper, Texture_Spikes, Texture_Background_Wood, Texture_Mouse);
             gui_manager = new Toilet_time_main.Gui_Manager(draw_visitor, sound_handler, inputhandler, Toilet_time_main.Systemtype.android);
 
 

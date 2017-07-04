@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Toilet_time_main;
 
 namespace Toilet_time_Android
 {
@@ -22,11 +23,11 @@ namespace Toilet_time_Android
         public Texture2D Texture_Mouse;
         float screenmultiplier;
         public Texture2D Texture_Ingame_Background;
-
+        public Texture2D Texture_Spikes;
         public int CurrentHeight;
         public int CurrentWidth;
 
-        public DrawVisitor(int CurrentWidth, int CurrentHeight, float screenmultiplier, SpriteBatch spriteBatch, GraphicsDeviceManager graphics, SpriteFont arial, Texture2D Texture_White_Pixel, Texture2D Texture_Platform, Texture2D Texture_Main_Char, Texture2D Texture_Main_Char_with_Baby, Texture2D Texture_Baby, Texture2D Texture_Toilet, Texture2D Texture_Toilet_With_Baby, Texture2D Texture_Deadly_Bricks, Texture2D Texture_Toilet_Paper, Texture2D Texture_Background_Wood, Texture2D Texture_Mouse)
+        public DrawVisitor(int CurrentWidth, int CurrentHeight, float screenmultiplier, SpriteBatch spriteBatch, GraphicsDeviceManager graphics, SpriteFont arial, Texture2D Texture_White_Pixel, Texture2D Texture_Platform, Texture2D Texture_Main_Char, Texture2D Texture_Main_Char_with_Baby, Texture2D Texture_Baby, Texture2D Texture_Toilet, Texture2D Texture_Toilet_With_Baby, Texture2D Texture_Deadly_Bricks, Texture2D Texture_Toilet_Paper, Texture2D Texture_Spikes, Texture2D Texture_Background_Wood, Texture2D Texture_Mouse)
         {
             this.graphics = graphics;
 
@@ -44,6 +45,7 @@ namespace Toilet_time_Android
             this.Texture_Ingame_Background = Texture_Background_Wood;
             this.Texture_Mouse = Texture_Mouse;
             this.arial = arial;
+            this.Texture_Spikes = Texture_Spikes;
 
             this.CurrentHeight = CurrentHeight;
             this.CurrentWidth = CurrentWidth;
@@ -81,6 +83,11 @@ namespace Toilet_time_Android
         }
 
         public void DrawPlatform(Toilet_time_main.Platform platform)
+        {
+            spritebatch.Draw(Texture_Platform, ConvertRectangle(new Rectangle(platform.position.x, platform.position.y, platform.size.x, platform.size.y)), platform.color);
+        }
+
+        public void DrawMoveablePlatform(Toilet_time_main.Moveable_Platform platform)
         {
             spritebatch.Draw(Texture_Platform, ConvertRectangle(new Rectangle(platform.position.x, platform.position.y, platform.size.x, platform.size.y)), platform.color);
         }
@@ -226,6 +233,13 @@ namespace Toilet_time_Android
         private Vector2 ConvertVector2(Vector2 vect)
         {
             return new Vector2((int)((float)(vect.X * screenmultiplier)), (int)((float)(vect.Y * screenmultiplier)));
+        }
+
+        public void DrawSpikes(Spike_Drop spikes)
+        {
+        spritebatch.Draw(Texture_Spikes, ConvertRectangle(new Rectangle(spikes.position.x, spikes.position.y, spikes.size.x, spikes.size.y)), spikes.color);
+
+
         }
     }
 

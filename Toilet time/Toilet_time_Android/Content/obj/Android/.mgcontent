@@ -4,23 +4,24 @@
   <Platform>Android</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/jobka/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet_time_Android/Content/baby.png</File>
-    <File>C:/Users/jobka/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet_time_Android/Content/Background_Wood.png</File>
-    <File>C:/Users/jobka/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet_time_Android/Content/brick.png</File>
-    <File>C:/Users/jobka/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet_time_Android/Content/DeadlyBricks.png</File>
-    <File>C:/Users/jobka/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet_time_Android/Content/Endgame_with_toilet.png</File>
-    <File>C:/Users/jobka/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet_time_Android/Content/Endgametoilet.png</File>
-    <File>C:/Users/jobka/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet_time_Android/Content/Main with baby.png</File>
-    <File>C:/Users/jobka/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet_time_Android/Content/Main.png</File>
-    <File>C:/Users/jobka/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet_time_Android/Content/mouse.png</File>
-    <File>C:/Users/jobka/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet_time_Android/Content/Toilet_Papier.png</File>
-    <File>C:/Users/jobka/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet_time_Android/Content/white_pixel.png</File>
-    <File>C:/Users/jobka/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet_time_Android/Content/Baby_Crying.wav</File>
-    <File>C:/Users/jobka/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet_time_Android/Content/Baby_Laughing.wav</File>
-    <File>C:/Users/jobka/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet_time_Android/Content/End_Level.wav</File>
-    <File>C:/Users/jobka/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet_time_Android/Content/Game_background.wav</File>
-    <File>C:/Users/jobka/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet_time_Android/Content/Game_end.wav</File>
-    <File>C:/Users/jobka/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet_time_Android/Content/Ingame_Background.wav</File>
-    <File>C:/Users/jobka/Documents/GitHub/Toilet-time---Project-4/Toilet time/Toilet_time_Android/Content/Menu_background.wav</File>
+    <File>C:/Users/Jonah Kalkman/Desktop/Project 4/Toilet-time---Project-4/Toilet time/Toilet_time_Android/Content/baby.png</File>
+    <File>C:/Users/Jonah Kalkman/Desktop/Project 4/Toilet-time---Project-4/Toilet time/Toilet_time_Android/Content/Background_Wood.png</File>
+    <File>C:/Users/Jonah Kalkman/Desktop/Project 4/Toilet-time---Project-4/Toilet time/Toilet_time_Android/Content/brick.png</File>
+    <File>C:/Users/Jonah Kalkman/Desktop/Project 4/Toilet-time---Project-4/Toilet time/Toilet_time_Android/Content/DeadlyBricks.png</File>
+    <File>C:/Users/Jonah Kalkman/Desktop/Project 4/Toilet-time---Project-4/Toilet time/Toilet_time_Android/Content/Endgame_with_toilet.png</File>
+    <File>C:/Users/Jonah Kalkman/Desktop/Project 4/Toilet-time---Project-4/Toilet time/Toilet_time_Android/Content/Endgametoilet.png</File>
+    <File>C:/Users/Jonah Kalkman/Desktop/Project 4/Toilet-time---Project-4/Toilet time/Toilet_time_Android/Content/Main with baby.png</File>
+    <File>C:/Users/Jonah Kalkman/Desktop/Project 4/Toilet-time---Project-4/Toilet time/Toilet_time_Android/Content/Main.png</File>
+    <File>C:/Users/Jonah Kalkman/Desktop/Project 4/Toilet-time---Project-4/Toilet time/Toilet_time_Android/Content/mouse.png</File>
+    <File>C:/Users/Jonah Kalkman/Desktop/Project 4/Toilet-time---Project-4/Toilet time/Toilet_time_Android/Content/Toilet_Papier.png</File>
+    <File>C:/Users/Jonah Kalkman/Desktop/Project 4/Toilet-time---Project-4/Toilet time/Toilet_time_Android/Content/white_pixel.png</File>
+    <File>C:/Users/Jonah Kalkman/Desktop/Project 4/Toilet-time---Project-4/Toilet time/Toilet_time_Android/Content/Baby_Crying.wav</File>
+    <File>C:/Users/Jonah Kalkman/Desktop/Project 4/Toilet-time---Project-4/Toilet time/Toilet_time_Android/Content/Baby_Laughing.wav</File>
+    <File>C:/Users/Jonah Kalkman/Desktop/Project 4/Toilet-time---Project-4/Toilet time/Toilet_time_Android/Content/End_Level.wav</File>
+    <File>C:/Users/Jonah Kalkman/Desktop/Project 4/Toilet-time---Project-4/Toilet time/Toilet_time_Android/Content/Game_background.wav</File>
+    <File>C:/Users/Jonah Kalkman/Desktop/Project 4/Toilet-time---Project-4/Toilet time/Toilet_time_Android/Content/Game_end.wav</File>
+    <File>C:/Users/Jonah Kalkman/Desktop/Project 4/Toilet-time---Project-4/Toilet time/Toilet_time_Android/Content/Ingame_Background.wav</File>
+    <File>C:/Users/Jonah Kalkman/Desktop/Project 4/Toilet-time---Project-4/Toilet time/Toilet_time_Android/Content/Menu_background.wav</File>
+    <File>C:/Users/Jonah Kalkman/Desktop/Project 4/Toilet-time---Project-4/Toilet time/Toilet_time_Android/Content/spikes.png</File>
   </SourceFiles>
 </SourceFileCollection>
