@@ -34,6 +34,7 @@ namespace Toilet_time_main
             {
 
                 case 1:
+                //main menu
                     {
                         islevel = false;
                         if (gui_manager.systemtype == Systemtype.windows)
@@ -44,12 +45,14 @@ namespace Toilet_time_main
                         }
                         else if (gui_manager.systemtype == Systemtype.android)
                         {
-                            gui_stuff.Add(new Button(400, 200, 100, 50, "Play", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(4); }));
+                            gui_stuff.Add(new Button(400, 200, 100, 50, "Play", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(5); }));
                             gui_stuff.Add(new Button(400, 300, 100, 50, "Exit", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.exit = true; }));
                         }
                         break;
                     }
+
                 case 2:
+                //settings menu
                     {
                         islevel = false;
                         if (gui_manager.systemtype == Systemtype.windows)
@@ -62,7 +65,9 @@ namespace Toilet_time_main
 
                     break;
                     }
+
                 case 3:
+                //control settings
                     {
                         islevel = false;
                         if (gui_manager.systemtype == Systemtype.windows)
@@ -107,7 +112,9 @@ namespace Toilet_time_main
                         }
                         break;
                     }
+
                 case 4:
+                //sound settings
                     {
                         islevel = false;
                         if (gui_manager.systemtype == Systemtype.windows)
@@ -121,12 +128,14 @@ namespace Toilet_time_main
                         }
                         break;
                     }
+
                 case 5:
+                //level 1
                     {
                         islevel = true;
                         
                         //character
-                        fallable_objects.Add(new Main_Character(200, 0, 4));
+                        fallable_objects.Add(new Main_Character(200, 0, 6));
 
                         //interactions
                         Interacting_Objects.Add(new Baby(400, 0));
@@ -138,12 +147,14 @@ namespace Toilet_time_main
 
                         break;
                     }
+
                 case 6:
+                //level 2
                     {
                         islevel = true;
 
                         //character
-                        fallable_objects.Add(new Main_Character(200, 0, 5));
+                        fallable_objects.Add(new Main_Character(200, 0, 7));
 
                         //interactions
                         Interacting_Objects.Add(new Baby(600, 0));
@@ -157,13 +168,13 @@ namespace Toilet_time_main
                         break;
                     }
 
-
                 case 7:
+                //level 3
                     {
                         islevel = true;
                         
                         //character
-                        fallable_objects.Add(new Main_Character(200, 0, 6));
+                        fallable_objects.Add(new Main_Character(200, 0, 8));
                         
                         //interactions
                         Interacting_Objects.Add(new Baby(690, 0));
@@ -177,7 +188,9 @@ namespace Toilet_time_main
 
                         break;
                     }
+
                 case 8:
+                //level 4
                     {
                         islevel = true;
                        
