@@ -38,13 +38,13 @@ namespace Toilet_time_main
                         islevel = false;
                         if (gui_manager.systemtype == Systemtype.windows)
                         {
-                            gui_stuff.Add(new Button(350, 100, 100, 50, "Play", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(3); }));
+                            gui_stuff.Add(new Button(350, 100, 100, 50, "Play", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(5); }));
                             gui_stuff.Add(new Button(350, 200, 100, 50, "Settings", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(2); }));
                             gui_stuff.Add(new Button(350, 300, 100, 50, "Exit", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.exit = true; }));
                         }
                         else if (gui_manager.systemtype == Systemtype.android)
                         {
-                            gui_stuff.Add(new Button(400, 200, 100, 50, "Play", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(3); }));
+                            gui_stuff.Add(new Button(400, 200, 100, 50, "Play", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(4); }));
                             gui_stuff.Add(new Button(400, 300, 100, 50, "Exit", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.exit = true; }));
                         }
                         break;
@@ -55,46 +55,73 @@ namespace Toilet_time_main
                         if (gui_manager.systemtype == Systemtype.windows)
                         {
                             gui_stuff.Add(new Button(350, 100, 100, 50, "Back", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(1); }));
+                        }
+
+                        gui_stuff.Add(new Button(350, 200, 100, 50, "Controls", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(3); }));
+                        gui_stuff.Add(new Button(350, 300, 100, 50, "Sounds", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(4); }));
+
+                    break;
+                    }
+                case 3:
+                    {
+                        islevel = false;
+                        if (gui_manager.systemtype == Systemtype.windows)
+                        {
+                            gui_stuff.Add(new Button(350, 100, 100, 50, "Back", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(2); }));
                             if (gui_manager.inputmechanism == 3)
                             {
                                 inputcolorGamePad = Color.Red;
-                                hovercolorGamePad = Color.Red;
+                                hovercolorGamePad = Color.Gray;
                                 inputcolorWASD = Color.Black;
-                                hovercolorWASD = Color.Black;
+                                hovercolorWASD = Color.IndianRed;
                                 inputcolorArrows = Color.Black;
-                                hovercolorArrows = Color.Black;
+                                hovercolorArrows = Color.IndianRed;
                             }
 
                             if (gui_manager.inputmechanism == 2)
                             {
                                 inputcolorGamePad = Color.Black;
-                                hovercolorGamePad = Color.Black;
+                                hovercolorGamePad = Color.IndianRed;
                                 inputcolorWASD = Color.Red;
-                                hovercolorWASD = Color.Red;
+                                hovercolorWASD = Color.Gray;
                                 inputcolorArrows = Color.Black;
-                                hovercolorArrows = Color.Black;
+                                hovercolorArrows = Color.IndianRed;
                             }
 
                             if (gui_manager.inputmechanism == 1)
                             {
                                 inputcolorGamePad = Color.Black;
-                                hovercolorGamePad = Color.Black;
+                                hovercolorGamePad = Color.IndianRed;
                                 inputcolorWASD = Color.Black;
-                                hovercolorWASD = Color.Black;
+                                hovercolorWASD = Color.IndianRed;
                                 inputcolorArrows = Color.Red;
-                                hovercolorArrows = Color.Red;
+                                hovercolorArrows = Color.Gray;
                             }
-                            gui_stuff.Add(new Button(350, 200, 100, 50, "Wasd", inputcolorWASD, hovercolorWASD, (Gui_Manager guimanager, Button button) => { guimanager.Getinputmechanism(2); guimanager.Create_screen(2); }));
-                            gui_stuff.Add(new Button(350, 300, 100, 50, "Arrows", inputcolorArrows, hovercolorArrows, (Gui_Manager guimanager, Button button) => { guimanager.Getinputmechanism(1); guimanager.Create_screen(2); }));
+                            gui_stuff.Add(new Button(350, 200, 100, 50, "Arrows", inputcolorArrows, hovercolorArrows, (Gui_Manager guimanager, Button button) => { guimanager.Getinputmechanism(1); guimanager.Create_screen(3); }));
+                            gui_stuff.Add(new Button(350, 300, 100, 50, "Wasd", inputcolorWASD, hovercolorWASD, (Gui_Manager guimanager, Button button) => { guimanager.Getinputmechanism(2); guimanager.Create_screen(3); }));
 
                             if (gui_manager.Gamepadonline == true)
                             {
-                                gui_stuff.Add(new Button(350, 400, 100, 50, "GamePad", inputcolorGamePad, hovercolorGamePad, (Gui_Manager guimanager, Button button) => { guimanager.Getinputmechanism(3); guimanager.Create_screen(2); }));
+                                gui_stuff.Add(new Button(350, 400, 100, 50, "GamePad", inputcolorGamePad, hovercolorGamePad, (Gui_Manager guimanager, Button button) => { guimanager.Getinputmechanism(3); guimanager.Create_screen(3); }));
                             }
                         }
                         break;
                     }
-                case 3:
+                case 4:
+                    {
+                        islevel = false;
+                        if (gui_manager.systemtype == Systemtype.windows)
+                        gui_stuff.Add(new Button(350, 100, 100, 50, "Back", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(2); }));
+                        {
+                            Color MCMO, MC, SCMO, SC; String soundtext, musictext;
+                            if (gui_manager.sound_handler.togglebackground) { MC = Color.Black; MCMO = Color.IndianRed; musictext = "Music: on"; } else { MC = Color.Red; MCMO = Color.Gray; musictext = "Music: off"; }
+                            if (gui_manager.sound_handler.togglesoundeffect) { SC = Color.Black; SCMO = Color.IndianRed; soundtext = "Sounds: on"; } else { SC = Color.Red; SCMO = Color.Gray; soundtext = "Sounds: off"; }
+                            gui_stuff.Add(new Button(350, 200, 100, 50, musictext, MC, MCMO, (Gui_Manager guimanager, Button button) => { guimanager.sound_handler.ToggleBackground(!guimanager.sound_handler.togglebackground); if (guimanager.sound_handler.togglebackground) { button.regularcolor = Color.Black; button.mouseovercolor = Color.IndianRed; button.label.text = "Music: on"; } else { button.regularcolor = Color.Red; button.mouseovercolor = Color.Gray; button.label.text = "Music: off"; } }));
+                            gui_stuff.Add(new Button(350, 300, 100, 50, soundtext, SC, SCMO, (Gui_Manager guimanager, Button button) => { guimanager.sound_handler.Togglesoundeffect(!guimanager.sound_handler.togglesoundeffect); if (guimanager.sound_handler.togglesoundeffect) { button.regularcolor = Color.Black; button.mouseovercolor = Color.IndianRed; button.label.text = "Sounds: on";  } else { button.regularcolor = Color.Red; button.mouseovercolor = Color.Gray; button.label.text = "Sounds: off"; } }));
+                        }
+                        break;
+                    }
+                case 5:
                     {
                         islevel = true;
                         
@@ -111,7 +138,7 @@ namespace Toilet_time_main
 
                         break;
                     }
-                case 4:
+                case 6:
                     {
                         islevel = true;
 
@@ -131,7 +158,7 @@ namespace Toilet_time_main
                     }
 
 
-                case 5:
+                case 7:
                     {
                         islevel = true;
                         
@@ -150,7 +177,7 @@ namespace Toilet_time_main
 
                         break;
                     }
-                case 6:
+                case 8:
                     {
                         islevel = true;
                        
