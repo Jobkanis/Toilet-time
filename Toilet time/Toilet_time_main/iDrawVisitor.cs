@@ -19,6 +19,8 @@ namespace Toilet_time_main
 
         void DrawPlatform(Platform platform);
 
+        void DrawMoveablePlatform(Moveable_Platform platform);
+
         void DrawSpawn(Spawn spawn);
 
         void DrawEnd(End_Goal end);

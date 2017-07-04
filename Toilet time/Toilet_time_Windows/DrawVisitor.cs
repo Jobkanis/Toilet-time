@@ -85,6 +85,11 @@ namespace Toilet_time_Windows
             spritebatch.Draw(Texture_Platform, ConvertRectangle(new Rectangle(platform.position.x, platform.position.y, platform.size.x, platform.size.y)), platform.color);
         }
 
+        public void DrawMoveablePlatform(Toilet_time_main.Moveable_Platform platform)
+        {
+            spritebatch.Draw(Texture_Platform, ConvertRectangle(new Rectangle(platform.position.x, platform.position.y, platform.size.x, platform.size.y)), platform.color);
+        }
+
         public void DrawSpawn(Toilet_time_main.Spawn spawn)
         {
 
