@@ -32,10 +32,11 @@ namespace Toilet_time_main
 
             switch (level_number)
             {
-                
+
                 case 1:
-                //main menu
+                    //main menu
                     {
+                        gui_manager.paused = false;
                         islevel = false;
                         if (gui_manager.systemtype == Systemtype.windows)
                         {
@@ -45,29 +46,30 @@ namespace Toilet_time_main
                         }
                         else if (gui_manager.systemtype == Systemtype.android)
                         {
-                            gui_stuff.Add(new Button(400, 200, 100, 50, "Play", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(4); }));
+                            gui_stuff.Add(new Button(400, 100, 100, 50, "Play", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(5); }));
+                            gui_stuff.Add(new Button(400, 200, 100, 50, "Settings", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(4); }));
                             gui_stuff.Add(new Button(400, 300, 100, 50, "Exit", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.exit = true; }));
                         }
                         break;
                     }
 
                 case 2:
-                //settings menu
+                    //settings menu
                     {
                         islevel = false;
                         if (gui_manager.systemtype == Systemtype.windows)
                         {
                             gui_stuff.Add(new Button(350, 100, 100, 50, "Back", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(1); }));
-                        }
+                            gui_stuff.Add(new Button(350, 200, 100, 50, "Controls", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(3); }));
+                            gui_stuff.Add(new Button(350, 300, 100, 50, "Sounds", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(4); }));
 
-                        gui_stuff.Add(new Button(350, 200, 100, 50, "Controls", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(3); }));
-                        gui_stuff.Add(new Button(350, 300, 100, 50, "Sounds", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(4); }));
+                        }
 
                         break;
                     }
 
                 case 3:
-                //control settings
+                    //control settings
                     {
                         islevel = false;
                         if (gui_manager.systemtype == Systemtype.windows)
@@ -114,21 +116,30 @@ namespace Toilet_time_main
                     }
 
                 case 4:
-                //sound settings
+                    //sound settings
                     {
                         islevel = false;
+                        int x = 350;
                         if (gui_manager.systemtype == Systemtype.windows)
-                            gui_stuff.Add(new Button(350, 100, 100, 50, "Back", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(2); }));
                         {
-                            Color MCMO, MC, SCMO, SC; String soundtext, musictext;
-                            if (gui_manager.sound_handler.togglebackground) { MC = Color.Black; MCMO = Color.IndianRed; musictext = "Music: on"; } else { MC = Color.Red; MCMO = Color.Gray; musictext = "Music: off"; }
-                            if (gui_manager.sound_handler.togglesoundeffect) { SC = Color.Black; SCMO = Color.IndianRed; soundtext = "Sounds: on"; } else { SC = Color.Red; SCMO = Color.Gray; soundtext = "Sounds: off"; }
-                            gui_stuff.Add(new Button(350, 200, 100, 50, musictext, MC, MCMO, (Gui_Manager guimanager, Button button) => { guimanager.sound_handler.ToggleBackground(!guimanager.sound_handler.togglebackground); if (guimanager.sound_handler.togglebackground) { button.regularcolor = Color.Black; button.mouseovercolor = Color.IndianRed; button.label.text = "Music: on"; } else { button.regularcolor = Color.Red; button.mouseovercolor = Color.Gray; button.label.text = "Music: off"; } }));
-                            gui_stuff.Add(new Button(350, 300, 100, 50, soundtext, SC, SCMO, (Gui_Manager guimanager, Button button) => { guimanager.sound_handler.Togglesoundeffect(!guimanager.sound_handler.togglesoundeffect); if (guimanager.sound_handler.togglesoundeffect) { button.regularcolor = Color.Black; button.mouseovercolor = Color.IndianRed; button.label.text = "Sounds: on"; } else { button.regularcolor = Color.Red; button.mouseovercolor = Color.Gray; button.label.text = "Sounds: off"; } }));
+                            x = 350;
+                            gui_stuff.Add(new Button(x, 100, 100, 50, "Back", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(2); }));
+                            
                         }
-                        break;
+                        else if (gui_manager.systemtype == Systemtype.android)
+                        {
+                            x = 400;
+                            gui_stuff.Add(new Button(x, 100, 100, 50, "Back", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(1); }));
+                            
+                        }
+                        Color MCMO, MC, SCMO, SC; String soundtext, musictext;
+                        if (gui_manager.sound_handler.togglebackground) { MC = Color.Black; MCMO = Color.IndianRed; musictext = "Music: on"; } else { MC = Color.Red; MCMO = Color.Gray; musictext = "Music: off"; }
+                        if (gui_manager.sound_handler.togglesoundeffect) { SC = Color.Black; SCMO = Color.IndianRed; soundtext = "Sounds: on"; } else { SC = Color.Red; SCMO = Color.Gray; soundtext = "Sounds: off"; }
+                        gui_stuff.Add(new Button(x, 200, 100, 50, musictext, MC, MCMO, (Gui_Manager guimanager, Button button) => { guimanager.sound_handler.ToggleBackground(!guimanager.sound_handler.togglebackground); if (guimanager.sound_handler.togglebackground) { button.regularcolor = Color.Black; button.mouseovercolor = Color.IndianRed; button.label.text = "Music: on"; } else { button.regularcolor = Color.Red; button.mouseovercolor = Color.Gray; button.label.text = "Music: off"; } }));
+                        gui_stuff.Add(new Button(x, 300, 100, 50, soundtext, SC, SCMO, (Gui_Manager guimanager, Button button) => { guimanager.sound_handler.Togglesoundeffect(!guimanager.sound_handler.togglesoundeffect); if (guimanager.sound_handler.togglesoundeffect) { button.regularcolor = Color.Black; button.mouseovercolor = Color.IndianRed; button.label.text = "Sounds: on"; } else { button.regularcolor = Color.Red; button.mouseovercolor = Color.Gray; button.label.text = "Sounds: off"; } }));
                     }
-
+                    break;
+            
                 case 5:
                 //level 1
                     {
@@ -138,6 +149,7 @@ namespace Toilet_time_main
                         fallable_objects.Add(new Main_Character(200, 0, 6));
 
                         //interactions
+                        Interacting_Objects.Add(new Enemy_Grandma(300, 0, 200, 50));
                         Interacting_Objects.Add(new Baby(400, 0));
                         Interacting_Objects.Add(new End_Goal(600, 0));
 
@@ -236,8 +248,8 @@ namespace Toilet_time_main
 
                 //pausebutton in game
                 Color pause, pausehover; String pausetext;
-                if (gui_manager.sound_handler.togglebackground) { pause = Color.Black; pausehover = Color.IndianRed; pausetext = "Pause"; } else { pause = Color.Red; pausehover = Color.Gray; pausetext = "Resume"; }
-                gui_stuff.Add(new Button(150, 0, 50, 20, pausetext, pause, pausehover, (Gui_Manager guimanager, Button button) => { guimanager.sound_handler.ToggleBackground(!guimanager.sound_handler.togglebackground); if (guimanager.sound_handler.togglebackground) { button.regularcolor = Color.Black; button.mouseovercolor = Color.IndianRed; button.label.text = "Pause"; } else { button.regularcolor = Color.DarkRed; button.mouseovercolor = Color.Gray; button.label.text = "Resume"; } }));
+                if (!gui_manager.paused) { pause = Color.Black; pausehover = Color.IndianRed; pausetext = "Pause"; } else { pause = Color.DarkRed; pausehover = Color.Gray; pausetext = "Resume"; }
+                gui_stuff.Add(new Button(150, 0, 50, 20, pausetext, pause, pausehover, (Gui_Manager guimanager, Button button) => { guimanager.paused =! guimanager.paused; if (!guimanager.paused) { button.regularcolor = Color.Black; button.mouseovercolor = Color.IndianRed; button.label.text = "Pause"; } else { button.regularcolor = Color.DarkRed; button.mouseovercolor = Color.Gray; button.label.text = "Resume"; } }));
 
                 Background = BackgroundType.ingamebackground;
             }
