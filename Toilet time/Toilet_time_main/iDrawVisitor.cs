@@ -17,6 +17,8 @@ namespace Toilet_time_main
 
         void DrawBaby(Baby baby);
 
+        void DrawEnemyGrandma(Enemy_Grandma mom);
+
         void DrawPlatform(Platform platform);
 
         void DrawMoveablePlatform(Moveable_Platform platform);
@@ -35,6 +37,7 @@ namespace Toilet_time_main
 
         void DrawDebugConsole(Gui_Manager guimanager);
 
+    
         void DrawBackground(BackgroundType background);
         void DrawSpikes(Toilet_time_main.Spike_Drop spikes);
 

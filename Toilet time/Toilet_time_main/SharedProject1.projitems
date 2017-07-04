@@ -25,6 +25,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)iOption.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Iterator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Main_Character.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enemy_Grandma.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Moveable platform.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Platform.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)iSoundHandler.cs" />

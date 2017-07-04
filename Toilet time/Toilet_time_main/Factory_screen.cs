@@ -102,6 +102,7 @@ namespace Toilet_time_main
                         fallable_objects.Add(new Main_Character(200, 0, 4));
 
                         //interactions
+                        Interacting_Objects.Add(new Enemy_Grandma(800, 0, 100, 50));
                         Interacting_Objects.Add(new Baby(400, 0));
                         Interacting_Objects.Add(new End_Goal(600, 0));
                         Interacting_Objects.Add(new Spike_Dropper(300, -300, 1.5f));

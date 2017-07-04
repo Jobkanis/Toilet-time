@@ -58,7 +58,7 @@ namespace Toilet_time_Windows
 
         public void DrawCursor(Toilet_time_main.Point mousepoint)
         {
-           spritebatch.Draw(Texture_Mouse, ConvertRectangle(new Rectangle(mousepoint.x - 3, mousepoint.y - 3, 25, 25)), Color.White);
+            spritebatch.Draw(Texture_Mouse, ConvertRectangle(new Rectangle(mousepoint.x - 3, mousepoint.y - 3, 25, 25)), Color.White);
         }
 
         public void DrawCharacter(Toilet_time_main.Main_Character character)
@@ -73,6 +73,8 @@ namespace Toilet_time_Windows
             }
         }
 
+
+
         public void DrawBaby(Toilet_time_main.Baby baby)
         {
             if (baby.Visible == true)
@@ -80,6 +82,12 @@ namespace Toilet_time_Windows
                 spritebatch.Draw(Texture_Baby, ConvertRectangle(new Rectangle(baby.position.x, baby.position.y, baby.size.x, baby.size.y)), baby.color);
             }
         }
+
+        public void DrawEnemyGrandma(Enemy_Grandma enemy_grandma)
+        {
+            spritebatch.Draw(Texture_Main_Char, ConvertRectangle(new Rectangle(enemy_grandma.position.x, enemy_grandma.position.y, enemy_grandma.size.x, enemy_grandma.size.y)), enemy_grandma.color);
+        }
+
 
         public void DrawPlatform(Toilet_time_main.Platform platform)
         {
@@ -158,7 +166,7 @@ namespace Toilet_time_Windows
             return returntype;
         }
 
-        Toilet_time_main.Label MouseInformation = new Toilet_time_main.Label(600,0, 100, 20, "");
+        Toilet_time_main.Label MouseInformation = new Toilet_time_main.Label(600, 0, 100, 20, "");
         Toilet_time_main.Label InputInformation = new Toilet_time_main.Label(600, 20, 100, 20, "");
         Toilet_time_main.Label CooldownInformation = new Toilet_time_main.Label(600, 40, 100, 20, "");
         Toilet_time_main.Label MainInformation = new Toilet_time_main.Label(600, 60, 100, 20, "No main_character found");
@@ -187,7 +195,7 @@ namespace Toilet_time_Windows
             LevelStats.Draw(this);
 
             Toilet_time_main.Fallable_Object main = guimanager.GetMain_Character();
-            
+
             if (main != null)
             {
                 MainInformation.text = "MainY: " + main.position.y.ToString() + " | Vel: " + ((int)(main.velocity)).ToString() + " | Baby: " + main.HasBaby.ToString() + " | Next: " + main.nextscreen.ToString();
@@ -222,11 +230,11 @@ namespace Toilet_time_Windows
 
         private int ConvertInt(int convert)
         {
-            return (int)( convert * screenmultiplier );
+            return (int)(convert * screenmultiplier);
         }
         private Rectangle ConvertRectangle(Rectangle rect)
         {
-            return new Rectangle((int)((float)(rect.X * screenmultiplier)) , (int)((float)(rect.Y * screenmultiplier)), (int)((float)(rect.Width * screenmultiplier)), (int)((float)(rect.Height * screenmultiplier)));
+            return new Rectangle((int)((float)(rect.X * screenmultiplier)), (int)((float)(rect.Y * screenmultiplier)), (int)((float)(rect.Width * screenmultiplier)), (int)((float)(rect.Height * screenmultiplier)));
         }
 
         private Vector2 ConvertVector2(Vector2 vect)
@@ -238,6 +246,7 @@ namespace Toilet_time_Windows
         {
             spritebatch.Draw(Texture_Spikes, ConvertRectangle(new Rectangle(spikes.position.x, spikes.position.y, spikes.size.x, spikes.size.y)), spikes.color);
         }
+
     }
 
 }

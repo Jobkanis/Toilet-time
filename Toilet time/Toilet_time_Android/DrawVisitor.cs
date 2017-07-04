@@ -82,6 +82,12 @@ namespace Toilet_time_Android
             }
         }
 
+        public void DrawEnemyGrandma(Enemy_Grandma enemy_grandma)
+        {
+            spritebatch.Draw(Texture_Main_Char, ConvertRectangle(new Rectangle(enemy_grandma.position.x, enemy_grandma.position.y, enemy_grandma.size.x, enemy_grandma.size.y)), enemy_grandma.color);
+        }
+
+
         public void DrawPlatform(Toilet_time_main.Platform platform)
         {
             spritebatch.Draw(Texture_Platform, ConvertRectangle(new Rectangle(platform.position.x, platform.position.y, platform.size.x, platform.size.y)), platform.color);
