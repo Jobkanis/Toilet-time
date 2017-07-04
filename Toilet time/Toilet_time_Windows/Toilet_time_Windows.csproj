@@ -71,6 +71,7 @@
     <Content Include="Content\Main.png" />
     <Content Include="Content\Menu_background.wav" />
     <Content Include="Content\mouse.png" />
+    <Content Include="Content\spikes.png" />
     <Content Include="Content\Toilet_Papier.png" />
     <Content Include="Content\white_pixel.png" />
     <Content Include="Icon.ico" />
