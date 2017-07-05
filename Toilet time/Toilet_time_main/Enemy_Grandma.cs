@@ -62,12 +62,20 @@ namespace Toilet_time_main
 
             if (!((this.position.x + x_addition + 2 < main.position.x + main.size.x && this.position.x + x_addition - 2 + this.size.x > main.position.x && this.position.y + this.size.y > main.position.y && this.position.y < main.position.y + main.size.y)))
             {
-
                 this.position.x += x_addition;
             }
             else
             {
                 guimanager.Main_Dead();
+            }
+
+            if (!guimanager.Check_Collision(this, this.position.x + 1, this.position.y, this.size.x, this.size.y))
+            {
+                this.returning = true;
+            }
+            else if ((!guimanager.Check_Collision(this, this.position.x - 1, this.position.y, this.size.x, this.size.y)))
+            {
+                this.returning = false;
             }
 
             if (this.position.y > 600)

@@ -249,6 +249,11 @@ namespace Toilet_time_Android
 
 
         }
+
+        public void DrawSpider(Spider spider)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }
