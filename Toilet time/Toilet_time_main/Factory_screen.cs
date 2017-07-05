@@ -156,6 +156,7 @@ namespace Toilet_time_main
 
                         //platforms
                         stable_objects.Add(new Platform(0, 300, 800, 20));
+                        stable_objects.Add(new Platform(300, 270, 100, 20));
 
                         break;
                     }

@@ -146,6 +146,10 @@ namespace Toilet_time_Windows
             spritebatch.Draw(Texture_Toilet_Paper, ConvertRectangle(new Rectangle(toilet_paper.position.x, toilet_paper.position.y, toilet_paper.size.x, toilet_paper.size.y)), toilet_paper.color);
         }
 
+        public void DrawSpider(Spider spider)
+        {
+            spritebatch.Draw(Texture_Toilet_Paper, ConvertRectangle(new Rectangle(spider.position.x, spider.position.y, spider.size.x, spider.size.y)), spider.color);
+        }
 
         enum Dimensions { x, y }
         private int ConvertToSize(Dimensions dimension, float percent, int extra)

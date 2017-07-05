@@ -65,6 +65,16 @@ namespace Toilet_time_main
             {
                 this.returning = !this.returning;
             }
+
+            if (!guimanager.Check_Collision(this, this.position.x + 1, this.position.y, this.size.x, this.size.y))
+            {
+                this.returning = true;
+            }
+            else if ((!guimanager.Check_Collision(this, this.position.x - 1, this.position.y, this.size.x, this.size.y)))
+            {
+                this.returning = false;
+            }
+
         }
 
         public override void Draw(iDrawVisitor visitor)

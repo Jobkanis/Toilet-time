@@ -37,7 +37,9 @@ namespace Toilet_time_main
 
         void DrawDebugConsole(Gui_Manager guimanager);
 
-    
+        void DrawSpider(Spider spider);
+        
+            
         void DrawBackground(BackgroundType background);
         void DrawSpikes(Toilet_time_main.Spike_Drop spikes);
 

@@ -31,3 +31,4 @@ C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet_time_
 C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet_time_Android\obj\Release\uploadflags.txt
 C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet_time_Android\bin\Android\AnyCPU\Release\Toilet_time_Android.dll.mdb
 C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet_time_Android\obj\Release\android\assets\Toilet_time_Android.dll.mdb
+C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet_time_Android\obj\Release\Toilet_time_Android.csprojResolveAssemblyReference.cache
