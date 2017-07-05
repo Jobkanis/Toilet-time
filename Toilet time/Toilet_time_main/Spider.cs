@@ -42,27 +42,30 @@ namespace Toilet_time_main
             this.steps_out += x_addition;
 
             new_x_add = new_x_add - x_addition;
-
-            if (left == false && !guimanager.Check_Collision(this, this.position.x + x_addition + 2, this.position.y, this.size.x, this.size.y))
+            Fallable_Object main = guimanager.GetMain_Character();
+            if (main != null)
             {
-                this.left = true;
-            }
-            else if (left == true && (!guimanager.Check_Collision(this, this.position.x - x_addition - 2, this.position.y, this.size.x, this.size.y)))
-            {
-                this.left = false;
-            }
-            else
-            {
-
-                Fallable_Object main = guimanager.GetMain_Character();
-
-                if (!((this.position.x + x_addition + 2 < main.position.x + main.size.x && this.position.x + x_addition - 2 + this.size.x > main.position.x && this.position.y + this.size.y > main.position.y && this.position.y < main.position.y + main.size.y)))
+                if (left == false && !guimanager.Check_Collision(this, this.position.x + x_addition + 2, this.position.y, this.size.x, this.size.y))
                 {
-                    this.position.x += x_addition;
+                    this.left = true;
+                }
+                else if (left == true && (!guimanager.Check_Collision(this, this.position.x - x_addition - 2, this.position.y, this.size.x, this.size.y)))
+                {
+                    this.left = false;
                 }
                 else
                 {
-                    guimanager.Main_Dead();
+
+
+
+                    if (!((this.position.x + x_addition + 2 < main.position.x + main.size.x && this.position.x + x_addition - 2 + this.size.x > main.position.x && this.position.y + this.size.y > main.position.y && this.position.y < main.position.y + main.size.y)))
+                    {
+                        this.position.x += x_addition;
+                    }
+                    else
+                    {
+                        guimanager.Main_Dead();
+                    }
                 }
             }
 

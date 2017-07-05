@@ -9,7 +9,7 @@ namespace Toilet_time_main
 
     public class Gui_Manager
     {
-        bool VieuwDebugConsole = true;
+        bool VieuwDebugConsole = false;
 
         public bool autopickup;
 
@@ -51,6 +51,7 @@ namespace Toilet_time_main
         public bool End_Of_Level = false;
 
         public bool paused;
+        public bool Lifes_enabled;
 
         public int lowestyvalue = 800;
         public int lifes;
@@ -185,6 +186,7 @@ namespace Toilet_time_main
 
         private void Reset_screen()
         {
+            this.movementchange = 0;
             this.Fallable_Objects = null;
             this.Stable_Objects = null;
             this.Gui_stuff = null;
@@ -302,8 +304,10 @@ namespace Toilet_time_main
         {
             if (!End_Of_Level)
             {
-                Fallable_Object main = GetMain_Character();
-                lifes -= 1;
+                if (Lifes_enabled)
+                {
+                    lifes -= 1;
+                }
                 if (lifes >= 0)
                 {
                     Create_screen(screen);

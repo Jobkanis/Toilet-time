@@ -6,7 +6,7 @@ using Android.Views;
 
 namespace Toilet_time_Android
 {
-    [Activity(Label = "Toilet_time_Android"
+    [Activity(Label = "Toilet Time"
         , MainLauncher = true
         , Icon = "@drawable/icon"
         , Theme = "@style/Theme.Splash"

@@ -5,7 +5,7 @@
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
   <application android:label="Toilet_time_Android" android:icon="@drawable/icon" android:name="android.app.Application" android:allowBackup="true">
-    <activity android:alwaysRetainTaskState="true" android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:icon="@drawable/icon" android:label="Toilet_time_Android" android:launchMode="singleInstance" android:screenOrientation="landscape" android:theme="@style/Theme.Splash" android:name="md5accc95bc1ef6193c915449a114f7c9fe.Activity1">
+    <activity android:alwaysRetainTaskState="true" android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:icon="@drawable/icon" android:label="Toilet Time" android:launchMode="singleInstance" android:screenOrientation="landscape" android:theme="@style/Theme.Splash" android:name="md5accc95bc1ef6193c915449a114f7c9fe.Activity1">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />

@@ -47,13 +47,16 @@ namespace Toilet_time_main
                 droppingobject.Update(dt, guimanager);
 
                 Fallable_Object main = guimanager.GetMain_Character();
-                if (main.position.x < droppingobject.position.x + droppingobject.size.x && main.position.x + main.size.x > droppingobject.position.x)
+                if (main != null)
                 {
-                    if (main.position.y + main.size.y > droppingobject.position.y && main.position.y < droppingobject.position.y + droppingobject.size.y)
+                    if (main.position.x < droppingobject.position.x + droppingobject.size.x && main.position.x + main.size.x > droppingobject.position.x)
                     {
-                      
-                        guimanager.Main_Dead();
+                        if (main.position.y + main.size.y > droppingobject.position.y && main.position.y < droppingobject.position.y + droppingobject.size.y)
+                        {
 
+                            guimanager.Main_Dead();
+
+                        }
                     }
                 }
 

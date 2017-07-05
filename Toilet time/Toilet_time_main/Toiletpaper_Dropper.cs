@@ -47,6 +47,8 @@ namespace Toilet_time_main
                 droppingobject.Update(dt, guimanager);
 
                 Fallable_Object main = guimanager.GetMain_Character();
+                if (main != null)
+                { 
                 if (main.position.x < droppingobject.position.x + droppingobject.size.x && main.position.x + main.size.x > droppingobject.position.x)
                 {
                     if (main.position.y + main.size.y > droppingobject.position.y && main.position.y < droppingobject.position.y + droppingobject.size.y)
@@ -56,27 +58,28 @@ namespace Toilet_time_main
                     }
                 }
 
-                if (droppingobject.position.y > 2000)
-                {
-
-                    List<Toilet_Paper> COPYdroppingobjects = droppingobjects;
-
-                    List<Toilet_Paper> Newdroppingobjects = new List<Toilet_Paper>();
+                    if (droppingobject.position.y > 2000)
                     {
 
-                        COPYdroppingobjects.Reset();
-                        while (COPYdroppingobjects.GetNext().Visit<bool>(() => false, _ => true))
-                        {
-                            Toilet_Paper dropob = COPYdroppingobjects.GetCurrent().Visit<Toilet_Paper>(() => throw new Exception("copyfail"), item => item );
+                        List<Toilet_Paper> COPYdroppingobjects = droppingobjects;
 
-                            if (dropob.position.y != droppingobject.position.y)
+                        List<Toilet_Paper> Newdroppingobjects = new List<Toilet_Paper>();
+                        {
+
+                            COPYdroppingobjects.Reset();
+                            while (COPYdroppingobjects.GetNext().Visit<bool>(() => false, _ => true))
                             {
-                                Newdroppingobjects.Add(dropob);
+                                Toilet_Paper dropob = COPYdroppingobjects.GetCurrent().Visit<Toilet_Paper>(() => throw new Exception("copyfail"), item => item);
+
+                                if (dropob.position.y != droppingobject.position.y)
+                                {
+                                    Newdroppingobjects.Add(dropob);
+                                }
                             }
                         }
-                    }
 
-                    droppingobjects = Newdroppingobjects;
+                        droppingobjects = Newdroppingobjects;
+                    }
                 }
             }
         }
