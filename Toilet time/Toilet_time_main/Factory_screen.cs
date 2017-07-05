@@ -158,27 +158,26 @@ namespace Toilet_time_main
                         }
                         break;
                     }
-
+                
                 case 6:
-                //level 1
+                    //level 1 - Robin 
                     {
                         islevel = true;
-
                         //character
                         fallable_objects.Add(new Main_Character(200, 0, 7));
-
                         //interactions
-                        Interacting_Objects.Add(new Baby(400, 0));
-                        Interacting_Objects.Add(new End_Goal(600, 0));
+                        Interacting_Objects.Add(new Baby(350, 0));
+                        Interacting_Objects.Add(new End_Goal(500, 0));
 
                         //platforms
-                        stable_objects.Add(new Platform(0, 300, 800, 20));
+                        stable_objects.Add(new Platform(100, 300, 600, 20));
+
 
                         break;
                     }
 
                 case 7:
-                //level 2
+                    //level 2 - Robin
                     {
                         islevel = true;
 
@@ -186,10 +185,32 @@ namespace Toilet_time_main
                         fallable_objects.Add(new Main_Character(200, 0, 8));
 
                         //interactions
-                        Interacting_Objects.Add(new Baby(600, 0));
+                        Interacting_Objects.Add(new Baby(330, 0));
+                        Interacting_Objects.Add(new End_Goal(600, 0));
+
+
+                        //platforms
+                        stable_objects.Add(new Platform(0, 400, 800, 20));
+                        stable_objects.Add(new Platform(300, 300, 100, 20));
+
+                        break;
+                    }
+
+                case 8:
+                    //level 3 - Robin
+                    {
+                        islevel = true;
+
+                        //character
+                        fallable_objects.Add(new Main_Character(540, 0, 9));
+
+                        //interactions
+                        Interacting_Objects.Add(new Baby(200, 0));
                         Interacting_Objects.Add(new End_Goal(1000, 0));
-                        Interacting_Objects.Add(new Deadly_Brick(400, 0));
-                        Interacting_Objects.Add(new Toilet_Paper_Drop(800, -300, 1.5f));
+                        Interacting_Objects.Add(new Deadly_Brick(300, 0));
+                        Interacting_Objects.Add(new Deadly_Brick(371, 0));
+                        Interacting_Objects.Add(new Deadly_Brick(650, 0));
+                        Interacting_Objects.Add(new Deadly_Brick(721, 0));
 
                         //platforms
                         stable_objects.Add(new Platform(0, 300, 1200, 20));
@@ -197,29 +218,30 @@ namespace Toilet_time_main
                         break;
                     }
 
-                case 8:
-                //level 3
+                case 9:
+                    //level 4 - Robin
                     {
                         islevel = true;
 
                         //character
-                        fallable_objects.Add(new Main_Character(200, 0, 9));
+                        fallable_objects.Add(new Main_Character(90, 0, 10));
 
                         //interactions
-                        Interacting_Objects.Add(new Baby(690, 0));
-                        Interacting_Objects.Add(new End_Goal(300, 0));
-                        Interacting_Objects.Add(new Deadly_Brick(500, 0));
+                        Interacting_Objects.Add(new Baby(15, 0));
+                        Interacting_Objects.Add(new End_Goal(900, 0));
+                        Interacting_Objects.Add(new Toilet_Paper_Drop(400, -300, 1.0f));
 
                         //platforms
-                        stable_objects.Add(new Platform(0, 300, 400, 20));
-                        stable_objects.Add(new Platform(400, 350, 300, 20));
-                        stable_objects.Add(new Platform(680, 300, 50, 20));
+                        stable_objects.Add(new Platform(5, 200, 50, 20));
+                        stable_objects.Add(new Platform(50, 380, 150, 20));
+                        stable_objects.Add(new Platform(125, 275, 40, 20));
+                        stable_objects.Add(new Platform(490, 400, 550, 20));
 
                         break;
                     }
 
-                case 9:
-                //level 4
+                case 10:
+                    //level 5 - Robin
                     {
                         islevel = true;
 
@@ -243,32 +265,92 @@ namespace Toilet_time_main
 
                         break;
                     }
-
-                case 10:
-                //level 5
+                case 11:
+                    //level 8 - Tahsin
                     {
                         islevel = true;
                         //character
-                        fallable_objects.Add(new Main_Character(200, 0, 11));
-
+                        fallable_objects.Add(new Main_Character(320, 0, 12));
                         //interactions
-                        Interacting_Objects.Add(new Baby(720, 0));
-                        Interacting_Objects.Add(new End_Goal(600, 0));
-                        Interacting_Objects.Add(new Deadly_Brick(400, 0));
-                        Interacting_Objects.Add(new Deadly_Brick(530, 0));
+                        Interacting_Objects.Add(new Baby(330, 150));
+                        Interacting_Objects.Add(new End_Goal(900, 150));
+                        Interacting_Objects.Add(new Toilet_Paper_Drop(550, -480, 0.5f));
+                        Interacting_Objects.Add(new Deadly_Brick(800, 0));
+                        Interacting_Objects.Add(new Deadly_Brick(970, 0));
 
                         //platforms
-                        stable_objects.Add(new Platform(0, 300, 300, 20));
-                        stable_objects.Add(new Platform(400, 250, 400, 20));
-                        stable_objects.Add(new Platform(600, 200, 60, 20));
-
-
+                        stable_objects.Add(new Platform(5, 200, 55, 20));
+                        stable_objects.Add(new Platform(65, 280, 90, 20));
+                        stable_objects.Add(new Platform(200, 190, 20, 300));
+                        stable_objects.Add(new Platform(220, 280, 50, 20));
+                        stable_objects.Add(new Platform(220, 100, 200, 20));
+                        stable_objects.Add(new Platform(290, 360, 90, 20));
+                        stable_objects.Add(new Platform(430, 150, 100, 20));
+                        stable_objects.Add(new Platform(600, 120, 150, 20));
+                        stable_objects.Add(new Platform(800, 360, 250, 20));
 
                         break;
                     }
+                case 12:
+                    // level 11 - Tahsin
+                    {
+                        islevel = true;
 
-                case 11:
-                //level 6
+                        //character
+                        fallable_objects.Add(new Main_Character(50, 0, 13));
+                        //interactions
+                        Interacting_Objects.Add(new Baby(180, 0));
+                        Interacting_Objects.Add(new End_Goal(900, 150));
+                        Interacting_Objects.Add(new Enemy_Grandma(350, 0, 200, 100));
+                        Interacting_Objects.Add(new Deadly_Brick(600, 0));
+                        Interacting_Objects.Add(new Deadly_Brick(800, 0));
+
+                        //platforms
+                        stable_objects.Add(new Platform(0, 300, 1000, 20));
+                        stable_objects.Add(new Platform(150, 120, 60, 20));
+                        stable_objects.Add(new Platform(250, 140, 60, 20));
+                        stable_objects.Add(new Platform(350, 160, 60, 20));
+                        stable_objects.Add(new Platform(450, 180, 60, 20));
+                        break;
+
+                    }
+                case 13: // level 12 ~ogie
+                    {
+                        islevel = true;
+                        //character
+                        fallable_objects.Add(new Main_Character(30, 0, 14));
+                        Interacting_Objects.Add(new Baby(950, 0));
+
+                        //interactions
+                        Interacting_Objects.Add(new End_Goal(0, 0));
+
+                        // fallable objects
+                        Interacting_Objects.Add(new Toilet_Paper_Drop(315, -320, 0.8f));
+                        Interacting_Objects.Add(new Toilet_Paper_Drop(510, -320, 0.8f));
+                        Interacting_Objects.Add(new Toilet_Paper_Drop(710, -320, 0.8f));
+
+
+
+                        //Platforms
+                        stable_objects.Add(new Platform(0, 150, 50, 20));
+                        stable_objects.Add(new Platform(100, 250, 50, 20));
+                        stable_objects.Add(new Platform(150, 350, 50, 20));
+                        stable_objects.Add(new Platform(200, 450, 50, 20));
+                        stable_objects.Add(new Platform(250, 550, 50, 20));
+                        stable_objects.Add(new Platform(350, 550, 50, 20));
+                        stable_objects.Add(new Platform(450, 550, 50, 20));
+                        stable_objects.Add(new Platform(550, 550, 50, 20));
+                        stable_objects.Add(new Platform(650, 550, 50, 20));
+                        stable_objects.Add(new Platform(750, 450, 50, 20));
+                        stable_objects.Add(new Platform(850, 350, 50, 20));
+                        stable_objects.Add(new Platform(950, 250, 50, 20));
+                        stable_objects.Add(new Platform(950, 150, 50, 20));
+                        stable_objects.Add(new Platform(350, 100, 500, 20));
+
+                        break;
+                    }
+                case 14:
+                    //level 13 - Tahsin
                     {
                         islevel = true;
                         //character
@@ -292,11 +374,15 @@ namespace Toilet_time_main
                         stable_objects.Add(new Platform(890, 200, 60, 20));
                         stable_objects.Add(new Platform(1000, 150, 60, 20));
                         stable_objects.Add(new Platform(1100, 100, 40, 20));
-
                         break;
                     }
 
-                default:
+
+
+
+
+
+                        default:
                     {
                         islevel = false;
                         break;
