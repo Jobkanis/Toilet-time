@@ -21,7 +21,7 @@ namespace Toilet_time_main
     }
     */
 
-    public class Position
+    public class Position // position data
     {
         public int x;
         public int y;
@@ -34,7 +34,7 @@ namespace Toilet_time_main
     }
 
 
-    public class Size
+    public class Size // size data
     {
         public int x;
         public int y;
@@ -45,7 +45,7 @@ namespace Toilet_time_main
         }
     }
 
-    public class Point
+    public class Point // cursor (point) data
     {
         public int x;
         public int y;

@@ -25,10 +25,10 @@ namespace Toilet_time_main
 
 
 
-        public override void Update(float dt, Gui_Manager guimanager)
+        public override void Update(float dt, Gui_Manager guimanager) 
         {
             base.Update(dt, guimanager);
-
+            // makes spider walk
             if (left)
             {
                 new_x_add -= speed * dt;

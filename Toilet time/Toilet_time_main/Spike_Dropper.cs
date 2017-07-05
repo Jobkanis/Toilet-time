@@ -29,7 +29,7 @@ namespace Toilet_time_main
         {
             if (cooldown > 0) { cooldown = cooldown - (1 * dt); }
             else { cooldown = 0; }
-
+            // adds new spike
             if (cooldown <= 0)
             {
                 Spike spike_to_add = new Spike(position.x, position.y);
@@ -37,7 +37,7 @@ namespace Toilet_time_main
                 droppingobjects.Add(spike_to_add);
                 cooldown = interval;
             }
-
+            // gives dropping objects their functionality
             droppingobjects.Reset();
             while (droppingobjects.GetNext().Visit<bool>(() => false, _ => true))
             {
@@ -54,15 +54,15 @@ namespace Toilet_time_main
                         if (main.position.y + main.size.y > droppingobject.position.y && main.position.y < droppingobject.position.y + droppingobject.size.y)
                         {
 
-                            guimanager.Main_Dead();
+                            guimanager.Main_Dead(); // main dead on touch
 
                         }
                     }
                 }
 
-                if (droppingobject.position.y > 2000)
+                if (droppingobject.position.y > 2000) // remove when falling below 2000 pixels
                 {
-
+                    // removing from list
                     List<Spike> COPYdroppingobjects = droppingobjects;
 
                     List<Spike> Newdroppingobjects = new List<Spike>();
@@ -86,12 +86,12 @@ namespace Toilet_time_main
         }
     }
 
-    public class Spike : Fallable_Object
+    public class Spike : Fallable_Object // falling spike
     {
         public Spike(int x_pos, int y_pos)
             : base(new Position(x_pos, y_pos), new Size(20, 40), false)
         {
-            this.Collides = false;
+            this.Collides = false; // falls through objects
             this.IsDeadly = true;
             this.MoveOnWalk = true;
         }

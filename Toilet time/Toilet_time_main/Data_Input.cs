@@ -13,7 +13,7 @@ namespace Toilet_time_main
     public enum MousePressed {Left_Button}
 
    
-    public class InputData
+    public class InputData // is returned by inputhandler
     {
         public iOption<CharacterMovementAction> MoveAction;
         public iOption<WalkDirectionInput> Walk;

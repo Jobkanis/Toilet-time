@@ -29,7 +29,8 @@ namespace Toilet_time_main
         {
             if (cooldown > 0) {cooldown = cooldown - (1 * dt);}
             else { cooldown = 0;  }
-
+            
+            // spawns new object when 
             if (cooldown <= 0)
             {
                 Toilet_Paper To_add = new Toilet_Paper(position.x, position.y);
@@ -46,6 +47,7 @@ namespace Toilet_time_main
 
                 droppingobject.Update(dt, guimanager);
 
+                // making main die when touching droppingobject
                 Fallable_Object main = guimanager.GetMain_Character();
                 if (main != null)
                 { 
@@ -57,7 +59,7 @@ namespace Toilet_time_main
                         guimanager.Main_Dead();
                     }
                 }
-
+                // removing objects form list when below 2000 pixels
                     if (droppingobject.position.y > 2000)
                     {
 
@@ -85,7 +87,7 @@ namespace Toilet_time_main
         }
     }
 
-    public class Toilet_Paper : Fallable_Object
+    public class Toilet_Paper : Fallable_Object // dropping toilet paper
     {
         public Toilet_Paper(int x_pos, int y_pos)
             : base(new Position(x_pos, y_pos), new Size(28, 24), false)

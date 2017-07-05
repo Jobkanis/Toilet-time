@@ -36,7 +36,7 @@ namespace Toilet_time_main
 
         public override void Update(float dt, Gui_Manager guimanager)
         {
-
+            // check if pressed and mouseover: action when pressed
             if (guimanager.LatestInput != null)
             {
                 if (isIntersecting(guimanager.Cursor))

@@ -7,7 +7,7 @@ namespace Toilet_time_main
 {
     public enum BackgroundType { menubackground, ingamebackground }
 
-    public interface iDrawVisitor
+    public interface iDrawVisitor // all drawvisitorfunctions: callable from objects
     {
         SpriteBatch spriteBatch { get; }
 

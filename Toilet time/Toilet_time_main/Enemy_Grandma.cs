@@ -31,6 +31,7 @@ namespace Toilet_time_main
         {
             base.Update(dt, guimanager);
 
+            // make walk :)
             if (returning)
             {
                 if (steps_out > 0)

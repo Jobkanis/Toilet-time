@@ -5,17 +5,17 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Toilet_time_main
 {
-    public interface Drawable
+    public interface Drawable // drawable interface: contains draw function
     {
         void Draw(iDrawVisitor visitor);
     }
 
-    public interface Updateable
+    public interface Updateable // updateable interface: contains update function
     {
         void Update(float dt, Gui_Manager guimanager);
     }
 
-    public abstract class iObject : Drawable, Updateable
+    public abstract class iObject : Drawable, Updateable // standard iobject -> move functionality included: all objects must be moveable
     {
         public Color color = Color.White;
         public Size size;
@@ -40,11 +40,11 @@ namespace Toilet_time_main
             this.resizeable = resizeable;
         }
 
-        public abstract void Draw(iDrawVisitor visitor);
+        public abstract void Draw(iDrawVisitor visitor); // not implemented here
 
-        public abstract void Update(float dt, Gui_Manager guimanager);
+        public abstract void Update(float dt, Gui_Manager guimanager); // not implmented here
 
-        public void Move(float dt, Gui_Manager guimanager, WalkDirectionInput WalkDirectionInput, int speed)
+        public void Move(float dt, Gui_Manager guimanager, WalkDirectionInput WalkDirectionInput, int speed) // moves when main character moves
         {
             if (this.MoveOnWalk)
             {
@@ -65,7 +65,7 @@ namespace Toilet_time_main
         }
     }
 
-    public abstract class Fallable_Object : iObject
+    public abstract class Fallable_Object : iObject // fallable object decorator: adds gravity functionality
     {
 
         public Fallable_Object(Position position, Size size, bool resizeable)
@@ -75,7 +75,8 @@ namespace Toilet_time_main
         }
 
         public float velocity = 0;
-        public void Update_Gravity(float dt, Gui_Manager guimanager)
+
+        public void Update_Gravity(float dt, Gui_Manager guimanager) // updates gravity: falls faster when falling a longer distance by velocity
         {
             float startvelocity = velocity;
             velocity = velocity - (15 * dt);
@@ -124,14 +125,14 @@ namespace Toilet_time_main
             }
         }
 
-        public override void Update(float dt, Gui_Manager guimanager)
+        public override void Update(float dt, Gui_Manager guimanager) // decorates update function
         {
             Update_Gravity(dt, guimanager);
 
         }
     }
 
-    public abstract class Stable_Object : iObject
+    public abstract class Stable_Object : iObject // decorator for stable_object: does not add any functionality at the moment....
     {
         public Stable_Object(Position position, Size size, bool resizeable)
             : base(position, size, resizeable)

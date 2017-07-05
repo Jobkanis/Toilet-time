@@ -2,7 +2,7 @@
 
 namespace Toilet_time_main
 {
-    public class Collision
+    public class Collision // unused way for returning collision data
     {
         public iOption<iObject> UpObject;
         public iOption<iObject> DownObject;

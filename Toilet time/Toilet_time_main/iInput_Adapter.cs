@@ -7,7 +7,7 @@ using System.Text;
 namespace Toilet_time_main
 {
 
-    public interface Input_Adapter
+    public interface Input_Adapter // amazing interface for inputadapter
     {
         InputData GetInput(int type);
     }

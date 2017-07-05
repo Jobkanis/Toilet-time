@@ -2,7 +2,7 @@
 
 namespace Toilet_time_main
 {
-    public class Screen
+    public class Screen // returned by factory with all screen data
     {
         public BackgroundType Background;
         public Iterator<Fallable_Object> Fallable_Objects;

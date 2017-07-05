@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Media;
 namespace Toilet_time_main
 {
 
-    public class SoundHandler: iSoundHandler
+    public class SoundHandler: iSoundHandler // global sound handler 
     {
 
         SoundEffectInstance menu_background;
@@ -23,7 +23,7 @@ namespace Toilet_time_main
         public bool togglebackground = true;
         public bool togglesoundeffect = true;
 
-        public SoundHandler(SoundEffect menu_background, SoundEffect ingame_background, SoundEffect end_level, SoundEffect baby_laugh, SoundEffect baby_cry)
+        public SoundHandler(SoundEffect menu_background, SoundEffect ingame_background, SoundEffect end_level, SoundEffect baby_laugh, SoundEffect baby_cry) // instatiates sounds from game1
 
         {
             this.menu_background = menu_background.CreateInstance();
@@ -45,14 +45,14 @@ namespace Toilet_time_main
 
         }
 
-        public void PlayBackground(Toilet_time_main.ChooseBackGroundMusic music)
+        public void PlayBackground(Toilet_time_main.ChooseBackGroundMusic music) //plays the backgroundmusic
         {
 
             switch (music)
 
             {
 
-                case (ChooseBackGroundMusic.menu):
+                case (ChooseBackGroundMusic.menu): //plays background for menu
                     {
                         current_background = ChooseBackGroundMusic.menu;
                         if (togglebackground)
@@ -63,7 +63,7 @@ namespace Toilet_time_main
                         }
                         break;
                     }
-                case (ChooseBackGroundMusic.game_noncry):
+                case (ChooseBackGroundMusic.game_noncry): // plays background ingame when not crying baby
                     {
                         current_background = ChooseBackGroundMusic.game_noncry;
                         if (togglebackground)
@@ -74,7 +74,7 @@ namespace Toilet_time_main
                         }
                         break;
                     }
-                case (Toilet_time_main.ChooseBackGroundMusic.game_cry):
+                case (Toilet_time_main.ChooseBackGroundMusic.game_cry): // plays background with crying baby
                     {
                         current_background = ChooseBackGroundMusic.game_cry;
                         if (togglebackground)
@@ -85,7 +85,7 @@ namespace Toilet_time_main
                         }
                         break;
                     }
-                default:
+                default: // stopps all music
                     {
                         menu_background.Stop();
                         ingame_background.Stop();
@@ -96,13 +96,13 @@ namespace Toilet_time_main
 
         }
 
-        public void PlaySoundEffect(Toilet_time_main.ChooseSoundEffect sound_effect)
+        public void PlaySoundEffect(Toilet_time_main.ChooseSoundEffect sound_effect) // plays sound effects
         {
 
             switch (sound_effect)
             {
 
-                case (Toilet_time_main.ChooseSoundEffect.baby_laugh):
+                case (Toilet_time_main.ChooseSoundEffect.baby_laugh): // babylaugh sound
                     {
                         if (togglesoundeffect)
                         {
@@ -110,7 +110,7 @@ namespace Toilet_time_main
                         }
                         break;
                     }
-                case (Toilet_time_main.ChooseSoundEffect.game_end):
+                case (Toilet_time_main.ChooseSoundEffect.game_end): // gameend sound
                     {
                         if (togglesoundeffect)
                         {
@@ -126,20 +126,20 @@ namespace Toilet_time_main
 
         }
 
-        public void ToggleBackground(bool stats)
+        public void ToggleBackground(bool stats) // toggle background to stats (on = true)
         {
             togglebackground = stats;
             if (stats == true)
             {
-                PlayBackground(current_background);
+                PlayBackground(current_background); // play current background
             }
             else
             {
-                PlayBackground(ChooseBackGroundMusic.none);
+                PlayBackground(ChooseBackGroundMusic.none); // quiets background
             }
         }
 
-        public void Togglesoundeffect(bool stats)
+        public void Togglesoundeffect(bool stats) // toggle soundeffects (on = true)
         {
             togglesoundeffect = stats;
         }

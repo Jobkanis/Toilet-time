@@ -15,7 +15,7 @@ using Microsoft.Xna.Framework.Input.Touch;
 namespace Toilet_time_Android
 {
 
-    public class Input_Adapter_Android : Input_Adapter
+    public class Input_Adapter_Android : Input_Adapter // for android
     {
         int CurrentHeight;
         int CurrentWidth;
@@ -28,13 +28,13 @@ namespace Toilet_time_Android
 
         public InputData GetInput(int type)
         {
-            return tapInput();
+            return tapInput(); // get input method: add more here ;)
         }
 
 
-        private Point ConvertPoint(Point point)
+        private Point ConvertPoint(Point point) // input way of tapping
         {
-            float screenmultiplier = 2;
+            float screenmultiplier = 2; // to fix later :)
             float diffwith = (float)(CurrentWidth / 800);
             float diffheight = (float)(CurrentHeight / 600);
 
@@ -50,9 +50,9 @@ namespace Toilet_time_Android
             return new Point((int)((float)(point.x / screenmultiplier)), (int)((float)(point.y / screenmultiplier)));
         }
 
-        private enum localact { none, right, left };
+        private enum localact { none, right, left }; // needed for input in tapinput
 
-        public InputData tapInput()
+        public InputData tapInput() // get input
         {
             iOption<CharacterMovementAction> MoveAction = new None<CharacterMovementAction>();
             iOption<WalkDirectionInput> WalkDirection = new None<WalkDirectionInput>();
@@ -67,29 +67,29 @@ namespace Toilet_time_Android
             localact first = localact.none;
 
             TouchCollection touchCollection = TouchPanel.GetState();
-            foreach (TouchLocation touch1 in touchCollection)
+            foreach (TouchLocation touch1 in touchCollection) // for loop and checkign each touch
             {
-                Cursor = ConvertPoint(new Point((int)touch1.Position.X, (int)touch1.Position.Y));
+                Cursor = ConvertPoint(new Point((int)touch1.Position.X, (int)touch1.Position.Y)); // gets correct tappoint by converting
                 if (Cursor.x > 0.6 * CurrentWidth)
                 {
                     if (first == localact.none)
                     {
-                        first = localact.right;
+                        first = localact.right; // first click was right
                     }
-                    right = true;
+                    right = true; // right click
                 }
                 else if (Cursor.x < 0.4 * CurrentWidth)
                 {
-                    if (first == localact.none)
+                    if (first == localact.none) 
                     {
-                        first = localact.left;
+                        first = localact.left; // first click was left
                     }
 
-                    left = true;
+                    left = true; // left click
                 }
             }
 
-            if (left == true && right == true)
+            if (left == true && right == true) // when jump
             {
                 MoveAction = new Some<CharacterMovementAction>(CharacterMovementAction.Jump);
                 if (first == localact.left)
@@ -102,82 +102,16 @@ namespace Toilet_time_Android
                 }
 
             }
-            else if (left == true && right == false)
+            else if (left == true && right == false) // when left
             {
                 WalkDirection = new Some<WalkDirectionInput>(WalkDirectionInput.Left);
             }
-            else if (left == false && right == true)
+            else if (left == false && right == true) // when right
             {
                 WalkDirection = new Some<WalkDirectionInput>(WalkDirectionInput.Right);
             }
 
-            MouseAction = new Some<MousePressed>(MousePressed.Left_Button);
-
-            return new InputData(MoveAction, WalkDirection, CharacterActivity, Settings, MouseAction, Cursor, false);
-        }
-
-        public InputData Buttons()
-        {
-
-
-            iOption<CharacterMovementAction> MoveAction = new None<CharacterMovementAction>();
-            iOption<WalkDirectionInput> WalkDirection = new None<WalkDirectionInput>();
-            iOption<CharacterActivity> CharacterActivity = new None<CharacterActivity>();
-            iOption<SettingsInput> Settings = new None<SettingsInput>();
-            iOption<MousePressed> MouseAction = new None<MousePressed>();
-
-            Point Cursor = new Point(-50, -50);
-
-            bool left = false;
-            bool right = false;
-            localact first = localact.none;
-
-            TouchCollection touchCollection = TouchPanel.GetState();
-            foreach (TouchLocation touch1 in touchCollection)
-            {
-                Cursor = ConvertPoint(new Point((int)touch1.Position.X, (int)touch1.Position.Y));
-                if (Cursor.x > 0.6 * CurrentWidth)
-                {
-                    if (first == localact.none)
-                    {
-                        first = localact.right;
-                    }
-                    right = true;
-                }
-                else if (Cursor.x < 0.4 * CurrentWidth)
-                {
-                    if (first == localact.none)
-                    {
-                        first = localact.left;
-                    }
-
-                    left = true;
-                }
-            }
-
-            if (left == true && right == true)
-            {
-                MoveAction = new Some<CharacterMovementAction>(CharacterMovementAction.Jump);
-                if (first == localact.left)
-                {
-                    WalkDirection = new Some<WalkDirectionInput>(WalkDirectionInput.Left);
-                }
-                else if (first == localact.right)
-                {
-                    WalkDirection = new Some<WalkDirectionInput>(WalkDirectionInput.Right);
-                }
-
-            }
-            else if (left == true && right == false)
-            {
-                WalkDirection = new Some<WalkDirectionInput>(WalkDirectionInput.Left);
-            }
-            else if (left == false && right == true)
-            {
-                WalkDirection = new Some<WalkDirectionInput>(WalkDirectionInput.Right);
-            }
-
-            MouseAction = new Some<MousePressed>(MousePressed.Left_Button);
+            MouseAction = new Some<MousePressed>(MousePressed.Left_Button); // alway leftbutton
 
             return new InputData(MoveAction, WalkDirection, CharacterActivity, Settings, MouseAction, Cursor, false);
         }

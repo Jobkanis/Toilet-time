@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Media;
 
 
-namespace Toilet_time_main
+namespace Toilet_time_main // interface for soundhandler
 {
     public enum ChooseBackGroundMusic { none, menu, game_noncry, game_cry }
 

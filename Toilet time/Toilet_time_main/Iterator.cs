@@ -2,7 +2,7 @@
 
 namespace Toilet_time_main
 {
-    public interface Iterator<T>
+    public interface Iterator<T> // interface for iterator
     {
         iOption<T> GetNext();
         iOption<T> GetCurrent();
@@ -11,7 +11,7 @@ namespace Toilet_time_main
         int Count();
     }
 
-    public class List<T> : Iterator<T>
+    public class List<T> : Iterator<T> // our iterator
     {
         private int size;
         private T[] array;
@@ -25,7 +25,7 @@ namespace Toilet_time_main
             current = -1;
             array = new T[size];
         }
-        public void Add(T item)
+        public void Add(T item) // add item to list
         {
             size++;
             T[] new_array = new T[size];
@@ -37,18 +37,18 @@ namespace Toilet_time_main
             array = new_array;
         }        
 
-        public iOption<T> GetNext()
+        public iOption<T> GetNext() // get next in line object
         {
             current++;
             return GetCurrent();
         }
 
-        public void Reset()
+        public void Reset() // resets the iterator
         {
             current = -1;
         }
 
-        public iOption<T> GetCurrent()
+        public iOption<T> GetCurrent() // returns some when still variable included, none when empty
         {
             if (current > -1 && current < amount_of_items && amount_of_items > 0)
             {
@@ -60,7 +60,7 @@ namespace Toilet_time_main
             }
         }
 
-        public int Count()
+        public int Count() // returns amount of items in iterator
         {
             return amount_of_items;
         }

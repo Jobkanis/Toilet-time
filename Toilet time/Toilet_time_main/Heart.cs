@@ -18,7 +18,6 @@ namespace Toilet_time_main
 
         public override void Update(float dt, Gui_Manager guimanager)
         {
-            //throw new NotImplementedException();
         }
     }
 }

@@ -12,7 +12,7 @@ using Toilet_time_main;
 namespace Toilet_time_Windows
 {
 
-    public class Input_Adapter_Windows: Input_Adapter
+    public class Input_Adapter_Windows: Input_Adapter // for windows
     {
         Toilet_time_main.Point current_cursor = new Toilet_time_main.Point(0, 0);
         bool GamepadOnline = false;
@@ -23,11 +23,13 @@ namespace Toilet_time_Windows
 
         public InputData GetInput(int type)
         {
+            // checks if gamepad is online
             GamePadState gamePadState = GamePad.GetState(PlayerIndex.One);
             GamepadOnline = gamePadState.IsConnected;
             //
             switch (type)
             {
+                //choose correct input type
                 case 1:
                     return checkKeyboardpijltjes();
                     //break;
@@ -47,7 +49,7 @@ namespace Toilet_time_Windows
 
 
 
-        public InputData checkKeyboardpijltjes()
+        public InputData checkKeyboardpijltjes() // check input by keyboardpijltjes
         {
             iOption<CharacterMovementAction> MoveAction = new None<CharacterMovementAction>();
             iOption<WalkDirectionInput> WalkDirection = new None<WalkDirectionInput>();
@@ -84,7 +86,7 @@ namespace Toilet_time_Windows
         }
 
 
-        public InputData checkKeyboardaswd()
+        public InputData checkKeyboardaswd() // check input aswd
         {
             iOption<CharacterMovementAction> MoveAction = new None<CharacterMovementAction>();
             iOption<WalkDirectionInput> WalkDirection = new None<WalkDirectionInput>();
@@ -123,7 +125,7 @@ namespace Toilet_time_Windows
 
 
 
-        public InputData checkGamePad()
+        public InputData checkGamePad() // check input by gamepad
         {
             iOption<CharacterMovementAction> MoveAction = new None<CharacterMovementAction>();
             iOption<WalkDirectionInput> WalkDirection = new None<WalkDirectionInput>();
@@ -174,7 +176,7 @@ namespace Toilet_time_Windows
             }
             else
             {
-                return checkKeyboardpijltjes();
+                return checkKeyboardpijltjes(); // returns input of checkkeyboardpijltjes when controller disconnects
             }
             //return new Input();
         }
