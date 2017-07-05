@@ -40,7 +40,7 @@ namespace Toilet_time_main
                         islevel = false;
                         if (gui_manager.systemtype == Systemtype.windows)
                         {
-                            gui_stuff.Add(new Button(350, 100, 100, 50, "Play", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(5); }));
+                            gui_stuff.Add(new Button(350, 100, 100, 50, "Play", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(11); }));
                             gui_stuff.Add(new Button(350, 200, 100, 50, "Settings", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(2); }));
                             gui_stuff.Add(new Button(350, 300, 100, 50, "Exit", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.exit = true; }));
                         }
@@ -124,13 +124,13 @@ namespace Toilet_time_main
                         {
                             x = 350;
                             gui_stuff.Add(new Button(x, 100, 100, 50, "Back", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(2); }));
-                            
+
                         }
                         else if (gui_manager.systemtype == Systemtype.android)
                         {
                             x = 400;
                             gui_stuff.Add(new Button(x, 100, 100, 50, "Back", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(1); }));
-                            
+
                         }
                         Color MCMO, MC, SCMO, SC; String soundtext, musictext;
                         if (gui_manager.sound_handler.togglebackground) { MC = Color.Black; MCMO = Color.IndianRed; musictext = "Music: on"; } else { MC = Color.Red; MCMO = Color.Gray; musictext = "Music: off"; }
@@ -153,12 +153,12 @@ namespace Toilet_time_main
                         }
                         else if (gui_manager.systemtype == Systemtype.android)
                         {
-                            gui_stuff.Add(new Button(400, 150, 100, 50, "Easy mode", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Lifes_enabled = false; guimanager.Create_screen(6);  }));
-                            gui_stuff.Add(new Button(400, 250, 100, 50, "Hard mode", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Lifes_enabled = true; guimanager.Create_screen(6);  }));
+                            gui_stuff.Add(new Button(400, 150, 100, 50, "Easy mode", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Lifes_enabled = false; guimanager.Create_screen(6); }));
+                            gui_stuff.Add(new Button(400, 250, 100, 50, "Hard mode", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Lifes_enabled = true; guimanager.Create_screen(6); }));
                         }
                         break;
                     }
-                
+
                 case 6:
                     //level 1 - Robin 
                     {
@@ -246,7 +246,7 @@ namespace Toilet_time_main
                         islevel = true;
 
                         //character
-                        fallable_objects.Add(new Main_Character(200, 0, 10));
+                        fallable_objects.Add(new Main_Character(200, 0, 11));
 
                         //interactions
                         Interacting_Objects.Add(new Baby(1505, 0));
@@ -265,12 +265,63 @@ namespace Toilet_time_main
 
                         break;
                     }
+
                 case 11:
+                    //level 6 Tahsin
+                    {
+                        islevel = true;
+                        //character
+                        fallable_objects.Add(new Main_Character(10, 0, 16));
+                        //interactions
+                        Interacting_Objects.Add(new Baby(625, 150));
+                        Interacting_Objects.Add(new End_Goal(500, 150));
+                        Interacting_Objects.Add(new Deadly_Brick(150, 150));
+                        Interacting_Objects.Add(new Enemy_Grandma(400, 0, 80, 100));
+                        //platforms
+                        stable_objects.Add(new Platform(5, 300, 290, 20));
+                        stable_objects.Add(new Platform(400, 300, 150, 20));
+                        stable_objects.Add(new Platform(600, 300, 70, 20));
+                        break;
+
+                    }
+
+
+                case 16:
+                    // level 7 ~Ogie
+                    {
+                        islevel = true;
+
+
+                        //character
+                        fallable_objects.Add(new Main_Character(200, 300, 12));
+                        Interacting_Objects.Add(new Baby(750, 0));
+
+                        //interactions
+                        Interacting_Objects.Add(new End_Goal(800, 350));
+                        Interacting_Objects.Add(new Spider(500, 350, true, 125));
+
+                        //platforms
+                        stable_objects.Add(new Platform(150, 400, 100, 20));
+                        stable_objects.Add(new Platform(800, 400, 50, 20));
+                        stable_objects.Add(new Platform(750, 100, 50, 20));
+                        stable_objects.Add(new Platform(500, 100, 50, 20));
+                        stable_objects.Add(new Platform(100, 300, 50, 20));
+                        stable_objects.Add(new Platform(200, 175, 50, 20));
+                        stable_objects.Add(new Platform(350, 400, 300, 20));
+                        stable_objects.Add(new Platform(350, 375, 50, 20));
+                        stable_objects.Add(new Platform(600, 375, 50, 20));
+
+                        break;
+                    }
+
+
+
+                case 12:
                     //level 8 - Tahsin
                     {
                         islevel = true;
                         //character
-                        fallable_objects.Add(new Main_Character(320, 0, 12));
+                        fallable_objects.Add(new Main_Character(320, 0, 17));
                         //interactions
                         Interacting_Objects.Add(new Baby(330, 150));
                         Interacting_Objects.Add(new End_Goal(900, 150));
@@ -291,13 +342,49 @@ namespace Toilet_time_main
 
                         break;
                     }
-                case 12:
+
+
+                case 17:
+                    // level 9 ~Ogie
+                    {
+                        islevel = true;
+
+
+                        //character
+                        fallable_objects.Add(new Main_Character(200, 0, 13));
+                        Interacting_Objects.Add(new Baby(1110, 0));
+                        Interacting_Objects.Add(new Enemy_Grandma(300, 0, 50, 4));
+
+                        //interactions
+                        Interacting_Objects.Add(new End_Goal(-150, 0));
+                        Interacting_Objects.Add(new Deadly_Brick(740, 0));
+                        Interacting_Objects.Add(new Toilet_Paper_Drop(500, -400, 0.8f));
+                        Interacting_Objects.Add(new Spike_Dropper(650, 0, 1.0f));
+
+                        Interacting_Objects.Add(new Toilet_Paper_Drop(950, -400, 0.8f));
+
+                        //platforms
+                        stable_objects.Add(new Platform(-200, 300, 100, 20));
+
+                        stable_objects.Add(new Platform(200, 300, 275, 20));
+                        stable_objects.Add(new Platform(700, 300, 150, 20));
+                        stable_objects.Add(new Platform(1100, 300, 50, 20));
+
+
+                        break;
+
+                    }
+
+
+
+
+                case 13:
                     // level 11 - Tahsin
                     {
                         islevel = true;
 
                         //character
-                        fallable_objects.Add(new Main_Character(50, 0, 13));
+                        fallable_objects.Add(new Main_Character(50, 0, 14));
                         //interactions
                         Interacting_Objects.Add(new Baby(180, 0));
                         Interacting_Objects.Add(new End_Goal(900, 150));
@@ -314,11 +401,11 @@ namespace Toilet_time_main
                         break;
 
                     }
-                case 13: // level 12 ~ogie
+                case 14: // level 12 ~ogie
                     {
                         islevel = true;
                         //character
-                        fallable_objects.Add(new Main_Character(30, 0, 14));
+                        fallable_objects.Add(new Main_Character(30, 0, 15));
                         Interacting_Objects.Add(new Baby(950, 0));
 
                         //interactions
@@ -349,12 +436,12 @@ namespace Toilet_time_main
 
                         break;
                     }
-                case 14:
+                case 15:
                     //level 13 - Tahsin
                     {
                         islevel = true;
                         //character
-                        fallable_objects.Add(new Main_Character(200, 0, 1));
+                        fallable_objects.Add(new Main_Character(200, 0, 18));
                         //interactions
                         Interacting_Objects.Add(new Baby(1100, 0));
                         Interacting_Objects.Add(new End_Goal(80, 0));
@@ -377,18 +464,46 @@ namespace Toilet_time_main
                         break;
                     }
 
+                    case 18:
+                    //level 10 - Robin
+                    {
+                        islevel = true;
+                        //character
+                        fallable_objects.Add(new Main_Character(20, 0, 1));
+                        //interactions
+                        Interacting_Objects.Add(new Deadly_Brick(650, 0));
+                        Interacting_Objects.Add(new Baby(1315, 0));
+                        Interacting_Objects.Add(new End_Goal(1460, 0));
+                        Interacting_Objects.Add(new Spider(1140, -20, true, 60));
+                        Interacting_Objects.Add(new Spider(1100, -20, false, 60));
+
+                        //platforms
+                        stable_objects.Add(new Platform(20, 450, 60, 20));
+                        stable_objects.Add(new Platform(240, 400, 50, 20));
+                        stable_objects.Add(new Platform(350, 310, 30, 20));
+                        stable_objects.Add(new Platform(260, 240, 30, 20));
+                        stable_objects.Add(new Platform(390, 180, 50, 20));
+                        stable_objects.Add(new Platform(650, 180, 200, 20));
+                        stable_objects.Add(new Platform(950, 320, 40, 20));
+                        stable_objects.Add(new Platform(1030, 220, 10, 20));
+                        stable_objects.Add(new Platform(1300, 190, 50, 20));
+                        stable_objects.Add(new Platform(1350, -20, 40, 300));
+                        stable_objects.Add(new Platform(1050, 500, 320, 20));
+                        stable_objects.Add(new Platform(1030, 420, 20, 100));
+                        stable_objects.Add(new Platform(1370, 420, 20, 100));
+                        stable_objects.Add(new Platform(1450, 500, 80, 20));
+
+                        break;
+                    }
 
 
-
-
-
-                        default:
+                    default:
                     {
                         islevel = false;
                         break;
                     }
-            }
 
+            }
             if (islevel)
             
             {
