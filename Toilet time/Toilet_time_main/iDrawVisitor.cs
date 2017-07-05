@@ -21,8 +21,6 @@ namespace Toilet_time_main
 
         void DrawPlatform(Platform platform);
 
-        void DrawMoveablePlatform(Moveable_Platform platform);
-
         void DrawSpawn(Spawn spawn);
 
         void DrawEnd(End_Goal end);
@@ -38,10 +36,11 @@ namespace Toilet_time_main
         void DrawDebugConsole(Gui_Manager guimanager);
 
         void DrawSpider(Spider spider);
-        
+
+        void DrawHeart(int x, int y);
             
         void DrawBackground(BackgroundType background);
-        void DrawSpikes(Toilet_time_main.Spike_Drop spikes);
+        void DrawSpikes(Spike spikes);
 
     }
 }

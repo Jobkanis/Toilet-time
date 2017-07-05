@@ -25,10 +25,13 @@ namespace Toilet_time_Android
         public Texture2D Texture_Ingame_Background;
         public Texture2D Texture_Spikes;
         public Texture2D Texture_Enemy_Grandma;
+        public Texture2D Texture_Menu_Background;
+        public Texture2D Texture_Heart;
+        public Texture2D Texture_Spider;
         public int CurrentHeight;
         public int CurrentWidth;
 
-        public DrawVisitor(int CurrentWidth, int CurrentHeight, float screenmultiplier, SpriteBatch spriteBatch, GraphicsDeviceManager graphics, SpriteFont arial, Texture2D Texture_White_Pixel, Texture2D Texture_Platform, Texture2D Texture_Main_Char, Texture2D Texture_Main_Char_with_Baby, Texture2D Texture_Baby, Texture2D Texture_Toilet, Texture2D Texture_Toilet_With_Baby, Texture2D Texture_Deadly_Bricks, Texture2D Texture_Toilet_Paper, Texture2D Texture_Spikes, Texture2D Texture_Background_Wood, Texture2D Texture_Mouse, Texture2D Texture_Enemy_Grandma)
+        public DrawVisitor(int CurrentWidth, int CurrentHeight, float screenmultiplier, SpriteBatch spriteBatch, GraphicsDeviceManager graphics, SpriteFont arial, Texture2D Texture_White_Pixel, Texture2D Texture_Platform, Texture2D Texture_Main_Char, Texture2D Texture_Main_Char_with_Baby, Texture2D Texture_Baby, Texture2D Texture_Toilet, Texture2D Texture_Toilet_With_Baby, Texture2D Texture_Deadly_Bricks, Texture2D Texture_Toilet_Paper, Texture2D Texture_Spikes, Texture2D Texture_Background_Wood, Texture2D Texture_Menu_Background, Texture2D Texture_Mouse, Texture2D Texture_Enemy_Grandma, Texture2D Texture_Heart,  Texture2D Texture_Spider)
         {
             this.graphics = graphics;
 
@@ -48,10 +51,13 @@ namespace Toilet_time_Android
             this.arial = arial;
             this.Texture_Spikes = Texture_Spikes;
             this.Texture_Enemy_Grandma = Texture_Enemy_Grandma;
+            this.Texture_Heart = Texture_Heart;
+            this.Texture_Spider = Texture_Spider;
 
             this.CurrentHeight = CurrentHeight;
             this.CurrentWidth = CurrentWidth;
             this.screenmultiplier = screenmultiplier;
+            this.Texture_Menu_Background = Texture_Menu_Background;
         }
 
         public SpriteBatch spriteBatch
@@ -91,11 +97,6 @@ namespace Toilet_time_Android
 
 
         public void DrawPlatform(Toilet_time_main.Platform platform)
-        {
-            spritebatch.Draw(Texture_Platform, ConvertRectangle(new Rectangle(platform.position.x, platform.position.y, platform.size.x, platform.size.y)), platform.color);
-        }
-
-        public void DrawMoveablePlatform(Toilet_time_main.Moveable_Platform platform)
         {
             spritebatch.Draw(Texture_Platform, ConvertRectangle(new Rectangle(platform.position.x, platform.position.y, platform.size.x, platform.size.y)), platform.color);
         }
@@ -222,7 +223,7 @@ namespace Toilet_time_Android
                     }
                 case (Toilet_time_main.BackgroundType.menubackground):
                     {
-                        spritebatch.Draw(Texture_White_Pixel, new Rectangle(0, 0, CurrentWidth, CurrentHeight), Color.LightBlue);
+                        spritebatch.Draw(Texture_Menu_Background, new Rectangle(0, 0, CurrentWidth, CurrentHeight), Color.LightBlue);
                         break;
                     }
             }
@@ -243,7 +244,7 @@ namespace Toilet_time_Android
             return new Vector2((int)((float)(vect.X * screenmultiplier)), (int)((float)(vect.Y * screenmultiplier)));
         }
 
-        public void DrawSpikes(Spike_Drop spikes)
+        public void DrawSpikes(Spike spikes)
         {
         spritebatch.Draw(Texture_Spikes, ConvertRectangle(new Rectangle(spikes.position.x, spikes.position.y, spikes.size.x, spikes.size.y)), spikes.color);
 
@@ -252,7 +253,12 @@ namespace Toilet_time_Android
 
         public void DrawSpider(Spider spider)
         {
-            throw new NotImplementedException();
+            spritebatch.Draw(Texture_Spider, ConvertRectangle(new Rectangle(spider.position.x, spider.position.y, spider.size.x, spider.size.y)), spider.color);
+        }
+
+        public void DrawHeart(int x, int y)
+        {
+            spritebatch.Draw(Texture_Heart, ConvertRectangle(new Rectangle(x, y, 70, 70)), Color.Black);
         }
     }
 

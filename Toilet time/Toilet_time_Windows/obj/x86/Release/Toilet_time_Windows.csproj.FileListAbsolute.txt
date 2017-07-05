@@ -41,3 +41,6 @@ C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet_time_
 C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet_time_Windows\bin\Windows\x86\Release\SharpDX.Direct3D9.xml
 C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet_time_Windows\obj\x86\Release\Toilet_time_Windows.exe
 C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet_time_Windows\obj\x86\Release\Toilet_time_Windows.pdb
+C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet_time_Windows\bin\Windows\x86\Release\Content\Background_menu69.xnb
+C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet_time_Windows\bin\Windows\x86\Release\Content\Heart.xnb
+C:\Users\jobka\Documents\GitHub\Toilet-time---Project-4\Toilet time\Toilet_time_Windows\bin\Windows\x86\Release\Content\spin.xnb

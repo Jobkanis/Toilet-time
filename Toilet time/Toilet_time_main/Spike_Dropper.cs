@@ -3,7 +3,7 @@ namespace Toilet_time_main
 {
     public class Spike_Dropper : Stable_Object
     {
-        List<Spike_Drop> droppingobjects = new List<Spike_Drop>();
+        List<Spike> droppingobjects = new List<Spike>();
         float cooldown = 0f;
         float interval;
 
@@ -20,7 +20,7 @@ namespace Toilet_time_main
             droppingobjects.Reset();
             while (droppingobjects.GetNext().Visit<bool>(() => false, _ => true))
             {
-                Spike_Drop droppingobject = droppingobjects.GetCurrent().Visit<Spike_Drop>(() => throw new Exception("spike error"), item => item);
+                Spike droppingobject = droppingobjects.GetCurrent().Visit<Spike>(() => throw new Exception("spike error"), item => item);
                 droppingobject.Draw(visitor);
             }
         }
@@ -32,14 +32,16 @@ namespace Toilet_time_main
 
             if (cooldown <= 0)
             {
-                droppingobjects.Add(new Spike_Drop(position.x, position.y));
+                Spike spike_to_add = new Spike(position.x, position.y);
+                spike_to_add.velocity = -3;
+                droppingobjects.Add(spike_to_add);
                 cooldown = interval;
             }
 
             droppingobjects.Reset();
             while (droppingobjects.GetNext().Visit<bool>(() => false, _ => true))
             {
-                Spike_Drop droppingobject = droppingobjects.GetCurrent().Visit<Spike_Drop>(() => throw new Exception("spike error"), item => item);
+                Spike droppingobject = droppingobjects.GetCurrent().Visit<Spike>(() => throw new Exception("spike error"), item => item);
                 droppingobject.position.x = this.position.x;
 
                 droppingobject.Update(dt, guimanager);
@@ -49,23 +51,24 @@ namespace Toilet_time_main
                 {
                     if (main.position.y + main.size.y > droppingobject.position.y && main.position.y < droppingobject.position.y + droppingobject.size.y)
                     {
-                        //touches main
+                      
                         guimanager.Main_Dead();
+
                     }
                 }
 
-                if (droppingobject.position.y > 500)
+                if (droppingobject.position.y > 2000)
                 {
 
-                    List<Spike_Drop> COPYdroppingobjects = droppingobjects;
+                    List<Spike> COPYdroppingobjects = droppingobjects;
 
-                    List<Spike_Drop> Newdroppingobjects = new List<Spike_Drop>();
+                    List<Spike> Newdroppingobjects = new List<Spike>();
                     {
 
                         COPYdroppingobjects.Reset();
                         while (COPYdroppingobjects.GetNext().Visit<bool>(() => false, _ => true))
                         {
-                            Spike_Drop dropob = COPYdroppingobjects.GetCurrent().Visit<Spike_Drop>(() => throw new Exception("copyfail"), item => item);
+                            Spike dropob = COPYdroppingobjects.GetCurrent().Visit<Spike>(() => throw new Exception("copyfail"), item => item);
 
                             if (dropob.position.y != droppingobject.position.y)
                             {
@@ -80,9 +83,9 @@ namespace Toilet_time_main
         }
     }
 
-    public class Spike_Drop : Fallable_Object
+    public class Spike : Fallable_Object
     {
-        public Spike_Drop(int x_pos, int y_pos)
+        public Spike(int x_pos, int y_pos)
             : base(new Position(x_pos, y_pos), new Size(20, 40), false)
         {
             this.Collides = false;

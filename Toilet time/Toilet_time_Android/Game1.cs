@@ -33,6 +33,9 @@ namespace Toilet_time_Android
         public Texture2D Texture_Spikes;
         public Texture2D Texture_Background_Wood;
         public Texture2D Texture_Enemy_Grandma;
+        public Texture2D Texture_Menu_Background;
+        public Texture2D Texture_Heart;
+        public Texture2D Texture_Spider;
 
         public SpriteFont Arial;
 
@@ -91,6 +94,9 @@ namespace Toilet_time_Android
             Texture_Mouse = Content.Load<Texture2D>("mouse");
             Texture_Enemy_Grandma = Content.Load<Texture2D>("enemygrandma");
             Texture_Spikes = Content.Load<Texture2D>("spikes");
+            Texture_Menu_Background = Content.Load<Texture2D>("Background_menu69");
+            Texture_Heart = Content.Load<Texture2D>("Heart");
+            Texture_Spider = Content.Load<Texture2D>("spin");
 
             Arial = Content.Load<SpriteFont>("Arial");
 
@@ -109,7 +115,7 @@ namespace Toilet_time_Android
             CurrentHeight = graphics.GraphicsDevice.DisplayMode.Height;
 
             inputhandler = new Input_Adapter_Android(CurrentHeight, CurrentWidth);
-            draw_visitor = new DrawVisitor(CurrentWidth, CurrentHeight, 2f, spriteBatch, graphics, Arial, Texture_White_Pixel, Texture_Platform, Texture_Main_char, Texture_Main_Char_with_Baby, Texture_Baby, Texture_Toilet, Texture_Toilet_With_Baby, Texture_Deadly_Bricks, Texture_Toilet_Paper, Texture_Spikes, Texture_Background_Wood, Texture_Mouse, Texture_Enemy_Grandma);
+            draw_visitor = new DrawVisitor(CurrentWidth, CurrentHeight, 2f, spriteBatch, graphics, Arial, Texture_White_Pixel, Texture_Platform, Texture_Main_char, Texture_Main_Char_with_Baby, Texture_Baby, Texture_Toilet, Texture_Toilet_With_Baby, Texture_Deadly_Bricks, Texture_Toilet_Paper, Texture_Spikes, Texture_Background_Wood, Texture_Menu_Background, Texture_Mouse, Texture_Enemy_Grandma, Texture_Heart, Texture_Spider);
             gui_manager = new Toilet_time_main.Gui_Manager(draw_visitor, sound_handler, inputhandler, Toilet_time_main.Systemtype.android);
 
 

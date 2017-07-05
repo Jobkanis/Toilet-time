@@ -53,6 +53,7 @@ namespace Toilet_time_main
         public bool paused;
 
         public int lowestyvalue = 800;
+        public int lifes;
 
         public BackgroundType Background;
 
@@ -67,7 +68,7 @@ namespace Toilet_time_main
             this.inputmechanism = 1;
             this.screenFactory = new Factory_screen(this);
             this.inputadapter = inputadapter;
-            
+            this.lifes = 3;
             this.screen = 1;
             this.Cursor = new Point(0,0);
             this.sound_handler = sound_handler;
@@ -300,7 +301,16 @@ namespace Toilet_time_main
         public void Main_Dead()
         {
             Fallable_Object main = GetMain_Character();
-            Create_screen(screen);
+            lifes -= 1;
+            if (lifes > 0)
+            {
+                Create_screen(screen);
+            }
+            else
+            {
+                Create_screen(1); //ondead
+                this.lifes = 3;
+            }
         }
         // small walk check
         public bool CheckIfMove(float dt, WalkDirectionInput way, int walkspeed)

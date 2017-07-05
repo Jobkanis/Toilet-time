@@ -55,69 +55,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\baby.png" />
-    <Content Include="Content\Baby_Crying.wav" />
-    <Content Include="Content\Baby_Laughing.wav" />
-    <Content Include="Content\Background_Wood.png" />
-    <Content Include="Content\brick.png" />
-    <Content Include="Content\DeadlyBricks.png" />
-    <Content Include="Content\Endgametoilet.png" />
-    <Content Include="Content\Endgame_with_toilet.png" />
-    <Content Include="Content\End_Level.wav" />
-    <Content Include="Content\Game_background.wav" />
-    <Content Include="Content\Game_end.wav" />
-    <Content Include="Content\Ingame_Background.wav" />
-    <Content Include="Content\Main with baby.png" />
-    <Content Include="Content\Main.png" />
-    <Content Include="Content\Menu_background.wav" />
-    <Content Include="Content\mouse.png" />
-    <Content Include="Content\spikes.png" />
-    <Content Include="Content\Toilet_Papier.png" />
-    <Content Include="Content\white_pixel.png" />
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.manifest" />
-    <None Include="Content\Arial.xnb" />
-    <None Include="Content\bin\Windows\Arial.xnb" />
-    <None Include="Content\bin\Windows\baby.xnb" />
-    <None Include="Content\bin\Windows\Baby_Crying.xnb" />
-    <None Include="Content\bin\Windows\Baby_Laughing.xnb" />
-    <None Include="Content\bin\Windows\Background_Wood.xnb" />
-    <None Include="Content\bin\Windows\brick.xnb" />
-    <None Include="Content\bin\Windows\DeadlyBricks.xnb" />
-    <None Include="Content\bin\Windows\Endgametoilet.xnb" />
-    <None Include="Content\bin\Windows\Endgame_with_toilet.xnb" />
-    <None Include="Content\bin\Windows\End_Level.xnb" />
-    <None Include="Content\bin\Windows\Game_background.xnb" />
-    <None Include="Content\bin\Windows\Game_end.xnb" />
-    <None Include="Content\bin\Windows\Ingame_Background.xnb" />
-    <None Include="Content\bin\Windows\Main with baby.xnb" />
-    <None Include="Content\bin\Windows\Main.xnb" />
-    <None Include="Content\bin\Windows\Menu_background.xnb" />
-    <None Include="Content\bin\Windows\mouse.xnb" />
-    <None Include="Content\bin\Windows\Toilet_Papier.xnb" />
-    <None Include="Content\bin\Windows\white_pixel.xnb" />
     <None Include="Content\Content.mgcb" />
-    <None Include="Content\obj\Windows\.mgcontent" />
-    <None Include="Content\obj\Windows\baby.mgcontent" />
-    <None Include="Content\obj\Windows\Baby_Crying.mgcontent" />
-    <None Include="Content\obj\Windows\Baby_Laughing.mgcontent" />
-    <None Include="Content\obj\Windows\Background_Wood.mgcontent" />
-    <None Include="Content\obj\Windows\brick.mgcontent" />
-    <None Include="Content\obj\Windows\DeadlyBricks.mgcontent" />
-    <None Include="Content\obj\Windows\Endgametoilet.mgcontent" />
-    <None Include="Content\obj\Windows\Endgame_with_toilet.mgcontent" />
-    <None Include="Content\obj\Windows\End_Level.mgcontent" />
-    <None Include="Content\obj\Windows\Game_background.mgcontent" />
-    <None Include="Content\obj\Windows\Game_end.mgcontent" />
-    <None Include="Content\obj\Windows\Ingame_Background.mgcontent" />
-    <None Include="Content\obj\Windows\Main with baby.mgcontent" />
-    <None Include="Content\obj\Windows\Main.mgcontent" />
-    <None Include="Content\obj\Windows\Menu_background.mgcontent" />
-    <None Include="Content\obj\Windows\mouse.mgcontent" />
-    <None Include="Content\obj\Windows\Toilet_Papier.mgcontent" />
-    <None Include="Content\obj\Windows\white_pixel.mgcontent" />
   </ItemGroup>
   <Import Project="..\Toilet_time_main\SharedProject1.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

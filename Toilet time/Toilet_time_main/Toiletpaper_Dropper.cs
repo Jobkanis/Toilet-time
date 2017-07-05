@@ -32,7 +32,9 @@ namespace Toilet_time_main
 
             if (cooldown <= 0)
             {
-                droppingobjects.Add(new Toilet_Paper(position.x, position.y));
+                Toilet_Paper To_add = new Toilet_Paper(position.x, position.y);
+                To_add.velocity = -3;
+                droppingobjects.Add(To_add);
                 cooldown = interval;
             }
 
@@ -54,7 +56,7 @@ namespace Toilet_time_main
                     }
                 }
 
-                if (droppingobject.position.y > 500)
+                if (droppingobject.position.y > 2000)
                 {
 
                     List<Toilet_Paper> COPYdroppingobjects = droppingobjects;

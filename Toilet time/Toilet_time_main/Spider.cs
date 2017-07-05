@@ -14,7 +14,7 @@ namespace Toilet_time_main
         Position startposition;
 
         public Spider(int x_pos, int y_pos, bool left, int speed)
-            : base(new Position(x_pos, y_pos), new Size(20, 35), true)
+            : base(new Position(x_pos, y_pos), new Size(30, 27), true)
         {
             this.left = left;
             this.speed = speed;
