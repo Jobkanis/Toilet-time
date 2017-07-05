@@ -72,8 +72,8 @@ namespace Toilet_time_main
             this.lifes = 3;                                 //number of lifes
             this.screen = 1;                                //first screen to load
             this.Cursor = new Point(0,0);
-            Create_screen(screen);
             this.sound_handler = sound_handler;
+            Create_screen(screen);
             Controls_Cooldown = 0;
             sound_handler.PlayBackground(ChooseBackGroundMusic.menu);
             this.paused = false;
@@ -370,7 +370,8 @@ namespace Toilet_time_main
 
 
             Fallable_Object main = GetMain_Character(); // checks if main falls down the screen -> Main_dead();
-                {
+            if (main != null)
+            {
                 if (main.position.y + main.size.y > lowestyvalue)
                 {
                     Main_Dead();

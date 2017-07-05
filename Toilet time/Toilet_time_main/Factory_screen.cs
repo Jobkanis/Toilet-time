@@ -21,7 +21,7 @@ namespace Toilet_time_main
             this.gui_manager = gui_manager;
         }
 
-        public Screen Create_screen(int level_number)
+        public Screen Create_screen(int level_number) // returns a screen class with the corresponding level_number
         {
             Iterator<Fallable_Object> fallable_objects = new List<Fallable_Object>();
             Iterator<Stable_Object> stable_objects = new List<Stable_Object>();
@@ -40,7 +40,7 @@ namespace Toilet_time_main
                         islevel = false;
                         if (gui_manager.systemtype == Systemtype.windows)
                         {
-                            gui_stuff.Add(new Button(350, 100, 100, 50, "Play", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(11); }));
+                            gui_stuff.Add(new Button(350, 100, 100, 50, "Play", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(5); }));
                             gui_stuff.Add(new Button(350, 200, 100, 50, "Settings", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.Create_screen(2); }));
                             gui_stuff.Add(new Button(350, 300, 100, 50, "Exit", Color.Black, Color.Gray, (Gui_Manager guimanager, Button button) => { guimanager.exit = true; }));
                         }
@@ -202,18 +202,18 @@ namespace Toilet_time_main
                         islevel = true;
 
                         //character
-                        fallable_objects.Add(new Main_Character(540, 0, 9));
-
+                        fallable_objects.Add(new Main_Character(200, 0, 9));
+                        
                         //interactions
-                        Interacting_Objects.Add(new Baby(200, 0));
-                        Interacting_Objects.Add(new End_Goal(1000, 0));
-                        Interacting_Objects.Add(new Deadly_Brick(300, 0));
-                        Interacting_Objects.Add(new Deadly_Brick(371, 0));
-                        Interacting_Objects.Add(new Deadly_Brick(650, 0));
-                        Interacting_Objects.Add(new Deadly_Brick(721, 0));
+                        Interacting_Objects.Add(new Baby(200 - 340, 0));
+                        Interacting_Objects.Add(new End_Goal(1000 - 340, 0));
+                        Interacting_Objects.Add(new Deadly_Brick(300 - 340, 0));
+                        Interacting_Objects.Add(new Deadly_Brick(371 - 340, 0));
+                        Interacting_Objects.Add(new Deadly_Brick(650 - 340, 0));
+                        Interacting_Objects.Add(new Deadly_Brick(721 - 340, 0));
 
                         //platforms
-                        stable_objects.Add(new Platform(0, 300, 1200, 20));
+                        stable_objects.Add(new Platform(0 - 340, 300, 1200, 20));
 
                         break;
                     }
@@ -224,18 +224,18 @@ namespace Toilet_time_main
                         islevel = true;
 
                         //character
-                        fallable_objects.Add(new Main_Character(90, 0, 10));
+                        fallable_objects.Add(new Main_Character(90 + 110, 0, 10));
 
                         //interactions
-                        Interacting_Objects.Add(new Baby(15, 0));
-                        Interacting_Objects.Add(new End_Goal(900, 0));
-                        Interacting_Objects.Add(new Toilet_Paper_Drop(400, -300, 1.0f));
+                        Interacting_Objects.Add(new Baby(15 + 110, 0));
+                        Interacting_Objects.Add(new End_Goal(900 + 110, 0));
+                        Interacting_Objects.Add(new Toilet_Paper_Drop(400 + 110, -300, 1.0f));
 
                         //platforms
-                        stable_objects.Add(new Platform(5, 200, 50, 20));
-                        stable_objects.Add(new Platform(50, 380, 150, 20));
-                        stable_objects.Add(new Platform(125, 275, 40, 20));
-                        stable_objects.Add(new Platform(490, 400, 550, 20));
+                        stable_objects.Add(new Platform(5 + 110, 200, 50, 20));
+                        stable_objects.Add(new Platform(50 + 110, 380, 150, 20));
+                        stable_objects.Add(new Platform(125 + 110, 275, 40, 20));
+                        stable_objects.Add(new Platform(490 + 110, 400, 550, 20));
 
                         break;
                     }
@@ -271,16 +271,16 @@ namespace Toilet_time_main
                     {
                         islevel = true;
                         //character
-                        fallable_objects.Add(new Main_Character(10, 0, 16));
+                        fallable_objects.Add(new Main_Character(10 + 190, 0, 16));
                         //interactions
-                        Interacting_Objects.Add(new Baby(625, 150));
-                        Interacting_Objects.Add(new End_Goal(500, 150));
-                        Interacting_Objects.Add(new Deadly_Brick(150, 150));
-                        Interacting_Objects.Add(new Enemy_Grandma(400, 0, 80, 100));
+                        Interacting_Objects.Add(new Baby(625 + 190, 150));
+                        Interacting_Objects.Add(new End_Goal(500 + 190, 150));
+                        Interacting_Objects.Add(new Deadly_Brick(150 + 190, 150));
+                        Interacting_Objects.Add(new Enemy_Grandma(400 + 190, 0, 80, 100));
                         //platforms
-                        stable_objects.Add(new Platform(5, 300, 290, 20));
-                        stable_objects.Add(new Platform(400, 300, 150, 20));
-                        stable_objects.Add(new Platform(600, 300, 70, 20));
+                        stable_objects.Add(new Platform(5 + 190, 300, 290, 20));
+                        stable_objects.Add(new Platform(400 + 190, 300, 150, 20));
+                        stable_objects.Add(new Platform(600 + 190, 300, 70, 20));
                         break;
 
                     }
@@ -321,24 +321,24 @@ namespace Toilet_time_main
                     {
                         islevel = true;
                         //character
-                        fallable_objects.Add(new Main_Character(320, 0, 17));
+                        fallable_objects.Add(new Main_Character(320 - 120, 0, 17));
                         //interactions
-                        Interacting_Objects.Add(new Baby(330, 150));
-                        Interacting_Objects.Add(new End_Goal(900, 150));
-                        Interacting_Objects.Add(new Toilet_Paper_Drop(550, -480, 0.5f));
-                        Interacting_Objects.Add(new Deadly_Brick(800, 0));
-                        Interacting_Objects.Add(new Deadly_Brick(970, 0));
+                        Interacting_Objects.Add(new Baby(330 - 120, 150));
+                        Interacting_Objects.Add(new End_Goal(900 - 120, 150));
+                        Interacting_Objects.Add(new Toilet_Paper_Drop(550 - 120, -480, 0.5f));
+                        Interacting_Objects.Add(new Deadly_Brick(800 - 120, 0));
+                        Interacting_Objects.Add(new Deadly_Brick(970 - 120, 0));
 
                         //platforms
-                        stable_objects.Add(new Platform(5, 200, 55, 20));
-                        stable_objects.Add(new Platform(65, 280, 90, 20));
-                        stable_objects.Add(new Platform(200, 190, 20, 300));
-                        stable_objects.Add(new Platform(220, 280, 50, 20));
-                        stable_objects.Add(new Platform(220, 100, 200, 20));
-                        stable_objects.Add(new Platform(290, 360, 90, 20));
-                        stable_objects.Add(new Platform(430, 150, 100, 20));
-                        stable_objects.Add(new Platform(600, 120, 150, 20));
-                        stable_objects.Add(new Platform(800, 360, 250, 20));
+                        stable_objects.Add(new Platform(5 - 120, 200, 55, 20));
+                        stable_objects.Add(new Platform(65 - 120, 280, 90, 20));
+                        stable_objects.Add(new Platform(200 - 120, 190, 20, 300));
+                        stable_objects.Add(new Platform(220 - 120, 280, 50, 20));
+                        stable_objects.Add(new Platform(220 - 120, 100, 200, 20));
+                        stable_objects.Add(new Platform(290 - 120, 360, 90, 20));
+                        stable_objects.Add(new Platform(430 - 120, 150, 100, 20));
+                        stable_objects.Add(new Platform(600 - 120, 120, 150, 20));
+                        stable_objects.Add(new Platform(800 - 120, 360, 250, 20));
 
                         break;
                     }
@@ -353,7 +353,7 @@ namespace Toilet_time_main
                         //character
                         fallable_objects.Add(new Main_Character(200, 0, 13));
                         Interacting_Objects.Add(new Baby(1110, 0));
-                        Interacting_Objects.Add(new Enemy_Grandma(300, 0, 50, 4));
+                        Interacting_Objects.Add(new Enemy_Grandma(300, 0, 120, 50));
 
                         //interactions
                         Interacting_Objects.Add(new End_Goal(-150, 0));
@@ -384,20 +384,20 @@ namespace Toilet_time_main
                         islevel = true;
 
                         //character
-                        fallable_objects.Add(new Main_Character(50, 0, 14));
+                        fallable_objects.Add(new Main_Character(50 + 150, 0, 14));
                         //interactions
-                        Interacting_Objects.Add(new Baby(180, 0));
-                        Interacting_Objects.Add(new End_Goal(900, 150));
-                        Interacting_Objects.Add(new Enemy_Grandma(350, 0, 200, 100));
-                        Interacting_Objects.Add(new Deadly_Brick(600, 0));
-                        Interacting_Objects.Add(new Deadly_Brick(800, 0));
+                        Interacting_Objects.Add(new Baby(180 + 150, 0));
+                        Interacting_Objects.Add(new End_Goal(900 + 150, 150));
+                        Interacting_Objects.Add(new Enemy_Grandma(350 + 150, 0, 200, 100));
+                        Interacting_Objects.Add(new Deadly_Brick(600 + 150, 0));
+                        Interacting_Objects.Add(new Deadly_Brick(800 + 150, 0));
 
                         //platforms
-                        stable_objects.Add(new Platform(0, 300, 1000, 20));
-                        stable_objects.Add(new Platform(150, 120, 60, 20));
-                        stable_objects.Add(new Platform(250, 140, 60, 20));
-                        stable_objects.Add(new Platform(350, 160, 60, 20));
-                        stable_objects.Add(new Platform(450, 180, 60, 20));
+                        stable_objects.Add(new Platform(0 + 150, 300, 1000, 20));
+                        stable_objects.Add(new Platform(150 + 150, 120, 60, 20));
+                        stable_objects.Add(new Platform(250 + 150, 140, 60, 20));
+                        stable_objects.Add(new Platform(350 + 150, 160, 60, 20));
+                        stable_objects.Add(new Platform(450 + 150, 180, 60, 20));
                         break;
 
                     }
@@ -405,34 +405,34 @@ namespace Toilet_time_main
                     {
                         islevel = true;
                         //character
-                        fallable_objects.Add(new Main_Character(30, 0, 15));
-                        Interacting_Objects.Add(new Baby(950, 0));
+                        fallable_objects.Add(new Main_Character(30 + 170, 0, 15));
+                        Interacting_Objects.Add(new Baby(950 + 170, 0));
 
                         //interactions
-                        Interacting_Objects.Add(new End_Goal(0, 0));
+                        Interacting_Objects.Add(new End_Goal(0 + 170, 0));
 
                         // fallable objects
-                        Interacting_Objects.Add(new Toilet_Paper_Drop(315, -320, 0.8f));
-                        Interacting_Objects.Add(new Toilet_Paper_Drop(510, -320, 0.8f));
-                        Interacting_Objects.Add(new Toilet_Paper_Drop(710, -320, 0.8f));
+                        Interacting_Objects.Add(new Toilet_Paper_Drop(315 + 170, -320, 0.8f));
+                        Interacting_Objects.Add(new Toilet_Paper_Drop(510 + 170, -320, 0.8f));
+                        Interacting_Objects.Add(new Toilet_Paper_Drop(710 + 170, -320, 0.8f));
 
 
 
                         //Platforms
-                        stable_objects.Add(new Platform(0, 150, 50, 20));
-                        stable_objects.Add(new Platform(100, 250, 50, 20));
-                        stable_objects.Add(new Platform(150, 350, 50, 20));
-                        stable_objects.Add(new Platform(200, 450, 50, 20));
-                        stable_objects.Add(new Platform(250, 550, 50, 20));
-                        stable_objects.Add(new Platform(350, 550, 50, 20));
-                        stable_objects.Add(new Platform(450, 550, 50, 20));
-                        stable_objects.Add(new Platform(550, 550, 50, 20));
-                        stable_objects.Add(new Platform(650, 550, 50, 20));
-                        stable_objects.Add(new Platform(750, 450, 50, 20));
-                        stable_objects.Add(new Platform(850, 350, 50, 20));
-                        stable_objects.Add(new Platform(950, 250, 50, 20));
-                        stable_objects.Add(new Platform(950, 150, 50, 20));
-                        stable_objects.Add(new Platform(350, 100, 500, 20));
+                        stable_objects.Add(new Platform(0 + 170, 150, 50, 20));
+                        stable_objects.Add(new Platform(100 + 170, 250, 50, 20));
+                        stable_objects.Add(new Platform(150 + 170, 350, 50, 20));
+                        stable_objects.Add(new Platform(200 + 170, 400, 50, 20));
+                        stable_objects.Add(new Platform(250 + 170, 400, 50, 20));
+                        stable_objects.Add(new Platform(350 + 170, 400, 50, 20));
+                        stable_objects.Add(new Platform(450 + 170, 400, 50, 20));
+                        stable_objects.Add(new Platform(550 + 170, 400, 50, 20));
+                        stable_objects.Add(new Platform(650 + 170, 400, 50, 20));
+                        stable_objects.Add(new Platform(750 + 170, 400, 50, 20));
+                        stable_objects.Add(new Platform(850 + 170, 350, 50, 20));
+                        stable_objects.Add(new Platform(950 + 170, 250, 50, 20));
+                        stable_objects.Add(new Platform(950 + 170, 150, 50, 20));
+                        stable_objects.Add(new Platform(350 + 170, 100, 500, 20));
 
                         break;
                     }
@@ -469,29 +469,29 @@ namespace Toilet_time_main
                     {
                         islevel = true;
                         //character
-                        fallable_objects.Add(new Main_Character(20, 0, 1));
+                        fallable_objects.Add(new Main_Character(20 + 180, 0, 1));
                         //interactions
-                        Interacting_Objects.Add(new Deadly_Brick(650, 0));
-                        Interacting_Objects.Add(new Baby(1315, 0));
-                        Interacting_Objects.Add(new End_Goal(1460, 0));
-                        Interacting_Objects.Add(new Spider(1140, -20, true, 60));
-                        Interacting_Objects.Add(new Spider(1100, -20, false, 60));
+                        Interacting_Objects.Add(new Deadly_Brick(650 + 180, 0));
+                        Interacting_Objects.Add(new Baby(1315 + 180, 0));
+                        Interacting_Objects.Add(new End_Goal(1460 + 180, 0));
+                        Interacting_Objects.Add(new Spider(1140 + 180, -20, true, 60));
+                        Interacting_Objects.Add(new Spider(1100 + 180, -20, false, 60));
 
                         //platforms
-                        stable_objects.Add(new Platform(20, 450, 60, 20));
-                        stable_objects.Add(new Platform(240, 400, 50, 20));
-                        stable_objects.Add(new Platform(350, 310, 30, 20));
-                        stable_objects.Add(new Platform(260, 240, 30, 20));
-                        stable_objects.Add(new Platform(390, 180, 50, 20));
-                        stable_objects.Add(new Platform(650, 180, 200, 20));
-                        stable_objects.Add(new Platform(950, 320, 40, 20));
-                        stable_objects.Add(new Platform(1030, 220, 10, 20));
-                        stable_objects.Add(new Platform(1300, 190, 50, 20));
-                        stable_objects.Add(new Platform(1350, -20, 40, 300));
-                        stable_objects.Add(new Platform(1050, 500, 320, 20));
-                        stable_objects.Add(new Platform(1030, 420, 20, 100));
-                        stable_objects.Add(new Platform(1370, 420, 20, 100));
-                        stable_objects.Add(new Platform(1450, 500, 80, 20));
+                        stable_objects.Add(new Platform(20 + 180, 350, 60, 20));
+                        stable_objects.Add(new Platform(240 + 180, 350, 50, 20));
+                        stable_objects.Add(new Platform(350 + 180, 310, 30, 20));
+                        stable_objects.Add(new Platform(260 + 180, 240, 30, 20));
+                        stable_objects.Add(new Platform(390 + 180, 180, 50, 20));
+                        stable_objects.Add(new Platform(650 + 180, 180, 200, 20));
+                        stable_objects.Add(new Platform(950 + 180, 320, 40, 20));
+                        stable_objects.Add(new Platform(1030 + 180, 220, 10, 20));
+                        stable_objects.Add(new Platform(1300 + 180, 190, 50, 20));
+                        stable_objects.Add(new Platform(1350 + 180, -20, 40, 300));
+                        stable_objects.Add(new Platform(1050 + 180, 350, 320, 20));
+                        stable_objects.Add(new Platform(1030 + 180, 350, 20, 100));
+                        stable_objects.Add(new Platform(1370 + 180, 350, 20, 100));
+                        stable_objects.Add(new Platform(1450 + 180, 350, 80, 20));
 
                         break;
                     }
