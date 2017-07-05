@@ -44,6 +44,8 @@ namespace Toilet_time_main
         public float buttoncooldown = 0;
         public float pickupcooldown = 0;
         public float Controls_Cooldown = 0;
+
+        public int movementchange = 0;
    
         public float End_Of_Level_Cooldown = 0;
         public bool End_Of_Level = false;
@@ -215,6 +217,7 @@ namespace Toilet_time_main
                 DrawDebugConsole(); // remove when launched!
             }
 
+            //drawing
             Stable_Objects.Reset();
             while (Stable_Objects.GetNext().Visit(() => false, unusedvalue => true))
             {
@@ -404,6 +407,7 @@ namespace Toilet_time_main
                         if (CanMove == true)
                         {
                             walkspeed = i;
+                                    
                         }
                     }
                 }
@@ -427,10 +431,20 @@ namespace Toilet_time_main
                     }
                 }
             }
+                if (controllsenabled == true && walk == true && CanMove == true)
+                {
+                    if (walkdirection == WalkDirectionInput.Left)
+                    {
+                        movementchange -= walkspeed;
+                    }
+                    else if (walkdirection == WalkDirectionInput.Right)
+                    {
+                        movementchange += walkspeed;
+                    }
+                }
 
-
-            // updating
-            Stable_Objects.Reset();
+                // updating
+                Stable_Objects.Reset();
             while (Stable_Objects.GetNext().Visit(() => false, _ => true))
             {
                 Stable_Objects.GetCurrent().Visit(() => { }, item => { item.Update(dt, this); });

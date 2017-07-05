@@ -60,28 +60,32 @@ namespace Toilet_time_main
             new_x_add = new_x_add - x_addition;
             Fallable_Object main = guimanager.GetMain_Character();
 
-            if (!((this.position.x + x_addition + 2 < main.position.x + main.size.x && this.position.x + x_addition - 2 + this.size.x > main.position.x && this.position.y + this.size.y > main.position.y && this.position.y < main.position.y + main.size.y)))
-            {
-                this.position.x += x_addition;
-            }
-            else
-            {
-                guimanager.Main_Dead();
-            }
-
-            if (!guimanager.Check_Collision(this, this.position.x + 1, this.position.y, this.size.x, this.size.y))
+            if (returning == false && !guimanager.Check_Collision(this, this.position.x + x_addition + 2, this.position.y, this.size.x, this.size.y))
             {
                 this.returning = true;
             }
-            else if ((!guimanager.Check_Collision(this, this.position.x - 1, this.position.y, this.size.x, this.size.y)))
+            else if (returning == true && (!guimanager.Check_Collision(this, this.position.x - x_addition - 2, this.position.y, this.size.x, this.size.y)))
             {
                 this.returning = false;
             }
-
+            else
+            {
+                if (!((this.position.x + x_addition + 2 < main.position.x + main.size.x && this.position.x + x_addition - 2 + this.size.x > main.position.x && this.position.y + this.size.y > main.position.y && this.position.y < main.position.y + main.size.y)))
+                {
+                    this.position.x += x_addition;
+                }
+                else
+                {
+                    guimanager.Main_Dead();
+                }
+            }
             if (this.position.y > 600)
             {
                 Console.WriteLine("respawning");
                 this.position.y = startposition.y;
+                this.position.x = this.startposition.x - guimanager.movementchange;
+                this.steps_out = 0;
+                this.returning = false;
             }
 
         }

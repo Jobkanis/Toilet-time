@@ -56,25 +56,18 @@ namespace Toilet_time_main
             new_x_add = new_x_add - x_addition;
             Fallable_Object main = guimanager.GetMain_Character();
 
-            if (!((this.position.x + x_addition + 2 < main.position.x + main.size.x && this.position.x + x_addition - 2 + this.size.x > main.position.x && this.position.y + this.size.y > main.position.y && this.position.y < main.position.y + main.size.y)))
-            {
-
-                this.position.x += x_addition;
-            }
-            else
-            {
-                this.returning = !this.returning;
-            }
-
-            if (!guimanager.Check_Collision(this, this.position.x + 1, this.position.y, this.size.x, this.size.y))
+            if (returning == false && (!guimanager.Check_Collision(this, this.position.x + x_addition + 2, this.position.y, this.size.x, this.size.y) || this.position.x + x_addition + 2 < main.position.x + main.size.x && this.position.x + x_addition + this.size.x > main.position.x && this.position.y + this.size.y > main.position.y && this.position.y < main.position.y + main.size.y))
             {
                 this.returning = true;
             }
-            else if ((!guimanager.Check_Collision(this, this.position.x - 1, this.position.y, this.size.x, this.size.y)))
+            else if (returning == true && (!guimanager.Check_Collision(this, this.position.x - x_addition - 2, this.position.y, this.size.x, this.size.y) || this.position.x + x_addition - 2 < main.position.x + main.size.x && this.position.x + x_addition + this.size.x > main.position.x && this.position.y + this.size.y > main.position.y && this.position.y < main.position.y + main.size.y))
             {
                 this.returning = false;
             }
-
+            else
+            {
+                this.position.x += x_addition;
+            }
         }
 
         public override void Draw(iDrawVisitor visitor)

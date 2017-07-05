@@ -193,7 +193,7 @@ namespace Toilet_time_Windows
             CooldownInformation.Draw(this);
 
 
-            ScreenStats.text = ("Scr: " + guimanager.screen.ToString() + " | Input: " + guimanager.inputmechanism.ToString()) + " | GPonl: " + guimanager.Gamepadonline.ToString() + " | IsLvl: " + guimanager.Current_screen.islevel.ToString();
+            ScreenStats.text = ("MC " + guimanager.movementchange.ToString() + " | Scr: " + guimanager.screen.ToString() + " | Input: " + guimanager.inputmechanism.ToString()) + " | GPonl: " + guimanager.Gamepadonline.ToString() + " | IsLvl: " + guimanager.Current_screen.islevel.ToString();
             ScreenStats.Draw(this);
 
 
