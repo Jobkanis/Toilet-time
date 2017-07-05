@@ -96,7 +96,7 @@ namespace Toilet_time_Android
             Texture_Spikes = Content.Load<Texture2D>("spikes");
             Texture_Menu_Background = Content.Load<Texture2D>("Background_menu69");
             Texture_Heart = Content.Load<Texture2D>("Heart");
-            Texture_Spider = Content.Load<Texture2D>("spin");
+            Texture_Spider = Content.Load<Texture2D>("spider");
 
             Arial = Content.Load<SpriteFont>("Arial");
 

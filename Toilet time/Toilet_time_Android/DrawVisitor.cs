@@ -256,9 +256,9 @@ namespace Toilet_time_Android
             spritebatch.Draw(Texture_Spider, ConvertRectangle(new Rectangle(spider.position.x, spider.position.y, spider.size.x, spider.size.y)), spider.color);
         }
 
-        public void DrawHeart(int x, int y)
+        public void DrawHeart(Heart heart)
         {
-            spritebatch.Draw(Texture_Heart, ConvertRectangle(new Rectangle(x, y, 70, 70)), Color.Black);
+            spritebatch.Draw(Texture_Heart, ConvertRectangle(new Rectangle(heart.position.x, heart.position.y, heart.size.y, heart.size.y)), Color.Red);
         }
     }
 

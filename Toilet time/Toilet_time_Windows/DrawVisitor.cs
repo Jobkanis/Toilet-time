@@ -57,6 +57,7 @@ namespace Toilet_time_Windows
             this.screenmultiplier = screenmultiplier;
             this.Texture_Menu_Background = Texture_Menu_Background;
             this.Texture_Spider = Texture_Spider;
+            this.Texture_Heart = Texture_Heart;
         }
 
         public SpriteBatch spriteBatch
@@ -254,9 +255,9 @@ namespace Toilet_time_Windows
             spritebatch.Draw(Texture_Spikes, ConvertRectangle(new Rectangle(spikes.position.x, spikes.position.y, spikes.size.x, spikes.size.y)), spikes.color);
         }
 
-        public void DrawHeart(int x, int y)
+        public void DrawHeart(Heart heart)
         {
-            spritebatch.Draw(Texture_Heart, ConvertRectangle(new Rectangle(x, y, 70, 70)), Color.Black);
+            spritebatch.Draw(Texture_Heart, ConvertRectangle(new Rectangle(heart.position.x, heart.position.y, heart.size.x, heart.size.y)), Color.Red);
         }
     }
 

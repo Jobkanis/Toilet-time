@@ -111,7 +111,7 @@ namespace Toilet_time_Windows
             Texture_Spikes = Content.Load<Texture2D>("spikes");
             Texture_Enemy_Grandma = Content.Load<Texture2D>("enemygrandma");
             Texture_Heart = Content.Load<Texture2D>("Heart");
-            Texture_Spider = Content.Load<Texture2D>("spin");
+            Texture_Spider = Content.Load<Texture2D>("spider");
 
             End_Level = Content.Load<SoundEffect>("End_Level");
             Baby_Cry = Content.Load<SoundEffect>("Baby_Crying");

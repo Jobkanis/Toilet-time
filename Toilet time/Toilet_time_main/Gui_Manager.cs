@@ -300,16 +300,19 @@ namespace Toilet_time_main
 
         public void Main_Dead()
         {
-            Fallable_Object main = GetMain_Character();
-            lifes -= 1;
-            if (lifes > 0)
+            if (!End_Of_Level)
             {
-                Create_screen(screen);
-            }
-            else
-            {
-                Create_screen(1); //ondead
-                this.lifes = 3;
+                Fallable_Object main = GetMain_Character();
+                lifes -= 1;
+                if (lifes >= 0)
+                {
+                    Create_screen(screen);
+                }
+                else
+                {
+                    Create_screen(1); //ondead
+                    this.lifes = 3;
+                }
             }
         }
         // small walk check

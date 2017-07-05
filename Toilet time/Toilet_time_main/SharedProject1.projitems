@@ -15,6 +15,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data_Screen.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data_Vector.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Deadly_Brick.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Heart.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)iDrawVisitor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Factory_screen.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GuiButton.cs" />

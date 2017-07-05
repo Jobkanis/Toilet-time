@@ -37,7 +37,7 @@ namespace Toilet_time_main
 
         void DrawSpider(Spider spider);
 
-        void DrawHeart(int x, int y);
+        void DrawHeart(Heart heart);
             
         void DrawBackground(BackgroundType background);
         void DrawSpikes(Spike spikes);
