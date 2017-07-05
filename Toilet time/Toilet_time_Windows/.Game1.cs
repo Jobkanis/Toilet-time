@@ -32,6 +32,7 @@ namespace Toilet_time_Windows
         public Texture2D Texture_Spikes;
         public Texture2D Texture_Enemy_Grandma;
         public Texture2D Texture_Background_Wood;
+        public Texture2D Texture_Background_Random;
 
         public SpriteFont arial;
         public SoundEffect End_Level;
@@ -102,6 +103,7 @@ namespace Toilet_time_Windows
             Texture_Toilet_Paper = Content.Load<Texture2D>("Toilet_Papier");
             Texture_Deadly_Bricks = Content.Load<Texture2D>("DeadlyBricks");
             Texture_Background_Wood = Content.Load<Texture2D>("Background_Wood");
+            Texture_Background_Random = Content.Load<Texture2D>("Background_Random");
             Texture_Mouse = Content.Load<Texture2D>("mouse");
             Texture_Spikes = Content.Load<Texture2D>("spikes");
             Texture_Enemy_Grandma = Content.Load<Texture2D>("enemygrandma");
@@ -115,7 +117,7 @@ namespace Toilet_time_Windows
 
             sound_handler = new Toilet_time_main.SoundHandler(Menu_Background, Ingame_Background, End_Level, Baby_Laugh, Baby_Cry);
             
-            draw_visitor = new DrawVisitor(width, height, screenmultiplier, spriteBatch, graphics, arial, Texture_White_Pixel, Texture_Platform, Texture_Main_char, Texture_Main_Char_with_Baby, Texture_Baby, Texture_Toilet, Texture_Toilet_With_Baby, Texture_Deadly_Bricks, Texture_Toilet_Paper,Texture_Spikes, Texture_Background_Wood, Texture_Mouse, Texture_Enemy_Grandma);
+            draw_visitor = new DrawVisitor(width, height, screenmultiplier, spriteBatch, graphics, arial, Texture_White_Pixel, Texture_Platform, Texture_Main_char, Texture_Main_Char_with_Baby, Texture_Baby, Texture_Toilet, Texture_Toilet_With_Baby, Texture_Deadly_Bricks, Texture_Toilet_Paper,Texture_Spikes, Texture_Background_Wood, Texture_Background_Random, Texture_Mouse, Texture_Enemy_Grandma);
             inputhandler = new Input_Adapter_Windows();
             gui_manager = new Toilet_time_main.Gui_Manager(draw_visitor, sound_handler, inputhandler, Toilet_time_main.Systemtype.windows);
             // TODO: use this.Content to load your game content here
