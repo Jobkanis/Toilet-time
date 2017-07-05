@@ -30,9 +30,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Platform.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)iSoundHandler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SoundHandler.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Spike_Dropper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Spike.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Start and end goal.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Spider_Dropper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Spider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Toiletpaper_Dropper.cs" />
   </ItemGroup>
   <ItemGroup>
